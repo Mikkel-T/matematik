@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.grads funktion beregner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <style>
+        .wrapper {
+            margin: auto;
+            width: 30%;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            background-color: rgba(114, 114, 114, 0.158) !important;
+            border: none !important;
+            color: #bdbdbd;
+        }
+        label {
+            text-align: left;
+        }
+        input[type=submit] {
+            width: 50%;
+            color: #bdbdbd;
+        }
+        body {
+            background-color: #161616;
+            color: #bdbdbd;
+        }
+
+
+        .frac {
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            letter-spacing: 0.001em;
+            text-align: center;
+        }
+        .frac > span {
+            display: block;
+            padding: 0.1em;
+        }
+        .frac span.bottom {
+            border-top: thin solid #bdbdbd;
+        }
+        .frac span.symbol {
+            display: none;
+        } 
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form class="numForm">
+            <label for="a">a (Tallet med et x<sup>2</sup> efter sig):</label>
+            <input type="text" name="a" id="a" placeholder="a">
+            <br>
+            <label for="b">b (Tallet med et x efter sig):</label>
+            <input type="text" name="b" id="b" placeholder="b">
+            <br>
+            <label for="c">c (Tallet uden noget efter sig):</label>
+            <input type="text" name="c" id="c" placeholder="c">
+            <br>
+            <input type="submit" value="Beregn">
+        </form>
+        <p class="warning"></p>
+        <p class="D"></p>
+        <p class="Tp"></p>
+        <p class="Np"></p>
+        <p class="beregninger"></p>
+    </div>
+    <script>
+        const numForm = document.querySelector('.numForm')
+
+        numForm.addEventListener('submit', (event) => {
+            event.preventDefault()
+            let notcorrect = false
+            const formData = new FormData(numForm)
+            let a = +(formData.get('a'))
+            let b = +(formData.get('b'))
+            let c = +(formData.get('c'))
+
+            document.querySelector('.warning').innerHTML = ''
+
+            if(isNaN(a)) {
+                notcorrect = true
+                document.querySelector('.warning').innerHTML += `<span>a er ikke et tal</span><br>`
+            }
+            if(isNaN(b)) {
+                notcorrect = true
+                document.querySelector('.warning').innerHTML += `<span>b er ikke et tal</span><br>`
+            }
+            if(isNaN(c)) {
+                notcorrect = true
+                document.querySelector('.warning').innerHTML += `<span>c er ikke et tal</span><br>`
+            }
+            if(notcorrect) {
+                document.querySelector('.D').innerHTML = ''
+                document.querySelector('.Tp').innerHTML = ''
+                document.querySelector('.Np').innerHTML = ''
+                document.querySelector('.beregninger').innerHTML = ''
+                return
+            }
+
+            const D = (b * b) - (4 * a * c)
+            const Tp = `(${(-b/(2*a)).toFixed(3)}, ${(-D/(4*a)).toFixed(3)})`
+            let Np = ''
+            if (D < 0) {
+                Np = 'Der er ikke nogle nulpunkter'
+            } else if (D === 0) {
+                Np = `(${(-b+Math.sqrt(D))/2*a}, 0)`
+            } else {
+                Np = `(${((-b+Math.sqrt(D))/(2*a)).toFixed(3)}, 0) & (${((-b-Math.sqrt(D))/(2*a)).toFixed(3)}, 0)`
+            }
+
+            document.querySelector('.D').innerHTML = `<spanb>D</spanb>: ${D}`
+            document.querySelector('.Tp').innerHTML = `<b>Tp</b>: ${Tp}`
+            document.querySelector('.Np').innerHTML = `<b>Np</b>: ${Np}`
+            document.querySelector('.beregninger').innerHTML = `<b>Beregninger:</b>`
+            document.querySelector('.beregninger').innerHTML += `<br><b>D</b>: ${b}<sup>2</sup> - 4 * ${a} * ${c}`
+            document.querySelector('.beregninger').innerHTML += `<br><b>Tp</b>: (${fracGen(`-${b}`, `2 * ${a}`)}, ${fracGen(`-${D}`,`4 * ${a}`)})`
+            if (D < 0) {
+                document.querySelector('.beregninger').innerHTML += `<br><b>Der var ingen nulpunkter at beregne</b>`
+            } else if (D === 0) {
+                document.querySelector('.beregninger').innerHTML += `<br><b>Np</b>: (-${b} + <span>&#8730;</span>${D}) / (2 * ${a})`
+            } else {
+                document.querySelector('.beregninger').innerHTML += `<br><b>Np<sub>1</sub></b>: (${fracGen(`-${b} + <span>&#8730;</span>${D}`, `2 * ${a}`)}, 0)`
+                document.querySelector('.beregninger').innerHTML += `<br><b>Np<sub>2</sub></b>: (${fracGen(`-${b} - <span>&#8730;</span>${D}`, `2 * ${a}`)}, 0)`
+            }
+            
+        })
+
+        function fracGen(t, n) {
+            return `<div class="frac"><span>${t}</span><span class="symbol">/</span><span class="bottom">${n}</span></div>`.replace(/--/g, '')
+        }
+    </script>
+</body>
+
+</html>
