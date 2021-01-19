@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css';
 import { useState } from 'react';
 import Fraction from '../components/fraction.jsx';
 import Input from '../components/input.jsx';
+import Footer from '../components/footer.jsx';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 function Home({ a, b, c }) {
@@ -251,6 +252,7 @@ function Home({ a, b, c }) {
             </CopyToClipboard>
           )}
         </div>
+        <Footer />
       </main>
     </div>
   );

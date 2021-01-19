@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import Footer from '../components/footer.jsx';
 
 function Home() {
   const pages = [
@@ -10,6 +11,11 @@ function Home() {
     <div>
       <Head>
         <title>Beregnere</title>
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+        />
       </Head>
       <h1 className={styles.title}>Beregnere</h1>
       <div className={styles.grid}>
@@ -19,6 +25,7 @@ function Home() {
           </a>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }

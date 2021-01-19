@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Footer from '../components/footer.jsx';
 import Input from '../components/input.jsx';
 
 function Home({ K, r, n }) {
@@ -156,6 +157,7 @@ function Home({ K, r, n }) {
             </CopyToClipboard>
           )}
         </div>
+        <Footer />
       </main>
     </div>
   );
