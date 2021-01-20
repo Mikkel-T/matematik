@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Footer from '../components/footer.jsx';
 import Input from '../components/input.jsx';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { copyToast, errorToast } from '../components/toasts.jsx';
 
 function Home({ K, r, n }) {
   const [state, setState] = useState({
@@ -31,11 +34,14 @@ function Home({ K, r, n }) {
     if (notcorrect[0]) {
       setState({
         ...state,
-        warning: `${notcorrect.join(' ')} er ikke et tal`,
+        warning: `${notcorrect.join(', ')} er ikke ${
+          notcorrect.length > 1 ? '' : 'et'
+        } tal`,
         Kn: null,
         beregninger: null,
         resultLink: null,
       });
+      errorToast('isNotNum', state.warning);
     } else {
       let int_K = +state.K;
       let int_r = +state.r;
@@ -150,13 +156,14 @@ function Home({ K, r, n }) {
           <br />
           <div className={styles.svar}>{state.beregninger}</div>
           {state.resultLink && (
-            <CopyToClipboard text={state.resultLink}>
+            <CopyToClipboard text={state.resultLink} onCopy={() => copyToast()}>
               <button className={styles.copyButton}>
                 Kopier link til denne løsning
               </button>
             </CopyToClipboard>
           )}
         </div>
+        <ToastContainer position="bottom-right" />
         <Footer />
       </main>
     </div>

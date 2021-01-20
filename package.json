@@ -1,5 +1,5 @@
 {
-  "name": "matematik",
+  "name": "matematik-nse",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,6 +11,7 @@
     "next": "10.0.5",
     "react": "17.0.1",
     "react-copy-to-clipboard": "^5.0.3",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-toastify": "^6.2.0"
   }
 }

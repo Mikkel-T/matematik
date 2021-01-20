@@ -82,3 +82,9 @@
   text-align: center;
   margin-top: 10px;
 }
+
+.errorBtn {
+  background-color: #FF6042;
+  border: none;
+  color: white;
+}
