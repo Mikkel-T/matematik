@@ -19,8 +19,8 @@ function Home() {
       </Head>
       <h1 className={styles.title}>Beregnere</h1>
       <div className={styles.grid}>
-        {pages.map((e) => (
-          <a href={e.path} className={styles.card}>
+        {pages.map((e, i) => (
+          <a href={e.path} key={i} className={styles.card}>
             {e.name}
           </a>
         ))}

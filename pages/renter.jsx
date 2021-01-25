@@ -41,7 +41,12 @@ function Home({ K, r, n }) {
         beregninger: null,
         resultLink: null,
       });
-      errorToast('isNotNum', state.warning);
+      errorToast(
+        'isNotNum',
+        `${notcorrect.join(', ')} er ikke ${
+          notcorrect.length > 1 ? '' : 'et'
+        } tal`
+      );
     } else {
       let int_K = +state.K;
       let int_r = +state.r;
@@ -148,7 +153,6 @@ function Home({ K, r, n }) {
               type="submit"
               value="Beregn"
               id="submit"
-              onClick={handleSubmit}
             />
           </form>
           <div className={styles.svar}>{state.warning}</div>

@@ -1,7 +1,8 @@
 export default function Input(props) {
   return (
     <input
-      type="text"
+      type="number"
+      step="any"
       name={props.name}
       id={props.name}
       placeholder={props.name}

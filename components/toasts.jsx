@@ -11,10 +11,6 @@ function errorToast(error, errorMsg) {
       toast.error(
         <div>
           <p>{errorMsg}</p>
-          <p>
-            Dette kan være fordi du har brugt komma i stedet for punktum i et
-            decimaltal
-          </p>
         </div>
       );
       break;
@@ -23,6 +19,7 @@ function errorToast(error, errorMsg) {
       toast.error(
         <div>
           <p>Der opstod en fejl</p>
+          <p>{errorMsg}</p>
         </div>
       );
       break;

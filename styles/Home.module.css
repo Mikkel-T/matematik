@@ -38,6 +38,7 @@
 .svar {
   margin-top: 5px;
   margin-bottom: 5px;
+  text-align: center;
 }
 
 .copyButton {
@@ -87,4 +88,14 @@
   background-color: #FF6042;
   border: none;
   color: white;
+}
+
+.triangle {
+  fill:transparent;
+  stroke:white;
+  stroke-width:3;
+}
+
+.degreeText {
+  stroke-width:1;
 }

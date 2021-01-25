@@ -46,7 +46,12 @@ function Home({ a, b, c }) {
         beregninger: null,
         resultLink: null,
       });
-      errorToast('isNotNum', state.warning);
+      errorToast(
+        'isNotNum',
+        `${notcorrect.join(', ')} er ikke ${
+          notcorrect.length > 1 ? '' : 'et'
+        } tal`
+      );
     } else {
       let int_a = +state.a;
       let int_b = +state.b;
@@ -237,12 +242,7 @@ function Home({ a, b, c }) {
             <label>c (Tallet uden noget efter sig):</label>
             <Input name="c" value={state.c} onChange={(e) => handleChange(e)} />
             <br />
-            <input
-              type="submit"
-              value="Beregn"
-              id="submit"
-              onClick={handleSubmit}
-            />
+            <input type="submit" value="Beregn" id="submit" />
           </form>
           <div className={styles.svar}>{state.warning}</div>
           <div className={styles.svar}>{state.D}</div>
