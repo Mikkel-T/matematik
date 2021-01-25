@@ -85,17 +85,17 @@
 }
 
 .errorBtn {
-  background-color: #FF6042;
+  background-color: #ff6042;
   border: none;
   color: white;
 }
 
 .triangle {
-  fill:transparent;
-  stroke:white;
-  stroke-width:3;
+  fill: transparent;
+  stroke: white;
+  stroke-width: 3;
 }
 
 .degreeText {
-  stroke-width:1;
+  stroke-width: 1;
 }

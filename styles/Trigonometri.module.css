@@ -1,42 +1,42 @@
 .input {
-    width: 150px;
-    transition: opacity 0.5s;
+  width: 150px;
+  transition: opacity 0.5s;
 }
 
 .input[readonly] {
-    opacity: 30%;
+  opacity: 30%;
 }
 
-.right  {
-    float: right;
-    margin-right: -75px;
+.right {
+  float: right;
+  margin-right: -75px;
 }
 
-.left  {
-    float: left;
-    margin-left: -75px;
+.left {
+  float: left;
+  margin-left: -75px;
 }
 
 .wrapper {
-    text-align: center;
-    width: 500px;
-    margin: auto;
-    height: 440px;
+  text-align: center;
+  width: 500px;
+  margin: auto;
+  height: 440px;
 }
 
 .wrapper > .hyp {
-    position: absolute;
+  position: absolute;
 }
 
 .wrapper > .leftcenter {
-    position: absolute;
+  position: absolute;
 }
 
 .hyp {
-    margin-top: 170px;
+  margin-top: 170px;
 }
 
 .leftcenter {
-    margin-left: -460px;
-    margin-top: 170px;
+  margin-left: -460px;
+  margin-top: 170px;
 }

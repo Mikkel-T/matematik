@@ -149,11 +149,7 @@ function Home({ K, r, n }) {
             <label>n (Antal terminer):</label>
             <Input name="n" value={state.n} onChange={(e) => handleChange(e)} />
             <br />
-            <input
-              type="submit"
-              value="Beregn"
-              id="submit"
-            />
+            <input type="submit" value="Beregn" id="submit" />
           </form>
           <div className={styles.svar}>{state.warning}</div>
           <div className={styles.svar}>{state.Kn}</div>

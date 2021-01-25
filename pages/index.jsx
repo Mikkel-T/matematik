@@ -6,6 +6,7 @@ function Home() {
   const pages = [
     { name: '2. gradsfunktion', path: '/2-grad-funktion' },
     { name: 'Renters rente', path: '/renter' },
+    { name: 'Trigonometri i retvinklede trekanter', path: '/trigonometri' },
   ];
   return (
     <div>
