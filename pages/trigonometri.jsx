@@ -272,6 +272,7 @@ function Home() {
     let readonly = {};
     if (e.target.name.toLowerCase() !== e.target.name) {
       let tmp = false;
+      if (e.target.value == 90) return;
       if (e.target.value !== '') tmp = true;
 
       if (e.target.name === 'A') readonly[`B_readonly`] = tmp;
@@ -329,10 +330,6 @@ function Home() {
       <Head>
         <title>Trigonometri i retvinklede trekanter</title>
         <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
-        />
       </Head>
       <main className={styles.main}>
         <div className={styles.triangleWrapper}>

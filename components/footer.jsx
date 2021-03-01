@@ -10,6 +10,12 @@ export default function Footer(props) {
       <a href="https://github.com/Mikkel-T" target="_blank">
         Mikkel Tønder
       </a>
+      <div className={styles.disclaimer}>
+        Selvom jeg har testet alle programmerne flere gange kan programmet give
+        fejl i visse situationer. Jeg prøver hele tiden at finde fejl og fikse
+        dem men hvis et resultat ser forkert ud, så regn det efter selv for at
+        være sikker.
+      </div>
     </div>
   );
 }

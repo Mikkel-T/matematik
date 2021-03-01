@@ -99,3 +99,8 @@
 .degreeText {
   stroke-width: 1;
 }
+
+.disclaimer {
+  width: 80%;
+  margin: auto;
+}

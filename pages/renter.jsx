@@ -54,7 +54,7 @@ function Home({ K, r, n }) {
       let int_r = +state.r;
       let int_n = +state.n;
 
-      const Kn = int_K * Math.pow(1 + int_r, int_n);
+      const Kn = (int_K * Math.pow(1 + int_r, int_n)).toFixed(3);
       const Kn_html = (
         <div>
           <b>Kn:</b> {Kn}
@@ -133,10 +133,6 @@ function Home({ K, r, n }) {
       <Head>
         <title>Renters rente</title>
         <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
-        />
       </Head>
 
       <main className={styles.main}>

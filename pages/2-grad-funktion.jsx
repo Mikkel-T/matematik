@@ -59,7 +59,7 @@ function Home({ a, b, c }) {
       let int_b = +state.b;
       let int_c = +state.c;
 
-      const D = int_b * int_b - 4 * int_a * int_c;
+      const D = (int_b * int_b - 4 * int_a * int_c).toFixed(3);
       const D_html = (
         <div>
           <b>D:</b> {D}
@@ -224,10 +224,6 @@ function Home({ a, b, c }) {
       <Head>
         <title>2. gradsfunktioner</title>
         <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
-        />
       </Head>
 
       <main className={styles.main}>
