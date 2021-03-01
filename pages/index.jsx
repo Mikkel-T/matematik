@@ -8,6 +8,7 @@ function Home() {
     { name: '2. gradsfunktion', path: '/2-grad-funktion' },
     { name: 'Renters rente', path: '/renter' },
     { name: 'Trigonometri i retvinklede trekanter', path: '/trigonometri' },
+    { name: 'Momsberegner', path: '/moms' },
   ];
   return (
     <div>

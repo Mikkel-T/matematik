@@ -35,5 +35,10 @@ button {
   padding: 10px;
   background-color: transparent;
   border: 1px solid white;
+  cursor: pointer;
   border-radius: 5px;
+}
+
+input[type='submit'] {
+  cursor: pointer;
 }
