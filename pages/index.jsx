@@ -14,10 +14,6 @@ function Home() {
       <Head>
         <title>Beregnere</title>
         <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
-        />
       </Head>
       <h1 className={styles.title}>Beregnere</h1>
       <div className={styles.grid}>

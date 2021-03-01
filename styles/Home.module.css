@@ -48,6 +48,9 @@
 
 .title {
   text-align: center;
+  font-size: 50px;
+  margin: 0;
+  font-weight: 300;
 }
 
 .grid {
