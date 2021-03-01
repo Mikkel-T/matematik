@@ -1,13 +1,15 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 import { useState } from 'react';
-import Fraction from '../components/fraction.jsx';
-import Input from '../components/input.jsx';
-import Footer from '../components/footer.jsx';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
+import Footer from '../components/footer.jsx';
+import Fraction from '../components/fraction.jsx';
+import Input from '../components/input.jsx';
 import { copyToast, errorToast } from '../components/toasts.jsx';
+import styles from '../styles/Home.module.css';
 
 function Home({ a, b, c }) {
   const [state, setState] = useState({

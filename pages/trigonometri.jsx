@@ -1,14 +1,16 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import Head from 'next/head';
 import { useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import styles from '../styles/Home.module.css';
-import Footer from '../components/footer.jsx';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { copyToast, errorToast } from '../components/toasts.jsx';
-import trig from '../styles/Trigonometri.module.css';
-import { tan, cos, sin, atan, acos, asin, calc } from '../components/trig.jsx';
+
+import Footer from '../components/footer.jsx';
 import { genTrigSvar } from '../components/svar.jsx';
+import { copyToast, errorToast } from '../components/toasts.jsx';
+import { acos, asin, atan, calc, cos, sin, tan } from '../components/trig.jsx';
+import styles from '../styles/Home.module.css';
+import trig from '../styles/Trigonometri.module.css';
 
 function Home() {
   const [state, setState] = useState({

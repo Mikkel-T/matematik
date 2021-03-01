@@ -1,12 +1,14 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 import { useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { ToastContainer } from 'react-toastify';
+
 import Footer from '../components/footer.jsx';
 import Input from '../components/input.jsx';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { copyToast, errorToast } from '../components/toasts.jsx';
+import styles from '../styles/Home.module.css';
 
 function Home({ K, r, n }) {
   const [state, setState] = useState({

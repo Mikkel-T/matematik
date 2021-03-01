@@ -1,6 +1,7 @@
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+
 import Footer from '../components/footer.jsx';
+import styles from '../styles/Home.module.css';
 
 function Home() {
   const pages = [

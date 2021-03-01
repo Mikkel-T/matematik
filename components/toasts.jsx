@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify';
+
 import styles from '../styles/Home.module.css';
 
 function copyToast() {
