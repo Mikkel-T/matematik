@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import Footer from '../components/footer.jsx';
 import Input from '../components/input.jsx';
 import { copyToast, errorToast } from '../components/toasts.jsx';
+import TopBar from '../components/topbar';
 import styles from '../styles/Home.module.css';
 
 function Home({ K, r, n }) {
@@ -136,6 +137,7 @@ function Home({ K, r, n }) {
       </Head>
 
       <main className={styles.main}>
+        <TopBar />
         <div className={styles.wrapper}>
           <form className={styles.numForm} onSubmit={handleSubmit}>
             <label>K (Startkapitalen):</label>

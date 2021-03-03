@@ -9,6 +9,7 @@ import Footer from '../components/footer.jsx';
 import Fraction from '../components/fraction.jsx';
 import Input from '../components/input.jsx';
 import { copyToast, errorToast } from '../components/toasts.jsx';
+import TopBar from '../components/topbar';
 import styles from '../styles/Home.module.css';
 
 function Home({ x_1, y_1, x_2, y_2 }) {
@@ -179,6 +180,7 @@ function Home({ x_1, y_1, x_2, y_2 }) {
       </Head>
 
       <main className={styles.main}>
+        <TopBar />
         <div className={styles.wrapper}>
           <form className={styles.numForm} onSubmit={handleSubmit}>
             <label>x for punkt 1:</label>

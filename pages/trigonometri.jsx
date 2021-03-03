@@ -10,6 +10,7 @@ import { genTrigSvar } from '../components/svar.jsx';
 import { copyToast, errorToast } from '../components/toasts.jsx';
 import { acos, asin, atan, calc, cos, sin, tan } from '../components/trig.jsx';
 import styles from '../styles/Home.module.css';
+import TopBar from '../components/topbar';
 import trig from '../styles/Trigonometri.module.css';
 
 function Home() {
@@ -331,7 +332,9 @@ function Home() {
         <title>Trigonometri i retvinklede trekanter</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <main className={styles.main}>
+        <TopBar />
         <div className={styles.triangleWrapper}>
           <form className={trig.wrapper} onSubmit={handleSubmit}>
             <input
