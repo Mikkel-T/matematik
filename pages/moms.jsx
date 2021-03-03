@@ -141,6 +141,7 @@ function Home({ pris }) {
               name="pris"
               value={state.pris}
               onChange={(e) => handleChange(e)}
+              placeholder="Pris"
             />
             <br />
             <input
