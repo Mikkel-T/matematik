@@ -1,15 +1,16 @@
 import styles from '../styles/Home.module.css';
+import Link from 'next/link'
 
 export default function Footer(props) {
   return (
     <div className={styles.footer}>
-      <a href="https://github.com/Mikkel-T/matematik-nse" target="_blank">
-        Open source
-      </a>{' '}
+      <Link href="https://github.com/Mikkel-T/matematik-nse">
+        <a target="_blank" rel="noopener noreferrer">Open source</a>
+      </Link>{' '}
       projekt lavet af{' '}
-      <a href="https://github.com/Mikkel-T" target="_blank">
-        Mikkel Tønder
-      </a>
+      <Link href="https://github.com/Mikkel-T">
+        <a target="_blank" rel="noopener noreferrer">Mikkel Tønder</a>
+      </Link>
       <div className={styles.disclaimer}>
         Selvom programmet bliver testet ofte, er der stadig en meget lille
         chance for at det kan give forkerte resultater i specifikke situationer.

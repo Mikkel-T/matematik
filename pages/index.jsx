@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link'
 
 import Footer from '../components/footer.jsx';
 import styles from '../styles/Home.module.css';
@@ -20,9 +21,9 @@ function Home() {
       <h1 className={styles.title}>Beregnere</h1>
       <div className={styles.grid}>
         {pages.map((e, i) => (
-          <a href={e.path} key={i} className={styles.card}>
-            {e.name}
-          </a>
+          <Link href={e.path} key={i}>
+            <a className={styles.card}>{e.name}</a>
+          </Link>
         ))}
       </div>
       <Footer />
