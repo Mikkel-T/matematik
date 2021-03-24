@@ -82,7 +82,7 @@ function Home({ a, b, c }) {
             <b>Np:</b> Der er ikke nogle nulpunkter
           </div>
         );
-      } else if (D === 0) {
+      } else if (D == 0) {
         const Np = ((-int_b + Math.sqrt(D)) / 2) * int_a;
         Np_html = (
           <div>
@@ -121,7 +121,7 @@ function Home({ a, b, c }) {
             <b>Np:</b> Der var ingen nulpunkter at beregne
           </div>
         );
-      } else if (D === 0) {
+      } else if (D == 0) {
         Np_beregninger = (
           <div className={styles.svar}>
             <b>Np:</b> (<Fraction t={`-${int_b} + √${D}`} n={`2 * ${int_a}`} />,
