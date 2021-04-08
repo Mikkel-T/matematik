@@ -1,16 +1,16 @@
 import Head from 'next/head';
-import Link from 'next/link'
+import Link from 'next/link';
 
 import Footer from '../components/footer.jsx';
 import styles from '../styles/Home.module.css';
 
 function Home() {
   const pages = [
+    { name: '1. gradsfunktion', path: '/1-grad-funktion' },
     { name: '2. gradsfunktion', path: '/2-grad-funktion' },
+    { name: 'Momsberegner', path: '/moms' },
     { name: 'Renters rente', path: '/renter' },
     { name: 'Trigonometri i retvinklede trekanter', path: '/trigonometri' },
-    { name: 'Momsberegner', path: '/moms' },
-    { name: '1. gradsfunktion', path: '/1-grad-funktion' },
   ];
   return (
     <div>

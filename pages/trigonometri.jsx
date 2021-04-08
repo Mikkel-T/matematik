@@ -8,9 +8,9 @@ import { ToastContainer } from 'react-toastify';
 import Footer from '../components/footer.jsx';
 import { genTrigSvar } from '../components/svar.jsx';
 import { copyToast, errorToast } from '../components/toasts.jsx';
+import TopBar from '../components/topbar';
 import { acos, asin, atan, calc, cos, sin, tan } from '../components/trig.jsx';
 import styles from '../styles/Home.module.css';
-import TopBar from '../components/topbar';
 import trig from '../styles/Trigonometri.module.css';
 
 function Home() {
@@ -273,7 +273,7 @@ function Home() {
     let readonly = {};
     if (e.target.name.toLowerCase() !== e.target.name) {
       let tmp = false;
-      if (e.target.value == 90) return;
+      if (e.target.value >= 90) return;
       if (e.target.value !== '') tmp = true;
 
       if (e.target.name === 'A') readonly[`B_readonly`] = tmp;
@@ -369,6 +369,7 @@ function Home() {
               placeholder="Hypotenuse c"
               className={[trig.input, trig.hyp].join(' ')}
               onChange={(e) => handleChange(e)}
+              min={Math.max(+state.a || 0, +state.b || 0)}
             />
             <br />
             <svg width="500" height="300" className={styles.triangle}>
