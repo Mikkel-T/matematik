@@ -101,7 +101,8 @@
 }
 
 .degreeText {
-  stroke-width: 1;
+  stroke-width: 0;
+  fill: white;
 }
 
 .disclaimer {
