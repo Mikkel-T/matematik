@@ -8,6 +8,7 @@ function Home() {
   const pages = [
     { name: '1. gradsfunktion', path: '/1-grad-funktion' },
     { name: '2. gradsfunktion', path: '/2-grad-funktion' },
+    { name: 'Kombinatorik stikprøver', path: '/kombinatorik' },
     { name: 'Momsberegner', path: '/moms' },
     { name: 'Renters rente', path: '/renter' },
     { name: 'Trigonometri i retvinklede trekanter', path: '/trigonometri' },
