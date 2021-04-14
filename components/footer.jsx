@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css';
 export default function Footer(props) {
   return (
     <div className={styles.footer}>
-      <Link href="https://github.com/Mikkel-T/matematik-nse">
+      <Link href="https://github.com/Mikkel-T/matematik">
         <a target="_blank" rel="noopener noreferrer">
           Open source
         </a>
