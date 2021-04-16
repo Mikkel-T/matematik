@@ -2,28 +2,26 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Head from 'next/head';
 import { useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ToastContainer } from 'react-toastify';
 
 import Footer from '../components/footer.jsx';
 import Fraction from '../components/fraction.jsx';
 import Input from '../components/input.jsx';
-import { copyToast, errorToast } from '../components/toasts.jsx';
+import { errorToast } from '../components/toasts.jsx';
 import TopBar from '../components/topbar';
 import styles from '../styles/Home.module.css';
 
-function Home({ x_1, y_1, x_2, y_2 }) {
+function Home() {
   const [state, setState] = useState({
     warning: '',
     a: null,
     b: null,
     funktionsForskrift: null,
     beregninger: null,
-    resultLink: null,
-    x_1,
-    y_1,
-    x_2,
-    y_2,
+    x_1: '',
+    y_1: '',
+    x_2: '',
+    y_2: '',
   });
 
   function calculate() {
@@ -54,7 +52,6 @@ function Home({ x_1, y_1, x_2, y_2 }) {
         b: null,
         funktionsForskrift: null,
         beregninger: null,
-        resultLink: null,
       });
       errorToast(
         'isNotNum',
@@ -110,44 +107,6 @@ function Home({ x_1, y_1, x_2, y_2 }) {
         </div>
       );
 
-      let params = [];
-      if (state.x_1) {
-        params.push({
-          x_1: state.x_1,
-        });
-      }
-
-      if (state.y_1) {
-        params.push({
-          y_1: state.y_1,
-        });
-      }
-
-      if (state.x_2) {
-        params.push({
-          x_2: state.x_2,
-        });
-      }
-
-      if (state.y_2) {
-        params.push({
-          y_2: state.y_2,
-        });
-      }
-
-      params = params
-        .map(
-          (obj) =>
-            `${encodeURIComponent(Object.keys(obj)[0])}=${encodeURIComponent(
-              Object.values(obj)[0]
-            )}`
-        )
-        .join('&');
-
-      const resultLink = `${window.location.origin}${window.location.pathname}${
-        params ? `?${params}` : ''
-      }`;
-
       setState({
         ...state,
         warning: '',
@@ -155,7 +114,6 @@ function Home({ x_1, y_1, x_2, y_2 }) {
         b: b_html,
         funktionsForskrift: funktionsForskrift_html,
         beregninger: beregninger_html,
-        resultLink: resultLink,
       });
     }
   }
@@ -232,13 +190,6 @@ function Home({ x_1, y_1, x_2, y_2 }) {
           <div className={styles.svar}>{state.funktionsForskrift}</div>
           <br />
           <div className={styles.svar}>{state.beregninger}</div>
-          {state.resultLink && (
-            <CopyToClipboard text={state.resultLink} onCopy={() => copyToast()}>
-              <button className={styles.copyButton}>
-                Kopier link til denne løsning
-              </button>
-            </CopyToClipboard>
-          )}
         </div>
         <ToastContainer position="bottom-right" />
         <Footer />
@@ -246,11 +197,5 @@ function Home({ x_1, y_1, x_2, y_2 }) {
     </div>
   );
 }
-
-Home.getInitialProps = async ({ query }) => {
-  const { x_1, y_1, x_2, y_2 } = query;
-
-  return { x_1: x_1 || '', y_1: y_1 || '', x_2: x_2 || '', y_2: y_2 || '' };
-};
 
 export default Home;

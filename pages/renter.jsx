@@ -2,24 +2,22 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Head from 'next/head';
 import { useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ToastContainer } from 'react-toastify';
 
 import Footer from '../components/footer.jsx';
 import Input from '../components/input.jsx';
-import { copyToast, errorToast } from '../components/toasts.jsx';
+import { errorToast } from '../components/toasts.jsx';
 import TopBar from '../components/topbar';
 import styles from '../styles/Home.module.css';
 
-function Home({ K, r, n }) {
+function Home() {
   const [state, setState] = useState({
     warning: '',
     Kn: null,
     beregninger: null,
-    resultLink: null,
-    K,
-    r,
-    n,
+    K: '',
+    r: '',
+    n: '',
   });
 
   function calculate() {
@@ -42,7 +40,6 @@ function Home({ K, r, n }) {
         } tal`,
         Kn: null,
         beregninger: null,
-        resultLink: null,
       });
       errorToast(
         'isNotNum',
@@ -75,44 +72,11 @@ function Home({ K, r, n }) {
         </div>
       );
 
-      let params = [];
-      if (state.K) {
-        params.push({
-          K: state.K,
-        });
-      }
-
-      if (state.r) {
-        params.push({
-          r: state.r,
-        });
-      }
-
-      if (state.n) {
-        params.push({
-          n: state.n,
-        });
-      }
-
-      params = params
-        .map(
-          (obj) =>
-            `${encodeURIComponent(Object.keys(obj)[0])}=${encodeURIComponent(
-              Object.values(obj)[0]
-            )}`
-        )
-        .join('&');
-
-      const resultLink = `${window.location.origin}${window.location.pathname}${
-        params ? `?${params}` : ''
-      }`;
-
       setState({
         ...state,
         warning: '',
         Kn: Kn_html,
         beregninger: beregninger_html,
-        resultLink: resultLink,
       });
     }
   }
@@ -155,13 +119,6 @@ function Home({ K, r, n }) {
           <div className={styles.svar}>{state.Kn}</div>
           <br />
           <div className={styles.svar}>{state.beregninger}</div>
-          {state.resultLink && (
-            <CopyToClipboard text={state.resultLink} onCopy={() => copyToast()}>
-              <button className={styles.copyButton}>
-                Kopier link til denne løsning
-              </button>
-            </CopyToClipboard>
-          )}
         </div>
         <ToastContainer position="bottom-right" />
         <Footer />
@@ -169,11 +126,5 @@ function Home({ K, r, n }) {
     </div>
   );
 }
-
-Home.getInitialProps = async ({ query }) => {
-  const { K, r, n } = query;
-
-  return { K: K || '', r: r || '', n: n || '' };
-};
 
 export default Home;

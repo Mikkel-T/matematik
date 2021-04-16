@@ -2,12 +2,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Head from 'next/head';
 import { useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ToastContainer } from 'react-toastify';
 
 import Footer from '../components/footer.jsx';
 import { genTrigSvar } from '../components/svar.jsx';
-import { copyToast, errorToast } from '../components/toasts.jsx';
+import { errorToast } from '../components/toasts.jsx';
 import TopBar from '../components/topbar';
 import { acos, asin, atan, calc, cos, sin, tan } from '../components/trig.jsx';
 import styles from '../styles/Home.module.css';
@@ -17,7 +16,6 @@ function Home() {
   const [state, setState] = useState({
     warning: '',
     beregninger: null,
-    resultLink: null,
     A: '',
     B: '',
     C: '90',
@@ -65,7 +63,6 @@ function Home() {
         } tal`,
         showAnswer: false,
         beregninger: null,
-        resultLink: null,
       });
       errorToast('isNotNum', state.warning);
     } else {
@@ -257,7 +254,6 @@ function Home() {
         ...state,
         warning: '',
         beregninger: beregninger_html,
-        resultLink: null, //TODO Query params
         showAnswer: true,
         ...svar,
       });
@@ -426,13 +422,6 @@ function Home() {
           <div className={styles.svar}>{state.warning}</div>
           <br />
           <div className={styles.svar}>{state.beregninger}</div>
-          {state.resultLink && (
-            <CopyToClipboard text={state.resultLink} onCopy={() => copyToast()}>
-              <button className={styles.copyButton}>
-                Kopier link til denne løsning
-              </button>
-            </CopyToClipboard>
-          )}
         </div>
         <ToastContainer position="bottom-right" />
         <Footer />

@@ -1,11 +1,5 @@
 import { toast } from 'react-toastify';
 
-import styles from '../styles/Home.module.css';
-
-function copyToast() {
-  toast.info('Kopierede linket');
-}
-
 function errorToast(error, errorMsg) {
   switch (error) {
     case 'isNotNum':
@@ -27,4 +21,4 @@ function errorToast(error, errorMsg) {
   }
 }
 
-export { copyToast, errorToast };
+export { errorToast };

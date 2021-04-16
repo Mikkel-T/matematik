@@ -2,24 +2,22 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Head from 'next/head';
 import { useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ToastContainer } from 'react-toastify';
 
 import Footer from '../components/footer.jsx';
 import Fraction from '../components/fraction.jsx';
 import Input from '../components/input.jsx';
-import { copyToast, errorToast } from '../components/toasts.jsx';
+import { errorToast } from '../components/toasts.jsx';
 import TopBar from '../components/topbar';
 import styles from '../styles/Home.module.css';
 
-function Home({ pris }) {
+function Home() {
   const [state, setState] = useState({
     warning: '',
     prisMedMoms: null,
     prisUdenMoms: null,
     beregninger: null,
-    resultLink: null,
-    pris,
+    pris: '',
   });
 
   function calculate() {
@@ -37,7 +35,6 @@ function Home({ pris }) {
         prisMedMoms: null,
         prisUdenMoms: null,
         beregninger: null,
-        resultLink: null,
       });
       errorToast(
         'isNotNum',
@@ -82,35 +79,12 @@ function Home({ pris }) {
         </div>
       );
 
-      let params = [];
-      if (state.pris) {
-        params.push({
-          pris: state.pris,
-        });
-      }
-
-      params = params
-        .map(
-          (obj) =>
-            `${encodeURIComponent(Object.keys(obj)[0])}=${encodeURIComponent(
-              Object.values(obj)[0]
-            )}`
-        )
-        .join('&');
-
-      const resultLink = `${window.location.origin}${window.location.pathname}${
-        params ? `?${params}` : ''
-      }`;
-
       setState({
         ...state,
         warning: '',
-
         prisMedMoms: prisMedMoms_html,
         prisUdenMoms: prisUdenMoms_html,
-
         beregninger: beregninger_html,
-        resultLink: resultLink,
       });
     }
   }
@@ -157,13 +131,6 @@ function Home({ pris }) {
           <div className={styles.svar}>{state.prisUdenMoms}</div>
           <br />
           <div className={styles.svar}>{state.beregninger}</div>
-          {state.resultLink && (
-            <CopyToClipboard text={state.resultLink} onCopy={() => copyToast()}>
-              <button className={styles.copyButton}>
-                Kopier link til denne løsning
-              </button>
-            </CopyToClipboard>
-          )}
         </div>
         <ToastContainer position="bottom-right" />
         <Footer />
@@ -171,11 +138,5 @@ function Home({ pris }) {
     </div>
   );
 }
-
-Home.getInitialProps = async ({ query }) => {
-  const { pris } = query;
-
-  return { pris: pris || '' };
-};
 
 export default Home;

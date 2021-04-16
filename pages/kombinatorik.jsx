@@ -2,18 +2,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Head from 'next/head';
 import { useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ToastContainer } from 'react-toastify';
 
 import Footer from '../components/footer.jsx';
 import Fraction from '../components/fraction.jsx';
 import Input from '../components/input.jsx';
-import { copyToast, errorToast } from '../components/toasts.jsx';
+import { errorToast } from '../components/toasts.jsx';
 import TopBar from '../components/topbar';
 import styles from '../styles/Home.module.css';
 import { factorial } from '../utils';
 
-function Home({ n, p }) {
+function Home() {
   const [state, setState] = useState({
     warning: '',
     ordnet_med: null,
@@ -21,9 +20,8 @@ function Home({ n, p }) {
     uordnet_med: null,
     uordnet_uden: null,
     beregninger: null,
-    resultLink: null,
-    n,
-    p,
+    n: '',
+    p: '',
   });
 
   function calculate() {
@@ -46,7 +44,6 @@ function Home({ n, p }) {
         uordnet_med: null,
         uordnet_uden: null,
         beregninger: null,
-        resultLink: null,
       });
       errorToast(
         'isNotNum',
@@ -139,43 +136,14 @@ function Home({ n, p }) {
         </div>
       );
 
-      let params = [];
-      if (state.n) {
-        params.push({
-          n: state.n,
-        });
-      }
-
-      if (state.p) {
-        params.push({
-          p: state.p,
-        });
-      }
-
-      params = params
-        .map(
-          (obj) =>
-            `${encodeURIComponent(Object.keys(obj)[0])}=${encodeURIComponent(
-              Object.values(obj)[0]
-            )}`
-        )
-        .join('&');
-
-      const resultLink = `${window.location.origin}${window.location.pathname}${
-        params ? `?${params}` : ''
-      }`;
-
       setState({
         ...state,
         warning: '',
-
         ordnet_med: ordnet_med_html,
         ordnet_uden: ordnet_uden_html,
         uordnet_med: uordnet_med_html,
         uordnet_uden: uordnet_uden_html,
-
         beregninger: beregninger_html,
-        resultLink: resultLink,
       });
     }
   }
@@ -224,13 +192,6 @@ function Home({ n, p }) {
           <div className={styles.svar}>{state.uordnet_uden}</div>
           <br />
           <div className={styles.svar}>{state.beregninger}</div>
-          {state.resultLink && (
-            <CopyToClipboard text={state.resultLink} onCopy={() => copyToast()}>
-              <button className={styles.copyButton}>
-                Kopier link til denne løsning
-              </button>
-            </CopyToClipboard>
-          )}
         </div>
         <ToastContainer position="bottom-right" />
         <Footer />
@@ -238,11 +199,5 @@ function Home({ n, p }) {
     </div>
   );
 }
-
-Home.getInitialProps = async ({ query }) => {
-  const { n, p } = query;
-
-  return { n: n || '', p: p || '' };
-};
 
 export default Home;
