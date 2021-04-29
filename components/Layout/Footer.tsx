@@ -1,22 +1,28 @@
 import Link from 'next/link';
 
-import styles from '../styles/Home.module.css';
-
-export default function Footer(props) {
+export default function Footer() {
   return (
-    <div className={styles.footer}>
+    <div className="pb-4">
       <Link href="https://github.com/Mikkel-T/matematik">
-        <a target="_blank" rel="noopener noreferrer">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-nord8 hover:text-nord10"
+        >
           Open source
         </a>
       </Link>{' '}
       projekt lavet af{' '}
       <Link href="https://github.com/Mikkel-T">
-        <a target="_blank" rel="noopener noreferrer">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-nord8 hover:text-nord10"
+        >
           Mikkel Tønder
         </a>
       </Link>
-      <div className={styles.disclaimer}>
+      <div className="text-xs w-3/4 md:w-1/2 m-auto">
         Selvom programmet bliver testet ofte, er der stadig en meget lille
         chance for at det kan give forkerte resultater i specifikke situationer.
         Jeg gør alt hvad jeg kan for hele tiden at finde de situationer og fikse
