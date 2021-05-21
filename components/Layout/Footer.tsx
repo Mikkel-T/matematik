@@ -13,7 +13,7 @@ export default function Footer() {
         </a>
       </Link>{' '}
       projekt lavet af{' '}
-      <Link href="https://github.com/Mikkel-T">
+      <Link href="https://mikkel-t.com">
         <a
           target="_blank"
           rel="noopener noreferrer"
