@@ -296,16 +296,44 @@ export default function Moms() {
         <svg
           width="500"
           height="300"
-          className="stroke-current stroke-2 fill-transparent m-auto"
+          className="stroke-2 fill-transparent m-auto"
           xmlns="http://www.w3.org/2000/svg"
+          stroke="current"
         >
-          <polygon points="3,297 43,297 43,257 3,257" className="text-nord14" />
-          <path d=" M 420 297 A 80 80 180 0 1 433 260" className="text-nord9" />
-          <path d=" M 69 41 A 80 80 0 0 1 4 80" className="text-nord12" />
+          <polygon
+            points="3,297 43,297 43,257 3,257"
+            className="stroke-current text-nord14"
+          />
+          <path
+            d=" M 420 297 A 80 80 180 0 1 433 260"
+            className="stroke-current text-nord9"
+          />
+          <path
+            d=" M 69 41 A 80 80 0 0 1 4 80"
+            className="stroke-current text-nord12"
+          />
 
-          <line x1="3" y1="3" x2="3" y2="297" className="text-nord9" />
-          <line x1="3" y1="297" x2="497" y2="297" className="text-nord12" />
-          <line x1="497" y1="297" x2="3" y2="3" className="text-nord14" />
+          <line
+            x1="3"
+            y1="3"
+            x2="3"
+            y2="297"
+            className="stroke-current text-nord9"
+          />
+          <line
+            x1="3"
+            y1="297"
+            x2="497"
+            y2="297"
+            className="stroke-current text-nord12"
+          />
+          <line
+            x1="497"
+            y1="297"
+            x2="3"
+            y2="3"
+            className="stroke-current text-nord14"
+          />
 
           <text x="15" y="100" className="fill-current stroke-0">
             {answers.A && `A: ${answers.A}°`}

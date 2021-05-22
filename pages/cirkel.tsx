@@ -211,12 +211,30 @@ export default function Moms() {
         <svg
           width="600"
           height="500"
-          className="stroke-current stroke-2 fill-transparent m-auto"
+          className="stroke-2 fill-transparent m-auto"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <circle cx="300" cy="250" r="247" className="text-nord9" />
-          <line x1="300" y1="3" x2="300" y2="496" className="text-nord14" />
-          <line x1="300" y1="250" x2="546" y2="250" className="text-nord12" />
+          <circle
+            cx="300"
+            cy="250"
+            r="247"
+            className="stroke-current text-nord9"
+          />
+          <line
+            x1="300"
+            y1="3"
+            x2="300"
+            y2="496"
+            className="stroke-current text-nord14"
+          />
+          <line
+            x1="300"
+            y1="250"
+            x2="546"
+            y2="250"
+            className="stroke-current text-nord12"
+          />
+
           <text x="340" y="270" className="fill-current stroke-0">
             {answers.Radius && `Radius: ${answers.Radius}`}
           </text>
