@@ -1,6 +1,7 @@
 import { ParseAnswer } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
+import Svg, { Circle, Path, Text } from '@components/Svg';
 import { AnswerProps } from '@interfaces/index';
 import { ChangeEvent, useState } from 'react';
 
@@ -208,46 +209,32 @@ export default function Moms() {
           } transition-opacity duration-500 absolute mt-[12.5rem] ml-10 w-36 p-2 rounded-md bg-nord1 border border-nord12 focus:ring-nord12 focus:border-nord12`}
           onChange={(e) => handleChange(e)}
         />
-        <svg
-          width="600"
-          height="500"
-          className="stroke-2 fill-transparent m-auto"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="300"
-            cy="250"
-            r="247"
-            className="stroke-current text-nord9"
-          />
-          <line
-            x1="300"
-            y1="3"
-            x2="300"
-            y2="496"
-            className="stroke-current text-nord14"
-          />
-          <line
-            x1="300"
-            y1="250"
-            x2="546"
-            y2="250"
-            className="stroke-current text-nord12"
-          />
+        <Svg width="600" height="500">
+          <Circle x="300" y="250" r="247" className="text-nord9" />
+          <Path d="M 300 3 V 496" className="text-nord14" />
+          <Path d="m 300 250 H 546" className="text-nord12" />
 
-          <text x="340" y="270" className="fill-current stroke-0">
-            {answers.Radius && `Radius: ${answers.Radius}`}
-          </text>
-          <text x="310" y="155" className="fill-current stroke-0">
-            {answers.Diameter && `Diameter: ${answers.Diameter}`}
-          </text>
-          <text x="0" y="60" className="fill-current stroke-0">
-            {answers.Omkreds && `Omkreds: ${answers.Omkreds}`}
-          </text>
-          <text x="110" y="260" className="fill-current stroke-0">
-            {answers.Areal && `Areal: ${answers.Areal}`}
-          </text>
-        </svg>
+          <Text
+            x="340"
+            y="270"
+            text={answers.Radius && `Radius: ${answers.Radius}`}
+          />
+          <Text
+            x="310"
+            y="155"
+            text={answers.Diameter && `Diameter: ${answers.Diameter}`}
+          />
+          <Text
+            x="0"
+            y="60"
+            text={answers.Omkreds && `Omkreds: ${answers.Omkreds}`}
+          />
+          <Text
+            x="110"
+            y="260"
+            text={answers.Areal && `Areal: ${answers.Areal}`}
+          />
+        </Svg>
       </div>
       <div>Pi (π) er sat til: {Math.PI}</div>
     </Calculator>

@@ -1,5 +1,6 @@
 import { ParseAnswer } from '@components/Answer';
 import Calculator from '@components/Calculator';
+import Svg, { Path, Text } from '@components/Svg';
 import { acos, asin, atan, cos, sin, tan } from '@components/Trig';
 import {
   AngleCalc,
@@ -293,67 +294,22 @@ export default function Moms() {
           onChange={(e) => handleChange(e)}
           min={Math.max(+a || 0, +b || 0)}
         />
-        <svg
-          width="500"
-          height="300"
-          className="stroke-2 fill-transparent m-auto"
-          xmlns="http://www.w3.org/2000/svg"
-          stroke="current"
-        >
-          <polygon
-            points="3,297 43,297 43,257 3,257"
-            className="stroke-current text-nord14"
-          />
-          <path
-            d=" M 420 297 A 80 80 180 0 1 433 260"
-            className="stroke-current text-nord9"
-          />
-          <path
-            d=" M 69 41 A 80 80 0 0 1 4 80"
-            className="stroke-current text-nord12"
-          />
+        <Svg width="500" height="300">
+          <Path d="M 3 257 h 40 v 40" className="text-nord14" />
+          <Path d="M 420 297 A 80 80 180 0 1 433 260" className="text-nord9" />
+          <Path d="M 69 41 A 80 80 0 0 1 4 80" className="text-nord12" />
 
-          <line
-            x1="3"
-            y1="3"
-            x2="3"
-            y2="297"
-            className="stroke-current text-nord9"
-          />
-          <line
-            x1="3"
-            y1="297"
-            x2="497"
-            y2="297"
-            className="stroke-current text-nord12"
-          />
-          <line
-            x1="497"
-            y1="297"
-            x2="3"
-            y2="3"
-            className="stroke-current text-nord14"
-          />
+          <Path d="M 3 3 V 297" className="text-nord9" />
+          <Path d="M 3 297 H 497" className="text-nord12" />
+          <Path d="M 3 3 L 497 297" className="text-nord14" />
 
-          <text x="15" y="100" className="fill-current stroke-0">
-            {answers.A && `A: ${answers.A}°`}
-          </text>
-          <text x="350" y="280" className="fill-current stroke-0">
-            {answers.B && `B: ${answers.B}°`}
-          </text>
-          <text x="48" y="252" className="fill-current stroke-0">
-            C: 90°
-          </text>
-          <text x="175" y="280" className="fill-current stroke-0">
-            {answers.a && `a: ${answers.a}`}
-          </text>
-          <text x="15" y="180" className="fill-current stroke-0">
-            {answers.b && `b: ${answers.b}`}
-          </text>
-          <text x="200" y="180" className="fill-current stroke-0">
-            {answers.c && `c: ${answers.c}`}
-          </text>
-        </svg>
+          <Text x="15" y="100" text={answers.A && `A: ${answers.A}°`} />
+          <Text x="350" y="280" text={answers.B && `B: ${answers.B}°`} />
+          <Text x="48" y="252" text="C: 90°" />
+          <Text x="175" y="280" text={answers.a && `a: ${answers.a}`} />
+          <Text x="15" y="180" text={answers.b && `b: ${answers.b}`} />
+          <Text x="200" y="180" text={answers.c && `c: ${answers.c}`} />
+        </Svg>
         <input
           type="number"
           step="any"
