@@ -12,7 +12,7 @@ import {
 import { AnswerProps } from '@interfaces/index';
 import { ChangeEvent, useState } from 'react';
 
-export default function Moms() {
+export default function Trigonometri() {
   const [A, setA] = useState('');
   const [B, setB] = useState('');
   const [a, seta] = useState('');

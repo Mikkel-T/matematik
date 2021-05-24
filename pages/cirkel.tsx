@@ -5,7 +5,7 @@ import Svg, { Circle, Input, Path, Text } from '@components/Svg';
 import { AnswerProps } from '@interfaces/index';
 import { ChangeEvent, useState } from 'react';
 
-export default function Moms() {
+export default function Cirkel() {
   const [Radius, setRadius] = useState('');
   const [Diameter, setDiameter] = useState('');
   const [Omkreds, setOmkreds] = useState('');

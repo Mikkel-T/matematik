@@ -4,7 +4,7 @@ import Fraction from '@components/Fraction';
 import { AnswerProps, InputProps } from '@interfaces/index';
 import { useState } from 'react';
 
-export default function Moms() {
+export default function Heron() {
   const [a, seta] = useState('');
   const [b, setb] = useState('');
   const [c, setc] = useState('');

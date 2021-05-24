@@ -1,13 +1,9 @@
 import pages from '@utils/pages';
-import Head from 'next/head';
 import Link from 'next/link';
 
 export default function Home() {
   return (
     <div>
-      <Head>
-        <title>Beregnere</title>
-      </Head>
       <h1 className="text-4xl py-3">Beregnere</h1>
       <div className="grid gap-4 p-3 m-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
         {pages

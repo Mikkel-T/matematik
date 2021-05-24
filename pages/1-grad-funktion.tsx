@@ -4,7 +4,7 @@ import Fraction from '@components/Fraction';
 import { AnswerProps, InputProps } from '@interfaces/index';
 import { useState } from 'react';
 
-export default function Moms() {
+export default function Funktion_1_grad() {
   const [x1, setx1] = useState('');
   const [x2, setx2] = useState('');
   const [y1, sety1] = useState('');
