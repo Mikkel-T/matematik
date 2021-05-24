@@ -36,3 +36,8 @@ export type Pages = {
   description: string;
   showCard: boolean;
 };
+
+export type LinkProps = {
+  href: string;
+  text: string | ReactNode;
+};
