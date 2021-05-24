@@ -1,7 +1,7 @@
 import { ParseAnswer } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
-import Svg, { Circle, Path, Text } from '@components/Svg';
+import Svg, { Circle, Input, Path, Text } from '@components/Svg';
 import { AnswerProps } from '@interfaces/index';
 import { ChangeEvent, useState } from 'react';
 
@@ -157,57 +157,33 @@ export default function Moms() {
   return (
     <Calculator calculate={calc} answers={calculations}>
       <div className="text-center w-[600px] m-auto h-[500px]">
-        <input
-          type="number"
-          step="any"
+        <Input
           name="Omkreds"
-          id="Omkreds"
           value={Omkreds}
           readOnly={readonly['Omkreds']}
-          placeholder="Omkreds"
-          className={`${
-            readonly['Omkreds'] && 'opacity-50'
-          } transition-opacity duration-500 float-left -mb-11 w-36 p-2 rounded-md bg-nord1 border border-nord9 focus:ring-nord9 focus:border-nord9`}
-          onChange={(e) => handleChange(e)}
+          className="float-left -mb-11 border-nord9 focus:ring-nord9 focus:border-nord9"
+          onChange={handleChange}
         />
-        <input
-          type="number"
-          step="any"
+        <Input
           name="Diameter"
-          id="Diameter"
           value={Diameter}
           readOnly={readonly['Diameter']}
-          placeholder="Diameter"
-          className={`${
-            readonly['Diameter'] && 'opacity-50'
-          } transition-opacity duration-500 mt-24 absolute w-36 ml-2 p-2 rounded-md bg-nord1 border border-nord14 focus:ring-nord14 focus:border-nord14`}
-          onChange={(e) => handleChange(e)}
+          className="mt-24 absolute  ml-2 border-nord14 focus:ring-nord14 focus:border-nord14"
+          onChange={handleChange}
         />
-        <input
-          type="number"
-          step="any"
+        <Input
           name="Areal"
-          id="Areal"
           value={Areal}
           readOnly={readonly['Areal']}
-          placeholder="Areal"
-          className={`${
-            readonly['Areal'] && 'opacity-50'
-          } transition-opacity duration-500 absolute mt-[12.5rem] -ml-48 w-36 p-2 rounded-md bg-nord1 border border-nord3 focus:ring-nord10 focus:border-nord10`}
-          onChange={(e) => handleChange(e)}
+          className="absolute mt-[12.5rem] -ml-48 border-nord3 focus:ring-nord10 focus:border-nord10"
+          onChange={handleChange}
         />
-        <input
-          type="number"
-          step="any"
+        <Input
           name="Radius"
-          id="Radius"
           value={Radius}
           readOnly={readonly['Radius']}
-          placeholder="Radius"
-          className={`${
-            readonly['Radius'] && 'opacity-50'
-          } transition-opacity duration-500 absolute mt-[12.5rem] ml-10 w-36 p-2 rounded-md bg-nord1 border border-nord12 focus:ring-nord12 focus:border-nord12`}
-          onChange={(e) => handleChange(e)}
+          className="absolute mt-[12.5rem] ml-10 border-nord12 focus:ring-nord12 focus:border-nord12"
+          onChange={handleChange}
         />
         <Svg width="600" height="500">
           <Circle x="300" y="250" r="247" className="text-nord9" />

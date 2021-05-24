@@ -1,4 +1,10 @@
-import { CircleProps, PathProps, SvgProps, TextProps } from '@interfaces/Svg';
+import {
+  CircleProps,
+  InputProps,
+  PathProps,
+  SvgProps,
+  TextProps,
+} from '@interfaces/Svg';
 
 export default function Svg({ children, height, width }: SvgProps) {
   return (
@@ -28,5 +34,32 @@ export function Text({ x, y, text }: TextProps) {
     <text x={x} y={y} className="fill-current stroke-0">
       {text}
     </text>
+  );
+}
+
+export function Input({
+  name,
+  value,
+  readOnly,
+  onChange,
+  className,
+  placeholder,
+  min,
+}: InputProps) {
+  return (
+    <input
+      type="number"
+      step="any"
+      name={name}
+      id={name}
+      placeholder={placeholder || name}
+      value={value}
+      readOnly={readOnly}
+      className={`${
+        readOnly && 'opacity-50'
+      } transition-opacity duration-500 rounded-md bg-nord1 border p-2 w-36 ${className}`}
+      onChange={(e) => onChange(e)}
+      min={min && min}
+    />
   );
 }

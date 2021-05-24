@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ChangeEvent, ReactNode } from 'react';
 
 export type SvgProps = {
   children: ReactNode;
@@ -22,4 +22,14 @@ export type TextProps = {
   x: string | number;
   y: string | number;
   text: string | number;
+};
+
+export type InputProps = {
+  name: string;
+  value: string;
+  readOnly: boolean;
+  onChange(e: ChangeEvent<HTMLInputElement>): void;
+  placeholder?: string;
+  className?: string;
+  min?: number;
 };

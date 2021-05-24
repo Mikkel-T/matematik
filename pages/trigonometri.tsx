@@ -1,6 +1,6 @@
 import { ParseAnswer } from '@components/Answer';
 import Calculator from '@components/Calculator';
-import Svg, { Path, Text } from '@components/Svg';
+import Svg, { Input, Path, Text } from '@components/Svg';
 import { acos, asin, atan, cos, sin, tan } from '@components/Trig';
 import {
   AngleCalc,
@@ -254,44 +254,29 @@ export default function Moms() {
   return (
     <Calculator calculate={calc} answers={calculations}>
       <div className="text-center w-[500px] m-auto h-[440px] ml-40 md:ml-auto">
-        <input
-          type="number"
-          step="any"
+        <Input
           name="A"
-          id="A"
           value={A}
           readOnly={readonly['A']}
           placeholder="Vinkel A"
-          className={`${
-            readonly['A'] && 'opacity-50'
-          } transition-opacity duration-500 float-left -ml-20 w-36 p-2 rounded-md bg-nord1 border border-nord12 focus:ring-nord12 focus:border-nord12`}
-          onChange={(e) => handleChange(e)}
+          className="float-left -ml-20 border-nord12 focus:ring-nord12 focus:border-nord12"
+          onChange={handleChange}
         />
-        <input
-          type="number"
-          step="any"
+        <Input
           name="b"
-          id="b"
           value={b}
           readOnly={readonly['b']}
           placeholder="Katete b"
-          className={`${
-            readonly['b'] && 'opacity-50'
-          } transition-opacity duration-500 absolute ml-[-430px] mt-44 w-36 p-2 rounded-md bg-nord1 border border-nord9 focus:ring-nord9 focus:border-nord9`}
-          onChange={(e) => handleChange(e)}
+          className="absolute ml-[-430px] mt-44 border-nord9 focus:ring-nord9 focus:border-nord9"
+          onChange={handleChange}
         />
-        <input
-          type="number"
-          step="any"
+        <Input
           name="c"
-          id="c"
           value={c}
           readOnly={readonly['c']}
           placeholder="Hypotenuse c"
-          className={`${
-            readonly['c'] && 'opacity-50'
-          } transition-opacity duration-500 mt-40 absolute w-36 p-2 rounded-md bg-nord1 border border-nord14 focus:ring-nord14 focus:border-nord14`}
-          onChange={(e) => handleChange(e)}
+          className="mt-40 absolute border-nord14 focus:ring-nord14 focus:border-nord14"
+          onChange={handleChange}
           min={Math.max(+a || 0, +b || 0)}
         />
         <Svg width="500" height="300">
@@ -310,31 +295,21 @@ export default function Moms() {
           <Text x="15" y="180" text={answers.b && `b: ${answers.b}`} />
           <Text x="200" y="180" text={answers.c && `c: ${answers.c}`} />
         </Svg>
-        <input
-          type="number"
-          step="any"
+        <Input
           name="a"
-          id="a"
           value={a}
           readOnly={readonly['a']}
           placeholder="Katete a"
-          className={`${
-            readonly['a'] && 'opacity-50'
-          } transition-opacity duration-500 w-36 p-2 rounded-md bg-nord1 border border-nord12 focus:ring-nord12 focus:border-nord12`}
-          onChange={(e) => handleChange(e)}
+          className="border-nord12 focus:ring-nord12 focus:border-nord12"
+          onChange={handleChange}
         />
-        <input
-          type="number"
-          step="any"
+        <Input
           name="B"
-          id="B"
           value={B}
           readOnly={readonly['B']}
           placeholder="Vinkel B"
-          className={`${
-            readonly['B'] && 'opacity-50'
-          } transition-opacity duration-500 float-right -mr-20 w-36 p-2 rounded-md bg-nord1 border border-nord9 focus:ring-nord9 focus:border-nord9`}
-          onChange={(e) => handleChange(e)}
+          className="float-right -mr-20 border-nord9 focus:ring-nord9 focus:border-nord9"
+          onChange={handleChange}
         />
       </div>
     </Calculator>
