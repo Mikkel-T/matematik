@@ -1,6 +1,6 @@
 import { LayoutProps } from '@interfaces/index';
 import pages from '@utils/pages';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import React from 'react';
 
@@ -12,16 +12,14 @@ export default function Layout({ children }: LayoutProps) {
   const pageObj = pages.find((e) => e.path === router.pathname);
   return (
     <>
-      <Head>
-        <title>{pageObj ? pageObj.name : 'Matematik'}</title>
-        <meta
-          name="description"
-          content={pageObj ? pageObj.description : 'Beregnere'}
-        />
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-      </Head>
+      <NextSeo
+        title={pageObj ? pageObj.name : 'Matematik'}
+        description={pageObj && pageObj.description}
+        openGraph={{
+          title: pageObj ? pageObj.name : 'Matematik',
+          description: pageObj && pageObj.description,
+        }}
+      />
       <nav>
         <Header />
       </nav>
