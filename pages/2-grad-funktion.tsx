@@ -2,6 +2,7 @@ import { ParseAnswer } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import { AnswerProps, InputProps } from '@interfaces/index';
+import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
 export default function Funktion_2_grad() {
@@ -110,5 +111,13 @@ export default function Funktion_2_grad() {
       },
     ]);
   }
-  return <Calculator inputs={inputs} calculate={calc} answers={answers} />;
+  return (
+    <>
+      <NextSeo
+        title="2. gradsfunktion beregner"
+        description="Beregn diskriminant, toppunkt og nulpunkter for en 2. gradsfunktion"
+      />
+      <Calculator inputs={inputs} calculate={calc} answers={answers} />
+    </>
+  );
 }

@@ -10,6 +10,7 @@ import {
   SqrtCalc,
 } from '@components/TrigCalc';
 import { AnswerProps } from '@interfaces/index';
+import { NextSeo } from 'next-seo';
 import { ChangeEvent, useState } from 'react';
 
 export default function Trigonometri() {
@@ -252,66 +253,75 @@ export default function Trigonometri() {
     setReadonly(readonlyTmp);
   }
   return (
-    <Calculator calculate={calc} answers={calculations}>
-      <div className="text-center w-[500px] m-auto h-[440px] ml-40 md:ml-auto">
-        <Input
-          name="A"
-          value={A}
-          readOnly={readonly['A']}
-          placeholder="Vinkel A"
-          className="float-left -ml-20 border-nord12 focus:ring-nord12 focus:border-nord12"
-          onChange={handleChange}
-        />
-        <Input
-          name="b"
-          value={b}
-          readOnly={readonly['b']}
-          placeholder="Katete b"
-          className="absolute ml-[-430px] mt-44 border-nord9 focus:ring-nord9 focus:border-nord9"
-          onChange={handleChange}
-        />
-        <Input
-          name="c"
-          value={c}
-          readOnly={readonly['c']}
-          placeholder="Hypotenuse c"
-          className="mt-40 absolute border-nord14 focus:ring-nord14 focus:border-nord14"
-          onChange={handleChange}
-          min={Math.max(+a || 0, +b || 0)}
-        />
-        <Svg width="500" height="300">
-          <Path d="M 3 257 h 40 v 40" className="text-nord14" />
-          <Path d="M 420 297 A 80 80 180 0 1 433 260" className="text-nord9" />
-          <Path d="M 69 41 A 80 80 0 0 1 4 80" className="text-nord12" />
+    <>
+      <NextSeo
+        title="Trigonometri beregner"
+        description="Beregn alle sider og vinkler i en retvinklet trekant ved hjælp af trigonometri og pythagoras"
+      />
+      <Calculator calculate={calc} answers={calculations}>
+        <div className="text-center w-[500px] m-auto h-[440px] ml-40 md:ml-auto">
+          <Input
+            name="A"
+            value={A}
+            readOnly={readonly['A']}
+            placeholder="Vinkel A"
+            className="float-left -ml-20 border-nord12 focus:ring-nord12 focus:border-nord12"
+            onChange={handleChange}
+          />
+          <Input
+            name="b"
+            value={b}
+            readOnly={readonly['b']}
+            placeholder="Katete b"
+            className="absolute ml-[-430px] mt-44 border-nord9 focus:ring-nord9 focus:border-nord9"
+            onChange={handleChange}
+          />
+          <Input
+            name="c"
+            value={c}
+            readOnly={readonly['c']}
+            placeholder="Hypotenuse c"
+            className="mt-40 absolute border-nord14 focus:ring-nord14 focus:border-nord14"
+            onChange={handleChange}
+            min={Math.max(+a || 0, +b || 0)}
+          />
+          <Svg width="500" height="300">
+            <Path d="M 3 257 h 40 v 40" className="text-nord14" />
+            <Path
+              d="M 420 297 A 80 80 180 0 1 433 260"
+              className="text-nord9"
+            />
+            <Path d="M 69 41 A 80 80 0 0 1 4 80" className="text-nord12" />
 
-          <Path d="M 3 3 V 297" className="text-nord9" />
-          <Path d="M 3 297 H 497" className="text-nord12" />
-          <Path d="M 3 3 L 497 297" className="text-nord14" />
+            <Path d="M 3 3 V 297" className="text-nord9" />
+            <Path d="M 3 297 H 497" className="text-nord12" />
+            <Path d="M 3 3 L 497 297" className="text-nord14" />
 
-          <Text x="15" y="100" text={answers.A && `A: ${answers.A}°`} />
-          <Text x="350" y="280" text={answers.B && `B: ${answers.B}°`} />
-          <Text x="48" y="252" text="C: 90°" />
-          <Text x="175" y="280" text={answers.a && `a: ${answers.a}`} />
-          <Text x="15" y="180" text={answers.b && `b: ${answers.b}`} />
-          <Text x="200" y="180" text={answers.c && `c: ${answers.c}`} />
-        </Svg>
-        <Input
-          name="a"
-          value={a}
-          readOnly={readonly['a']}
-          placeholder="Katete a"
-          className="border-nord12 focus:ring-nord12 focus:border-nord12"
-          onChange={handleChange}
-        />
-        <Input
-          name="B"
-          value={B}
-          readOnly={readonly['B']}
-          placeholder="Vinkel B"
-          className="float-right -mr-20 border-nord9 focus:ring-nord9 focus:border-nord9"
-          onChange={handleChange}
-        />
-      </div>
-    </Calculator>
+            <Text x="15" y="100" text={answers.A && `A: ${answers.A}°`} />
+            <Text x="350" y="280" text={answers.B && `B: ${answers.B}°`} />
+            <Text x="48" y="252" text="C: 90°" />
+            <Text x="175" y="280" text={answers.a && `a: ${answers.a}`} />
+            <Text x="15" y="180" text={answers.b && `b: ${answers.b}`} />
+            <Text x="200" y="180" text={answers.c && `c: ${answers.c}`} />
+          </Svg>
+          <Input
+            name="a"
+            value={a}
+            readOnly={readonly['a']}
+            placeholder="Katete a"
+            className="border-nord12 focus:ring-nord12 focus:border-nord12"
+            onChange={handleChange}
+          />
+          <Input
+            name="B"
+            value={B}
+            readOnly={readonly['B']}
+            placeholder="Vinkel B"
+            className="float-right -mr-20 border-nord9 focus:ring-nord9 focus:border-nord9"
+            onChange={handleChange}
+          />
+        </div>
+      </Calculator>
+    </>
   );
 }

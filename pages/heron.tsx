@@ -2,6 +2,7 @@ import { ParseAnswer } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import { AnswerProps, InputProps } from '@interfaces/index';
+import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
 export default function Heron() {
@@ -37,5 +38,13 @@ export default function Heron() {
       },
     ]);
   }
-  return <Calculator inputs={inputs} calculate={calc} answers={answers} />;
+  return (
+    <>
+      <NextSeo
+        title="Herons formel beregner"
+        description="Beregn areal af en trekant ud fra dens sidelængder ved hjælp af herons formel"
+      />
+      <Calculator inputs={inputs} calculate={calc} answers={answers} />
+    </>
+  );
 }

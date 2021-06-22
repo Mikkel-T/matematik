@@ -1,6 +1,7 @@
 import { ParseAnswer } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import { AnswerProps, InputProps } from '@interfaces/index';
+import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
 export default function Renter() {
@@ -44,5 +45,13 @@ export default function Renter() {
       },
     ]);
   }
-  return <Calculator inputs={inputs} calculate={calc} answers={answers} />;
+  return (
+    <>
+      <NextSeo
+        title="Renters rente beregner"
+        description="Beregn slutkapital ved hjælp af startkapital, rente og antal terminer"
+      />
+      <Calculator inputs={inputs} calculate={calc} answers={answers} />
+    </>
+  );
 }

@@ -33,8 +33,6 @@ export type FractionProps = {
 export type Pages = {
   name: string;
   path: string;
-  description: string;
-  showCard: boolean;
 };
 
 export type LinkProps = {

@@ -2,6 +2,7 @@ import { ParseAnswer } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import { AnswerProps, InputProps } from '@interfaces/index';
+import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
 export default function Funktion_1_grad() {
@@ -41,13 +42,19 @@ export default function Funktion_1_grad() {
     ]);
   }
   return (
-    <Calculator inputs={inputs} calculate={calc} answers={answers}>
-      <div>
-        Punkt 1: ({x1 || 0}, {y1 || 0})
-      </div>
-      <div>
-        Punkt 2: ({x2 || 0}, {y2 || 0})
-      </div>
-    </Calculator>
+    <>
+      <NextSeo
+        title="Funktionsforskrift for en 1. gradsfunktion"
+        description="Beregn funktionsforskriften for en 1. gradsfunktion"
+      />
+      <Calculator inputs={inputs} calculate={calc} answers={answers}>
+        <div>
+          Punkt 1: ({x1 || 0}, {y1 || 0})
+        </div>
+        <div>
+          Punkt 2: ({x2 || 0}, {y2 || 0})
+        </div>
+      </Calculator>
+    </>
   );
 }

@@ -3,6 +3,7 @@ import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import { AnswerProps, InputProps } from '@interfaces/index';
 import { factorial } from '@utils/index';
+import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
 export default function Kombinatorik() {
@@ -79,5 +80,13 @@ export default function Kombinatorik() {
       },
     ]);
   }
-  return <Calculator inputs={inputs} calculate={calc} answers={answers} />;
+  return (
+    <>
+      <NextSeo
+        title="Kombinatorik beregner"
+        description="Beregn de 4 forskellige former for stikprøver"
+      />
+      <Calculator inputs={inputs} calculate={calc} answers={answers} />
+    </>
+  );
 }

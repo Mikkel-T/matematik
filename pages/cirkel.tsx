@@ -3,6 +3,7 @@ import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import Svg, { Circle, Input, Path, Text } from '@components/Svg';
 import { AnswerProps } from '@interfaces/index';
+import { NextSeo } from 'next-seo';
 import { ChangeEvent, useState } from 'react';
 
 export default function Cirkel() {
@@ -155,64 +156,70 @@ export default function Cirkel() {
     setReadonly(readonlyTmp);
   }
   return (
-    <Calculator calculate={calc} answers={calculations}>
-      <div className="text-center w-[600px] m-auto h-[500px]">
-        <Input
-          name="Omkreds"
-          value={Omkreds}
-          readOnly={readonly['Omkreds']}
-          className="float-left -mb-11 border-nord9 focus:ring-nord9 focus:border-nord9"
-          onChange={handleChange}
-        />
-        <Input
-          name="Diameter"
-          value={Diameter}
-          readOnly={readonly['Diameter']}
-          className="mt-24 absolute  ml-2 border-nord14 focus:ring-nord14 focus:border-nord14"
-          onChange={handleChange}
-        />
-        <Input
-          name="Areal"
-          value={Areal}
-          readOnly={readonly['Areal']}
-          className="absolute mt-[12.5rem] -ml-48 border-nord3 focus:ring-nord10 focus:border-nord10"
-          onChange={handleChange}
-        />
-        <Input
-          name="Radius"
-          value={Radius}
-          readOnly={readonly['Radius']}
-          className="absolute mt-[12.5rem] ml-10 border-nord12 focus:ring-nord12 focus:border-nord12"
-          onChange={handleChange}
-        />
-        <Svg width="600" height="500">
-          <Circle x="300" y="250" r="247" className="text-nord9" />
-          <Path d="M 300 3 V 496" className="text-nord14" />
-          <Path d="m 300 250 H 546" className="text-nord12" />
+    <>
+      <NextSeo
+        title="Cirkel beregner"
+        description="Beregn radius, diameter, areal og omkreds af en cirkel"
+      />
+      <Calculator calculate={calc} answers={calculations}>
+        <div className="text-center w-[600px] m-auto h-[500px]">
+          <Input
+            name="Omkreds"
+            value={Omkreds}
+            readOnly={readonly['Omkreds']}
+            className="float-left -mb-11 border-nord9 focus:ring-nord9 focus:border-nord9"
+            onChange={handleChange}
+          />
+          <Input
+            name="Diameter"
+            value={Diameter}
+            readOnly={readonly['Diameter']}
+            className="mt-24 absolute  ml-2 border-nord14 focus:ring-nord14 focus:border-nord14"
+            onChange={handleChange}
+          />
+          <Input
+            name="Areal"
+            value={Areal}
+            readOnly={readonly['Areal']}
+            className="absolute mt-[12.5rem] -ml-48 border-nord3 focus:ring-nord10 focus:border-nord10"
+            onChange={handleChange}
+          />
+          <Input
+            name="Radius"
+            value={Radius}
+            readOnly={readonly['Radius']}
+            className="absolute mt-[12.5rem] ml-10 border-nord12 focus:ring-nord12 focus:border-nord12"
+            onChange={handleChange}
+          />
+          <Svg width="600" height="500">
+            <Circle x="300" y="250" r="247" className="text-nord9" />
+            <Path d="M 300 3 V 496" className="text-nord14" />
+            <Path d="m 300 250 H 546" className="text-nord12" />
 
-          <Text
-            x="340"
-            y="270"
-            text={answers.Radius && `Radius: ${answers.Radius}`}
-          />
-          <Text
-            x="310"
-            y="155"
-            text={answers.Diameter && `Diameter: ${answers.Diameter}`}
-          />
-          <Text
-            x="0"
-            y="60"
-            text={answers.Omkreds && `Omkreds: ${answers.Omkreds}`}
-          />
-          <Text
-            x="110"
-            y="260"
-            text={answers.Areal && `Areal: ${answers.Areal}`}
-          />
-        </Svg>
-      </div>
-      <div>Pi (π) er sat til: {Math.PI}</div>
-    </Calculator>
+            <Text
+              x="340"
+              y="270"
+              text={answers.Radius && `Radius: ${answers.Radius}`}
+            />
+            <Text
+              x="310"
+              y="155"
+              text={answers.Diameter && `Diameter: ${answers.Diameter}`}
+            />
+            <Text
+              x="0"
+              y="60"
+              text={answers.Omkreds && `Omkreds: ${answers.Omkreds}`}
+            />
+            <Text
+              x="110"
+              y="260"
+              text={answers.Areal && `Areal: ${answers.Areal}`}
+            />
+          </Svg>
+        </div>
+        <div>Pi (π) er sat til: {Math.PI}</div>
+      </Calculator>
+    </>
   );
 }

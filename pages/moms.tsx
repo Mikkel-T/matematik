@@ -2,6 +2,7 @@ import { ParseAnswer } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import { AnswerProps, InputProps } from '@interfaces/index';
+import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
 export default function Moms() {
@@ -29,5 +30,13 @@ export default function Moms() {
       },
     ]);
   }
-  return <Calculator inputs={inputs} calculate={calc} answers={answers} />;
+  return (
+    <>
+      <NextSeo
+        title="Moms beregner"
+        description="Beregn en pris med og uden moms"
+      />
+      <Calculator inputs={inputs} calculate={calc} answers={answers} />
+    </>
+  );
 }
