@@ -265,7 +265,7 @@ export default function Trigonometri() {
             value={A}
             readOnly={readonly['A']}
             placeholder="Vinkel A"
-            className="float-left -ml-20 border-nord12 focus:ring-nord12 focus:border-nord12"
+            className="border-nord12 focus:ring-nord12 focus:border-nord12 float-left -ml-20"
             onChange={handleChange}
           />
           <Input
@@ -281,7 +281,7 @@ export default function Trigonometri() {
             value={c}
             readOnly={readonly['c']}
             placeholder="Hypotenuse c"
-            className="mt-40 absolute border-nord14 focus:ring-nord14 focus:border-nord14"
+            className="border-nord14 focus:ring-nord14 focus:border-nord14 absolute mt-40"
             onChange={handleChange}
             min={Math.max(+a || 0, +b || 0)}
           />
@@ -317,7 +317,7 @@ export default function Trigonometri() {
             value={B}
             readOnly={readonly['B']}
             placeholder="Vinkel B"
-            className="float-right -mr-20 border-nord9 focus:ring-nord9 focus:border-nord9"
+            className="border-nord9 focus:ring-nord9 focus:border-nord9 float-right -mr-20"
             onChange={handleChange}
           />
         </div>

@@ -32,14 +32,14 @@ export default function Calculator({
         <div>
           <input
             type="submit"
-            className="mt-3 bg-nord2 hover:bg-nord3 hover:border-nord2 border-2 border-nord3 w-3/4 md:w-2/6 p-2 rounded-md focus:outline-none"
+            className="bg-nord2 hover:bg-nord3 hover:border-nord2 border-nord3 md:w-2/6 focus:outline-none w-3/4 p-2 mt-3 border-2 rounded-md"
             value="Beregn"
           />
         </div>
       </form>
       <div className="my-3">
         {answers.filter((e) => e.answer)[0] && (
-          <div className="text-lg font-bold text-nord4">Svar:</div>
+          <div className="text-nord4 text-lg font-bold">Svar:</div>
         )}
         {answers.map((ans, i) => (
           <div key={i}>
@@ -51,7 +51,7 @@ export default function Calculator({
       </div>
       <div className="my-3">
         {answers.filter((e) => e.calculation)[0] && (
-          <div className="text-lg font-bold text-nord4">Beregninger:</div>
+          <div className="text-nord4 text-lg font-bold">Beregninger:</div>
         )}
         {answers.map((ans, i) => (
           <div key={i}>

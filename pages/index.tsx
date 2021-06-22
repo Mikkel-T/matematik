@@ -10,11 +10,11 @@ export default function Home() {
         description="En hjemmeside med mange forskellige matematiske værktøjer"
       />
       <div>
-        <h1 className="text-4xl py-3">Beregnere</h1>
-        <div className="grid gap-4 p-3 m-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
+        <h1 className="py-3 text-4xl">Beregnere</h1>
+        <div className="sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 grid grid-cols-1 gap-4 p-3 m-auto">
           {frontPage.map((e, i) => (
             <Link href={e.path} key={i}>
-              <a className="flex hover:scale-105 transform transition duration-500 items-center justify-center text-center bg-nord3 rounded-xl h-20 border-2 border-nord10 px-2">
+              <a className="hover:scale-105 bg-nord3 rounded-xl border-nord10 flex items-center justify-center h-20 px-2 text-center transition duration-500 transform border-2">
                 {e.name}
               </a>
             </Link>

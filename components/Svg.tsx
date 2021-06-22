@@ -11,7 +11,7 @@ export default function Svg({ children, height, width }: SvgProps) {
     <svg
       width={width}
       height={height}
-      className="stroke-2 fill-transparent m-auto"
+      className="fill-transparent m-auto stroke-2"
       xmlns="http://www.w3.org/2000/svg"
     >
       {children}

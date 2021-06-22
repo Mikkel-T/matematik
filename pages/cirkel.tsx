@@ -167,14 +167,14 @@ export default function Cirkel() {
             name="Omkreds"
             value={Omkreds}
             readOnly={readonly['Omkreds']}
-            className="float-left -mb-11 border-nord9 focus:ring-nord9 focus:border-nord9"
+            className="-mb-11 border-nord9 focus:ring-nord9 focus:border-nord9 float-left"
             onChange={handleChange}
           />
           <Input
             name="Diameter"
             value={Diameter}
             readOnly={readonly['Diameter']}
-            className="mt-24 absolute  ml-2 border-nord14 focus:ring-nord14 focus:border-nord14"
+            className="border-nord14 focus:ring-nord14 focus:border-nord14 absolute mt-24 ml-2"
             onChange={handleChange}
           />
           <Input

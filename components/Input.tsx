@@ -8,7 +8,7 @@ export default function Input({
   label,
 }: InputProps) {
   return (
-    <div className="w-3/4 md:w-2/6 m-auto text-left">
+    <div className="md:w-2/6 w-3/4 m-auto text-left">
       <div className="pl-1">
         <label htmlFor={name} className="font-bold">
           {label || name}:
@@ -22,7 +22,7 @@ export default function Input({
         placeholder={placeholder || name}
         value={value}
         onChange={(e) => setInput(e.target.value)}
-        className="w-full p-2 rounded-md bg-nord1 border border-nord3 focus:ring-nord10 focus:border-nord10"
+        className="bg-nord1 border-nord3 focus:ring-nord10 focus:border-nord10 w-full p-2 border rounded-md"
       />
     </div>
   );
