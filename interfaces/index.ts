@@ -39,3 +39,8 @@ export type LinkProps = {
   href: string;
   text: string | ReactNode;
 };
+
+export type ListProps = {
+  list: Pages[];
+  title: string;
+};
