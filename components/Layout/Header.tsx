@@ -1,4 +1,4 @@
-import { HomeIcon } from '@heroicons/react/solid';
+import { ArrowSmLeftIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -7,10 +7,10 @@ export default function Header() {
   return (
     <div>
       {router.pathname !== '/' && (
-        <Link href="/">
+        <Link href={`${router.pathname}/..`}>
           <a className="hover:text-nord10 text-nord8 ml-1">
-            <HomeIcon className="h-5 w-5 inline-block align-middle mr-1.5" />
-            <span className="inline-block align-middle">Til startsiden</span>
+            <ArrowSmLeftIcon className="h-5 w-5 inline-block align-middle mr-1.5" />
+            <span className="inline-block align-middle">Til forrige side</span>
           </a>
         </Link>
       )}

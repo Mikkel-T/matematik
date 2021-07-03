@@ -1,5 +1,4 @@
 import List from '@components/List';
-import { frontPage } from '@utils/pages';
 import { NextSeo } from 'next-seo';
 
 export default function Home() {
@@ -7,9 +6,37 @@ export default function Home() {
     <>
       <NextSeo
         title="Matematik beregnere"
-        description="En hjemmeside med mange forskellige matematiske værktøjer"
+        description="En samling af mange forskellige matematiske værktøjer"
       />
-      <List list={frontPage} title="Beregnere" />
+      <List
+        list={[
+          {
+            name: '1. gradsfunktion',
+            path: '1-grad-funktion',
+          },
+          {
+            name: '2. gradsfunktion',
+            path: '2-grad-funktion',
+          },
+          {
+            name: 'Geometri',
+            path: 'geometri',
+          },
+          {
+            name: 'Kombinatorik stikprøver',
+            path: 'kombinatorik',
+          },
+          {
+            name: 'Momsberegner',
+            path: 'moms',
+          },
+          {
+            name: 'Renters rente',
+            path: 'renter',
+          },
+        ]}
+        title="Beregnere"
+      />
     </>
   );
 }
