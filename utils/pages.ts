@@ -22,6 +22,10 @@ export const frontPage: Pages[] = [
     path: '/kombinatorik',
   },
   {
+    name: 'Kvadrat beregner',
+    path: '/kvadrat',
+  },
+  {
     name: 'Momsberegner',
     path: '/moms',
   },
