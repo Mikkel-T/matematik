@@ -259,13 +259,13 @@ export default function Trigonometri() {
         description="Beregn alle sider og vinkler i en retvinklet trekant ved hjælp af trigonometri og pythagoras"
       />
       <Calculator calculate={calc} answers={calculations}>
-        <div className="text-center w-[500px] m-auto h-[440px] ml-40 md:ml-auto">
+        <div className="text-center w-[750px] m-auto h-[440px] pl-12">
           <Input
             name="A"
             value={A}
             readOnly={readonly['A']}
             placeholder="Vinkel A"
-            className="border-nord12 focus:ring-nord12 focus:border-nord12 float-left -ml-20"
+            className="border-nord12 focus:ring-nord12 focus:border-nord12 float-left ml-16"
             onChange={handleChange}
           />
           <Input
@@ -273,7 +273,7 @@ export default function Trigonometri() {
             value={b}
             readOnly={readonly['b']}
             placeholder="Katete b"
-            className="absolute ml-[-430px] mt-44 border-nord9 focus:ring-nord9 focus:border-nord9"
+            className="float-left mt-48 -mb-44 ml-[-253px] border-nord9 focus:ring-nord9 focus:border-nord9"
             onChange={handleChange}
           />
           <Input
@@ -281,7 +281,7 @@ export default function Trigonometri() {
             value={c}
             readOnly={readonly['c']}
             placeholder="Hypotenuse c"
-            className="border-nord14 focus:ring-nord14 focus:border-nord14 absolute mt-40"
+            className="border-nord14 focus:ring-nord14 focus:border-nord14 absolute mt-40 -ml-20"
             onChange={handleChange}
             min={Math.max(+a || 0, +b || 0)}
           />
@@ -309,7 +309,7 @@ export default function Trigonometri() {
             value={a}
             readOnly={readonly['a']}
             placeholder="Katete a"
-            className="border-nord12 focus:ring-nord12 focus:border-nord12"
+            className="border-nord12 focus:ring-nord12 focus:border-nord12 -mr-24"
             onChange={handleChange}
           />
           <Input
@@ -317,7 +317,7 @@ export default function Trigonometri() {
             value={B}
             readOnly={readonly['B']}
             placeholder="Vinkel B"
-            className="border-nord9 focus:ring-nord9 focus:border-nord9 float-right -mr-20"
+            className="border-nord9 focus:ring-nord9 focus:border-nord9 float-right mr-8"
             onChange={handleChange}
           />
         </div>
