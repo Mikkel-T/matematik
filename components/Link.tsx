@@ -7,7 +7,7 @@ export default function Link({ href, text }: LinkProps) {
       <a
         target="_blank"
         rel="noopener noreferrer"
-        className="text-nord8 hover:text-nord10"
+        className="text-nord8 hover:underline"
       >
         {text}
       </a>
