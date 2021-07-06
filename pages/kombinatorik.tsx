@@ -2,7 +2,7 @@ import { ParseAnswer } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import { AnswerProps, InputProps } from '@interfaces/index';
-import { factorial } from '@utils/index';
+import { factorial } from 'mathjs';
 import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
@@ -28,6 +28,8 @@ export default function Kombinatorik() {
   function calc() {
     const int_n = +n;
     const int_p = +p;
+
+    if (int_n < int_p) throw new Error('n skal være større end p');
 
     const ordnetMed = ParseAnswer(Math.pow(int_n, int_p));
     const ordnetUden = ParseAnswer(factorial(int_n) / factorial(int_n - int_p));

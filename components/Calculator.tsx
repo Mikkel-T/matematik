@@ -1,5 +1,5 @@
 import { CalculatorProps } from '@interfaces/index';
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 
 import Answer from './Answer';
 import Input from './Input';
@@ -10,9 +10,17 @@ export default function Calculator({
   answers,
   children,
 }: CalculatorProps) {
+  const [error, setError] = useState('');
   function onSubmit(e: FormEvent) {
     e.preventDefault();
-    calculate();
+    console.log('Starting');
+    try {
+      calculate();
+      setError('');
+    } catch (e) {
+      setError(e.message);
+    }
+    console.log('Stopping');
   }
   return (
     <>
@@ -37,30 +45,35 @@ export default function Calculator({
           />
         </div>
       </form>
-      <div className="my-3">
-        {answers.filter((e) => e.answer)[0] && (
-          <div className="text-nord4 text-lg font-bold">Svar:</div>
-        )}
-        {answers.map((ans, i) => (
-          <div key={i}>
-            {typeof ans.answer !== 'undefined' && (
-              <Answer name={ans.name} answer={ans.answer} />
+      {error && <div className="my-3">Fejl: {error}</div>}
+      {!error && (
+        <>
+          <div className="my-3">
+            {answers.filter((e) => e.answer)[0] && (
+              <div className="text-nord4 text-lg font-bold">Svar:</div>
             )}
+            {answers.map((ans, i) => (
+              <div key={i}>
+                {typeof ans.answer !== 'undefined' && (
+                  <Answer name={ans.name} answer={ans.answer} />
+                )}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="my-3">
-        {answers.filter((e) => e.calculation)[0] && (
-          <div className="text-nord4 text-lg font-bold">Beregninger:</div>
-        )}
-        {answers.map((ans, i) => (
-          <div key={i}>
-            {typeof ans.calculation !== 'undefined' && (
-              <Answer name={ans.name} answer={ans.calculation} />
+          <div className="my-3">
+            {answers.filter((e) => e.calculation)[0] && (
+              <div className="text-nord4 text-lg font-bold">Beregninger:</div>
             )}
+            {answers.map((ans, i) => (
+              <div key={i}>
+                {typeof ans.calculation !== 'undefined' && (
+                  <Answer name={ans.name} answer={ans.calculation} />
+                )}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
     </>
   );
 }
