@@ -1,8 +1,7 @@
-import { ParseAnswer } from '@components/Answer';
+import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import { AnswerProps, InputProps } from '@interfaces/index';
-import { factorial } from 'mathjs';
 import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
@@ -26,37 +25,27 @@ export default function Kombinatorik() {
   ];
 
   function calc() {
-    const int_n = +n;
-    const int_p = +p;
+    const vars = { n, p };
 
-    if (int_n < int_p) throw new Error('n skal være større end p');
+    if (+n < +p) throw new Error('n skal være større end p');
 
-    const ordnetMed = ParseAnswer(Math.pow(int_n, int_p));
-    const ordnetUden = ParseAnswer(factorial(int_n) / factorial(int_n - int_p));
-    const uordnetMed = ParseAnswer(
-      factorial(int_n + int_p - 1) / (factorial(int_n - 1) * factorial(int_p))
-    );
-    const uordnetUden = ParseAnswer(
-      factorial(int_n) / (factorial(int_n - int_p) * factorial(int_p))
-    );
+    const ordnetMed = Calculate('n^p', vars);
+    const ordnetUden = Calculate('n! / (n - p)!', vars);
+    const uordnetMed = Calculate('(n + p - 1)! /((n - 1)! * p!)', vars);
+    const uordnetUden = Calculate('n! /((n - p)! * p!)', vars);
 
     const ordnetMedCalc = (
       <>
-        {int_n}
-        <sup>{int_p}</sup>
+        {n}
+        <sup>{p}</sup>
       </>
     );
-    const ordnetUdenCalc = (
-      <Fraction t={`${int_n}!`} n={`(${int_n} - ${int_p})!`} />
-    );
+    const ordnetUdenCalc = <Fraction t={`${n}!`} n={`(${n} - ${p})!`} />;
     const uordnetMedCalc = (
-      <Fraction
-        t={`(${int_n} + ${int_p} - 1)!`}
-        n={`(${int_n} - 1)! * ${int_p}!`}
-      />
+      <Fraction t={`(${n} + ${p} - 1)!`} n={`(${n} - 1)! * ${p}!`} />
     );
     const uordnetUdenCalc = (
-      <Fraction t={`${int_n}!`} n={`(${int_n} - ${int_p})! * ${int_p}!`} />
+      <Fraction t={`${n}!`} n={`(${n} - ${p})! * ${p}!`} />
     );
 
     setAnswers([

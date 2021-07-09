@@ -13,14 +13,12 @@ export default function Calculator({
   const [error, setError] = useState('');
   function onSubmit(e: FormEvent) {
     e.preventDefault();
-    console.log('Starting');
     try {
       calculate();
       setError('');
     } catch (e) {
       setError(e.message);
     }
-    console.log('Stopping');
   }
   return (
     <>
@@ -40,7 +38,7 @@ export default function Calculator({
         <div>
           <input
             type="submit"
-            className="bg-nord2 hover:bg-nord3 hover:border-nord2 border-nord3 md:w-2/6 focus:outline-none w-3/4 p-2 mt-3 border-2 rounded-md"
+            className="bg-nord2 hover:bg-nord3 hover:border-nord2 border-nord3 md:w-2/6 focus:outline-none w-3/4 p-2 mt-3 border-2 rounded-md cursor-pointer"
             value="Beregn"
           />
         </div>

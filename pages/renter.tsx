@@ -1,4 +1,4 @@
-import { ParseAnswer } from '@components/Answer';
+import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import { AnswerProps, InputProps } from '@interfaces/index';
 import { NextSeo } from 'next-seo';
@@ -21,15 +21,13 @@ export default function Renter() {
   ];
 
   function calc() {
-    let int_K = +K;
-    let int_r = +r;
-    let int_n = +n;
+    const vars = { K, r, n };
 
-    const Kn = ParseAnswer(int_K * Math.pow(1 + int_r, int_n));
+    const Kn = Calculate('K * (1 + r)^n', vars);
 
     const KnCalc = (
       <>
-        {int_K} * (1 + {int_r})<sup>{int_n}</sup>
+        {K} * (1 + {r})<sup>{n}</sup>
       </>
     );
 

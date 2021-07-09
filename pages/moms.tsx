@@ -1,4 +1,4 @@
-import { ParseAnswer } from '@components/Answer';
+import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import { AnswerProps, InputProps } from '@interfaces/index';
@@ -13,13 +13,13 @@ export default function Moms() {
   ];
 
   function calc() {
-    const int_pris = +pris;
+    const vars = { pris };
 
-    const prisMoms = ParseAnswer(int_pris * 1.25);
-    const prisUdenMoms = ParseAnswer(int_pris / 1.25);
+    const prisMoms = Calculate('pris * 1.25', vars);
+    const prisUdenMoms = Calculate('pris / 1.25', vars);
 
-    const prisMomsCalc = `${int_pris} * 1.25`;
-    const prisUdenMomsCalc = <Fraction t={int_pris} n={1.25} />;
+    const prisMomsCalc = `${pris} * 1.25`;
+    const prisUdenMomsCalc = <Fraction t={pris} n={1.25} />;
 
     setAnswers([
       { name: 'Pris med moms', answer: prisMoms, calculation: prisMomsCalc },

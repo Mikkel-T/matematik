@@ -1,4 +1,4 @@
-import { ParseAnswer } from '@components/Answer';
+import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import { AnswerProps, InputProps } from '@interfaces/index';
@@ -17,14 +17,13 @@ export default function Heron() {
   ];
 
   function calc() {
-    const int_a = +a;
-    const int_b = +b;
-    const int_c = +c;
+    const vars = { a, b, c };
 
-    const s = ParseAnswer((int_a + int_b + int_c) / 2);
-    const areal = ParseAnswer(
-      Math.sqrt(s * (s - int_a) * (s - int_b) * (s - int_c))
-    );
+    const s = Calculate('(a + b + c) / 2', vars);
+    const areal = Calculate('sqrt(s * (s - a) * (s - b) * (s - c))', {
+      ...vars,
+      s,
+    });
 
     const sCalc = <Fraction t={`${a} + ${b} + ${c}`} n={2} />;
     const arealCalc = `√${s} * (${s} - ${a}) * (${s} - ${b}) * (${s} - ${c})`;

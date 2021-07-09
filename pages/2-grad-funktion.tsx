@@ -1,4 +1,4 @@
-import { ParseAnswer } from '@components/Answer';
+import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import { AnswerProps, InputProps } from '@interfaces/index';
@@ -36,25 +36,22 @@ export default function Funktion_2_grad() {
   ];
 
   function calc() {
-    const int_a = +a;
-    const int_b = +b;
-    const int_c = +c;
+    const vars = { a, b, c };
 
-    const D = ParseAnswer(Math.pow(int_b, 2) - 4 * int_a * int_c);
-    const Tp_x = ParseAnswer(-int_b / (2 * int_a));
-    const Tp_y = ParseAnswer(-D / (4 * int_a));
+    const D = Calculate('b^2 - 4 * a * c', vars);
+    const Tp_x = Calculate('-b / (2 * a)', vars);
+    const Tp_y = Calculate('-D / (4 * a)', { ...vars, D });
     const Tp = `(${Tp_x}, ${Tp_y})`;
 
     const DCalc = (
       <>
-        {int_b}
-        <sup>2</sup> - 4 * {int_a} * {int_c}
+        {b}
+        <sup>2</sup> - 4 * {a} * {c}
       </>
     );
     const TpCalc = (
       <>
-        (<Fraction t={-int_b} n={`2 * ${int_a}`} />,{' '}
-        <Fraction t={-D} n={`4 * ${int_a}`} />)
+        (<Fraction t={-b} n={`2 * ${a}`} />, <Fraction t={-D} n={`4 * ${a}`} />)
       </>
     );
 
@@ -66,25 +63,25 @@ export default function Funktion_2_grad() {
     if (D < 0) {
       Np = 'Der er ikke nogle nulpunkter da D er under 0';
     } else if (D === 0) {
-      const Np_x = ParseAnswer((-int_b + Math.sqrt(D)) / (2 * int_a));
+      const Np_x = Calculate('(-b + sqrt(D)) / (2 * a)', { ...vars, D });
       Np = `(${Np_x}, 0)`;
       NpCalc = (
         <>
-          (<Fraction t={`${-int_b} + √${D}`} n={`2 * ${int_a}`} />, 0)
+          (<Fraction t={`${-b} + √${D}`} n={`2 * ${a}`} />, 0)
         </>
       );
     } else {
-      const Np1_x = ParseAnswer((-int_b + Math.sqrt(D)) / (2 * int_a));
-      const Np2_x = ParseAnswer((-int_b - Math.sqrt(D)) / (2 * int_a));
+      const Np1_x = Calculate('(-b + sqrt(D)) / (2 * a)', { ...vars, D });
+      const Np2_x = Calculate('(-b - sqrt(D)) / (2 * a)', { ...vars, D });
       Np = `(${Np1_x}, 0) & (${Np2_x}, 0)`;
       Np1Calc = (
         <>
-          (<Fraction t={`${-int_b} + √${D}`} n={`2 * ${int_a}`} />, 0)
+          (<Fraction t={`${-b} + √${D}`} n={`2 * ${a}`} />, 0)
         </>
       );
       Np2Calc = (
         <>
-          (<Fraction t={`${-int_b} - √${D}`} n={`2 * ${int_a}`} />, 0)
+          (<Fraction t={`${-b} - √${D}`} n={`2 * ${a}`} />, 0)
         </>
       );
     }

@@ -1,3 +1,12 @@
 {
-  "extends": "next"
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "rules": {
+    "semi": ["warn", "always"],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "no-console": ["warn"]
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "next"]
 }

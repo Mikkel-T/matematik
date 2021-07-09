@@ -1,4 +1,4 @@
-import { ParseAnswer } from '@components/Answer';
+import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import Svg, { Input, Path, Text } from '@components/Svg';
@@ -26,10 +26,7 @@ export default function Kvadrat() {
   });
 
   function calc() {
-    let int_Side = +Side;
-    let int_Diagonal = +Diagonal;
-    let int_Omkreds = +Omkreds;
-    let int_Areal = +Areal;
+    const vars = { Side, Diagonal, Omkreds, Areal };
 
     let answer: Record<string, string | number> = {
       Side: '',
@@ -43,10 +40,10 @@ export default function Kvadrat() {
     let Areal_calc: AnswerProps = { name: 'Areal' };
 
     if (Side !== '') {
-      answer['Side'] = ParseAnswer(int_Side);
-      answer['Diagonal'] = ParseAnswer(int_Side * Math.sqrt(2));
-      answer['Omkreds'] = ParseAnswer(int_Side * 4);
-      answer['Areal'] = ParseAnswer(Math.pow(int_Side, 2));
+      answer['Side'] = Calculate('Side', vars);
+      answer['Diagonal'] = Calculate('Side * sqrt(2)', vars);
+      answer['Omkreds'] = Calculate('Side * 4', vars);
+      answer['Areal'] = Calculate('Side^2', vars);
 
       Side_calc.calculation = `${Side} blev indtastet`;
       Diagonal_calc.calculation = `${Side} * √2`;
@@ -60,10 +57,10 @@ export default function Kvadrat() {
     }
 
     if (Diagonal !== '') {
-      answer['Side'] = ParseAnswer(int_Diagonal / Math.sqrt(2));
-      answer['Diagonal'] = ParseAnswer(int_Diagonal);
-      answer['Omkreds'] = ParseAnswer((int_Diagonal / Math.sqrt(2)) * 4);
-      answer['Areal'] = ParseAnswer(Math.pow(int_Diagonal / Math.sqrt(2), 2));
+      answer['Side'] = Calculate('Diagonal / sqrt(2)', vars);
+      answer['Diagonal'] = Calculate('Diagonal', vars);
+      answer['Omkreds'] = Calculate('(Diagonal / sqrt(2)) * 4', vars);
+      answer['Areal'] = Calculate('(Diagonal / sqrt(2))^2', vars);
 
       Side_calc.calculation = <Fraction t={Diagonal} n={'√2'} />;
       Diagonal_calc.calculation = `${Diagonal} blev indtastet`;
@@ -80,12 +77,12 @@ export default function Kvadrat() {
     }
 
     if (Omkreds !== '') {
-      answer['Side'] = ParseAnswer(int_Omkreds / 4);
-      answer['Diagonal'] = ParseAnswer((int_Omkreds / 4) * Math.sqrt(2));
-      answer['Omkreds'] = ParseAnswer(int_Omkreds);
-      answer['Areal'] = ParseAnswer(Math.pow(int_Omkreds / 4, 2));
+      answer['Side'] = Calculate('Omkreds / 4', vars);
+      answer['Diagonal'] = Calculate('(Omkreds / 4) * sqrt(2)', vars);
+      answer['Omkreds'] = Calculate('Omkreds', vars);
+      answer['Areal'] = Calculate('(Omkreds / 4)^2', vars);
 
-      Side_calc.calculation = <Fraction t={Omkreds} n={`4`} />;
+      Side_calc.calculation = <Fraction t={Omkreds} n={'4'} />;
       Diagonal_calc.calculation = (
         <>
           <Fraction t={Omkreds} n="4" /> * √2
@@ -100,10 +97,10 @@ export default function Kvadrat() {
     }
 
     if (Areal !== '') {
-      answer['Side'] = ParseAnswer(Math.sqrt(int_Areal));
-      answer['Diagonal'] = ParseAnswer(Math.sqrt(int_Areal) * Math.sqrt(2));
-      answer['Omkreds'] = ParseAnswer(Math.sqrt(int_Areal) * 4);
-      answer['Areal'] = ParseAnswer(int_Areal);
+      answer['Side'] = Calculate('sqrt(Areal)', vars);
+      answer['Diagonal'] = Calculate('sqrt(Areal) * sqrt(2)', vars);
+      answer['Omkreds'] = Calculate('sqrt(Areal) * 4', vars);
+      answer['Areal'] = Calculate('Areal', vars);
 
       Side_calc.calculation = `√${Areal}`;
       Diagonal_calc.calculation = `√${Areal} * √2`;

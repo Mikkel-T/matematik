@@ -1,9 +1,10 @@
-import { ParseAnswer } from '@components/Answer';
+import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import Svg, { Circle, Input, Path, Text } from '@components/Svg';
 import { AnswerProps } from '@interfaces/index';
 import { NextSeo } from 'next-seo';
+import { pi } from 'mathjs';
 import { ChangeEvent, useState } from 'react';
 
 export default function Cirkel() {
@@ -26,10 +27,7 @@ export default function Cirkel() {
   });
 
   function calc() {
-    let int_Radius = +Radius;
-    let int_Diameter = +Diameter;
-    let int_Omkreds = +Omkreds;
-    let int_Areal = +Areal;
+    const vars = { Radius, Diameter, Areal, Omkreds };
 
     let answer: Record<string, string | number> = {
       Radius: '',
@@ -43,10 +41,10 @@ export default function Cirkel() {
     let Areal_calc: AnswerProps = { name: 'Areal' };
 
     if (Radius !== '') {
-      answer['Radius'] = ParseAnswer(int_Radius);
-      answer['Diameter'] = ParseAnswer(int_Radius * 2);
-      answer['Omkreds'] = ParseAnswer(int_Radius * 2 * Math.PI);
-      answer['Areal'] = ParseAnswer(Math.pow(int_Radius, 2) * Math.PI);
+      answer['Radius'] = Calculate('Radius', vars);
+      answer['Diameter'] = Calculate('Radius * 2', vars);
+      answer['Omkreds'] = Calculate('Radius * 2 * pi', vars);
+      answer['Areal'] = Calculate('Radius^2 * pi', vars);
 
       Radius_calc.calculation = `${Radius} blev indtastet`;
       Diameter_calc.calculation = `${Diameter} * 2`;
@@ -60,10 +58,10 @@ export default function Cirkel() {
     }
 
     if (Diameter !== '') {
-      answer['Radius'] = ParseAnswer(int_Diameter / 2);
-      answer['Diameter'] = ParseAnswer(int_Diameter);
-      answer['Omkreds'] = ParseAnswer(int_Diameter * Math.PI);
-      answer['Areal'] = ParseAnswer(Math.pow(int_Diameter / 2, 2) * Math.PI);
+      answer['Radius'] = Calculate('Diameter / 2', vars);
+      answer['Diameter'] = Calculate('Diameter', vars);
+      answer['Omkreds'] = Calculate('Diameter * pi', vars);
+      answer['Areal'] = Calculate('(Diameter / 2)^2 * pi', vars);
 
       Radius_calc.calculation = <Fraction t={Diameter} n={2} />;
       Diameter_calc.calculation = `${Diameter} blev indtastet`;
@@ -76,12 +74,12 @@ export default function Cirkel() {
     }
 
     if (Omkreds !== '') {
-      answer['Radius'] = ParseAnswer(int_Omkreds / (2 * Math.PI));
-      answer['Diameter'] = ParseAnswer(int_Omkreds / Math.PI);
-      answer['Omkreds'] = ParseAnswer(int_Omkreds);
-      answer['Areal'] = ParseAnswer(Math.pow(int_Omkreds, 2) / (4 * Math.PI));
+      answer['Radius'] = Calculate('Omkreds / (2 * pi)', vars);
+      answer['Diameter'] = Calculate('Omkreds / pi', vars);
+      answer['Omkreds'] = Calculate('Omkreds', vars);
+      answer['Areal'] = Calculate('Omkreds^2 / (4 * pi)', vars);
 
-      Radius_calc.calculation = <Fraction t={Omkreds} n={`2 * π`} />;
+      Radius_calc.calculation = <Fraction t={Omkreds} n={'2 * π'} />;
       Diameter_calc.calculation = <Fraction t={Omkreds} n="π" />;
       Omkreds_calc.calculation = `${Omkreds} blev indtastet`;
       Areal_calc.calculation = (
@@ -92,18 +90,16 @@ export default function Cirkel() {
               <sup>2</sup>
             </>
           }
-          n={`4 * π`}
+          n={'4 * π'}
         />
       );
     }
 
     if (Areal !== '') {
-      answer['Radius'] = ParseAnswer(Math.sqrt(int_Areal / Math.PI));
-      answer['Diameter'] = ParseAnswer(Math.sqrt(int_Areal / Math.PI) * 2);
-      answer['Omkreds'] = ParseAnswer(
-        Math.sqrt(int_Areal / Math.PI) * 2 * Math.PI
-      );
-      answer['Areal'] = ParseAnswer(int_Areal);
+      answer['Radius'] = Calculate('sqrt(Areal / pi)', vars);
+      answer['Diameter'] = Calculate('sqrt(Areal / pi) * 2', vars);
+      answer['Omkreds'] = Calculate('sqrt(Areal / pi) * 2 * pi', vars);
+      answer['Areal'] = Calculate('Areal', vars);
 
       Radius_calc.calculation = (
         <>
@@ -218,7 +214,7 @@ export default function Cirkel() {
             />
           </Svg>
         </div>
-        <div>Pi (π) er sat til: {Math.PI}</div>
+        <div>Pi (π) er sat til: {pi}</div>
       </Calculator>
     </>
   );

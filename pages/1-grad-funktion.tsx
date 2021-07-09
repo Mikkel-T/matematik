@@ -1,5 +1,6 @@
-import { ParseAnswer } from '@components/Answer';
+import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
+import { abs } from 'mathjs';
 import Fraction from '@components/Fraction';
 import { AnswerProps, InputProps } from '@interfaces/index';
 import { NextSeo } from 'next-seo';
@@ -19,25 +20,20 @@ export default function Funktion_1_grad() {
   ];
 
   function calc() {
-    const int_x1 = +x1;
-    const int_x2 = +x2;
-    const int_y1 = +y1;
-    const int_y2 = +y2;
+    const vars = { x1, x2, y1, y2 };
 
-    const a = ParseAnswer((int_y2 - int_y1) / (int_x2 - int_x1));
-    const b = ParseAnswer(int_y1 - int_x1 * a);
+    const a = Calculate('(y2 - y1) / (x2 - x1)', vars);
+    const b = Calculate('y1 - x1 * a', { ...vars, a });
 
-    const aCalc = (
-      <Fraction t={`${int_y2} - ${int_y1}`} n={`${int_x2} - ${int_x1}`} />
-    );
-    const bCalc = `${int_y1} - (${int_x1} * ${a})`;
+    const aCalc = <Fraction t={`${y2} - ${y1}`} n={`${x2} - ${x1}`} />;
+    const bCalc = `${y1} - (${x1} * ${a})`;
 
     setAnswers([
       { name: 'a', answer: a, calculation: aCalc },
       { name: 'b', answer: b, calculation: bCalc },
       {
         name: 'Funktionsforskriften for linjen',
-        answer: `f(x) = ${a}x ${b > 0 ? '+' : '-'} ${Math.abs(b)}`,
+        answer: `f(x) = ${a}x ${b > 0 ? '+' : '-'} ${abs(b)}`,
       },
     ]);
   }

@@ -1,7 +1,6 @@
-import { ParseAnswer } from '@components/Answer';
+import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Svg, { Input, Path, Text } from '@components/Svg';
-import { acos, asin, atan, cos, sin, tan } from '@components/Trig';
 import {
   AngleCalc,
   FracCalc,
@@ -9,6 +8,7 @@ import {
   MultiplyCalc,
   SqrtCalc,
 } from '@components/TrigCalc';
+import { max } from 'mathjs';
 import { AnswerProps } from '@interfaces/index';
 import { NextSeo } from 'next-seo';
 import { ChangeEvent, useState } from 'react';
@@ -36,12 +36,7 @@ export default function Trigonometri() {
   });
 
   function calc() {
-    let int_a = +a;
-    let int_b = +b;
-    let int_c = +c;
-    let int_A = +A;
-    let int_B = +B;
-    let int_C = 90;
+    const vars = { a, b, c, A, B, C: 90 };
 
     let answer: Record<string, string | number> = {
       A: '',
@@ -57,111 +52,106 @@ export default function Trigonometri() {
     let c_calc: AnswerProps = { name: 'c' };
 
     if (A !== '') {
-      answer['A'] = ParseAnswer(int_A);
+      answer['A'] = Calculate('A', vars);
       A_calc.calculation = `${A} blev indtastet`;
     }
 
     if (B !== '') {
-      answer['B'] = ParseAnswer(int_B);
+      answer['B'] = Calculate('B', vars);
       B_calc.calculation = `${B} blev indtastet`;
     }
 
     if (a !== '') {
-      answer['a'] = ParseAnswer(int_a);
+      answer['a'] = Calculate('a', vars);
       a_calc.calculation = `${a} blev indtastet`;
     }
 
     if (b !== '') {
-      answer['b'] = ParseAnswer(int_b);
+      answer['b'] = Calculate('b', vars);
       b_calc.calculation = `${b} blev indtastet`;
     }
 
     if (c !== '') {
-      answer['c'] = ParseAnswer(int_c);
+      answer['c'] = Calculate('c', vars);
       c_calc.calculation = `${c} blev indtastet`;
     }
 
     if (a !== '' && b !== '') {
-      answer['A'] = ParseAnswer(atan(int_a / int_b));
-      answer['B'] = ParseAnswer(atan(int_b / int_a));
-      answer['c'] = ParseAnswer(
-        Math.sqrt(Math.pow(int_a, 2) + Math.pow(int_b, 2))
-      );
+      answer['A'] = Calculate('atan(a / b) * 180 / pi', vars);
+      answer['B'] = Calculate('atan(b / a) * 180 / pi', vars);
+      answer['c'] = Calculate('sqrt(a^2 + b^2)', vars);
 
       A_calc.calculation = <InverseCalc f="tan" t={a} n={b} />;
       B_calc.calculation = <InverseCalc f="tan" t={b} n={a} />;
       c_calc.calculation = <SqrtCalc first={a} sign="+" second={b} />;
     } else if (a !== '' && c !== '') {
-      answer['A'] = ParseAnswer(asin(int_a / int_c));
-      answer['B'] = ParseAnswer(acos(int_a / int_c));
-      answer['b'] = ParseAnswer(
-        Math.sqrt(Math.pow(int_c, 2) - Math.pow(int_a, 2))
-      );
+      answer['A'] = Calculate('asin(a / c) * 180 / pi', vars);
+      answer['B'] = Calculate('acos(a / c) * 180 / pi', vars);
+      answer['b'] = Calculate('sqrt(c^2 - a^2)', vars);
 
       A_calc.calculation = <InverseCalc f="sin" t={a} n={c} />;
       B_calc.calculation = <InverseCalc f="cos" t={a} n={c} />;
       b_calc.calculation = <SqrtCalc first={c} sign="-" second={a} />;
     } else if (a !== '' && A !== '') {
-      answer['B'] = ParseAnswer(180 - int_C - int_A);
-      answer['b'] = ParseAnswer(int_a / tan(int_A));
-      answer['c'] = ParseAnswer(int_a / sin(int_A));
+      answer['B'] = Calculate('180 - C - A', vars);
+      answer['b'] = Calculate('a / tan(A deg)', vars);
+      answer['c'] = Calculate('a / sin(A deg)', vars);
 
       B_calc.calculation = <AngleCalc value={A} />;
       b_calc.calculation = <FracCalc f="tan" t={a} n={A} />;
       c_calc.calculation = <FracCalc f="sin" t={a} n={A} />;
     } else if (a !== '' && B !== '') {
-      answer['A'] = ParseAnswer(180 - int_C - int_B);
-      answer['b'] = ParseAnswer(int_a * tan(int_B));
-      answer['c'] = ParseAnswer(int_a / cos(int_B));
+      answer['A'] = Calculate('180 - C - B', vars);
+      answer['b'] = Calculate('a * tan(B deg)', vars);
+      answer['c'] = Calculate('a / cos(B deg)', vars);
 
       A_calc.calculation = <AngleCalc value={B} />;
       b_calc.calculation = <MultiplyCalc first={a} f="tan" second={B} />;
       c_calc.calculation = <FracCalc t={a} n={B} f="cos" />;
     } else if (b !== '' && c !== '') {
-      answer['A'] = ParseAnswer(acos(int_b / int_c));
-      answer['B'] = ParseAnswer(asin(int_b / int_c));
-      answer['a'] = ParseAnswer(
-        Math.sqrt(Math.pow(int_c, 2) - Math.pow(int_b, 2))
-      );
+      answer['A'] = Calculate('acos(b / c) * 180 / pi', vars);
+      answer['B'] = Calculate('asin(b / c) * 180 / pi', vars);
+      answer['a'] = Calculate('sqrt(c^2 - b^2)', vars);
 
       A_calc.calculation = <InverseCalc f="cos" t={b} n={c} />;
       B_calc.calculation = <InverseCalc f="sin" t={b} n={c} />;
       a_calc.calculation = <SqrtCalc first={c} sign="-" second={b} />;
     } else if (b !== '' && A !== '') {
-      answer['B'] = ParseAnswer(180 - int_C - int_A);
-      answer['a'] = ParseAnswer(int_b * tan(int_A));
-      answer['c'] = ParseAnswer(int_b / cos(int_A));
+      answer['B'] = Calculate('180 - C - A', vars);
+      answer['a'] = Calculate('b * tan(A deg)', vars);
+      answer['c'] = Calculate('b / cos(A deg)', vars);
 
       B_calc.calculation = <AngleCalc value={A} />;
       a_calc.calculation = <MultiplyCalc first={b} f="tan" second={A} />;
       c_calc.calculation = <FracCalc t={b} n={A} f="cos" />;
     } else if (b !== '' && B !== '') {
-      answer['A'] = ParseAnswer(180 - int_C - int_B);
-      answer['a'] = ParseAnswer(int_b / tan(int_B));
-      answer['c'] = ParseAnswer(int_b / sin(int_B));
+      answer['A'] = Calculate('180 - C - B', vars);
+      answer['a'] = Calculate('b / tan(B deg)', vars);
+      answer['c'] = Calculate('b / sin(B deg)', vars);
 
       A_calc.calculation = <AngleCalc value={B} />;
       a_calc.calculation = <FracCalc t={b} n={B} f="tan" />;
       c_calc.calculation = <FracCalc t={b} n={B} f="sin" />;
     } else if (c !== '' && A !== '') {
-      answer['B'] = ParseAnswer(180 - int_C - int_A);
-      answer['a'] = ParseAnswer(int_c * sin(int_A));
-      answer['b'] = ParseAnswer(int_c * cos(int_A));
+      answer['B'] = Calculate('180 - C - A', vars);
+      answer['a'] = Calculate('c * sin(A deg)', vars);
+      answer['b'] = Calculate('c * cos(A deg)', vars);
 
       B_calc.calculation = <AngleCalc value={A} />;
       a_calc.calculation = <MultiplyCalc first={c} f="sin" second={A} />;
       b_calc.calculation = <MultiplyCalc first={c} f="cos" second={A} />;
     } else if (c !== '' && B !== '') {
-      answer['A'] = ParseAnswer(180 - int_C - int_B);
-      answer['a'] = ParseAnswer(int_c * cos(int_B));
-      answer['b'] = ParseAnswer(int_c * sin(int_B));
+      answer['A'] = Calculate('180 - C - B', vars);
+      answer['a'] = Calculate('c * cos(B deg)', vars);
+      answer['b'] = Calculate('c * sin(B deg)', vars);
 
       A_calc.calculation = <AngleCalc value={B} />;
       a_calc.calculation = <MultiplyCalc first={c} f="cos" second={B} />;
       b_calc.calculation = <MultiplyCalc first={c} f="sin" second={B} />;
     } else {
-      alert('Du har ikke indtastet nok tal til at trekanten kan beregnes');
-      return;
+      throw new Error(
+        'Du har ikke indtastet nok tal til at trekanten kan beregnes'
+      );
     }
     setCalculations([
       A_calc,
@@ -186,46 +176,46 @@ export default function Trigonometri() {
       if (+e.target.value >= 90) return;
       if (e.target.value !== '') tmp = true;
 
-      if (e.target.name === 'A') readonlyTmp[`B`] = tmp;
-      else readonlyTmp[`A`] = tmp;
+      if (e.target.name === 'A') readonlyTmp['B'] = tmp;
+      else readonlyTmp['A'] = tmp;
 
       if (a !== '') {
-        readonlyTmp[`b`] = tmp;
-        readonlyTmp[`c`] = tmp;
+        readonlyTmp['b'] = tmp;
+        readonlyTmp['c'] = tmp;
       } else if (b !== '') {
-        readonlyTmp[`a`] = tmp;
-        readonlyTmp[`c`] = tmp;
+        readonlyTmp['a'] = tmp;
+        readonlyTmp['c'] = tmp;
       } else if (c !== '') {
-        readonlyTmp[`b`] = tmp;
-        readonlyTmp[`a`] = tmp;
+        readonlyTmp['b'] = tmp;
+        readonlyTmp['a'] = tmp;
       }
     } else {
       let tmp = false;
       if (e.target.value !== '') tmp = true;
 
       if (A !== '' && e.target.name !== 'A') {
-        readonlyTmp[`a`] = tmp;
-        readonlyTmp[`b`] = tmp;
-        readonlyTmp[`c`] = tmp;
+        readonlyTmp['a'] = tmp;
+        readonlyTmp['b'] = tmp;
+        readonlyTmp['c'] = tmp;
       } else if (B !== '' && e.target.name !== 'B') {
-        readonlyTmp[`a`] = tmp;
-        readonlyTmp[`b`] = tmp;
-        readonlyTmp[`c`] = tmp;
+        readonlyTmp['a'] = tmp;
+        readonlyTmp['b'] = tmp;
+        readonlyTmp['c'] = tmp;
       } else if (a !== '' && e.target.name !== 'a') {
-        readonlyTmp[`A`] = tmp;
-        readonlyTmp[`B`] = tmp;
-        readonlyTmp[`b`] = tmp;
-        readonlyTmp[`c`] = tmp;
+        readonlyTmp['A'] = tmp;
+        readonlyTmp['B'] = tmp;
+        readonlyTmp['b'] = tmp;
+        readonlyTmp['c'] = tmp;
       } else if (b !== '' && e.target.name !== 'b') {
-        readonlyTmp[`A`] = tmp;
-        readonlyTmp[`B`] = tmp;
-        readonlyTmp[`a`] = tmp;
-        readonlyTmp[`c`] = tmp;
+        readonlyTmp['A'] = tmp;
+        readonlyTmp['B'] = tmp;
+        readonlyTmp['a'] = tmp;
+        readonlyTmp['c'] = tmp;
       } else if (c !== '' && e.target.name !== 'c') {
-        readonlyTmp[`A`] = tmp;
-        readonlyTmp[`B`] = tmp;
-        readonlyTmp[`a`] = tmp;
-        readonlyTmp[`b`] = tmp;
+        readonlyTmp['A'] = tmp;
+        readonlyTmp['B'] = tmp;
+        readonlyTmp['a'] = tmp;
+        readonlyTmp['b'] = tmp;
       }
     }
     switch (e.target.name) {
@@ -283,7 +273,7 @@ export default function Trigonometri() {
             placeholder="Hypotenuse c"
             className="border-nord14 focus:ring-nord14 focus:border-nord14 absolute mt-40 -ml-20"
             onChange={handleChange}
-            min={Math.max(+a || 0, +b || 0)}
+            min={max(+a || 0, +b || 0)}
           />
           <Svg width="500" height="300">
             <Path d="M 3 257 h 40 v 40" className="text-nord14" />
