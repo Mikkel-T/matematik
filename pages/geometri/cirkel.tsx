@@ -155,7 +155,7 @@ export default function Cirkel() {
     <>
       <NextSeo
         title="Cirkel beregner"
-        description="Beregn radius, diameter, areal og omkreds af en cirkel"
+        description="En cirkelberegner der udregner radius, diameter, areal og omkreds af en cirkel"
       />
       <Calculator calculate={calc} answers={calculations}>
         <div className="text-center w-[600px] m-auto h-[500px]">

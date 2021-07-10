@@ -112,7 +112,7 @@ export default function Funktion_2_grad() {
     <>
       <NextSeo
         title="2. gradsfunktion beregner"
-        description="Beregn diskriminant, toppunkt og nulpunkter for en 2. gradsfunktion"
+        description="En 2. gradsfunktions beregner der udregner diskriminant, toppunkt og nulpunkter for en 2. gradsfunktion"
       />
       <Calculator inputs={inputs} calculate={calc} answers={answers} />
     </>

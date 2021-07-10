@@ -41,7 +41,7 @@ export default function Heron() {
     <>
       <NextSeo
         title="Herons formel beregner"
-        description="Beregn areal af en trekant ud fra dens sidelængder ved hjælp af herons formel"
+        description="En beregner der udregner arealet af en trekant ud fra dens sidelængder ved hjælp af herons formel"
       />
       <Calculator inputs={inputs} calculate={calc} answers={answers} />
     </>

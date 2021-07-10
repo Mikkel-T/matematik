@@ -47,7 +47,7 @@ export default function Renter() {
     <>
       <NextSeo
         title="Renters rente beregner"
-        description="Beregn slutkapital ved hjælp af startkapital, rente og antal terminer"
+        description="En renters rente beregner der udregner slutkapital ved hjælp af startkapital, rente og antal terminer"
       />
       <Calculator inputs={inputs} calculate={calc} answers={answers} />
     </>

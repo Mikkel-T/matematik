@@ -142,7 +142,7 @@ export default function Kvadrat() {
     <>
       <NextSeo
         title="Kvadrat beregner"
-        description="Beregn sidelængde, diagonallængde, areal og omkreds af et kvadrat"
+        description="En kvadratberegner der udregner sidelængde, diagonallængde, areal og omkreds af et kvadrat"
       />
       <Calculator calculate={calc} answers={calculations}>
         <div className="text-center w-[600px] m-auto h-[500px]">

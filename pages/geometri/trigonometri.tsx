@@ -246,7 +246,7 @@ export default function Trigonometri() {
     <>
       <NextSeo
         title="Trigonometri beregner"
-        description="Beregn alle sider og vinkler i en retvinklet trekant ved hjælp af trigonometri og pythagoras"
+        description="En trigonometri beregner der udregner alle sider og vinkler i en retvinklet trekant ved hjælp af trigonometri og pythagoras"
       />
       <Calculator calculate={calc} answers={calculations}>
         <div className="text-center w-[750px] m-auto h-[440px] pl-12">

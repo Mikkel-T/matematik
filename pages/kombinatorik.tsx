@@ -75,7 +75,7 @@ export default function Kombinatorik() {
     <>
       <NextSeo
         title="Kombinatorik beregner"
-        description="Beregn de 4 forskellige former for stikprøver"
+        description="En kombinatorik beregner til at beregne ordnede stikprøver med og uden tilbagelægning og uordnede stikprøver med og uden tilbagelægning"
       />
       <Calculator inputs={inputs} calculate={calc} answers={answers} />
     </>

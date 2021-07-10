@@ -34,7 +34,7 @@ export default function Moms() {
     <>
       <NextSeo
         title="Moms beregner"
-        description="Beregn en pris med og uden moms"
+        description="En momsberegner der udregner en pris med og uden moms"
       />
       <Calculator inputs={inputs} calculate={calc} answers={answers} />
     </>

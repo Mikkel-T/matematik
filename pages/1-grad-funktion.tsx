@@ -41,7 +41,7 @@ export default function Funktion_1_grad() {
     <>
       <NextSeo
         title="Funktionsforskrift for en 1. gradsfunktion"
-        description="Beregn funktionsforskriften for en 1. gradsfunktion"
+        description="En 1. gradsfunktions beregner der udregner funktionsforskriften for en 1. gradsfunktion"
       />
       <Calculator inputs={inputs} calculate={calc} answers={answers}>
         <div>
