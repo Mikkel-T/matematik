@@ -1,9 +1,11 @@
+import { NextSeo } from 'next-seo';
+import { useState } from 'react';
+
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
+
 import { AnswerProps, InputProps } from '@interfaces/index';
-import { NextSeo } from 'next-seo';
-import { useState } from 'react';
 
 export default function Funktion_2_grad() {
   const [a, seta] = useState('');

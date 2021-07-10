@@ -1,11 +1,13 @@
+import { pi } from 'mathjs';
+import { NextSeo } from 'next-seo';
+import { ChangeEvent, useState } from 'react';
+
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import Svg, { Circle, Input, Path, Text } from '@components/Svg';
+
 import { AnswerProps } from '@interfaces/index';
-import { NextSeo } from 'next-seo';
-import { pi } from 'mathjs';
-import { ChangeEvent, useState } from 'react';
 
 export default function Cirkel() {
   const [Radius, setRadius] = useState('');
@@ -29,16 +31,16 @@ export default function Cirkel() {
   function calc() {
     const vars = { Radius, Diameter, Areal, Omkreds };
 
-    let answer: Record<string, string | number> = {
+    const answer: Record<string, string | number> = {
       Radius: '',
       Diameter: '',
       Omkreds: '',
       Areal: '',
     };
-    let Radius_calc: AnswerProps = { name: 'Radius' };
-    let Diameter_calc: AnswerProps = { name: 'Diameter' };
-    let Omkreds_calc: AnswerProps = { name: 'Omkreds' };
-    let Areal_calc: AnswerProps = { name: 'Areal' };
+    const Radius_calc: AnswerProps = { name: 'Radius' };
+    const Diameter_calc: AnswerProps = { name: 'Diameter' };
+    const Omkreds_calc: AnswerProps = { name: 'Omkreds' };
+    const Areal_calc: AnswerProps = { name: 'Areal' };
 
     if (Radius !== '') {
       answer['Radius'] = Calculate('Radius', vars);
@@ -127,7 +129,7 @@ export default function Cirkel() {
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     let tmp = false;
     if (e.target.value !== '') tmp = true;
-    let readonlyTmp = {
+    const readonlyTmp = {
       Radius: tmp,
       Diameter: tmp,
       Omkreds: tmp,

@@ -1,5 +1,6 @@
-import { CalculatorProps } from '@interfaces/index';
 import { FormEvent, useState } from 'react';
+
+import { CalculatorProps } from '@interfaces/index';
 
 import Answer from './Answer';
 import Input from './Input';

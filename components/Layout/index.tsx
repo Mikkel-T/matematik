@@ -1,5 +1,6 @@
-import { LayoutProps } from '@interfaces/index';
 import React from 'react';
+
+import { LayoutProps } from '@interfaces/index';
 
 import Footer from './Footer';
 import Header from './Header';

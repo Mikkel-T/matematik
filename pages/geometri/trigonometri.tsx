@@ -1,3 +1,7 @@
+import { max } from 'mathjs';
+import { NextSeo } from 'next-seo';
+import { ChangeEvent, useState } from 'react';
+
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Svg, { Input, Path, Text } from '@components/Svg';
@@ -8,10 +12,8 @@ import {
   MultiplyCalc,
   SqrtCalc,
 } from '@components/TrigCalc';
-import { max } from 'mathjs';
+
 import { AnswerProps } from '@interfaces/index';
-import { NextSeo } from 'next-seo';
-import { ChangeEvent, useState } from 'react';
 
 export default function Trigonometri() {
   const [A, setA] = useState('');
@@ -38,18 +40,18 @@ export default function Trigonometri() {
   function calc() {
     const vars = { a, b, c, A, B, C: 90 };
 
-    let answer: Record<string, string | number> = {
+    const answer: Record<string, string | number> = {
       A: '',
       B: '',
       a: '',
       b: '',
       c: '',
     };
-    let A_calc: AnswerProps = { name: 'A' };
-    let B_calc: AnswerProps = { name: 'B' };
-    let a_calc: AnswerProps = { name: 'a' };
-    let b_calc: AnswerProps = { name: 'b' };
-    let c_calc: AnswerProps = { name: 'c' };
+    const A_calc: AnswerProps = { name: 'A' };
+    const B_calc: AnswerProps = { name: 'B' };
+    const a_calc: AnswerProps = { name: 'a' };
+    const b_calc: AnswerProps = { name: 'b' };
+    const c_calc: AnswerProps = { name: 'c' };
 
     if (A !== '') {
       answer['A'] = Calculate('A', vars);
@@ -164,7 +166,7 @@ export default function Trigonometri() {
     setAnswers(answer);
   }
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    let readonlyTmp = {
+    const readonlyTmp = {
       A: readonly.A,
       B: readonly.B,
       a: readonly.a,

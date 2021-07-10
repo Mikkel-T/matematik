@@ -1,6 +1,7 @@
-import { ListProps } from '@interfaces/index';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+
+import { ListProps } from '@interfaces/index';
 
 export default function List({ list, title }: ListProps) {
   const router = useRouter();

@@ -1,8 +1,10 @@
-import { Calculate } from '@components/Answer';
-import Calculator from '@components/Calculator';
-import { AnswerProps, InputProps } from '@interfaces/index';
 import { NextSeo } from 'next-seo';
 import { useState } from 'react';
+
+import { Calculate } from '@components/Answer';
+import Calculator from '@components/Calculator';
+
+import { AnswerProps, InputProps } from '@interfaces/index';
 
 export default function Renter() {
   const [K, setK] = useState('');

@@ -1,5 +1,6 @@
-import List from '@components/List';
 import { NextSeo } from 'next-seo';
+
+import List from '@components/List';
 
 export default function Home() {
   return (

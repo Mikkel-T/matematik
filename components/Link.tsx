@@ -1,5 +1,6 @@
-import { LinkProps } from '@interfaces/index';
 import NextLink from 'next/link';
+
+import { LinkProps } from '@interfaces/index';
 
 export default function Link({ href, text }: LinkProps) {
   return (

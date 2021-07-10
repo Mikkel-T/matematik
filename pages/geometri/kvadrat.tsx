@@ -1,10 +1,12 @@
+import { NextSeo } from 'next-seo';
+import { ChangeEvent, useState } from 'react';
+
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
 import Svg, { Input, Path, Text } from '@components/Svg';
+
 import { AnswerProps } from '@interfaces/index';
-import { NextSeo } from 'next-seo';
-import { ChangeEvent, useState } from 'react';
 
 export default function Kvadrat() {
   const [Side, setSide] = useState('');
@@ -28,16 +30,16 @@ export default function Kvadrat() {
   function calc() {
     const vars = { Side, Diagonal, Omkreds, Areal };
 
-    let answer: Record<string, string | number> = {
+    const answer: Record<string, string | number> = {
       Side: '',
       Diagonal: '',
       Omkreds: '',
       Areal: '',
     };
-    let Side_calc: AnswerProps = { name: 'Side' };
-    let Diagonal_calc: AnswerProps = { name: 'Diagonal' };
-    let Omkreds_calc: AnswerProps = { name: 'Omkreds' };
-    let Areal_calc: AnswerProps = { name: 'Areal' };
+    const Side_calc: AnswerProps = { name: 'Side' };
+    const Diagonal_calc: AnswerProps = { name: 'Diagonal' };
+    const Omkreds_calc: AnswerProps = { name: 'Omkreds' };
+    const Areal_calc: AnswerProps = { name: 'Areal' };
 
     if (Side !== '') {
       answer['Side'] = Calculate('Side', vars);
@@ -114,7 +116,7 @@ export default function Kvadrat() {
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     let tmp = false;
     if (e.target.value !== '') tmp = true;
-    let readonlyTmp = {
+    const readonlyTmp = {
       Side: tmp,
       Diagonal: tmp,
       Omkreds: tmp,
