@@ -1,10 +1,10 @@
 import { pi } from 'mathjs';
-import { NextSeo } from 'next-seo';
 import { ChangeEvent, useState } from 'react';
 
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
+import SEO from '@components/SEO';
 import Svg, { Circle, Input, Path, Text } from '@components/Svg';
 
 import { AnswerProps } from '@interfaces/index';
@@ -155,7 +155,7 @@ export default function Cirkel() {
   }
   return (
     <>
-      <NextSeo
+      <SEO
         title="Cirkel beregner"
         description="En cirkelberegner der udregner radius, diameter, areal og omkreds af en cirkel"
       />

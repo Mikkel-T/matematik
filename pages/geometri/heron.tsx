@@ -1,9 +1,9 @@
-import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
+import SEO from '@components/SEO';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -41,7 +41,7 @@ export default function Heron() {
   }
   return (
     <>
-      <NextSeo
+      <SEO
         title="Herons formel beregner"
         description="En beregner der udregner arealet af en trekant ud fra dens sidelængder ved hjælp af herons formel"
       />

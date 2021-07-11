@@ -1,10 +1,10 @@
 import { abs } from 'mathjs';
-import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
+import SEO from '@components/SEO';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -41,7 +41,7 @@ export default function Funktion_1_grad() {
   }
   return (
     <>
-      <NextSeo
+      <SEO
         title="Funktionsforskrift for en 1. gradsfunktion"
         description="En 1. gradsfunktions beregner der udregner funktionsforskriften for en 1. gradsfunktion"
       />

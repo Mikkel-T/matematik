@@ -1,11 +1,10 @@
-import { NextSeo } from 'next-seo';
-
 import List from '@components/List';
+import SEO from '@components/SEO';
 
 export default function Home() {
   return (
     <>
-      <NextSeo
+      <SEO
         title="Matematik beregnere"
         description="En samling af mange forskellige matematiske værktøjer"
       />

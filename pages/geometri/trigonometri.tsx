@@ -1,9 +1,9 @@
 import { max } from 'mathjs';
-import { NextSeo } from 'next-seo';
 import { ChangeEvent, useState } from 'react';
 
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
+import SEO from '@components/SEO';
 import Svg, { Input, Path, Text } from '@components/Svg';
 import {
   AngleCalc,
@@ -246,7 +246,7 @@ export default function Trigonometri() {
   }
   return (
     <>
-      <NextSeo
+      <SEO
         title="Trigonometri beregner"
         description="En trigonometri beregner der udregner alle sider og vinkler i en retvinklet trekant ved hjælp af trigonometri og pythagoras"
       />

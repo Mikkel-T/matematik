@@ -1,8 +1,8 @@
-import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
+import SEO from '@components/SEO';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -47,7 +47,7 @@ export default function Renter() {
   }
   return (
     <>
-      <NextSeo
+      <SEO
         title="Renters rente beregner"
         description="En renters rente beregner der udregner slutkapital ved hjælp af startkapital, rente og antal terminer"
       />

@@ -1,9 +1,9 @@
-import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
+import SEO from '@components/SEO';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -112,7 +112,7 @@ export default function Funktion_2_grad() {
   }
   return (
     <>
-      <NextSeo
+      <SEO
         title="2. gradsfunktion beregner"
         description="En 2. gradsfunktions beregner der udregner diskriminant, toppunkt og nulpunkter for en 2. gradsfunktion"
       />

@@ -1,9 +1,9 @@
-import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import Fraction from '@components/Fraction';
+import SEO from '@components/SEO';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -75,7 +75,7 @@ export default function Kombinatorik() {
   }
   return (
     <>
-      <NextSeo
+      <SEO
         title="Kombinatorik beregner"
         description="En kombinatorik beregner til at beregne ordnede stikprøver med og uden tilbagelægning og uordnede stikprøver med og uden tilbagelægning"
       />
