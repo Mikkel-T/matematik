@@ -5,16 +5,17 @@
     "node": true
   },
   "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "next",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "semi": ["warn", "always"],
     "quotes": ["error", "single", { "avoidEscape": true }],
     "no-console": ["warn"],
     "@typescript-eslint/no-unused-vars": ["error"]
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "next"
-  ],
-  "plugins": ["@typescript-eslint"]
+  }
 }
