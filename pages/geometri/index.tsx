@@ -1,7 +1,7 @@
 import List from '@components/List';
 import SEO from '@components/SEO';
 
-export default function Home() {
+export default function Geometri() {
   return (
     <>
       <SEO
