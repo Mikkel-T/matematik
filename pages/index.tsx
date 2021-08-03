@@ -31,6 +31,10 @@ export default function Home() {
             path: 'moms',
           },
           {
+            name: 'Procent',
+            path: 'procent',
+          },
+          {
             name: 'Renters rente',
             path: 'renter',
           },

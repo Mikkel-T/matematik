@@ -1,7 +1,8 @@
 import { AppProps } from 'next/app';
-import 'tailwindcss/tailwind.css';
 
 import Layout from '@components/Layout';
+
+import '@styles/globals.css';
 
 export default function Matematik({ Component, pageProps }: AppProps) {
   return (

@@ -2,6 +2,11 @@
   "tabWidth": 2,
   "singleQuote": true,
   "semi": true,
-  "importOrder": ["^@components/(.*)$", "^@interfaces/(.*)$", "^[./]"],
+  "importOrder": [
+    "^@components/(.*)$",
+    "^@interfaces/(.*)$",
+    "^@styles/(.*)$",
+    "^[./]"
+  ],
   "importOrderSeparation": true
 }
