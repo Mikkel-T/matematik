@@ -1,3 +1,4 @@
+import { ThemeProvider } from 'next-themes';
 import { AppProps } from 'next/app';
 
 import Layout from '@components/Layout';
@@ -6,8 +7,10 @@ import '@styles/globals.css';
 
 export default function Matematik({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark">
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   );
 }

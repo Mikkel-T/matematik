@@ -22,7 +22,7 @@ export default function Input({
         placeholder={placeholder || name}
         value={value}
         onChange={(e) => setInput(e.target.value)}
-        className="bg-nord1 border-nord3 focus:ring-nord10 focus:border-nord10 w-full p-2 border rounded-md"
+        className="dark:bg-nord1 dark:border-nord3 bg-nord5 border-nord4 focus:ring-nord10 focus:border-nord10 w-full p-2 border rounded-md"
       />
     </div>
   );

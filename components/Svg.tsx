@@ -57,7 +57,7 @@ export function Input({
       readOnly={readOnly}
       className={`${
         readOnly && 'opacity-50'
-      } transition-opacity duration-500 rounded-md bg-nord1 border p-2 w-36 ${className}`}
+      } rounded-md dark:bg-nord1 bg-nord5 border p-2 w-36 ${className}`}
       onChange={(e) => onChange(e)}
       min={min && min}
     />

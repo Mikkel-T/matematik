@@ -39,7 +39,7 @@ export default function Calculator({
         <div>
           <input
             type="submit"
-            className="bg-nord2 hover:bg-nord3 hover:border-nord2 border-nord3 md:w-2/6 focus:outline-none w-3/4 p-2 mt-3 border-2 rounded-md cursor-pointer"
+            className="dark:bg-nord2 dark:hover:bg-nord3 dark:hover:border-nord2 dark:border-nord3 bg-nord5 border-nord4 hover:bg-nord4 hover:border-nord5 md:w-2/6 focus:outline-none w-3/4 p-2 mt-3 border-2 rounded-md cursor-pointer"
             value="Beregn"
           />
         </div>
@@ -49,7 +49,7 @@ export default function Calculator({
         <>
           <div className="my-3">
             {answers.filter((e) => e.answer)[0] && (
-              <div className="text-nord4 text-lg font-bold">Svar:</div>
+              <div className="text-lg font-bold">Svar:</div>
             )}
             {answers.map((ans, i) => (
               <div key={i}>
@@ -61,7 +61,7 @@ export default function Calculator({
           </div>
           <div className="my-3">
             {answers.filter((e) => e.calculation)[0] && (
-              <div className="text-nord4 text-lg font-bold">Beregninger:</div>
+              <div className="text-lg font-bold">Beregninger:</div>
             )}
             {answers.map((ans, i) => (
               <div key={i}>
