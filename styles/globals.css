@@ -17,9 +17,7 @@
     @apply dark:bg-nord0 dark:text-nord6 bg-nord6 text-nord0;
   }
 
-  a,
-  input,
-  body {
-    @apply transition duration-300 ease-linear;
+  .toggle:hover div {
+    @apply ring-4;
   }
 }

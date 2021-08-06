@@ -15,7 +15,7 @@ export default function List({ list, title }: ListProps) {
       <div className="sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 grid grid-cols-1 gap-4 p-3 m-auto">
         {list.map((e, i) => (
           <Link href={`${pathname}${e.path}`} key={i}>
-            <a className="hover:scale-105 dark:bg-nord3 bg-nord4 rounded-xl dark:border-nord10 border-nord8 flex items-center justify-center h-20 px-2 text-center transform border-2">
+            <a className="hover:scale-105 dark:bg-nord3 bg-nord4 rounded-xl dark:border-nord10 border-nord8 flex items-center justify-center h-20 px-2 text-center transform border-2 transition-transform duration-500">
               {e.name}
             </a>
           </Link>

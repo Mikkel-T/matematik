@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 export default function Header() {
   const router = useRouter();
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   return (
     <div>
       {router.pathname !== '/' && (
@@ -16,13 +16,16 @@ export default function Header() {
           </a>
         </Link>
       )}
-      <button
-        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        className="float-right"
-      >
-        {theme === 'dark' && <SunIcon className="h-6 w-6 m-1 sunicon" />}
-        {theme === 'light' && <MoonIcon className="h-6 w-6 m-1 moonicon" />}
-      </button>
+      {resolvedTheme && (
+        <div
+          onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+          className="absolute right-0 w-12 m-2 h-6 inline-flex items-center ml-2 rounded-full cursor-pointer bg-nord10 toggle "
+        >
+          <div className=" h-5 w-5 rounded-full transition-all dark:translate-x-6 duration-300 bg-nord6 z-10 mx-0.5 ring-nord11" />
+          <MoonIcon className="h-5 w-5 text-nord4 absolute translate-x-1" />
+          <SunIcon className="h-5 w-5 text-nord13 absolute translate-x-6" />
+        </div>
+      )}
     </div>
   );
 }
