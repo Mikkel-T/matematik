@@ -8,8 +8,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "next",
-    "plugin:prettier/recommended"
+    "next"
   ],
   "plugins": ["@typescript-eslint"],
   "rules": {
