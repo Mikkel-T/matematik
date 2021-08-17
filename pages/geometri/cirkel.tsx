@@ -1,4 +1,3 @@
-import { pi } from 'mathjs';
 import { ChangeEvent, useState } from 'react';
 
 import { Calculate } from '@components/Answer';
@@ -216,7 +215,7 @@ export default function Cirkel() {
             />
           </Svg>
         </div>
-        <div>Pi (π) er sat til: {pi}</div>
+        <div>Pi (π) er sat til: {Math.PI}</div>
       </Calculator>
     </>
   );

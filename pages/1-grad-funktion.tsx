@@ -1,4 +1,3 @@
-import { abs } from 'mathjs';
 import { useState } from 'react';
 
 import { Calculate } from '@components/Answer';
@@ -35,7 +34,7 @@ export default function Funktion_1_grad() {
       { name: 'b', answer: b, calculation: bCalc },
       {
         name: 'Funktionsforskriften for linjen',
-        answer: `f(x) = ${a}x ${b > 0 ? '+' : '-'} ${abs(b)}`,
+        answer: `f(x) = ${a}x ${b > 0 ? '+' : '-'} ${Math.abs(b)}`,
       },
     ]);
   }

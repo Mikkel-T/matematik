@@ -4,6 +4,7 @@
   "semi": true,
   "importOrder": [
     "^@components/(.*)$",
+    "^@utils/(.*)$",
     "^@interfaces/(.*)$",
     "^@styles/(.*)$",
     "^[./]"
