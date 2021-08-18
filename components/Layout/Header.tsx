@@ -19,11 +19,11 @@ export default function Header() {
       {resolvedTheme && (
         <div
           onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-          className="absolute right-0 w-12 m-2 h-6 inline-flex items-center ml-2 rounded-full cursor-pointer bg-nord10 toggle "
+          className="absolute right-0 w-12 m-2 h-6 ml-2 rounded-full items-center flex cursor-pointer bg-nord10 toggle"
         >
-          <div className=" h-5 w-5 rounded-full transition-all dark:translate-x-6 duration-300 bg-nord6 z-10 mx-0.5 ring-nord11" />
-          <MoonIcon className="h-5 w-5 text-nord4 absolute translate-x-1" />
-          <SunIcon className="h-5 w-5 text-nord13 absolute translate-x-6" />
+          <div className="h-5 w-5 rounded-full transition-all dark:translate-x-6 duration-300 bg-nord6 ml-0.5 ring-nord11 absolute" />
+          <SunIcon className="h-5 w-5 text-nord13 dark:text-nord1 absolute translate-x-1 -ml-0.5 transition-colors duration-300" />
+          <MoonIcon className="h-5 w-5 text-nord1 dark:text-nord13 absolute translate-x-6 ml-0.5 transition-colors duration-300" />
         </div>
       )}
     </div>

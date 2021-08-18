@@ -15,6 +15,7 @@
     "semi": ["warn", "always"],
     "quotes": ["error", "single", { "avoidEscape": true }],
     "no-console": ["warn"],
+    "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"]
   }
 }

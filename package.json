@@ -13,7 +13,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@heroicons/react": "^1.0.3",
+    "@heroicons/react": "^1.0.4",
     "@tailwindcss/forms": "^0.3.3",
     "mathjs": "^9.4.4",
     "next": "^11.1.0",
