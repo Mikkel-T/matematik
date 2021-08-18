@@ -15,6 +15,7 @@ import {
   divideDependencies,
   piDependencies,
   factorialDependencies,
+  powDependencies,
 } from 'mathjs/number';
 
 const math = create({
@@ -26,6 +27,7 @@ const math = create({
   divideDependencies,
   piDependencies,
   factorialDependencies,
+  powDependencies,
 });
 
 const tan = (x) => mTan((x * pi) / 180);
