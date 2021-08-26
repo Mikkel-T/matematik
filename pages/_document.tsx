@@ -5,7 +5,7 @@ class MyDocument extends Document {
     return (
       <Html lang="da-DK">
         <Head>
-          <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+          <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         </Head>
         <body>
           <Main />
