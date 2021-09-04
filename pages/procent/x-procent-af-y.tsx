@@ -5,6 +5,8 @@ import Calculator from '@components/Calculator';
 import { Percent as Input } from '@components/Input';
 import SEO from '@components/SEO';
 
+import p from '@utils/Parser';
+
 import { AnswerProps } from '@interfaces/index';
 
 export default function X_procent_af_Y() {
@@ -17,7 +19,7 @@ export default function X_procent_af_Y() {
 
     const svar = Calculate('x * y / 100', vars);
 
-    const svarCalc = `${x} * ${y} / 100`;
+    const svarCalc = `${p(x)} * ${p(y)} / 100`;
 
     setAnswers([{ name: 'Svar', answer: svar, calculation: svarCalc }]);
   }

@@ -2,8 +2,10 @@ import { useState } from 'react';
 
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
-import Fraction from '@components/Fraction';
 import SEO from '@components/SEO';
+
+import p from '@utils/Parser';
+import { sqrt, frac, text } from '@utils/Tex';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -45,17 +47,11 @@ export default function Funktion_2_grad() {
     const Tp_y = Calculate('-D / (4 * a)', { ...vars, D });
     const Tp = `(${Tp_x}, ${Tp_y})`;
 
-    const DCalc = (
-      <>
-        {b}
-        <sup>2</sup> - 4 * {a} * {c}
-      </>
-    );
-    const TpCalc = (
-      <>
-        (<Fraction t={-b} n={`2 * ${a}`} />, <Fraction t={-D} n={`4 * ${a}`} />)
-      </>
-    );
+    const DCalc = `${p(b)}^2 - 4 * ${p(a)} * ${p(c)}`;
+    const TpCalc = `(${frac({ t: `${p(-b)}`, n: `2 * ${p(a)}` })}, ${frac({
+      t: `${p(-D)}`,
+      n: `4 * ${p(a)}`,
+    })})`;
 
     let Np;
     let NpCalc;
@@ -63,29 +59,28 @@ export default function Funktion_2_grad() {
     let Np2Calc;
 
     if (D < 0) {
-      Np = 'Der er ikke nogle nulpunkter da D er under 0';
+      Np = text('Der er ikke nogle nulpunkter da D er under 0');
     } else if (D === 0) {
       const Np_x = Calculate('(-b + sqrt(D)) / (2 * a)', { ...vars, D });
+
       Np = `(${Np_x}, 0)`;
-      NpCalc = (
-        <>
-          (<Fraction t={`${-b} + √${D}`} n={`2 * ${a}`} />, 0)
-        </>
-      );
+      NpCalc = `(${frac({
+        t: `${p(-b)} + ${sqrt(p(D))}`,
+        n: `2 * ${p(a)}`,
+      })}, 0)`;
     } else {
       const Np1_x = Calculate('(-b + sqrt(D)) / (2 * a)', { ...vars, D });
       const Np2_x = Calculate('(-b - sqrt(D)) / (2 * a)', { ...vars, D });
-      Np = `(${Np1_x}, 0) & (${Np2_x}, 0)`;
-      Np1Calc = (
-        <>
-          (<Fraction t={`${-b} + √${D}`} n={`2 * ${a}`} />, 0)
-        </>
-      );
-      Np2Calc = (
-        <>
-          (<Fraction t={`${-b} - √${D}`} n={`2 * ${a}`} />, 0)
-        </>
-      );
+
+      Np = `(${Np1_x}, 0)\\ \\&\\ (${Np2_x}, 0)`;
+      Np1Calc = `(${frac({
+        t: `${p(-b)} + ${sqrt(p(D))}`,
+        n: `2 * ${p(a)}`,
+      })}, 0)`;
+      Np2Calc = `(${frac({
+        t: `${p(-b)} - ${sqrt(p(D))}`,
+        n: `2 * ${p(a)}`,
+      })}, 0)`;
     }
 
     setAnswers([

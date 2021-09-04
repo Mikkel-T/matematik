@@ -4,13 +4,16 @@ import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import SEO from '@components/SEO';
 import Svg, { Input, Path, Text } from '@components/Svg';
+
+import p from '@utils/Parser';
+import { text } from '@utils/Tex';
 import {
   AngleCalc,
   FracCalc,
   InverseCalc,
   MultiplyCalc,
   SqrtCalc,
-} from '@components/TrigCalc';
+} from '@utils/TrigCalc';
 
 import { AnswerProps } from '@interfaces/index';
 
@@ -39,6 +42,11 @@ export default function Trigonometri() {
   function calc() {
     const vars = { a, b, c, A, B, C: 90 };
 
+    if (+c < Math.max(+a || +b))
+      throw new Error(
+        'Kateterne (a eller b) må ikke være større end hypotenusen (c)'
+      );
+
     const answer: Record<string, string | number> = {
       A: '',
       B: '',
@@ -54,27 +62,27 @@ export default function Trigonometri() {
 
     if (A !== '') {
       answer['A'] = Calculate('A', vars);
-      A_calc.calculation = `${A} blev indtastet`;
+      A_calc.calculation = text(`${p(A)} blev indtastet`);
     }
 
     if (B !== '') {
       answer['B'] = Calculate('B', vars);
-      B_calc.calculation = `${B} blev indtastet`;
+      B_calc.calculation = text(`${p(B)} blev indtastet`);
     }
 
     if (a !== '') {
       answer['a'] = Calculate('a', vars);
-      a_calc.calculation = `${a} blev indtastet`;
+      a_calc.calculation = text(`${p(a)} blev indtastet`);
     }
 
     if (b !== '') {
       answer['b'] = Calculate('b', vars);
-      b_calc.calculation = `${b} blev indtastet`;
+      b_calc.calculation = text(`${p(b)} blev indtastet`);
     }
 
     if (c !== '') {
       answer['c'] = Calculate('c', vars);
-      c_calc.calculation = `${c} blev indtastet`;
+      c_calc.calculation = text(`${p(c)} blev indtastet`);
     }
 
     if (a !== '' && b !== '') {
@@ -82,73 +90,73 @@ export default function Trigonometri() {
       answer['B'] = Calculate('atan(b / a)', vars);
       answer['c'] = Calculate('sqrt(a^2 + b^2)', vars);
 
-      A_calc.calculation = <InverseCalc f="tan" t={a} n={b} />;
-      B_calc.calculation = <InverseCalc f="tan" t={b} n={a} />;
-      c_calc.calculation = <SqrtCalc first={a} sign="+" second={b} />;
+      A_calc.calculation = InverseCalc({ f: 'tan', t: a, n: b });
+      B_calc.calculation = InverseCalc({ f: 'tan', t: b, n: a });
+      c_calc.calculation = SqrtCalc({ first: a, sign: '+', second: b });
     } else if (a !== '' && c !== '') {
       answer['A'] = Calculate('asin(a / c)', vars);
       answer['B'] = Calculate('acos(a / c)', vars);
       answer['b'] = Calculate('sqrt(c^2 - a^2)', vars);
 
-      A_calc.calculation = <InverseCalc f="sin" t={a} n={c} />;
-      B_calc.calculation = <InverseCalc f="cos" t={a} n={c} />;
-      b_calc.calculation = <SqrtCalc first={c} sign="-" second={a} />;
+      A_calc.calculation = InverseCalc({ f: 'sin', t: a, n: c });
+      B_calc.calculation = InverseCalc({ f: 'cos', t: a, n: c });
+      b_calc.calculation = SqrtCalc({ first: c, sign: '-', second: a });
     } else if (a !== '' && A !== '') {
       answer['B'] = Calculate('180 - C - A', vars);
       answer['b'] = Calculate('a / tan(A)', vars);
       answer['c'] = Calculate('a / sin(A)', vars);
 
-      B_calc.calculation = <AngleCalc value={A} />;
-      b_calc.calculation = <FracCalc f="tan" t={a} n={A} />;
-      c_calc.calculation = <FracCalc f="sin" t={a} n={A} />;
+      B_calc.calculation = AngleCalc({ value: A });
+      b_calc.calculation = FracCalc({ t: a, n: A, f: 'tan' });
+      c_calc.calculation = FracCalc({ t: a, n: A, f: 'sin' });
     } else if (a !== '' && B !== '') {
       answer['A'] = Calculate('180 - C - B', vars);
       answer['b'] = Calculate('a * tan(B)', vars);
       answer['c'] = Calculate('a / cos(B)', vars);
 
-      A_calc.calculation = <AngleCalc value={B} />;
-      b_calc.calculation = <MultiplyCalc first={a} f="tan" second={B} />;
-      c_calc.calculation = <FracCalc t={a} n={B} f="cos" />;
+      A_calc.calculation = AngleCalc({ value: B });
+      b_calc.calculation = MultiplyCalc({ first: a, f: 'tan', second: B });
+      c_calc.calculation = FracCalc({ t: a, n: B, f: 'cos' });
     } else if (b !== '' && c !== '') {
       answer['A'] = Calculate('acos(b / c)', vars);
       answer['B'] = Calculate('asin(b / c)', vars);
       answer['a'] = Calculate('sqrt(c^2 - b^2)', vars);
 
-      A_calc.calculation = <InverseCalc f="cos" t={b} n={c} />;
-      B_calc.calculation = <InverseCalc f="sin" t={b} n={c} />;
-      a_calc.calculation = <SqrtCalc first={c} sign="-" second={b} />;
+      A_calc.calculation = InverseCalc({ f: 'cos', t: b, n: c });
+      B_calc.calculation = InverseCalc({ f: 'sin', t: b, n: c });
+      a_calc.calculation = SqrtCalc({ first: c, sign: '-', second: b });
     } else if (b !== '' && A !== '') {
       answer['B'] = Calculate('180 - C - A', vars);
       answer['a'] = Calculate('b * tan(A)', vars);
       answer['c'] = Calculate('b / cos(A)', vars);
 
-      B_calc.calculation = <AngleCalc value={A} />;
-      a_calc.calculation = <MultiplyCalc first={b} f="tan" second={A} />;
-      c_calc.calculation = <FracCalc t={b} n={A} f="cos" />;
+      B_calc.calculation = AngleCalc({ value: A });
+      a_calc.calculation = MultiplyCalc({ first: b, f: 'tan', second: A });
+      c_calc.calculation = FracCalc({ t: b, n: A, f: 'cos' });
     } else if (b !== '' && B !== '') {
       answer['A'] = Calculate('180 - C - B', vars);
       answer['a'] = Calculate('b / tan(B)', vars);
       answer['c'] = Calculate('b / sin(B)', vars);
 
-      A_calc.calculation = <AngleCalc value={B} />;
-      a_calc.calculation = <FracCalc t={b} n={B} f="tan" />;
-      c_calc.calculation = <FracCalc t={b} n={B} f="sin" />;
+      A_calc.calculation = AngleCalc({ value: B });
+      a_calc.calculation = FracCalc({ t: b, n: B, f: 'tan' });
+      c_calc.calculation = FracCalc({ t: b, n: B, f: 'sin' });
     } else if (c !== '' && A !== '') {
       answer['B'] = Calculate('180 - C - A', vars);
       answer['a'] = Calculate('c * sin(A)', vars);
       answer['b'] = Calculate('c * cos(A)', vars);
 
-      B_calc.calculation = <AngleCalc value={A} />;
-      a_calc.calculation = <MultiplyCalc first={c} f="sin" second={A} />;
-      b_calc.calculation = <MultiplyCalc first={c} f="cos" second={A} />;
+      B_calc.calculation = AngleCalc({ value: A });
+      a_calc.calculation = MultiplyCalc({ first: c, f: 'sin', second: A });
+      b_calc.calculation = MultiplyCalc({ first: c, f: 'cos', second: A });
     } else if (c !== '' && B !== '') {
       answer['A'] = Calculate('180 - C - B', vars);
       answer['a'] = Calculate('c * cos(B)', vars);
       answer['b'] = Calculate('c * sin(B)', vars);
 
-      A_calc.calculation = <AngleCalc value={B} />;
-      a_calc.calculation = <MultiplyCalc first={c} f="cos" second={B} />;
-      b_calc.calculation = <MultiplyCalc first={c} f="sin" second={B} />;
+      A_calc.calculation = AngleCalc({ value: B });
+      a_calc.calculation = MultiplyCalc({ first: c, f: 'cos', second: B });
+      b_calc.calculation = MultiplyCalc({ first: c, f: 'sin', second: B });
     } else {
       throw new Error(
         'Du har ikke indtastet nok tal til at trekanten kan beregnes'
@@ -157,7 +165,7 @@ export default function Trigonometri() {
     setCalculations([
       A_calc,
       B_calc,
-      { name: 'C', calculation: 'C er altid 90°' },
+      { name: 'C', calculation: text('C er altid 90°') },
       a_calc,
       b_calc,
       c_calc,
@@ -274,7 +282,6 @@ export default function Trigonometri() {
             placeholder="Hypotenuse c"
             className="border-nord14 focus:ring-nord14 focus:border-nord14 absolute mt-40 -ml-20"
             onChange={handleChange}
-            min={Math.max(+a || 0, +b || 0)}
           />
           <Svg width="500" height="300">
             <Path d="M 3 257 h 40 v 40" className="text-nord14" />

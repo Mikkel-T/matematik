@@ -2,8 +2,10 @@ import { useState } from 'react';
 
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
-import Fraction from '@components/Fraction';
 import SEO from '@components/SEO';
+
+import p from '@utils/Parser';
+import { sqrt, frac } from '@utils/Tex';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -27,8 +29,15 @@ export default function Heron() {
       s,
     });
 
-    const sCalc = <Fraction t={`${a} + ${b} + ${c}`} n={2} />;
-    const arealCalc = `√${s} * (${s} - ${a}) * (${s} - ${b}) * (${s} - ${c})`;
+    const sCalc = frac({
+      t: `${p(a)} ${p(b, { n: '+' })} ${p(c, { n: '+' })}`,
+      n: 2,
+    });
+    const arealCalc = sqrt(
+      `${p(s)} * (${p(s)} ${p(a, { n: '-' })}) * (${p(s)} ${p(b, {
+        n: '-',
+      })}) * (${p(s)} ${p(c, { n: '-' })})`
+    );
 
     setAnswers([
       { name: 's', answer: s, calculation: sCalc },

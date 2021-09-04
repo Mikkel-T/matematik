@@ -21,13 +21,13 @@ export type CalculatorProps = {
 
 export type AnswerProps = {
   name: string | ReactNode;
-  answer?: string | ReactNode;
-  calculation?: string | ReactNode;
+  answer?: string | number;
+  calculation?: string;
 };
 
 export type FractionProps = {
-  t: string | number | ReactNode;
-  n: string | number | ReactNode;
+  t: string | number;
+  n: string | number;
 };
 
 export type Pages = {
@@ -44,3 +44,5 @@ export type ListProps = {
   list: Pages[];
   title: string;
 };
+
+export type POptions = { n: '+' | '-' };

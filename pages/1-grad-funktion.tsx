@@ -2,8 +2,10 @@ import { useState } from 'react';
 
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
-import Fraction from '@components/Fraction';
 import SEO from '@components/SEO';
+
+import p from '@utils/Parser';
+import { frac } from '@utils/Tex';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -23,18 +25,26 @@ export default function Funktion_1_grad() {
   function calc() {
     const vars = { x1, x2, y1, y2 };
 
+    if (+x2 === +x1)
+      throw new Error(
+        'x for punkt 1 kan ikke være det samme som x for punkt 2'
+      );
+
     const a = Calculate('(y2 - y1) / (x2 - x1)', vars);
     const b = Calculate('y1 - x1 * a', { ...vars, a });
 
-    const aCalc = <Fraction t={`${y2} - ${y1}`} n={`${x2} - ${x1}`} />;
-    const bCalc = `${y1} - (${x1} * ${a})`;
+    const aCalc = frac({
+      t: `${p(y2)} ${p(y1, { n: '-' })}`,
+      n: `${p(x2)} ${p(x1, { n: '-' })}`,
+    });
+    const bCalc = `${p(y1)} - (${p(x1)} * ${p(a)})`;
 
     setAnswers([
       { name: 'a', answer: a, calculation: aCalc },
       { name: 'b', answer: b, calculation: bCalc },
       {
         name: 'Funktionsforskriften for linjen',
-        answer: `f(x) = ${a}x ${b > 0 ? '+' : '-'} ${Math.abs(b)}`,
+        answer: `f(x) = ${a}x ${p(b, { n: '+' })}`,
       },
     ]);
   }

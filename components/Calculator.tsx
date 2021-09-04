@@ -17,7 +17,7 @@ export default function Calculator({
     try {
       calculate();
       setError('');
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
     }
   }

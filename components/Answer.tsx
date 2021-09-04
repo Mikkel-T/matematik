@@ -1,19 +1,21 @@
+import MJ from 'react-mathjax';
+
+import { parse0 } from '@utils/Parser';
 import { evaluate } from '@utils/math';
 
 import { AnswerProps } from '@interfaces/index';
 
 export default function Answer({ name, answer }: AnswerProps) {
   return (
-    <div>
-      <b>{name}:</b> {answer}
-    </div>
+    <MJ.Provider>
+      <div>
+        <b>{name}:</b>{' '}
+        {answer && <MJ.Node inline formula={answer.toString()} />}
+      </div>
+    </MJ.Provider>
   );
 }
 
-export function ParseAnswer(answer: number) {
-  return answer ? parseFloat(answer.toFixed(3)) : 0;
-}
-
 export function Calculate(expr: string, scope: object) {
-  return ParseAnswer(+evaluate(expr, scope));
+  return parse0(+evaluate(expr, scope));
 }

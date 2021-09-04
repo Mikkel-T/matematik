@@ -2,8 +2,10 @@ import { useState } from 'react';
 
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
-import Fraction from '@components/Fraction';
 import SEO from '@components/SEO';
+
+import p from '@utils/Parser';
+import { frac } from '@utils/Tex';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -20,8 +22,8 @@ export default function Moms() {
     const prisMoms = Calculate('pris * 1.25', vars);
     const prisUdenMoms = Calculate('pris / 1.25', vars);
 
-    const prisMomsCalc = `${pris} * 1.25`;
-    const prisUdenMomsCalc = <Fraction t={pris} n={1.25} />;
+    const prisMomsCalc = `${p(pris)} * 1.25`;
+    const prisUdenMomsCalc = frac({ t: p(pris), n: 1.25 });
 
     setAnswers([
       { name: 'Pris med moms', answer: prisMoms, calculation: prisMomsCalc },

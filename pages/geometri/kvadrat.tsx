@@ -2,9 +2,11 @@ import { ChangeEvent, useState } from 'react';
 
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
-import Fraction from '@components/Fraction';
 import SEO from '@components/SEO';
 import Svg, { Input, Path, Text } from '@components/Svg';
+
+import p from '@utils/Parser';
+import { text, sqrt, frac } from '@utils/Tex';
 
 import { AnswerProps } from '@interfaces/index';
 
@@ -47,15 +49,10 @@ export default function Kvadrat() {
       answer['Omkreds'] = Calculate('Side * 4', vars);
       answer['Areal'] = Calculate('Side^2', vars);
 
-      Side_calc.calculation = `${Side} blev indtastet`;
-      Diagonal_calc.calculation = `${Side} * √2`;
-      Omkreds_calc.calculation = `${Side} * 4`;
-      Areal_calc.calculation = (
-        <>
-          {Side}
-          <sup>2</sup>
-        </>
-      );
+      Side_calc.calculation = text(`${p(Side)} blev indtastet`);
+      Diagonal_calc.calculation = `${p(Side)} * ${sqrt(2)}`;
+      Omkreds_calc.calculation = `${p(Side)} * 4`;
+      Areal_calc.calculation = `${p(Side)}^2`;
     }
 
     if (Diagonal !== '') {
@@ -64,18 +61,10 @@ export default function Kvadrat() {
       answer['Omkreds'] = Calculate('(Diagonal / sqrt(2)) * 4', vars);
       answer['Areal'] = Calculate('(Diagonal / sqrt(2))^2', vars);
 
-      Side_calc.calculation = <Fraction t={Diagonal} n={'√2'} />;
-      Diagonal_calc.calculation = `${Diagonal} blev indtastet`;
-      Omkreds_calc.calculation = (
-        <>
-          <Fraction t={Diagonal} n={'√2'} /> * 4
-        </>
-      );
-      Areal_calc.calculation = (
-        <>
-          ({Diagonal} / √2)<sup>2</sup>
-        </>
-      );
+      Side_calc.calculation = frac({ t: p(Diagonal), n: sqrt(2) });
+      Diagonal_calc.calculation = text(`${p(Diagonal)} blev indtastet`);
+      Omkreds_calc.calculation = `${frac({ t: p(Diagonal), n: sqrt(2) })} * 4`;
+      Areal_calc.calculation = `(${p(Diagonal)} / ${sqrt(2)})^2`;
     }
 
     if (Omkreds !== '') {
@@ -84,18 +73,12 @@ export default function Kvadrat() {
       answer['Omkreds'] = Calculate('Omkreds', vars);
       answer['Areal'] = Calculate('(Omkreds / 4)^2', vars);
 
-      Side_calc.calculation = <Fraction t={Omkreds} n={'4'} />;
-      Diagonal_calc.calculation = (
-        <>
-          <Fraction t={Omkreds} n="4" /> * √2
-        </>
-      );
-      Omkreds_calc.calculation = `${Omkreds} blev indtastet`;
-      Areal_calc.calculation = (
-        <>
-          ({Omkreds} / 4)<sup>2</sup>
-        </>
-      );
+      Side_calc.calculation = frac({ t: p(Omkreds), n: 4 });
+      Diagonal_calc.calculation = `${frac({ t: p(Omkreds), n: 4 })} * ${sqrt(
+        2
+      )}`;
+      Omkreds_calc.calculation = text(`${p(Omkreds)} blev indtastet`);
+      Areal_calc.calculation = `(${p(Omkreds)} / 4)^2`;
     }
 
     if (Areal !== '') {
@@ -104,10 +87,10 @@ export default function Kvadrat() {
       answer['Omkreds'] = Calculate('sqrt(Areal) * 4', vars);
       answer['Areal'] = Calculate('Areal', vars);
 
-      Side_calc.calculation = `√${Areal}`;
-      Diagonal_calc.calculation = `√${Areal} * √2`;
-      Omkreds_calc.calculation = `√${Areal} * 4`;
-      Areal_calc.calculation = `${Areal} blev indtastet`;
+      Side_calc.calculation = sqrt(p(Areal));
+      Diagonal_calc.calculation = `${sqrt(p(Areal))} * ${sqrt(2)}`;
+      Omkreds_calc.calculation = `${sqrt(p(Areal))} * 4`;
+      Areal_calc.calculation = text(`${p(Areal)} blev indtastet`);
     }
 
     setCalculations([Side_calc, Diagonal_calc, Omkreds_calc, Areal_calc]);

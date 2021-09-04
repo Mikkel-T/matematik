@@ -4,6 +4,8 @@ import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import SEO from '@components/SEO';
 
+import p from '@utils/Parser';
+
 import { AnswerProps, InputProps } from '@interfaces/index';
 
 export default function Renter() {
@@ -27,11 +29,7 @@ export default function Renter() {
 
     const Kn = Calculate('K * (1 + r)^n', vars);
 
-    const KnCalc = (
-      <>
-        {K} * (1 + {r})<sup>{n}</sup>
-      </>
-    );
+    const KnCalc = `${p(K)} * (1 ${p(r, { n: '+' })})^{${p(n)}}`;
 
     setAnswers([
       {

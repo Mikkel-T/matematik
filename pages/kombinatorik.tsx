@@ -2,8 +2,10 @@ import { useState } from 'react';
 
 import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
-import Fraction from '@components/Fraction';
 import SEO from '@components/SEO';
+
+import P from '@utils/Parser';
+import { frac } from '@utils/Tex';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -29,6 +31,7 @@ export default function Kombinatorik() {
   function calc() {
     const vars = { n, p };
 
+    if (+p < 0) throw new Error('p må ikke være negativ');
     if (+n < +p) throw new Error('n skal være større end p');
 
     const ordnetMed = Calculate('n^p', vars);
@@ -36,19 +39,16 @@ export default function Kombinatorik() {
     const uordnetMed = Calculate('(n + p - 1)! /((n - 1)! * p!)', vars);
     const uordnetUden = Calculate('n! /((n - p)! * p!)', vars);
 
-    const ordnetMedCalc = (
-      <>
-        {n}
-        <sup>{p}</sup>
-      </>
-    );
-    const ordnetUdenCalc = <Fraction t={`${n}!`} n={`(${n} - ${p})!`} />;
-    const uordnetMedCalc = (
-      <Fraction t={`(${n} + ${p} - 1)!`} n={`(${n} - 1)! * ${p}!`} />
-    );
-    const uordnetUdenCalc = (
-      <Fraction t={`${n}!`} n={`(${n} - ${p})! * ${p}!`} />
-    );
+    const ordnetMedCalc = `${P(n)}^{${P(p)}}`;
+    const ordnetUdenCalc = frac({ t: `${P(n)}!`, n: `(${P(n)} - ${P(p)})!` });
+    const uordnetMedCalc = frac({
+      t: `(${P(n)} + ${P(p)} - 1)!`,
+      n: `(${P(n)} - 1)! * ${P(p)}!`,
+    });
+    const uordnetUdenCalc = frac({
+      t: `${P(n)}!`,
+      n: `(${P(n)} - ${P(p)})! * ${P(p)}!`,
+    });
 
     setAnswers([
       {
