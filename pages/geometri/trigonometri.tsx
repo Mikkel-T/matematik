@@ -42,11 +42,6 @@ export default function Trigonometri() {
   function calc() {
     const vars = { a, b, c, A, B, C: 90 };
 
-    if (+c < Math.max(+a || +b))
-      throw new Error(
-        'Kateterne (a eller b) må ikke være større end hypotenusen (c)'
-      );
-
     const answer: Record<string, string | number> = {
       A: '',
       B: '',
@@ -61,11 +56,19 @@ export default function Trigonometri() {
     const c_calc: AnswerProps = { name: 'c' };
 
     if (A !== '') {
+      if (+A >= 90)
+        throw new Error(
+          'Vinklerne (A eller B) må ikke være større end eller lig med 90°'
+        );
       answer['A'] = Calculate('A', vars);
       A_calc.calculation = text(`${p(A)} blev indtastet`);
     }
 
     if (B !== '') {
+      if (+B >= 90)
+        throw new Error(
+          'Vinklerne (A eller B) må ikke være større end eller lig med 90°'
+        );
       answer['B'] = Calculate('B', vars);
       B_calc.calculation = text(`${p(B)} blev indtastet`);
     }
@@ -81,6 +84,10 @@ export default function Trigonometri() {
     }
 
     if (c !== '') {
+      if (+c <= Math.max(+a, +b))
+        throw new Error(
+          'Kateterne (a eller b) må ikke være større end eller lig med hypotenusen (c)'
+        );
       answer['c'] = Calculate('c', vars);
       c_calc.calculation = text(`${p(c)} blev indtastet`);
     }
