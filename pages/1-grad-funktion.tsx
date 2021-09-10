@@ -1,11 +1,8 @@
 import { useState } from 'react';
 
-import { Calculate } from '@components/Answer';
+import { Calc } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import SEO from '@components/SEO';
-
-import p from '@utils/Parser';
-import { frac } from '@utils/Tex';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -30,21 +27,17 @@ export default function Funktion_1_grad() {
         'x for punkt 1 kan ikke være det samme som x for punkt 2'
       );
 
-    const a = Calculate('(y2 - y1) / (x2 - x1)', vars);
-    const b = Calculate('y1 - x1 * a', { ...vars, a });
-
-    const aCalc = frac({
-      t: `${p(y2)} ${p(y1, { n: '-' })}`,
-      n: `${p(x2)} ${p(x1, { n: '-' })}`,
-    });
-    const bCalc = `${p(y1)} - (${p(x1)} * ${p(a)})`;
+    const a = Calc('(y2 - y1) / (x2 - x1)', vars);
+    const b = Calc('y1 - x1 * a', { ...vars, a: +a['answer'] });
 
     setAnswers([
-      { name: 'a', answer: a, calculation: aCalc },
-      { name: 'b', answer: b, calculation: bCalc },
+      { name: 'a', ...a },
+      { name: 'b', ...b },
       {
         name: 'Funktionsforskriften for linjen',
-        answer: `f(x) = ${a}x ${p(b, { n: '+' })}`,
+        answer: `f(x) = ${a.answer}x ${+b.answer > 0 ? '+' : '-'} ${Math.abs(
+          +b.answer
+        )}`,
       },
     ]);
   }

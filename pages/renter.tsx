@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
-import { Calculate } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import SEO from '@components/SEO';
 
-import p from '@utils/Parser';
+import { GetAnswer } from '@utils/math';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -27,9 +26,7 @@ export default function Renter() {
   function calc() {
     const vars = { K, r, n };
 
-    const Kn = Calculate('K * (1 + r)^n', vars);
-
-    const KnCalc = `${p(K)} * (1 ${p(r, { n: '+' })})^{${p(n)}}`;
+    const Kn = GetAnswer('K * (1 + r)^n', vars);
 
     setAnswers([
       {
@@ -38,8 +35,7 @@ export default function Renter() {
             K<sub>n</sub>
           </>
         ),
-        answer: Kn,
-        calculation: KnCalc,
+        ...Kn,
       },
     ]);
   }

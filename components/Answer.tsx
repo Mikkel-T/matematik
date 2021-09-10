@@ -1,7 +1,6 @@
 import MJ from 'react-mathjax';
 
-import { parse0 } from '@utils/Parser';
-import { evaluate } from '@utils/math';
+import { GetAnswer } from '@utils/math';
 
 import { AnswerProps } from '@interfaces/index';
 
@@ -16,6 +15,14 @@ export default function Answer({ name, answer }: AnswerProps) {
   );
 }
 
-export function Calculate(expr: string, scope: object) {
-  return parse0(+evaluate(expr, scope));
+export function Calc(
+  expr: string,
+  scope: Record<string, number | string>,
+  entered?: boolean
+): { answer: string; calculation: string } {
+  return GetAnswer(expr, scope, entered);
+}
+
+export function text(str: string) {
+  return str.replaceAll(' ', '~ ');
 }

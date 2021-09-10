@@ -1,12 +1,9 @@
 import { ChangeEvent, useState } from 'react';
 
-import { Calculate } from '@components/Answer';
+import { Calc } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import SEO from '@components/SEO';
 import Svg, { Circle, Input, Path, Text } from '@components/Svg';
-
-import p from '@utils/Parser';
-import { frac, sqrt, text } from '@utils/Tex';
 
 import { AnswerProps } from '@interfaces/index';
 
@@ -32,71 +29,104 @@ export default function Cirkel() {
   function calc() {
     const vars = { Radius, Diameter, Areal, Omkreds };
 
-    const answer: Record<string, string | number> = {
+    const ans: Record<string, string | number> = {
       Radius: '',
       Diameter: '',
       Omkreds: '',
       Areal: '',
     };
-    const Radius_calc: AnswerProps = { name: 'Radius' };
-    const Diameter_calc: AnswerProps = { name: 'Diameter' };
-    const Omkreds_calc: AnswerProps = { name: 'Omkreds' };
-    const Areal_calc: AnswerProps = { name: 'Areal' };
+    let Radius_calc = '';
+    let Diameter_calc = '';
+    let Omkreds_calc = '';
+    let Areal_calc = '';
 
     if (Radius !== '') {
-      answer['Radius'] = Calculate('Radius', vars);
-      answer['Diameter'] = Calculate('Radius * 2', vars);
-      answer['Omkreds'] = Calculate('Radius * 2 * pi', vars);
-      answer['Areal'] = Calculate('Radius^2 * pi', vars);
-
-      Radius_calc.calculation = text(`${p(Radius)} blev indtastet`);
-      Diameter_calc.calculation = `${p(Radius)} * 2`;
-      Omkreds_calc.calculation = `${p(Radius)} * 2 * \\pi`;
-      Areal_calc.calculation = `${p(Radius)}^2 * \\pi`;
+      ({ answer: ans['Radius'], calculation: Radius_calc } = Calc(
+        'Radius',
+        vars,
+        true
+      ));
+      ({ answer: ans['Diameter'], calculation: Diameter_calc } = Calc(
+        'Radius * 2',
+        vars
+      ));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
+        'Radius * 2 * pi',
+        vars
+      ));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
+        'Radius^2 * pi',
+        vars
+      ));
     }
 
     if (Diameter !== '') {
-      answer['Radius'] = Calculate('Diameter / 2', vars);
-      answer['Diameter'] = Calculate('Diameter', vars);
-      answer['Omkreds'] = Calculate('Diameter * pi', vars);
-      answer['Areal'] = Calculate('(Diameter / 2)^2 * pi', vars);
-
-      Radius_calc.calculation = frac({ t: p(Diameter), n: 2 });
-      Diameter_calc.calculation = text(`${p(Diameter)} blev indtastet`);
-      Omkreds_calc.calculation = `${p(Diameter)} * π`;
-      Areal_calc.calculation = `(${p(Diameter)} / 2)^2 * \\pi`;
+      ({ answer: ans['Radius'], calculation: Radius_calc } = Calc(
+        'Diameter / 2',
+        vars
+      ));
+      ({ answer: ans['Diameter'], calculation: Diameter_calc } = Calc(
+        'Diameter',
+        vars,
+        true
+      ));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
+        'Diameter * pi',
+        vars
+      ));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
+        '(Diameter / 2)^2 * pi',
+        vars
+      ));
     }
 
     if (Omkreds !== '') {
-      answer['Radius'] = Calculate('Omkreds / (2 * pi)', vars);
-      answer['Diameter'] = Calculate('Omkreds / pi', vars);
-      answer['Omkreds'] = Calculate('Omkreds', vars);
-      answer['Areal'] = Calculate('Omkreds^2 / (4 * pi)', vars);
-
-      Radius_calc.calculation = frac({ t: p(Omkreds), n: '2 * \\pi' });
-      Diameter_calc.calculation = frac({ t: p(Omkreds), n: '\\pi' });
-      Omkreds_calc.calculation = text(`${p(Omkreds)} blev indtastet`);
-      Areal_calc.calculation = frac({ t: `${p(Omkreds)}^2`, n: '4 * \\pi' });
+      ({ answer: ans['Radius'], calculation: Radius_calc } = Calc(
+        'Omkreds / (2 * pi)',
+        vars
+      ));
+      ({ answer: ans['Diameter'], calculation: Diameter_calc } = Calc(
+        'Omkreds / pi',
+        vars
+      ));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
+        'Omkreds',
+        vars,
+        true
+      ));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
+        'Omkreds^2 / (4 * pi)',
+        vars
+      ));
     }
 
     if (Areal !== '') {
-      answer['Radius'] = Calculate('sqrt(Areal / pi)', vars);
-      answer['Diameter'] = Calculate('sqrt(Areal / pi) * 2', vars);
-      answer['Omkreds'] = Calculate('sqrt(Areal / pi) * 2 * pi', vars);
-      answer['Areal'] = Calculate('Areal', vars);
-
-      Radius_calc.calculation = sqrt(frac({ t: p(Areal), n: '\\pi' }));
-      Diameter_calc.calculation = `${sqrt(
-        frac({ t: p(Areal), n: '\\pi' })
-      )} * 2`;
-      Omkreds_calc.calculation = `${sqrt(
-        frac({ t: p(Areal), n: '\\pi' })
-      )} * 2 * \\pi`;
-      Areal_calc.calculation = text(`${p(Areal)} blev indtastet`);
+      ({ answer: ans['Radius'], calculation: Radius_calc } = Calc(
+        'sqrt(Areal / pi)',
+        vars
+      ));
+      ({ answer: ans['Diameter'], calculation: Diameter_calc } = Calc(
+        'sqrt(Areal / pi) * 2',
+        vars
+      ));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
+        'sqrt(Areal / pi) * 2 * pi',
+        vars
+      ));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
+        'Areal',
+        vars,
+        true
+      ));
     }
 
-    setCalculations([Radius_calc, Diameter_calc, Omkreds_calc, Areal_calc]);
-    setAnswers(answer);
+    setCalculations([
+      { name: 'Radius', calculation: Radius_calc },
+      { name: 'Diameter', calculation: Diameter_calc },
+      { name: 'Omkreds', calculation: Omkreds_calc },
+      { name: 'Areal', calculation: Areal_calc },
+    ]);
+    setAnswers(ans);
   }
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     let tmp = false;

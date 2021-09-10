@@ -1,19 +1,9 @@
 import { ChangeEvent, useState } from 'react';
 
-import { Calculate } from '@components/Answer';
+import { Calc, text } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import SEO from '@components/SEO';
 import Svg, { Input, Path, Text } from '@components/Svg';
-
-import p from '@utils/Parser';
-import { text } from '@utils/Tex';
-import {
-  AngleCalc,
-  FracCalc,
-  InverseCalc,
-  MultiplyCalc,
-  SqrtCalc,
-} from '@utils/TrigCalc';
 
 import { AnswerProps } from '@interfaces/index';
 
@@ -42,26 +32,25 @@ export default function Trigonometri() {
   function calc() {
     const vars = { a, b, c, A, B, C: 90 };
 
-    const answer: Record<string, string | number> = {
+    const ans: Record<string, string | number> = {
       A: '',
       B: '',
       a: '',
       b: '',
       c: '',
     };
-    const A_calc: AnswerProps = { name: 'A' };
-    const B_calc: AnswerProps = { name: 'B' };
-    const a_calc: AnswerProps = { name: 'a' };
-    const b_calc: AnswerProps = { name: 'b' };
-    const c_calc: AnswerProps = { name: 'c' };
+    let A_calc = '';
+    let B_calc = '';
+    let a_calc = '';
+    let b_calc = '';
+    let c_calc = '';
 
     if (A !== '') {
       if (+A >= 90)
         throw new Error(
           'Vinklerne (A eller B) må ikke være større end eller lig med 90°'
         );
-      answer['A'] = Calculate('A', vars);
-      A_calc.calculation = text(`${p(A)} blev indtastet`);
+      ({ answer: ans['A'], calculation: A_calc } = Calc('A', vars, true));
     }
 
     if (B !== '') {
@@ -69,18 +58,15 @@ export default function Trigonometri() {
         throw new Error(
           'Vinklerne (A eller B) må ikke være større end eller lig med 90°'
         );
-      answer['B'] = Calculate('B', vars);
-      B_calc.calculation = text(`${p(B)} blev indtastet`);
+      ({ answer: ans['B'], calculation: B_calc } = Calc('B', vars, true));
     }
 
     if (a !== '') {
-      answer['a'] = Calculate('a', vars);
-      a_calc.calculation = text(`${p(a)} blev indtastet`);
+      ({ answer: ans['a'], calculation: a_calc } = Calc('a', vars, true));
     }
 
     if (b !== '') {
-      answer['b'] = Calculate('b', vars);
-      b_calc.calculation = text(`${p(b)} blev indtastet`);
+      ({ answer: ans['b'], calculation: b_calc } = Calc('b', vars, true));
     }
 
     if (c !== '') {
@@ -88,96 +74,68 @@ export default function Trigonometri() {
         throw new Error(
           'Kateterne (a eller b) må ikke være større end eller lig med hypotenusen (c)'
         );
-      answer['c'] = Calculate('c', vars);
-      c_calc.calculation = text(`${p(c)} blev indtastet`);
+      ({ answer: ans['c'], calculation: c_calc } = Calc('c', vars, true));
     }
 
     if (a !== '' && b !== '') {
-      answer['A'] = Calculate('atan(a / b)', vars);
-      answer['B'] = Calculate('atan(b / a)', vars);
-      answer['c'] = Calculate('sqrt(a^2 + b^2)', vars);
-
-      A_calc.calculation = InverseCalc({ f: 'tan', t: a, n: b });
-      B_calc.calculation = InverseCalc({ f: 'tan', t: b, n: a });
-      c_calc.calculation = SqrtCalc({ first: a, sign: '+', second: b });
+      ({ answer: ans['A'], calculation: A_calc } = Calc('atan(a / b)', vars));
+      ({ answer: ans['B'], calculation: B_calc } = Calc('atan(b / a)', vars));
+      ({ answer: ans['c'], calculation: c_calc } = Calc(
+        'sqrt(a^2 + b^2)',
+        vars
+      ));
     } else if (a !== '' && c !== '') {
-      answer['A'] = Calculate('asin(a / c)', vars);
-      answer['B'] = Calculate('acos(a / c)', vars);
-      answer['b'] = Calculate('sqrt(c^2 - a^2)', vars);
-
-      A_calc.calculation = InverseCalc({ f: 'sin', t: a, n: c });
-      B_calc.calculation = InverseCalc({ f: 'cos', t: a, n: c });
-      b_calc.calculation = SqrtCalc({ first: c, sign: '-', second: a });
+      ({ answer: ans['A'], calculation: A_calc } = Calc('asin(a / c)', vars));
+      ({ answer: ans['B'], calculation: B_calc } = Calc('acos(a / c)', vars));
+      ({ answer: ans['b'], calculation: b_calc } = Calc(
+        'sqrt(c^2 - a^2)',
+        vars
+      ));
     } else if (a !== '' && A !== '') {
-      answer['B'] = Calculate('180 - C - A', vars);
-      answer['b'] = Calculate('a / tan(A)', vars);
-      answer['c'] = Calculate('a / sin(A)', vars);
-
-      B_calc.calculation = AngleCalc({ value: A });
-      b_calc.calculation = FracCalc({ t: a, n: A, f: 'tan' });
-      c_calc.calculation = FracCalc({ t: a, n: A, f: 'sin' });
+      ({ answer: ans['B'], calculation: B_calc } = Calc('180 - C - A', vars));
+      ({ answer: ans['b'], calculation: b_calc } = Calc('a / tan(A)', vars));
+      ({ answer: ans['c'], calculation: c_calc } = Calc('a / sin(A)', vars));
     } else if (a !== '' && B !== '') {
-      answer['A'] = Calculate('180 - C - B', vars);
-      answer['b'] = Calculate('a * tan(B)', vars);
-      answer['c'] = Calculate('a / cos(B)', vars);
-
-      A_calc.calculation = AngleCalc({ value: B });
-      b_calc.calculation = MultiplyCalc({ first: a, f: 'tan', second: B });
-      c_calc.calculation = FracCalc({ t: a, n: B, f: 'cos' });
+      ({ answer: ans['A'], calculation: A_calc } = Calc('180 - C - B', vars));
+      ({ answer: ans['b'], calculation: b_calc } = Calc('a * tan(B)', vars));
+      ({ answer: ans['c'], calculation: c_calc } = Calc('a / cos(B)', vars));
     } else if (b !== '' && c !== '') {
-      answer['A'] = Calculate('acos(b / c)', vars);
-      answer['B'] = Calculate('asin(b / c)', vars);
-      answer['a'] = Calculate('sqrt(c^2 - b^2)', vars);
-
-      A_calc.calculation = InverseCalc({ f: 'cos', t: b, n: c });
-      B_calc.calculation = InverseCalc({ f: 'sin', t: b, n: c });
-      a_calc.calculation = SqrtCalc({ first: c, sign: '-', second: b });
+      ({ answer: ans['A'], calculation: A_calc } = Calc('acos(b / c)', vars));
+      ({ answer: ans['B'], calculation: B_calc } = Calc('asin(b / c)', vars));
+      ({ answer: ans['a'], calculation: a_calc } = Calc(
+        'sqrt(c^2 - b^2)',
+        vars
+      ));
     } else if (b !== '' && A !== '') {
-      answer['B'] = Calculate('180 - C - A', vars);
-      answer['a'] = Calculate('b * tan(A)', vars);
-      answer['c'] = Calculate('b / cos(A)', vars);
-
-      B_calc.calculation = AngleCalc({ value: A });
-      a_calc.calculation = MultiplyCalc({ first: b, f: 'tan', second: A });
-      c_calc.calculation = FracCalc({ t: b, n: A, f: 'cos' });
+      ({ answer: ans['B'], calculation: B_calc } = Calc('180 - C - A', vars));
+      ({ answer: ans['a'], calculation: a_calc } = Calc('b * tan(A)', vars));
+      ({ answer: ans['c'], calculation: c_calc } = Calc('b / cos(A)', vars));
     } else if (b !== '' && B !== '') {
-      answer['A'] = Calculate('180 - C - B', vars);
-      answer['a'] = Calculate('b / tan(B)', vars);
-      answer['c'] = Calculate('b / sin(B)', vars);
-
-      A_calc.calculation = AngleCalc({ value: B });
-      a_calc.calculation = FracCalc({ t: b, n: B, f: 'tan' });
-      c_calc.calculation = FracCalc({ t: b, n: B, f: 'sin' });
+      ({ answer: ans['A'], calculation: A_calc } = Calc('180 - C - B', vars));
+      ({ answer: ans['a'], calculation: a_calc } = Calc('b / tan(B)', vars));
+      ({ answer: ans['c'], calculation: c_calc } = Calc('b / sin(B)', vars));
     } else if (c !== '' && A !== '') {
-      answer['B'] = Calculate('180 - C - A', vars);
-      answer['a'] = Calculate('c * sin(A)', vars);
-      answer['b'] = Calculate('c * cos(A)', vars);
-
-      B_calc.calculation = AngleCalc({ value: A });
-      a_calc.calculation = MultiplyCalc({ first: c, f: 'sin', second: A });
-      b_calc.calculation = MultiplyCalc({ first: c, f: 'cos', second: A });
+      ({ answer: ans['B'], calculation: B_calc } = Calc('180 - C - A', vars));
+      ({ answer: ans['a'], calculation: a_calc } = Calc('c * sin(A)', vars));
+      ({ answer: ans['b'], calculation: b_calc } = Calc('c * cos(A)', vars));
     } else if (c !== '' && B !== '') {
-      answer['A'] = Calculate('180 - C - B', vars);
-      answer['a'] = Calculate('c * cos(B)', vars);
-      answer['b'] = Calculate('c * sin(B)', vars);
-
-      A_calc.calculation = AngleCalc({ value: B });
-      a_calc.calculation = MultiplyCalc({ first: c, f: 'cos', second: B });
-      b_calc.calculation = MultiplyCalc({ first: c, f: 'sin', second: B });
+      ({ answer: ans['A'], calculation: A_calc } = Calc('180 - C - B', vars));
+      ({ answer: ans['a'], calculation: a_calc } = Calc('c * cos(B)', vars));
+      ({ answer: ans['b'], calculation: b_calc } = Calc('c * sin(B)', vars));
     } else {
       throw new Error(
         'Du har ikke indtastet nok tal til at trekanten kan beregnes'
       );
     }
     setCalculations([
-      A_calc,
-      B_calc,
-      { name: 'C', calculation: text('C er altid 90°') },
-      a_calc,
-      b_calc,
-      c_calc,
+      { name: 'A', calculation: A_calc },
+      { name: 'B', calculation: B_calc },
+      { name: 'C', calculation: text('C er altid 90^{\\circ}') },
+      { name: 'a', calculation: a_calc },
+      { name: 'b', calculation: b_calc },
+      { name: 'c', calculation: c_calc },
     ]);
-    setAnswers(answer);
+    setAnswers(ans);
   }
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const readonlyTmp = {

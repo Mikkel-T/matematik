@@ -44,5 +44,3 @@ export type ListProps = {
   list: Pages[];
   title: string;
 };
-
-export type POptions = { n: '+' | '-' };

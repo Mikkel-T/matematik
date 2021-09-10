@@ -1,11 +1,8 @@
 import { useState } from 'react';
 
-import { Calculate } from '@components/Answer';
+import { Calc } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import SEO from '@components/SEO';
-
-import p from '@utils/Parser';
-import { sqrt, frac } from '@utils/Tex';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -23,28 +20,17 @@ export default function Heron() {
   function calc() {
     const vars = { a, b, c };
 
-    const s = Calculate('(a + b + c) / 2', vars);
-    const areal = Calculate('sqrt(s * (s - a) * (s - b) * (s - c))', {
+    const s = Calc('(a + b + c) / 2', vars);
+    const areal = Calc('sqrt(s * (s - a) * (s - b) * (s - c))', {
       ...vars,
-      s,
+      s: +s['answer'],
     });
-
-    const sCalc = frac({
-      t: `${p(a)} ${p(b, { n: '+' })} ${p(c, { n: '+' })}`,
-      n: 2,
-    });
-    const arealCalc = sqrt(
-      `${p(s)} * (${p(s)} ${p(a, { n: '-' })}) * (${p(s)} ${p(b, {
-        n: '-',
-      })}) * (${p(s)} ${p(c, { n: '-' })})`
-    );
 
     setAnswers([
-      { name: 's', answer: s, calculation: sCalc },
+      { name: 's', ...s },
       {
         name: 'Areal',
-        answer: areal,
-        calculation: arealCalc,
+        ...areal,
       },
     ]);
   }

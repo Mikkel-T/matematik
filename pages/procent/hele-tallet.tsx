@@ -1,11 +1,9 @@
 import { useState } from 'react';
 
-import { Calculate } from '@components/Answer';
+import { Calc } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import { Percent as Input } from '@components/Input';
 import SEO from '@components/SEO';
-
-import p from '@utils/Parser';
 
 import { AnswerProps } from '@interfaces/index';
 
@@ -17,13 +15,9 @@ export default function Hele_tallet() {
   function calc() {
     const vars = { x, y };
 
-    const heleTallet = Calculate('y / x * 100', vars);
+    const heleTallet = Calc('y / x * 100', vars);
 
-    const heleTalletCalc = `${p(y)} / ${p(x)} * 100`;
-
-    setAnswers([
-      { name: 'Hele tallet', answer: heleTallet, calculation: heleTalletCalc },
-    ]);
+    setAnswers([{ name: 'Hele tallet', ...heleTallet }]);
   }
   return (
     <>

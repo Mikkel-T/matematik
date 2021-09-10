@@ -1,12 +1,9 @@
 import { ChangeEvent, useState } from 'react';
 
-import { Calculate } from '@components/Answer';
+import { Calc } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import SEO from '@components/SEO';
 import Svg, { Input, Path, Text } from '@components/Svg';
-
-import p from '@utils/Parser';
-import { text, sqrt, frac } from '@utils/Tex';
 
 import { AnswerProps } from '@interfaces/index';
 
@@ -32,69 +29,104 @@ export default function Kvadrat() {
   function calc() {
     const vars = { Side, Diagonal, Omkreds, Areal };
 
-    const answer: Record<string, string | number> = {
+    const ans: Record<string, string | number> = {
       Side: '',
       Diagonal: '',
       Omkreds: '',
       Areal: '',
     };
-    const Side_calc: AnswerProps = { name: 'Side' };
-    const Diagonal_calc: AnswerProps = { name: 'Diagonal' };
-    const Omkreds_calc: AnswerProps = { name: 'Omkreds' };
-    const Areal_calc: AnswerProps = { name: 'Areal' };
+    let Side_calc = '';
+    let Diagonal_calc = '';
+    let Omkreds_calc = '';
+    let Areal_calc = '';
 
     if (Side !== '') {
-      answer['Side'] = Calculate('Side', vars);
-      answer['Diagonal'] = Calculate('Side * sqrt(2)', vars);
-      answer['Omkreds'] = Calculate('Side * 4', vars);
-      answer['Areal'] = Calculate('Side^2', vars);
-
-      Side_calc.calculation = text(`${p(Side)} blev indtastet`);
-      Diagonal_calc.calculation = `${p(Side)} * ${sqrt(2)}`;
-      Omkreds_calc.calculation = `${p(Side)} * 4`;
-      Areal_calc.calculation = `${p(Side)}^2`;
+      ({ answer: ans['Side'], calculation: Side_calc } = Calc(
+        'Side',
+        vars,
+        true
+      ));
+      ({ answer: ans['Diagonal'], calculation: Diagonal_calc } = Calc(
+        'Side * sqrt(2)',
+        vars
+      ));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
+        'Side * 4',
+        vars
+      ));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
+        'Side^2',
+        vars
+      ));
     }
 
     if (Diagonal !== '') {
-      answer['Side'] = Calculate('Diagonal / sqrt(2)', vars);
-      answer['Diagonal'] = Calculate('Diagonal', vars);
-      answer['Omkreds'] = Calculate('(Diagonal / sqrt(2)) * 4', vars);
-      answer['Areal'] = Calculate('(Diagonal / sqrt(2))^2', vars);
-
-      Side_calc.calculation = frac({ t: p(Diagonal), n: sqrt(2) });
-      Diagonal_calc.calculation = text(`${p(Diagonal)} blev indtastet`);
-      Omkreds_calc.calculation = `${frac({ t: p(Diagonal), n: sqrt(2) })} * 4`;
-      Areal_calc.calculation = `(${p(Diagonal)} / ${sqrt(2)})^2`;
+      ({ answer: ans['Side'], calculation: Side_calc } = Calc(
+        'Diagonal / sqrt(2)',
+        vars
+      ));
+      ({ answer: ans['Diagonal'], calculation: Diagonal_calc } = Calc(
+        'Diagonal',
+        vars,
+        true
+      ));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
+        '(Diagonal / sqrt(2)) * 4',
+        vars
+      ));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
+        '(Diagonal / sqrt(2))^2',
+        vars
+      ));
     }
 
     if (Omkreds !== '') {
-      answer['Side'] = Calculate('Omkreds / 4', vars);
-      answer['Diagonal'] = Calculate('(Omkreds / 4) * sqrt(2)', vars);
-      answer['Omkreds'] = Calculate('Omkreds', vars);
-      answer['Areal'] = Calculate('(Omkreds / 4)^2', vars);
-
-      Side_calc.calculation = frac({ t: p(Omkreds), n: 4 });
-      Diagonal_calc.calculation = `${frac({ t: p(Omkreds), n: 4 })} * ${sqrt(
-        2
-      )}`;
-      Omkreds_calc.calculation = text(`${p(Omkreds)} blev indtastet`);
-      Areal_calc.calculation = `(${p(Omkreds)} / 4)^2`;
+      ({ answer: ans['Side'], calculation: Side_calc } = Calc(
+        'Omkreds / 4',
+        vars
+      ));
+      ({ answer: ans['Diagonal'], calculation: Diagonal_calc } = Calc(
+        '(Omkreds / 4) * sqrt(2)',
+        vars
+      ));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
+        'Omkreds',
+        vars,
+        true
+      ));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
+        '(Omkreds / 4)^2',
+        vars
+      ));
     }
 
     if (Areal !== '') {
-      answer['Side'] = Calculate('sqrt(Areal)', vars);
-      answer['Diagonal'] = Calculate('sqrt(Areal) * sqrt(2)', vars);
-      answer['Omkreds'] = Calculate('sqrt(Areal) * 4', vars);
-      answer['Areal'] = Calculate('Areal', vars);
-
-      Side_calc.calculation = sqrt(p(Areal));
-      Diagonal_calc.calculation = `${sqrt(p(Areal))} * ${sqrt(2)}`;
-      Omkreds_calc.calculation = `${sqrt(p(Areal))} * 4`;
-      Areal_calc.calculation = text(`${p(Areal)} blev indtastet`);
+      ({ answer: ans['Side'], calculation: Side_calc } = Calc(
+        'sqrt(Areal)',
+        vars
+      ));
+      ({ answer: ans['Diagonal'], calculation: Diagonal_calc } = Calc(
+        'sqrt(Areal) * sqrt(2)',
+        vars
+      ));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
+        'sqrt(Areal) * 4',
+        vars
+      ));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
+        'Areal',
+        vars,
+        true
+      ));
     }
 
-    setCalculations([Side_calc, Diagonal_calc, Omkreds_calc, Areal_calc]);
-    setAnswers(answer);
+    setCalculations([
+      { name: 'Side', calculation: Side_calc },
+      { name: 'Diagonal', calculation: Diagonal_calc },
+      { name: 'Omkreds', calculation: Omkreds_calc },
+      { name: 'Areal', calculation: Areal_calc },
+    ]);
+    setAnswers(ans);
   }
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     let tmp = false;
