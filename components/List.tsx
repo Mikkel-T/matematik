@@ -5,9 +5,7 @@ import { ListProps } from '@interfaces/index';
 
 export default function List({ list, title }: ListProps) {
   const router = useRouter();
-  const pathname = router.pathname.endsWith('/')
-    ? router.pathname
-    : router.pathname + '/';
+  const pathname = router.pathname.endsWith('/') ? router.pathname : router.pathname + '/';
   return (
     <>
       <h1 className="py-3 text-4xl">{title}</h1>

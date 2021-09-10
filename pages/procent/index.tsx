@@ -4,10 +4,7 @@ import SEO from '@components/SEO';
 export default function Procent() {
   return (
     <>
-      <SEO
-        title="Procent beregnere"
-        description="En samling af procent beregnere"
-      />
+      <SEO title="Procent beregnere" description="En samling af procent beregnere" />
       <List
         list={[
           {

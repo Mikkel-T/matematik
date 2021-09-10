@@ -9,9 +9,7 @@ import { AnswerProps, InputProps } from '@interfaces/index';
 export default function Moms() {
   const [pris, setPris] = useState('');
   const [answers, setAnswers] = useState<AnswerProps[]>([]);
-  const inputs: InputProps[] = [
-    { name: 'Pris', value: pris, onChange: setPris },
-  ];
+  const inputs: InputProps[] = [{ name: 'Pris', value: pris, onChange: setPris }];
 
   function calc() {
     const vars = { pris };

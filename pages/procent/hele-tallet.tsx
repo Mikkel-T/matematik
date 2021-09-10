@@ -26,8 +26,8 @@ export default function Hele_tallet() {
         description="En procent beregner der udregner et tal når man kender en procentdel af det"
       />
       <Calculator calculate={calc} answers={answers}>
-        Beregn hele tallet når <Input name="x" value={x} onChange={setX} />{' '}
-        procent er <Input name="y" value={y} onChange={setY} />
+        Beregn hele tallet når <Input name="x" value={x} onChange={setX} /> procent er{' '}
+        <Input name="y" value={y} onChange={setY} />
       </Calculator>
     </>
   );

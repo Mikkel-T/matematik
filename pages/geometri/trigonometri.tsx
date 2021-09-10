@@ -47,17 +47,13 @@ export default function Trigonometri() {
 
     if (A !== '') {
       if (+A >= 90)
-        throw new Error(
-          'Vinklerne (A eller B) må ikke være større end eller lig med 90°'
-        );
+        throw new Error('Vinklerne (A eller B) må ikke være større end eller lig med 90°');
       ({ answer: ans['A'], calculation: A_calc } = Calc('A', vars, true));
     }
 
     if (B !== '') {
       if (+B >= 90)
-        throw new Error(
-          'Vinklerne (A eller B) må ikke være større end eller lig med 90°'
-        );
+        throw new Error('Vinklerne (A eller B) må ikke være større end eller lig med 90°');
       ({ answer: ans['B'], calculation: B_calc } = Calc('B', vars, true));
     }
 
@@ -80,17 +76,11 @@ export default function Trigonometri() {
     if (a !== '' && b !== '') {
       ({ answer: ans['A'], calculation: A_calc } = Calc('atan(a / b)', vars));
       ({ answer: ans['B'], calculation: B_calc } = Calc('atan(b / a)', vars));
-      ({ answer: ans['c'], calculation: c_calc } = Calc(
-        'sqrt(a^2 + b^2)',
-        vars
-      ));
+      ({ answer: ans['c'], calculation: c_calc } = Calc('sqrt(a^2 + b^2)', vars));
     } else if (a !== '' && c !== '') {
       ({ answer: ans['A'], calculation: A_calc } = Calc('asin(a / c)', vars));
       ({ answer: ans['B'], calculation: B_calc } = Calc('acos(a / c)', vars));
-      ({ answer: ans['b'], calculation: b_calc } = Calc(
-        'sqrt(c^2 - a^2)',
-        vars
-      ));
+      ({ answer: ans['b'], calculation: b_calc } = Calc('sqrt(c^2 - a^2)', vars));
     } else if (a !== '' && A !== '') {
       ({ answer: ans['B'], calculation: B_calc } = Calc('180 - C - A', vars));
       ({ answer: ans['b'], calculation: b_calc } = Calc('a / tan(A)', vars));
@@ -102,10 +92,7 @@ export default function Trigonometri() {
     } else if (b !== '' && c !== '') {
       ({ answer: ans['A'], calculation: A_calc } = Calc('acos(b / c)', vars));
       ({ answer: ans['B'], calculation: B_calc } = Calc('asin(b / c)', vars));
-      ({ answer: ans['a'], calculation: a_calc } = Calc(
-        'sqrt(c^2 - b^2)',
-        vars
-      ));
+      ({ answer: ans['a'], calculation: a_calc } = Calc('sqrt(c^2 - b^2)', vars));
     } else if (b !== '' && A !== '') {
       ({ answer: ans['B'], calculation: B_calc } = Calc('180 - C - A', vars));
       ({ answer: ans['a'], calculation: a_calc } = Calc('b * tan(A)', vars));
@@ -123,9 +110,7 @@ export default function Trigonometri() {
       ({ answer: ans['a'], calculation: a_calc } = Calc('c * cos(B)', vars));
       ({ answer: ans['b'], calculation: b_calc } = Calc('c * sin(B)', vars));
     } else {
-      throw new Error(
-        'Du har ikke indtastet nok tal til at trekanten kan beregnes'
-      );
+      throw new Error('Du har ikke indtastet nok tal til at trekanten kan beregnes');
     }
     setCalculations([
       { name: 'A', calculation: A_calc },
@@ -250,10 +235,7 @@ export default function Trigonometri() {
           />
           <Svg width="500" height="300">
             <Path d="M 3 257 h 40 v 40" className="text-nord14" />
-            <Path
-              d="M 420 297 A 80 80 180 0 1 433 260"
-              className="text-nord9"
-            />
+            <Path d="M 420 297 A 80 80 180 0 1 433 260" className="text-nord9" />
             <Path d="M 69 41 A 80 80 0 0 1 4 80" className="text-nord12" />
 
             <Path d="M 3 3 V 297" className="text-nord9" />

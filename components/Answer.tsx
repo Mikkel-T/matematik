@@ -8,8 +8,7 @@ export default function Answer({ name, answer }: AnswerProps) {
   return (
     <MJ.Provider>
       <div>
-        <b>{name}:</b>{' '}
-        {answer && <MJ.Node inline formula={answer.toString()} />}
+        <b>{name}:</b> {answer && <MJ.Node inline formula={answer.toString()} />}
       </div>
     </MJ.Provider>
   );

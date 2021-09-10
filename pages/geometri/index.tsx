@@ -4,10 +4,7 @@ import SEO from '@components/SEO';
 export default function Geometri() {
   return (
     <>
-      <SEO
-        title="Geometri beregnere"
-        description="En samling af geometri beregnere"
-      />
+      <SEO title="Geometri beregnere" description="En samling af geometri beregnere" />
       <List
         list={[
           {

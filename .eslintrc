@@ -5,11 +5,7 @@
     "node": true
   },
   "parser": "@typescript-eslint/parser",
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "next"
-  ],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "next"],
   "plugins": ["@typescript-eslint"],
   "rules": {
     "semi": ["warn", "always"],

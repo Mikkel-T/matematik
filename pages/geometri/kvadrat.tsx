@@ -41,83 +41,40 @@ export default function Kvadrat() {
     let Areal_calc = '';
 
     if (Side !== '') {
-      ({ answer: ans['Side'], calculation: Side_calc } = Calc(
-        'Side',
-        vars,
-        true
-      ));
-      ({ answer: ans['Diagonal'], calculation: Diagonal_calc } = Calc(
-        'Side * sqrt(2)',
-        vars
-      ));
-      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
-        'Side * 4',
-        vars
-      ));
-      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
-        'Side^2',
-        vars
-      ));
+      ({ answer: ans['Side'], calculation: Side_calc } = Calc('Side', vars, true));
+      ({ answer: ans['Diagonal'], calculation: Diagonal_calc } = Calc('Side * sqrt(2)', vars));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc('Side * 4', vars));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc('Side^2', vars));
     }
 
     if (Diagonal !== '') {
-      ({ answer: ans['Side'], calculation: Side_calc } = Calc(
-        'Diagonal / sqrt(2)',
-        vars
-      ));
-      ({ answer: ans['Diagonal'], calculation: Diagonal_calc } = Calc(
-        'Diagonal',
-        vars,
-        true
-      ));
+      ({ answer: ans['Side'], calculation: Side_calc } = Calc('Diagonal / sqrt(2)', vars));
+      ({ answer: ans['Diagonal'], calculation: Diagonal_calc } = Calc('Diagonal', vars, true));
       ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
         '(Diagonal / sqrt(2)) * 4',
         vars
       ));
-      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
-        '(Diagonal / sqrt(2))^2',
-        vars
-      ));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc('(Diagonal / sqrt(2))^2', vars));
     }
 
     if (Omkreds !== '') {
-      ({ answer: ans['Side'], calculation: Side_calc } = Calc(
-        'Omkreds / 4',
-        vars
-      ));
+      ({ answer: ans['Side'], calculation: Side_calc } = Calc('Omkreds / 4', vars));
       ({ answer: ans['Diagonal'], calculation: Diagonal_calc } = Calc(
         '(Omkreds / 4) * sqrt(2)',
         vars
       ));
-      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
-        'Omkreds',
-        vars,
-        true
-      ));
-      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
-        '(Omkreds / 4)^2',
-        vars
-      ));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc('Omkreds', vars, true));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc('(Omkreds / 4)^2', vars));
     }
 
     if (Areal !== '') {
-      ({ answer: ans['Side'], calculation: Side_calc } = Calc(
-        'sqrt(Areal)',
-        vars
-      ));
+      ({ answer: ans['Side'], calculation: Side_calc } = Calc('sqrt(Areal)', vars));
       ({ answer: ans['Diagonal'], calculation: Diagonal_calc } = Calc(
         'sqrt(Areal) * sqrt(2)',
         vars
       ));
-      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
-        'sqrt(Areal) * 4',
-        vars
-      ));
-      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
-        'Areal',
-        vars,
-        true
-      ));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc('sqrt(Areal) * 4', vars));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc('Areal', vars, true));
     }
 
     setCalculations([
@@ -196,26 +153,10 @@ export default function Kvadrat() {
             <Path d="M 546 4 v 492" className="text-nord12" />
             <Path d="M 54 4 L 546 496" className="text-nord14" />
 
-            <Text
-              x="400"
-              y="270"
-              text={answers.Side && `Side: ${answers.Side}`}
-            />
-            <Text
-              x="215"
-              y="155"
-              text={answers.Diagonal && `Diagonal: ${answers.Diagonal}`}
-            />
-            <Text
-              x="385"
-              y="70"
-              text={answers.Omkreds && `Omkreds: ${answers.Omkreds}`}
-            />
-            <Text
-              x="115"
-              y="350"
-              text={answers.Areal && `Areal: ${answers.Areal}`}
-            />
+            <Text x="400" y="270" text={answers.Side && `Side: ${answers.Side}`} />
+            <Text x="215" y="155" text={answers.Diagonal && `Diagonal: ${answers.Diagonal}`} />
+            <Text x="385" y="70" text={answers.Omkreds && `Omkreds: ${answers.Omkreds}`} />
+            <Text x="115" y="350" text={answers.Areal && `Areal: ${answers.Areal}`} />
           </Svg>
         </div>
       </Calculator>

@@ -5,12 +5,7 @@ import { CalculatorProps } from '@interfaces/index';
 import Answer from './Answer';
 import Input from './Input';
 
-export default function Calculator({
-  inputs,
-  calculate,
-  answers,
-  children,
-}: CalculatorProps) {
+export default function Calculator({ inputs, calculate, answers, children }: CalculatorProps) {
   const [error, setError] = useState('');
   function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -48,9 +43,7 @@ export default function Calculator({
       {!error && (
         <>
           <div className="my-3">
-            {answers.filter((e) => e.answer)[0] && (
-              <div className="text-lg font-bold">Svar:</div>
-            )}
+            {answers.filter((e) => e.answer)[0] && <div className="text-lg font-bold">Svar:</div>}
             {answers.map((ans, i) => (
               <div key={i}>
                 {typeof ans.answer !== 'undefined' && (

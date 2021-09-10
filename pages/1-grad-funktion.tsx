@@ -22,10 +22,7 @@ export default function Funktion_1_grad() {
   function calc() {
     const vars = { x1, x2, y1, y2 };
 
-    if (+x2 === +x1)
-      throw new Error(
-        'x for punkt 1 kan ikke være det samme som x for punkt 2'
-      );
+    if (+x2 === +x1) throw new Error('x for punkt 1 kan ikke være det samme som x for punkt 2');
 
     const a = Calc('(y2 - y1) / (x2 - x1)', vars);
     const b = Calc('y1 - x1 * a', { ...vars, a: +a['answer'] });
@@ -35,9 +32,7 @@ export default function Funktion_1_grad() {
       { name: 'b', ...b },
       {
         name: 'Funktionsforskriften for linjen',
-        answer: `f(x) = ${a.answer}x ${+b.answer > 0 ? '+' : '-'} ${Math.abs(
-          +b.answer
-        )}`,
+        answer: `f(x) = ${a.answer}x ${+b.answer > 0 ? '+' : '-'} ${Math.abs(+b.answer)}`,
       },
     ]);
   }

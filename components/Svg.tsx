@@ -1,10 +1,4 @@
-import {
-  CircleProps,
-  InputProps,
-  PathProps,
-  SvgProps,
-  TextProps,
-} from '@interfaces/Svg';
+import { CircleProps, InputProps, PathProps, SvgProps, TextProps } from '@interfaces/Svg';
 
 export default function Svg({ children, height, width }: SvgProps) {
   return (
@@ -24,9 +18,7 @@ export function Path({ d, className }: PathProps) {
 }
 
 export function Circle({ x, y, r, className }: CircleProps) {
-  return (
-    <circle cx={x} cy={y} r={r} stroke="currentColor" className={className} />
-  );
+  return <circle cx={x} cy={y} r={r} stroke="currentColor" className={className} />;
 }
 
 export function Text({ x, y, text }: TextProps) {

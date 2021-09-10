@@ -1,12 +1,6 @@
 import { InputProps } from '@interfaces/index';
 
-export default function Input({
-  name,
-  placeholder,
-  value,
-  onChange: setInput,
-  label,
-}: InputProps) {
+export default function Input({ name, placeholder, value, onChange: setInput, label }: InputProps) {
   return (
     <div className="md:w-2/6 w-3/4 m-auto text-left">
       <div className="pl-1">

@@ -9,5 +9,6 @@
     "^@styles/(.*)$",
     "^[./]"
   ],
-  "importOrderSeparation": true
+  "importOrderSeparation": true,
+  "printWidth": 100
 }

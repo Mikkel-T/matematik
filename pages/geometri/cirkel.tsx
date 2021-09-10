@@ -41,70 +41,28 @@ export default function Cirkel() {
     let Areal_calc = '';
 
     if (Radius !== '') {
-      ({ answer: ans['Radius'], calculation: Radius_calc } = Calc(
-        'Radius',
-        vars,
-        true
-      ));
-      ({ answer: ans['Diameter'], calculation: Diameter_calc } = Calc(
-        'Radius * 2',
-        vars
-      ));
-      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
-        'Radius * 2 * pi',
-        vars
-      ));
-      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
-        'Radius^2 * pi',
-        vars
-      ));
+      ({ answer: ans['Radius'], calculation: Radius_calc } = Calc('Radius', vars, true));
+      ({ answer: ans['Diameter'], calculation: Diameter_calc } = Calc('Radius * 2', vars));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc('Radius * 2 * pi', vars));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc('Radius^2 * pi', vars));
     }
 
     if (Diameter !== '') {
-      ({ answer: ans['Radius'], calculation: Radius_calc } = Calc(
-        'Diameter / 2',
-        vars
-      ));
-      ({ answer: ans['Diameter'], calculation: Diameter_calc } = Calc(
-        'Diameter',
-        vars,
-        true
-      ));
-      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
-        'Diameter * pi',
-        vars
-      ));
-      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
-        '(Diameter / 2)^2 * pi',
-        vars
-      ));
+      ({ answer: ans['Radius'], calculation: Radius_calc } = Calc('Diameter / 2', vars));
+      ({ answer: ans['Diameter'], calculation: Diameter_calc } = Calc('Diameter', vars, true));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc('Diameter * pi', vars));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc('(Diameter / 2)^2 * pi', vars));
     }
 
     if (Omkreds !== '') {
-      ({ answer: ans['Radius'], calculation: Radius_calc } = Calc(
-        'Omkreds / (2 * pi)',
-        vars
-      ));
-      ({ answer: ans['Diameter'], calculation: Diameter_calc } = Calc(
-        'Omkreds / pi',
-        vars
-      ));
-      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc(
-        'Omkreds',
-        vars,
-        true
-      ));
-      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
-        'Omkreds^2 / (4 * pi)',
-        vars
-      ));
+      ({ answer: ans['Radius'], calculation: Radius_calc } = Calc('Omkreds / (2 * pi)', vars));
+      ({ answer: ans['Diameter'], calculation: Diameter_calc } = Calc('Omkreds / pi', vars));
+      ({ answer: ans['Omkreds'], calculation: Omkreds_calc } = Calc('Omkreds', vars, true));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc('Omkreds^2 / (4 * pi)', vars));
     }
 
     if (Areal !== '') {
-      ({ answer: ans['Radius'], calculation: Radius_calc } = Calc(
-        'sqrt(Areal / pi)',
-        vars
-      ));
+      ({ answer: ans['Radius'], calculation: Radius_calc } = Calc('sqrt(Areal / pi)', vars));
       ({ answer: ans['Diameter'], calculation: Diameter_calc } = Calc(
         'sqrt(Areal / pi) * 2',
         vars
@@ -113,11 +71,7 @@ export default function Cirkel() {
         'sqrt(Areal / pi) * 2 * pi',
         vars
       ));
-      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc(
-        'Areal',
-        vars,
-        true
-      ));
+      ({ answer: ans['Areal'], calculation: Areal_calc } = Calc('Areal', vars, true));
     }
 
     setCalculations([
@@ -196,26 +150,10 @@ export default function Cirkel() {
             <Path d="M 300 3 V 496" className="text-nord14" />
             <Path d="m 300 250 H 546" className="text-nord12" />
 
-            <Text
-              x="340"
-              y="270"
-              text={answers.Radius && `Radius: ${answers.Radius}`}
-            />
-            <Text
-              x="310"
-              y="155"
-              text={answers.Diameter && `Diameter: ${answers.Diameter}`}
-            />
-            <Text
-              x="0"
-              y="60"
-              text={answers.Omkreds && `Omkreds: ${answers.Omkreds}`}
-            />
-            <Text
-              x="110"
-              y="260"
-              text={answers.Areal && `Areal: ${answers.Areal}`}
-            />
+            <Text x="340" y="270" text={answers.Radius && `Radius: ${answers.Radius}`} />
+            <Text x="310" y="155" text={answers.Diameter && `Diameter: ${answers.Diameter}`} />
+            <Text x="0" y="60" text={answers.Omkreds && `Omkreds: ${answers.Omkreds}`} />
+            <Text x="110" y="260" text={answers.Areal && `Areal: ${answers.Areal}`} />
           </Svg>
         </div>
         <div>Pi (π) er sat til: {Math.PI}</div>
