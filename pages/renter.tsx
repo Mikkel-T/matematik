@@ -2,8 +2,7 @@ import { useState } from 'react';
 
 import Calculator from '@components/Calculator';
 import SEO from '@components/SEO';
-
-import { GetAnswer } from '@utils/math';
+import { Calc } from '@components/Answer';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
@@ -26,7 +25,7 @@ export default function Renter() {
   function calc() {
     const vars = { K, r, n };
 
-    const Kn = GetAnswer('K * (1 + r)^n', vars);
+    const Kn = Calc('K * (1 + r)^n', vars);
 
     setAnswers([
       {

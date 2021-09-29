@@ -23,6 +23,6 @@
       "@utils/*": ["utils/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/math.js"],
   "exclude": ["node_modules"]
 }
