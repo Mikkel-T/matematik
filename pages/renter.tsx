@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
+import { Calc } from '@components/Answer';
 import Calculator from '@components/Calculator';
 import SEO from '@components/SEO';
-import { Calc } from '@components/Answer';
 
 import { AnswerProps, InputProps } from '@interfaces/index';
 
