@@ -1,3 +1,4 @@
+import 'katex/dist/katex.min.css';
 import { ThemeProvider } from 'next-themes';
 import { AppProps } from 'next/app';
 

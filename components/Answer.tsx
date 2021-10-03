@@ -1,4 +1,4 @@
-import MJ from 'react-mathjax';
+import TeX from '@matejmazur/react-katex';
 
 import { GetAnswer } from '@utils/math';
 
@@ -6,11 +6,9 @@ import { AnswerProps } from '@interfaces/index';
 
 export default function Answer({ name, answer }: AnswerProps) {
   return (
-    <MJ.Provider>
-      <div>
-        <b>{name}:</b> {answer && <MJ.Node inline formula={answer.toString()} />}
-      </div>
-    </MJ.Provider>
+    <div>
+      <b>{name}:</b> {answer && <TeX math={answer.toString()} />}
+    </div>
   );
 }
 
