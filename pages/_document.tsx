@@ -6,6 +6,12 @@ class MyDocument extends Document {
       <Html lang="da-DK">
         <Head>
           <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+          <script
+            async
+            defer
+            data-website-id="95590257-ede5-432a-b140-a1e943ce3f33"
+            src="https://analytics.mikkel-t.com/umami.js"
+          ></script>
         </Head>
         <body>
           <Main />
