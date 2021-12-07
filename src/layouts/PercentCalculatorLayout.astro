@@ -1,0 +1,11 @@
+---
+import PercentCalculator from '@components/Calculators/PercentCalculator.svelte';
+import Answer from '@components/Answer.svelte';
+import BaseLayout from '@layouts/BaseLayout.astro';
+const { content } = Astro.props;
+---
+
+<BaseLayout {content}>
+  <PercentCalculator calculator={content.calculator} client:load />
+  <Answer client:visible />
+</BaseLayout>

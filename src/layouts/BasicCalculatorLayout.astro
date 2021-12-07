@@ -1,0 +1,12 @@
+---
+import BasicCalculator from '@components/Calculators/BasicCalculator.svelte';
+import Answer from '@components/Answer.svelte';
+import BaseLayout from '@layouts/BaseLayout.astro';
+const { content } = Astro.props;
+---
+
+<BaseLayout {content}>
+  <BasicCalculator calculator={content.calculator} client:load />
+  <slot />
+  <Answer client:visible />
+</BaseLayout>

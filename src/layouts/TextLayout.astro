@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+const { content } = Astro.props;
+---
+
+<BaseLayout {content}>
+  <div class="prose dark:prose-light mx-auto w-3/5">
+    <slot />
+  </div>
+</BaseLayout>

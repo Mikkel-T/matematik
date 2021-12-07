@@ -1,14 +1,5 @@
 {
   "tabWidth": 2,
   "singleQuote": true,
-  "semi": true,
-  "importOrder": [
-    "^@components/(.*)$",
-    "^@utils/(.*)$",
-    "^@interfaces/(.*)$",
-    "^@styles/(.*)$",
-    "^[./]"
-  ],
-  "importOrderSeparation": true,
-  "printWidth": 100
+  "semi": true
 }

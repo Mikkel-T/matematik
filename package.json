@@ -1,42 +1,38 @@
 {
   "name": "matematik",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "postbuild": "next-sitemap --config next-sitemap.config.js",
-    "start": "next start",
-    "format": "prettier . --write",
-    "type-check": "tsc",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@heroicons/react": "^1.0.4",
-    "@matejmazur/react-katex": "^3.1.3",
-    "@tailwindcss/forms": "^0.3.4",
-    "katex": "^0.13.18",
-    "mathjs": "^9.5.0",
-    "next": "^11.1.2",
-    "next-seo": "^4.28.1",
-    "next-themes": "^0.0.15",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "format": "prettier . -w"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^2.0.4",
-    "@types/react": "^17.0.27",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
-    "autoprefixer": "^10.3.7",
-    "eslint": "^7.32.0",
-    "eslint-config-next": "^11.1.2",
-    "next-sitemap": "^1.6.179",
-    "postcss": "^8.3.9",
-    "prettier": "2.4.1",
+    "@astrojs/renderer-react": "^0.3.1",
+    "@astrojs/renderer-svelte": "^0.2.2",
+    "@tailwindcss/forms": "^0.4.0-alpha.2",
+    "@tailwindcss/typography": "^0.5.0-alpha.3",
+    "astro": "^0.21.11",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "prettier": "^2.5.1",
+    "prettier-plugin-astro": "^0.0.11",
+    "prettier-plugin-svelte": "^2.5.0",
     "prettier-plugin-tailwind-css": "^1.5.0",
-    "tailwindcss": "^2.2.16",
-    "typescript": "^4.4.3"
+    "tailwindcss": "^3.0.0-alpha.2"
+  },
+  "dependencies": {
+    "astro-seo": "^0.4.2",
+    "copy-to-clipboard": "^3.3.1",
+    "katex": "^0.15.1",
+    "mathjs": "^10.0.0",
+    "nanoevents": "^6.0.2",
+    "nanostores": "^0.5.7",
+    "pupa": "^3.1.0",
+    "react-hot-toast": "^2.1.1",
+    "svelte-icons": "^2.1.0"
   }
 }
