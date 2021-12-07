@@ -7,8 +7,6 @@ export default function Toast() {
   });
 
   return (
-    <div>
       <Toaster position="bottom-right" />
-    </div>
   );
 }
