@@ -1,6 +1,7 @@
 <script>
   import { Calc, ValidateCheck } from '@utils/math';
   import { add, reset } from '@store/answer';
+  import { emitter } from '@event/event';
   import t from '@utils/template';
   export let calculator;
 
@@ -26,6 +27,10 @@
           error = err.message;
         }
       });
+    }
+
+    if (calculator.event) {
+      emitter.emit('calculation', vars);
     }
 
     if (calculator.calculations && !error) {

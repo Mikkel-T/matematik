@@ -26,7 +26,7 @@ calculator:
     text: ['Punkt 1: ({x1}, {y1})', 'Punkt 2: ({x2}, {y2})'],
   }
 setup: |
-  import Forskrift from '@components/1-grad-funktion.svelte'
+  import Forskrift from '@components/Calculators/Custom/1-grad-funktion.svelte'
 ---
 
 <Forskrift client:visible />

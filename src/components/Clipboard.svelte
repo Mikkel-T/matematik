@@ -1,6 +1,6 @@
 <script>
   import copy from 'copy-to-clipboard';
-  import { emitter } from '@event/toast';
+  import { emitter } from '@event/event';
   export let text;
 
   function onCopy() {
