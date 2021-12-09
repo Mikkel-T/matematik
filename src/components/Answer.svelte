@@ -1,6 +1,7 @@
 <script>
   import KaTeX from '@components/KaTeX.svelte';
   import { answer } from '@store/answer';
+  import { text } from '@utils/TeX';
   import 'katex/dist/katex.min.css';
   import Clipboard from '@components/Clipboard.svelte';
   import FaCopy from 'svelte-icons/fa/FaCopy.svelte';
@@ -12,7 +13,7 @@
     {#each $answer as ans}
       {#if ans.hasOwnProperty('answer')}
         <div>
-          <KaTeX math={`${ans.name}`} />: <KaTeX
+          <KaTeX math={text(ans.name)} />: <KaTeX
             math={ans['answer'].toString()}
           />
           <Clipboard text={ans['answer'].toString()}
@@ -28,7 +29,7 @@
     {#each $answer as ans}
       {#if ans.hasOwnProperty('calculation')}
         <div>
-          <KaTeX math={`${ans.name}`} />: <KaTeX
+          <KaTeX math={text(ans.name)} />: <KaTeX
             math={ans['calculation'].toString()}
           />
           <Clipboard text={ans['calculation'].toString()}
@@ -44,7 +45,7 @@
     {#each $answer as ans}
       {#if ans.hasOwnProperty('equation')}
         <div>
-          <KaTeX math={`${ans.name}`} />: <KaTeX
+          <KaTeX math={text(ans.name)} />: <KaTeX
             math={ans['equation'].toString()}
           />
           <Clipboard text={ans['equation'].toString()}
