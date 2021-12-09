@@ -67,12 +67,12 @@
   integrity sha512-5U+jcgfibLKW8PwnHQEdmgb+uZVeMVLz+paEr3vxKgikYfjXDjQu6qEDLOW3WTc/cIWrOF9rAtTKy8R/ArPscw==
 
 "@astrojs/renderer-preact@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/renderer-preact/-/renderer-preact-0.3.1.tgz#19d93a0b518a12d3d7b5353f2afb9869ae6e6364"
-  integrity sha512-NEcUEtir2H0g4bV4/GwBxqE6bJpOH4WV/FfFRAO6yxqVx3VCdRJ7163fLmMqqznczoqg9w64uEGejx+NdHAFIg==
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@astrojs/renderer-preact/-/renderer-preact-0.3.2.tgz#98d2dd2653d41a11e3a8790d1f467a2452b5cb44"
+  integrity sha512-841A8Fpg9/w8UgHSh5YzvqoRFwToOicgAtBt98F1mPS7miN0x1elzUDOgk2zYCii+/DI4DMpW4NotsAV7qou8w==
   dependencies:
     "@babel/plugin-transform-react-jsx" "^7.16.0"
-    preact "^10.5.15"
+    preact "~10.5.15"
     preact-render-to-string "^5.1.19"
 
 "@astrojs/renderer-react@0.3.1", "@astrojs/renderer-react@^0.3.1":
@@ -417,17 +417,17 @@
     require-relative "^0.8.7"
     svelte-hmr "^0.14.7"
 
-"@tailwindcss/forms@^0.4.0-alpha.2":
-  version "0.4.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.4.0-alpha.2.tgz#2c7bc5052de5f6226b5c242147e3a8a84c9aa147"
-  integrity sha512-bpo7CkwffVgMZLDMATLZgIcLZZ5PUNwR+nzrJLTbXCG90XReubO8I21HMSQt7Eq2uM9k6+FheZStWKtE4L5N4Q==
+"@tailwindcss/forms@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.4.0.tgz#a46715e347a32d216a3973eb67473bd29ae3798e"
+  integrity sha512-DeaQBx6EgEeuZPQACvC+mKneJsD8am1uiJugjgQK1+/Vt+Ai0GpFBC2T2fqnUad71WgOxyrZPE6BG1VaI6YqfQ==
   dependencies:
     mini-svg-data-uri "^1.2.3"
 
-"@tailwindcss/typography@^0.5.0-alpha.3":
-  version "0.5.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.5.0-alpha.3.tgz#b47e739cf7955f6c50c160882f213e78e5f8b0f4"
-  integrity sha512-ySYrwcf7SaLVL7XBH61euPX4xoAytD4HVvfE4XsdExQmxxiNhWNVkvxhtP+RAbk6n3A0m0a+p3W25E19YiGj2A==
+"@tailwindcss/typography@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.5.0.tgz#47886ec46ac41e1211d24fea05301046d9b30906"
+  integrity sha512-1p/3C6C+JJziS/ghtG8ACYalbA2SyLJY27Pm33cVTlAoY6VQ7zfm2H64cPxUMBkVIlWXTtWHhZcZJPobMRmQAA==
   dependencies:
     lodash.castarray "^4.4.0"
     lodash.isplainobject "^4.0.6"
@@ -803,10 +803,10 @@ astro-seo@^0.4.2:
   resolved "https://registry.yarnpkg.com/astro-seo/-/astro-seo-0.4.2.tgz#0db97bd109831e77ae848e65422f94fb9c1bc66e"
   integrity sha512-o5Jh3j81Iib4eB/x1S3/IG+qT7nbfXk2q+o95vh4XnNHswoW/VkhxPhTs42PkMzq69cJPcHaljaYb8PDMHSxfw==
 
-astro@^0.21.11:
-  version "0.21.11"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-0.21.11.tgz#c2eb3ed0b8ae35c05e54e52f2127e3e0999c5f79"
-  integrity sha512-CjMEgwau8RrFiIsZXM8OpzIrh9QFJxQe7hiMa/ab/IMlPbWotOiW3dDQhFHJPHgtCrVt076NG37jaNiLvwlWFw==
+astro@^0.21.12:
+  version "0.21.12"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-0.21.12.tgz#b857107b3c812e141df340f1320bcb10980dba25"
+  integrity sha512-58vEFjNE97rw84G2s8C8+FbBwPyurIFghaqK5rKouGgJ9aRcXMshsM81mdensz03yO3Y6VdRhyDexiz7eFiUWw==
   dependencies:
     "@astrojs/compiler" "^0.5.7"
     "@astrojs/language-server" "^0.8.2"
@@ -958,9 +958,9 @@ camelcase@^5.0.0, camelcase@^5.3.1:
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
 caniuse-lite@^1.0.30001272, caniuse-lite@^1.0.30001280:
-  version "1.0.30001285"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001285.tgz#fe1e52229187e11d6670590790d669b9e03315b7"
-  integrity sha512-KAOkuUtcQ901MtmvxfKD+ODHH9YVDYnBt+TGYSz2KIfnq22CiArbUxXPN9067gNbgMlnNYRSwho8OPXZPALB9Q==
+  version "1.0.30001286"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001286.tgz#3e9debad420419618cfdf52dc9b6572b28a8fff6"
+  integrity sha512-zaEMRH6xg8ESMi2eQ3R4eZ5qw/hJiVsO/HlLwniIwErij0JDr9P+8V4dtx1l+kLq6j3yy8l8W4fst1lBnat5wQ==
 
 ccount@^2.0.0:
   version "2.0.1"
@@ -1293,9 +1293,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.896:
-  version "1.4.12"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.12.tgz#5f73d1278c6205fc41d7a0ebd75563046b77c5d8"
-  integrity sha512-zjfhG9Us/hIy8AlQ5OzfbR/C4aBv1Dg/ak4GX35CELYlJ4tDAtoEcQivXvyBdqdNQ+R6PhlgQqV8UNPJmhkJog==
+  version "1.4.15"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.15.tgz#4bd144d9d13f8b375c65e1a593e7f4a90bd01b90"
+  integrity sha512-WDw2IUL3k4QpbzInV3JZK+Zd1NjWJPDZ28oUSchWb/kf6AVj7/niaAlgcJlvojFa1d7pJSyQ/KSZsEtq5W7aGQ==
 
 emmet@^2.1.5:
   version "2.3.4"
@@ -2817,9 +2817,9 @@ micromark-core-commonmark@^1.0.0, micromark-core-commonmark@^1.0.1:
     uvu "^0.5.0"
 
 micromark-extension-gfm-autolink-literal@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/micromark-extension-gfm-autolink-literal/-/micromark-extension-gfm-autolink-literal-1.0.2.tgz#aafadc9ef2f8078d359eb635f144d913c669e0f6"
-  integrity sha512-z2Asd0v4iV/QoI1l23J1qB6G8IqVWTKmwdlP45YQfdGW47ZzpddyzSxZ78YmlucOLqIbS5H98ekKf9GunFfnLA==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/micromark-extension-gfm-autolink-literal/-/micromark-extension-gfm-autolink-literal-1.0.3.tgz#dc589f9c37eaff31a175bab49f12290edcf96058"
+  integrity sha512-i3dmvU0htawfWED8aHMMAzAVp/F0Z+0bPh3YrbTPPL1v4YAlCZpy5rBO5p0LPYiZo0zFVkoYh7vDU7yQSiCMjg==
   dependencies:
     micromark-util-character "^1.0.0"
     micromark-util-sanitize-uri "^1.0.0"
@@ -2828,9 +2828,9 @@ micromark-extension-gfm-autolink-literal@^1.0.0:
     uvu "^0.5.0"
 
 micromark-extension-gfm-footnote@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/micromark-extension-gfm-footnote/-/micromark-extension-gfm-footnote-1.0.2.tgz#cd6309f842db8859556b3708302abc7721351b5f"
-  integrity sha512-C6o+B7w1wDM4JjDJeHCTszFYF1q46imElNY6mfXsBfw4E91M9TvEEEt3sy0FbJmGVzdt1pqFVRYWT9ZZ0FjFuA==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/micromark-extension-gfm-footnote/-/micromark-extension-gfm-footnote-1.0.3.tgz#5280b29667e4ecb8687f369829aa3322caca7d11"
+  integrity sha512-bn62pC5y39rIo2g1RqZk1NhF7T7cJLuJlbevunQz41U0iPVCdVOFASe5/L1kke+DFKSgfCRhv24+o42cZ1+ADw==
   dependencies:
     micromark-core-commonmark "^1.0.0"
     micromark-factory-space "^1.0.0"
@@ -2841,9 +2841,9 @@ micromark-extension-gfm-footnote@^1.0.0:
     uvu "^0.5.0"
 
 micromark-extension-gfm-strikethrough@^1.0.0:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/micromark-extension-gfm-strikethrough/-/micromark-extension-gfm-strikethrough-1.0.3.tgz#010900cfc9a2bf35d2859612c356a21d7fb19af5"
-  integrity sha512-PJKhBNyrNIo694ZQCE/FBBQOQSb6YC0Wi5Sv0OCah5XunnNaYbtak9CSv9/eq4YeFMMyd1jX84IRwUSE+7ioLA==
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/micromark-extension-gfm-strikethrough/-/micromark-extension-gfm-strikethrough-1.0.4.tgz#162232c284ffbedd8c74e59c1525bda217295e18"
+  integrity sha512-/vjHU/lalmjZCT5xt7CcHVJGq8sYRm80z24qAKXzaHzem/xsDYb2yLL+NNVbYvmpLx3O7SYPuGL5pzusL9CLIQ==
   dependencies:
     micromark-util-chunked "^1.0.0"
     micromark-util-classify-character "^1.0.0"
@@ -2853,9 +2853,9 @@ micromark-extension-gfm-strikethrough@^1.0.0:
     uvu "^0.5.0"
 
 micromark-extension-gfm-table@^1.0.0:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/micromark-extension-gfm-table/-/micromark-extension-gfm-table-1.0.4.tgz#37fdcd11c3ef8d1928a037207597f1f7951d3381"
-  integrity sha512-IK2yzl7ycXeFFvZ8qiH4j5am529ihjOFD7NMo8Nhyq+VGwgWe4+qeI925RRrJuEzX3KyQ+1vzY8BIIvqlgOJhw==
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/micromark-extension-gfm-table/-/micromark-extension-gfm-table-1.0.5.tgz#7b708b728f8dc4d95d486b9e7a2262f9cddbcbb4"
+  integrity sha512-xAZ8J1X9W9K3JTJTUL7G6wSKhp2ZYHrFk5qJgY/4B33scJzE2kpfRL6oiw/veJTbt7jiM/1rngLlOKPWr1G+vg==
   dependencies:
     micromark-factory-space "^1.0.0"
     micromark-util-character "^1.0.0"
@@ -2864,16 +2864,16 @@ micromark-extension-gfm-table@^1.0.0:
     uvu "^0.5.0"
 
 micromark-extension-gfm-tagfilter@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/micromark-extension-gfm-tagfilter/-/micromark-extension-gfm-tagfilter-1.0.0.tgz#a38c7c462c2007b534fcb485e9310165879654a7"
-  integrity sha512-GGUZhzQrOdHR8RHU2ru6K+4LMlj+pBdNuXRtw5prOflDOk2hHqDB0xEgej1AHJ2VETeycX7tzQh2EmaTUOmSKg==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/micromark-extension-gfm-tagfilter/-/micromark-extension-gfm-tagfilter-1.0.1.tgz#fb2e303f7daf616db428bb6a26e18fda14a90a4d"
+  integrity sha512-Ty6psLAcAjboRa/UKUbbUcwjVAv5plxmpUTy2XC/3nJFL37eHej8jrHrRzkqcpipJliuBH30DTs7+3wqNcQUVA==
   dependencies:
     micromark-util-types "^1.0.0"
 
 micromark-extension-gfm-task-list-item@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/micromark-extension-gfm-task-list-item/-/micromark-extension-gfm-task-list-item-1.0.2.tgz#953c1cd565df864790815c3a162d452d004255ed"
-  integrity sha512-8AZib9xxPtppTKig/d00i9uKi96kVgoqin7+TRtGprDb8uTUrN1ZfJ38ga8yUdmu7EDQxr2xH8ltZdbCcmdshg==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/micromark-extension-gfm-task-list-item/-/micromark-extension-gfm-task-list-item-1.0.3.tgz#7683641df5d4a09795f353574d7f7f66e47b7fc4"
+  integrity sha512-PpysK2S1Q/5VXi72IIapbi/jliaiOFzv7THH4amwXeYXLq3l1uo8/2Be0Ac1rEwK20MQEsGH2ltAZLNY2KI/0Q==
   dependencies:
     micromark-factory-space "^1.0.0"
     micromark-util-character "^1.0.0"
@@ -3462,14 +3462,14 @@ postcss-nested@5.0.6:
     postcss-selector-parser "^6.0.6"
 
 postcss-selector-parser@^6.0.6:
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.6.tgz#2c5bba8174ac2f6981ab631a42ab0ee54af332ea"
-  integrity sha512-9LXrvaaX3+mcv5xkg5kFwqSzSH1JIObIx51PrndZwlmznwXRfxMddDvo9gve3gVR8ZTKgoFDdWkbRFmEhT4PMg==
+  version "6.0.7"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.7.tgz#48404830a635113a71fd79397de8209ed05a66fc"
+  integrity sha512-U+b/Deoi4I/UmE6KOVPpnhS7I7AYdKbhGcat+qTQ27gycvaACvNEw11ba6RrkwVmDVRW7sigWgLj4/KbbJjeDA==
   dependencies:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
 
-postcss-value-parser@^4.1.0:
+postcss-value-parser@^4.1.0, postcss-value-parser@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
@@ -3490,10 +3490,10 @@ preact-render-to-string@^5.1.19:
   dependencies:
     pretty-format "^3.8.0"
 
-preact@^10.5.15:
-  version "10.6.2"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-10.6.2.tgz#c849f91df9ad36bfa64d1a5d5880977f767c69e5"
-  integrity sha512-ppDjurt75nSxyikpyali+uKwRl8CK9N6ntOPovGIEGQagjMLVzEgVqFEsUUyUrqyE9Ch90KE0jmFc9q2QcPLBA==
+preact@~10.5.15:
+  version "10.5.15"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.5.15.tgz#6df94d8afecf3f9e10a742fd8c362ddab464225f"
+  integrity sha512-5chK29n6QcJc3m1lVrKQSQ+V7K1Gb8HeQY6FViQ5AxCAEGu3DaHffWNDkC9+miZgsLvbvU9rxbV1qinGHMHzqA==
 
 prettier-plugin-astro@^0.0.11:
   version "0.0.11"
@@ -3504,10 +3504,10 @@ prettier-plugin-astro@^0.0.11:
     prettier "^2.4.1"
     sass-formatter "^0.7.2"
 
-prettier-plugin-svelte@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-svelte/-/prettier-plugin-svelte-2.5.0.tgz#7922534729f7febe59b4c56c3f5360539f0d8ab1"
-  integrity sha512-+iHY2uGChOngrgKielJUnqo74gIL/EO5oeWm8MftFWjEi213lq9QYTOwm1pv4lI1nA61tdgf80CF2i5zMcu1kw==
+prettier-plugin-svelte@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-svelte/-/prettier-plugin-svelte-2.5.1.tgz#6c2f5e7fbe2aa208b340b75edc4fdfda33fb254c"
+  integrity sha512-IhZUcqr7Bg4LY15d87t9lDr7EyC0IPehkzH5ya5igG8zYwf3UYaYDFnVW2mckREaZyLREcH9YOouesmt4f5Ozg==
 
 prettier-plugin-tailwind-css@^1.5.0:
   version "1.5.0"
@@ -3777,9 +3777,9 @@ rimraf@^3.0.0:
     glob "^7.1.3"
 
 rollup@^2.57.0, rollup@^2.59.0:
-  version "2.60.2"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.60.2.tgz#3f45ace36a9b10b4297181831ea0719922513463"
-  integrity sha512-1Bgjpq61sPjgoZzuiDSGvbI1tD91giZABgjCQBKM5aYLnzjq52GoDuWVwT/cm/MCxCMPU8gqQvkj8doQ5C8Oqw==
+  version "2.61.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.61.0.tgz#ccd927bcd6cc0c78a4689c918627a717977208f4"
+  integrity sha512-teQ+T1mUYbyvGyUavCodiyA9hD4DxwYZJwr/qehZGhs1Z49vsmzelMVYMxGU4ZhGRKxYPupHuz5yzm/wj7VpWA==
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -3901,9 +3901,9 @@ setprototypeof@1.1.1:
   integrity sha512-JvdAWfbXeIGaZ9cILp38HntZSFSo3mWg6xGcJJsd+d4aRMOqauag1C63dJfDw7OaMYwEbHMOxEZ1lqVRYP2OAw==
 
 shiki@^0.9.10:
-  version "0.9.14"
-  resolved "https://registry.yarnpkg.com/shiki/-/shiki-0.9.14.tgz#6b3e369edf76049ae7ad7c2b0498c35c200b8dd7"
-  integrity sha512-uLHjjyJdNsMzF9GOF8vlOuZ8BwigiYPraMN5yjC826k8K7Xu90JQcC5GUNrzRibLgT2EOk9597I1IX+jRdA8nw==
+  version "0.9.15"
+  resolved "https://registry.yarnpkg.com/shiki/-/shiki-0.9.15.tgz#2481b46155364f236651319d2c18e329ead6fa44"
+  integrity sha512-/Y0z9IzhJ8nD9nbceORCqu6NgT9X6I8Fk8c3SICHI5NbZRLdZYFaB233gwct9sU0vvSypyaL/qaKvzyQGJBZSw==
   dependencies:
     jsonc-parser "^3.0.0"
     vscode-oniguruma "^1.6.1"
@@ -4145,10 +4145,10 @@ svelte@^3.44.2:
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.44.2.tgz#3e69be2598308dfc8354ba584cec54e648a50f7f"
   integrity sha512-jrZhZtmH3ZMweXg1Q15onb8QlWD+a5T5Oca4C1jYvSURp2oD35h4A5TV6t6MEa93K4LlX6BkafZPdQoFjw/ylA==
 
-tailwindcss@^3.0.0-alpha.2:
-  version "3.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.0.0-alpha.2.tgz#9f0f797aeabc0294169d732f3379538222e0a44a"
-  integrity sha512-DLPLL927a05mhwTAPMPgSk1EFLAsWc0qmZeB1yHDSRAj/Bfn0nvdFTqj2u/8FnM5EiS20nsqCZ/HFfXzzaFOZg==
+tailwindcss@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.0.0.tgz#f7dfd30996b3b1a84d656aaf3c8b6810b70d3d42"
+  integrity sha512-UPAp2PS5vojAvGClJFIkdh2hfFyaSWo09Ma9j2vZYW+ANhTvpUHFjY85JgtrvvXXREtDvOXy2BxW1yHOz8apCg==
   dependencies:
     arg "^5.0.1"
     chalk "^4.1.2"
@@ -4167,7 +4167,7 @@ tailwindcss@^3.0.0-alpha.2:
     postcss-load-config "^3.1.0"
     postcss-nested "5.0.6"
     postcss-selector-parser "^6.0.6"
-    postcss-value-parser "^4.1.0"
+    postcss-value-parser "^4.2.0"
     quick-lru "^5.1.1"
     resolve "^1.20.0"
     tmp "^0.2.1"
@@ -4471,9 +4471,9 @@ vfile@^5.0.0:
     vfile-message "^3.0.0"
 
 vite@^2.6.10:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.7.0.tgz#d3d753220d10afb055731cd7feaa8e87b2b779b6"
-  integrity sha512-ZM629j9n6f1Gcr2KsfpLhJ0FRkift4SsTLSvExmNpGJYzyi1JyLOFybz85ShqFP5f4oCfJSblWAma9X8lZg/vA==
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.7.1.tgz#be50ad13214290ecbebbe5ad389ed423cb5f137e"
+  integrity sha512-TDXXhcu5lyQ6uosK4ZWaOyB4VzOiizk0biitRzDzaEtgSUi8rVYPc4k1xgOjLSf0OuceDJmojFKXHOX9DB1WuQ==
   dependencies:
     esbuild "^0.13.12"
     postcss "^8.3.11"
