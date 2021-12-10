@@ -3,7 +3,13 @@ import { SEO } from 'astro-seo';
 const { content } = Astro.props;
 ---
 
-<script src={Astro.resolve('../../scripts/theme.ts')}></script>
+<script>
+  if (localStorage.theme === 'light') {
+    document.documentElement.classList.remove('dark');
+  } else {
+    document.documentElement.classList.add('dark');
+  }
+</script>
 <link rel="stylesheet" href={Astro.resolve('../../styles/global.css')} />
 <SEO title={content.title} description={content.description} />
 <meta charset="utf-8" />
