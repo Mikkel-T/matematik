@@ -1,6 +1,8 @@
 ---
 layout: '@layouts/BasicCalculatorLayout.astro'
-title: 'Herons formel beregner'
+title: 'Areal af trekant ud fra sidelængder'
+pageTitle: 'Herons formel'
+SEOtitle: 'Herons formel beregner'
 description: 'En beregner der udregner arealet af en trekant ud fra dens sidelængder ved hjælp af herons formel'
 calculator:
   {

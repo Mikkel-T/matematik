@@ -16,7 +16,9 @@ const { content } = Astro.props;
     </header>
     <main>
       {!content.hideTitle && (
-        <div class="text-center text-4xl mb-2">{content.title}</div>
+        <div class="text-center text-4xl mb-2">
+          {content.pageTitle ?? content.title}
+        </div>
       )}
       <slot />
       <Toaster client:visible />

@@ -1,6 +1,7 @@
 ---
 layout: '@layouts/BasicCalculatorLayout.astro'
-title: 'Moms beregner'
+title: 'Moms'
+SEOtitle: 'Moms beregner'
 description: 'En momsberegner der udregner en pris med og uden moms'
 calculator:
   {

@@ -1,6 +1,7 @@
 ---
 layout: '@layouts/BasicCalculatorLayout.astro'
-title: 'Kombinatorik beregner'
+title: 'Kombinatorik stikprøver'
+SEOtitle: 'Kombinatorik beregner'
 description: 'En kombinatorik beregner til at beregne ordnede og uordnede stikprøver med og uden tilbagelægning'
 calculator:
   {

@@ -11,7 +11,8 @@ const { content } = Astro.props;
   }
 </script>
 <link rel="stylesheet" href={Astro.resolve('../../styles/global.css')} />
-<SEO title={content.title} description={content.description} />
+<SEO title={content.SEOtitle ?? content.title} description={content.description}
+/>
 <meta charset="utf-8" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <script

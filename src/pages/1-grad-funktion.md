@@ -1,6 +1,7 @@
 ---
 layout: '@layouts/BasicCalculatorLayout.astro'
 title: '1. gradsfunktion'
+SEOtitle: 'Funktionsforskrift for en 1. gradsfunktion'
 description: 'En 1. gradsfunktions beregner der udregner funktionsforskriften for en 1. gradsfunktion'
 calculator:
   {
