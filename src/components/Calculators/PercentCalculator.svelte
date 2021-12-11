@@ -1,7 +1,7 @@
 <script>
   import { Calc, ValidateCheck } from '@utils/math';
   import { add, reset } from '@store/answer';
-  import t from '@utils/template';
+  import Submit from '@components/Calculators/Submit.svelte';
   export let calculator;
 
   let inputs = {};
@@ -63,11 +63,7 @@
       {/each}
     </div>
 
-    <input
-      type="submit"
-      value="Beregn"
-      class=" block mx-auto w-3/5 h-12 rounded-md mt-3 text-nord6 bg-nord2"
-    />
+    <Submit />
   </form>
   {#if error}
     <div class="text-center">

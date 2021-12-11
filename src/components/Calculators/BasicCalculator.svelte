@@ -2,6 +2,7 @@
   import { Calc, ValidateCheck } from '@utils/math';
   import { add, reset } from '@store/answer';
   import { emitter } from '@event/event';
+  import Submit from '@components/Calculators/Submit.svelte';
   import t from '@utils/template';
   export let calculator;
 
@@ -71,11 +72,7 @@
       {/each}
     {/if}
 
-    <input
-      type="submit"
-      value="Beregn"
-      class="dark:bg-nord2 dark:hover:bg-nord3 dark:hover:border-nord2 w-full dark:border-nord3 bg-nord5 border-nord4 hover:bg-nord4 hover:border-nord5 focus:outline-none p-2 mt-3 border-2 rounded-md cursor-pointer umami--click--calculate"
-    />
+    <Submit />
   </form>
   {#if error}
     <div class="text-center">
