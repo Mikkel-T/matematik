@@ -22,7 +22,7 @@
     "prettier-plugin-astro": "^0.0.11",
     "prettier-plugin-svelte": "^2.5.1",
     "prettier-plugin-tailwind-css": "^1.5.0",
-    "tailwindcss": "^3.0.0"
+    "tailwindcss": "^3.0.1"
   },
   "dependencies": {
     "astro-seo": "^0.4.2",
@@ -30,7 +30,7 @@
     "katex": "^0.15.1",
     "mathjs": "^10.0.0",
     "nanoevents": "^6.0.2",
-    "nanostores": "^0.5.7",
+    "nanostores": "^0.5.8",
     "pupa": "^3.1.0",
     "react-hot-toast": "^2.1.1",
     "svelte-icons": "^2.1.0"
