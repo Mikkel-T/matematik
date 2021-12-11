@@ -12,7 +12,7 @@
     if (vars['a'] == 0) {
       a = '';
     } else if (Math.abs(+vars['a']) == 1) {
-      a = `${+vars['a'] < 0 && '-'}x`;
+      a = `${+vars['a'] < 0 ? '-' : ''}x`;
     } else {
       a = `${vars['a']}x`;
     }
