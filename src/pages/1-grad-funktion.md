@@ -25,6 +25,7 @@ calculator:
         { name: 'b', calc: 'y1 - x1 * a' },
       ],
     text: ['Punkt 1: ({x1}, {y1})', 'Punkt 2: ({x2}, {y2})'],
+    event: true,
   }
 setup: |
   import Forskrift from '@components/Calculators/Custom/1-grad-funktion.svelte'

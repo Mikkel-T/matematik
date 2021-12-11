@@ -29,16 +29,16 @@
       });
     }
 
-    if (calculator.event) {
-      emitter.emit('calculation', vars);
-    }
-
     if (calculator.calculations && !error) {
       calculator.calculations.forEach((calculation) => {
         const ans = Calc(calculation.calc, vars);
         vars[calculation.name] = ans.answer;
         add({ ...ans, name: calculation.label || calculation.name });
       });
+
+      if (calculator.event) {
+        emitter.emit('calculation', vars);
+      }
     }
   }
 </script>
