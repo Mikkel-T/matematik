@@ -1,7 +1,7 @@
 <script>
   import { Calc, ValidateCheck } from '@utils/math';
   import { add, reset } from '@store/answer';
-  import Submit from '@components/Calculators/Submit.svelte';
+  import Calculator from '@components/Calculators/Calculator.svelte';
   export let calculator;
 
   let inputs = {};
@@ -45,29 +45,20 @@
   }
 </script>
 
-<div class="w-2/5 mx-auto">
-  <form on:submit|preventDefault={calculate}>
-    <div class="text-center">
-      {#each calculator.text.split(':') as text}
-        {#if text.startsWith('input_')}
-          <input
-            name={text.substring(6)}
-            bind:value={inputs[text.substring(6)]}
-            type="number"
-            step="any"
-            class="border-nord3 focus:ring-0 focus:border-nord10 w-20 p-2 border-0 border-b-2 bg-transparent"
-          />
-        {:else}
-          {text}
-        {/if}
-      {/each}
-    </div>
-
-    <Submit />
-  </form>
-  {#if error}
-    <div class="text-center">
-      {error}
-    </div>
-  {/if}
-</div>
+<Calculator {calculate} {error}>
+  <div class="text-center">
+    {#each calculator.text.split(':') as text}
+      {#if text.startsWith('input_')}
+        <input
+          name={text.substring(6)}
+          bind:value={inputs[text.substring(6)]}
+          type="number"
+          step="any"
+          class="border-nord3 focus:ring-0 focus:border-nord10 w-20 p-2 border-0 border-b-2 bg-transparent"
+        />
+      {:else}
+        {text}
+      {/if}
+    {/each}
+  </div>
+</Calculator>
