@@ -1,5 +1,6 @@
 <script lang="ts">
   import katex from 'katex';
+
   export let math;
   export let displayMode = false;
 

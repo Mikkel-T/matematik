@@ -1,5 +1,18 @@
 {
   "tabWidth": 2,
   "singleQuote": true,
-  "semi": true
+  "semi": true,
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrder": [
+    "^@components/(.*)$",
+    "^@layouts/(.*)$",
+    "^@utils/(.*)$",
+    "^@styles/(.*)$",
+    "^@event/(.*)$",
+    "^@store/(.*)$",
+    "^@scripts/(.*)$",
+    "^@pages/(.*)$",
+    "^[./]"
+  ]
 }

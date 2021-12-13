@@ -4,13 +4,13 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
-      "@event/*": ["src/event/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@pages/*": ["src/pages/*"],
-      "@store/*": ["src/store/*"],
-      "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
-      "@scripts/*": ["src/scripts/*"]
+      "@styles/*": ["src/styles/*"],
+      "@event/*": ["src/event/*"],
+      "@store/*": ["src/store/*"],
+      "@scripts/*": ["src/scripts/*"],
+      "@pages/*": ["src/pages/*"]
     }
   }
 }

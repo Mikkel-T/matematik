@@ -1,4 +1,5 @@
 import toast, { Toaster } from 'react-hot-toast';
+
 import { emitter } from '@event/event';
 
 export default function Toast() {
