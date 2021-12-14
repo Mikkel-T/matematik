@@ -3,19 +3,18 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 
 const { content } = Astro.props;
 const data = Astro.fetchContent('../pages/**/*.md');
+const pathname = Astro.request.url.pathname;
 let pages = [];
-if (Astro.request.url.pathname !== '/') {
-  pages = data.filter((i) =>
-    i.url.startsWith(
-      `${Astro.request.url.pathname}${
-        Astro.request.url.pathname.endsWith('/') ? '' : '/'
-      }`
+if (pathname !== '/') {
+  pages = data
+    .filter((i) =>
+      i.url.startsWith(`${pathname}${pathname.endsWith('/') ? '' : '/'}`)
     )
-  );
+    .filter((i) => !i.hideCard);
 } else {
   pages = data
     .filter((i) => i.url.split('/').length === 2)
-    .filter((i) => i.url !== '/information');
+    .filter((i) => !i.hideCard);
 }
 ---
 

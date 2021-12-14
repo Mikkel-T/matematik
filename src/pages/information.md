@@ -3,6 +3,7 @@ layout: '@layouts/TextLayout.astro'
 title: 'Information'
 description: 'Vigtig information om brug af denne hjemmeside'
 hideTitle: true
+hideCard: true
 ---
 
 # Information
