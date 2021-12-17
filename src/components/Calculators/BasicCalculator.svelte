@@ -3,6 +3,7 @@
   import { add, reset } from '@store/answer';
   import { emitter } from '@event/event';
   import Calculator from '@components/Calculators/Calculator.svelte';
+  import KaTeX from '@components/KaTeX.svelte';
   import t from '@utils/template';
   export let calculator;
 
@@ -48,9 +49,23 @@
   {#each calculator.inputs as input}
     <div class="mb-3">
       <div>
-        <label class="font-bold" for={input.name}
-          >{input.label || input.name}:</label
-        >
+        <label class="font-bold" for={input.name}>
+          {#if input.label}
+            {#each input.label
+              .split(' ')
+              .map((i) => i.replace(/^\$/, '$LaTeX_'))
+              .join(' ')
+              .split('$') as text}
+              {#if text.startsWith('LaTeX_')}
+                <KaTeX math={text.substring(6)} />
+              {:else}
+                {text}
+              {/if}
+            {/each}
+          {:else}
+            {input.name}
+          {/if}
+        </label>
       </div>
       <input
         name={input.name}

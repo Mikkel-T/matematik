@@ -7,8 +7,8 @@ calculator:
   {
     inputs:
       [
-        { name: 'a', label: 'a (Tallet med et x^2 efter sig)' },
-        { name: 'b', label: 'b (Tallet med et x efter sig)' },
+        { name: 'a', label: 'a (Tallet med et $x^2$ efter sig)' },
+        { name: 'b', label: 'b (Tallet med et $x$ efter sig)' },
         { name: 'c', label: 'c (Tallet uden noget efter sig)' },
       ],
     event: true,
