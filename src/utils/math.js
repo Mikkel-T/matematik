@@ -14,7 +14,7 @@ export function Calc(expr, scope, entered) {
   let expression = math.parse(expr);
   let transformed = expression.transform((node) => {
     if (node.isSymbolNode && Object.keys(scope).includes(node.name)) {
-      return new math.ConstantNode(+scope[node.name]);
+      return new math.ConstantNode(parseFloat((+scope[node.name]).toFixed(4)));
     } else {
       return node;
     }
@@ -24,7 +24,7 @@ export function Calc(expr, scope, entered) {
   }
   answer['equation'] = math.parse(expr).toTex();
   answer['calculation'] = transformed.toTex();
-  answer['answer'] = expression.evaluate(scope);
+  answer['answer'] = parseFloat(expression.evaluate(scope).toFixed(4));
   return answer;
 }
 
