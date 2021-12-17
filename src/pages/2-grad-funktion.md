@@ -14,7 +14,7 @@ calculator:
     event: true,
   }
 setup: |
-  import Forskrift from '@components/Calculators/Custom/2-grad-funktion.svelte'
+  import Calc from '@components/Calculators/Custom/2-grad-funktion.svelte'
 ---
 
-<Forskrift client:load />
+<Calc client:load />

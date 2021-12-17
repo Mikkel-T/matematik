@@ -36,10 +36,10 @@
         vars[calculation.name] = ans.answer;
         add({ ...ans, name: calculation.label || calculation.name });
       });
+    }
 
-      if (calculator.event) {
-        emitter.emit('calculation', vars);
-      }
+    if (calculator.event) {
+      emitter.emit('calculation', vars);
     }
   }
 </script>
