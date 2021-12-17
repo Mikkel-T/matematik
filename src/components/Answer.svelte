@@ -5,54 +5,32 @@
   import 'katex/dist/katex.min.css';
   import Clipboard from '@components/Clipboard.svelte';
   import FaCopy from 'svelte-icons/fa/FaCopy.svelte';
+
+  const titles = {
+    answer: 'Svar',
+    calculation: 'Beregning',
+    equation: 'Ligning',
+  };
 </script>
 
 <div class="w-full text-center">
-  {#if $answer.filter((i) => i['answer'])[0]}
-    <div class="font-bold mb-1 mt-2 text-lg">Svar:</div>
-    {#each $answer as ans}
-      {#if ans.hasOwnProperty('answer')}
-        <div>
-          <KaTeX math={text(ans.name)} />: <KaTeX
-            math={ans['answer'].toString()}
-          />
-          <Clipboard text={ans['answer'].toString()}
-            ><div class="h-5 w-5 inline-block icon"><FaCopy /></div></Clipboard
-          >
-        </div>
-      {/if}
-    {/each}
-  {/if}
-
-  {#if $answer.filter((i) => i['calculation'])[0]}
-    <div class="font-bold mb-1 mt-2 text-lg">Beregning:</div>
-    {#each $answer as ans}
-      {#if ans.hasOwnProperty('calculation')}
-        <div>
-          <KaTeX math={text(ans.name)} />: <KaTeX
-            math={ans['calculation'].toString()}
-          />
-          <Clipboard text={ans['calculation'].toString()}
-            ><div class="h-5 w-5 inline-block icon"><FaCopy /></div></Clipboard
-          >
-        </div>
-      {/if}
-    {/each}
-  {/if}
-
-  {#if $answer.filter((i) => i['equation'])[0]}
-    <div class="font-bold mb-1 mt-2 text-lg">Ligning:</div>
-    {#each $answer as ans}
-      {#if ans.hasOwnProperty('equation')}
-        <div>
-          <KaTeX math={text(ans.name)} />: <KaTeX
-            math={ans['equation'].toString()}
-          />
-          <Clipboard text={ans['equation'].toString()}
-            ><div class="h-5 w-5 inline-block icon"><FaCopy /></div></Clipboard
-          >
-        </div>
-      {/if}
-    {/each}
-  {/if}
+  {#each Object.keys(titles) as title}
+    {#if $answer.filter((i) => i[title])[0]}
+      <div class="font-bold mb-1 mt-2 text-lg">{titles[title]}:</div>
+      {#each $answer as ans}
+        {#if ans.hasOwnProperty(title)}
+          <div>
+            <KaTeX math={text(ans.name)} />: <KaTeX
+              math={ans[title].toString()}
+            />
+            <Clipboard text={ans[title].toString()}
+              ><div class="h-5 w-5 inline-block icon">
+                <FaCopy />
+              </div></Clipboard
+            >
+          </div>
+        {/if}
+      {/each}
+    {/if}
+  {/each}
 </div>
