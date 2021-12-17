@@ -1,6 +1,5 @@
 <script>
   import KaTeX from '@components/KaTeX.svelte';
-  import 'katex/dist/katex.min.css';
   import Clipboard from '@components/Clipboard.svelte';
   import FaCopy from 'svelte-icons/fa/FaCopy.svelte';
   import { emitter } from '@event/event';

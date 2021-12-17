@@ -2,7 +2,6 @@
   import KaTeX from '@components/KaTeX.svelte';
   import { answer } from '@store/answer';
   import { text } from '@utils/TeX';
-  import 'katex/dist/katex.min.css';
   import Clipboard from '@components/Clipboard.svelte';
   import FaCopy from 'svelte-icons/fa/FaCopy.svelte';
 
