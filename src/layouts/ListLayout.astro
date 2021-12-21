@@ -5,17 +5,17 @@ const { content } = Astro.props;
 const data = Astro.fetchContent('../pages/**/*.md');
 const pathname = Astro.request.url.pathname;
 let pages = [];
-if (pathname !== '/') {
-  pages = data
-    .filter((i) =>
-      i.url.startsWith(`${pathname}${pathname.endsWith('/') ? '' : '/'}`)
-    )
-    .filter((i) => !i.hideCard);
-} else {
-  pages = data
-    .filter((i) => i.url.split('/').length === 2)
-    .filter((i) => !i.hideCard);
-}
+pages = data
+  .filter((i) =>
+    i.url.startsWith(`${pathname}${pathname.endsWith('/') ? '' : '/'}`)
+  )
+  .filter(
+    (i) =>
+      i.url
+        .replace(`${pathname}${pathname.endsWith('/') ? '' : '/'}`, '')
+        .split('/').length === 1
+  )
+  .filter((i) => !i.hideCard);
 ---
 
 <BaseLayout {content}>
