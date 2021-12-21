@@ -9,5 +9,4 @@ export function set(key: never, val: never) {
 
 export function reset() {
   answer.set({});
-  vars.set({});
 }

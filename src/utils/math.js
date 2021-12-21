@@ -1,11 +1,11 @@
 import math from 'mathjs/lib/browser/math.js';
 
-const tan = (x) => mTan((x * pi) / 180);
-const cos = (x) => mCos((x * pi) / 180);
-const sin = (x) => mSin((x * pi) / 180);
-const atan = (x) => (mAtan(x) * 180) / pi;
-const acos = (x) => (mAcos(x) * 180) / pi;
-const asin = (x) => (mAsin(x) * 180) / pi;
+const tan = (x) => Math.tan((x * Math.PI) / 180);
+const cos = (x) => Math.cos((x * Math.PI) / 180);
+const sin = (x) => Math.sin((x * Math.PI) / 180);
+const atan = (x) => (Math.atan(x) * 180) / Math.PI;
+const acos = (x) => (Math.acos(x) * 180) / Math.PI;
+const asin = (x) => (Math.asin(x) * 180) / Math.PI;
 
 math.import({ tan, cos, sin, atan, acos, asin }, { override: true });
 
