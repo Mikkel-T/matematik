@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/BasicCalculatorLayout.astro'
+layout: 'layout:BasicCalculatorLayout'
 title: 'Renters rente'
 SEOtitle: 'Renters rente beregner'
 description: 'En renters rente beregner der udregner slutkapital ved hjælp af startkapital, rente og antal terminer'

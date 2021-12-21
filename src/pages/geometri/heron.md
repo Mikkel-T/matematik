@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/BasicCalculatorLayout.astro'
+layout: 'layout:BasicCalculatorLayout'
 title: 'Areal af trekant ud fra sidelængder'
 pageTitle: 'Herons formel'
 SEOtitle: 'Herons formel beregner'

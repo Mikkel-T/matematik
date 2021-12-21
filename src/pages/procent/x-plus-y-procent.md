@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/PercentCalculatorLayout.astro'
+layout: 'layout:PercentCalculatorLayout'
 title: 'Hvad er x plus y procent'
 description: 'En procent beregner der udregner et tal plus en procentdel'
 calculator:

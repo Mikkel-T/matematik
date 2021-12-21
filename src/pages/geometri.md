@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/ListLayout.astro'
+layout: 'layout:ListLayout'
 title: 'Geometri'
 pageTitle: 'Geometri beregnere'
 SEOtitle: 'Geometri beregnere'

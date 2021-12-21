@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/TextLayout.astro'
+layout: 'layout:TextLayout'
 title: 'Information'
 description: 'Vigtig information om brug af denne hjemmeside'
 hideTitle: true

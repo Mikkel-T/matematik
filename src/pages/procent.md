@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/ListLayout.astro'
+layout: 'layout:ListLayout'
 title: 'Procent'
 pageTitle: 'Procent beregnere'
 SEOtitle: 'Procent beregnere'

@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/PercentCalculatorLayout.astro'
+layout: 'layout:PercentCalculatorLayout'
 title: 'Hvor mange procent er x af y'
 description: 'En procent beregner der udregner hvilken procentdel et tal udgør af et andet'
 calculator:

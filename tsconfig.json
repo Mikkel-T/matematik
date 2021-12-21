@@ -3,14 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@utils/*": ["src/utils/*"],
-      "@styles/*": ["src/styles/*"],
-      "@event/*": ["src/event/*"],
-      "@store/*": ["src/store/*"],
-      "@scripts/*": ["src/scripts/*"],
-      "@pages/*": ["src/pages/*"]
+      "@*": ["src/*"],
+      "layout:*": ["src/layouts/*.astro"]
     }
   }
 }

@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/BasicCalculatorLayout.astro'
+layout: 'layout:BasicCalculatorLayout'
 title: '2. gradsfunktion'
 SEOtitle: '2. gradsfunktion beregner'
 description: 'En 2. gradsfunktions beregner der udregner diskriminant, toppunkt og nulpunkter for en 2. gradsfunktion'
