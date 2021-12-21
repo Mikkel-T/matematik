@@ -1,20 +1,18 @@
 <script>
   import { Calc, ValidateCheck } from '@utils/math';
   import { add, reset } from '@store/answer';
-  import { vars, answer, reset as resetShape } from '@store/shape';
-  import Calculator from '@components/Calculators/Calculator.svelte';
+  import { emitter } from '@event/event';
+  import { vars, error, answer, reset as resetShape } from '@store/shape';
   export let calculator;
 
-  let error = '';
-
   function calculate() {
-    error = '';
+    $error = '';
     reset();
     resetShape();
 
-    if (calculator.calculations && !error) {
+    if (calculator.calculations && !$error) {
       calculator.calculations.forEach((calculation) => {
-        if (!error) {
+        if (!$error) {
           let check = false;
           if (/ && /.test(calculation.if)) {
             check = true;
@@ -33,13 +31,13 @@
                 try {
                   ValidateCheck(check, $vars);
                 } catch (err) {
-                  error = err.message;
+                  $error = err.message;
                   reset();
                   resetShape();
                 }
               });
             }
-            if (!error) {
+            if (!$error) {
               calculation.calculations.forEach((calc) => {
                 const ans = Calc(calc.calc, $vars, calc['entered']);
                 $answer[calc.name] = ans.answer;
@@ -52,6 +50,6 @@
       });
     }
   }
-</script>
 
-<Calculator {calculate} {error} />
+  emitter.on('shape-calc', calculate);
+</script>
