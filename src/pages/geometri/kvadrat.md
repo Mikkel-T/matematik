@@ -12,7 +12,7 @@ calculator:
           if: 'Side',
           calculations:
             [
-              { name: 'Side', calc: 'Side' },
+              { name: 'Side', calc: 'Side', entered: true },
               { name: 'Diagonal', calc: 'Side * sqrt(2)' },
               { name: 'Omkreds', calc: 'Side * 4' },
               { name: 'Areal', calc: 'Side^2' },
@@ -23,7 +23,7 @@ calculator:
           calculations:
             [
               { name: 'Side', calc: 'Diagonal / sqrt(2)' },
-              { name: 'Diagonal', calc: 'Diagonal' },
+              { name: 'Diagonal', calc: 'Diagonal', entered: true },
               { name: 'Omkreds', calc: '(Diagonal / sqrt(2)) * 4' },
               { name: 'Areal', calc: '(Diagonal / sqrt(2))^2' },
             ],
@@ -34,7 +34,7 @@ calculator:
             [
               { name: 'Side', calc: 'Omkreds / 4' },
               { name: 'Diagonal', calc: '(Omkreds / 4) * sqrt(2)' },
-              { name: 'Omkreds', calc: 'Omkreds' },
+              { name: 'Omkreds', calc: 'Omkreds', entered: true },
               { name: 'Areal', calc: '(Omkreds / 4)^2' },
             ],
         },
@@ -45,7 +45,7 @@ calculator:
               { name: 'Side', calc: 'sqrt(Areal)' },
               { name: 'Diagonal', calc: 'sqrt(Areal) * sqrt(2)' },
               { name: 'Omkreds', calc: 'sqrt(Areal) * 4' },
-              { name: 'Areal', calc: 'Areal' },
+              { name: 'Areal', calc: 'Areal', entered: true },
             ],
         },
       ],

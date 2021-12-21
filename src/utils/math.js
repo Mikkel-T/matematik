@@ -21,6 +21,7 @@ export function Calc(expr, scope, entered) {
   });
   if (entered) {
     transformed = math.parse(`${transformed} blev indtastet`);
+    expr = `${expr} blev indtastet`;
   }
   answer['equation'] = math.parse(expr).toTex();
   answer['calculation'] = transformed.toTex();
