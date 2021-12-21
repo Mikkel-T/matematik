@@ -22,12 +22,12 @@
 
     if (calculator.calculations && !error) {
       calculator.calculations.forEach((calculation) => {
-        if ($vars.hasOwnProperty(calculation.if)) {
+        if ($vars[calculation.if]) {
           calculation.calculations.forEach((calc) => {
             const ans = Calc(calc.calc, $vars);
             $answer[calc.name] = ans.answer;
-            delete ans['answer']
-            add({ ...ans, name: calc.label || calc.name, });
+            delete ans['answer'];
+            add({ ...ans, name: calc.label || calc.name });
           });
         }
       });

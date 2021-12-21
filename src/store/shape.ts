@@ -1,7 +1,6 @@
 import { map } from 'nanostores';
 
 export const vars = map({});
-export const readOnly = map({});
 export const answer = map({});
 
 export function set(key: never, val: never) {
@@ -9,6 +8,6 @@ export function set(key: never, val: never) {
 }
 
 export function reset() {
-  answer.set({})
+  answer.set({});
   vars.set({});
 }
