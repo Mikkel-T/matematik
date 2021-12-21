@@ -51,7 +51,7 @@ calculator:
       ],
   }
 setup: |
-  import Shape from '@components/Calculators/Custom/Kvadrat.svelte'
+  import Square from '@components/Calculators/Custom/Kvadrat.svelte'
 ---
 
-<Shape client:load />
+<Square client:load />
