@@ -24,7 +24,7 @@ module.exports = {
   ignorePatterns: ['dist/'],
   rules: {
     semi: ['warn', 'always'],
-    quotes: ['error', 'single'],
+    quotes: ['error', 'single', { avoidEscape: true }],
     'no-console': 'warn',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
