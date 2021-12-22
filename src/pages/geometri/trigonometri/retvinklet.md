@@ -125,6 +125,7 @@ calculator:
             ],
         },
       ],
+    event: true,
   }
 setup: |
   import Triangle from '@components/Calculators/Custom/Trigonometri/Retvinklet.svelte'

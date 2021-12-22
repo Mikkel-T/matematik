@@ -5,6 +5,13 @@
   import ShapeForm from '@components/Calculators/ShapeForm.svelte';
   import Input from '@components/Svg/Input.svelte';
   import { answer, vars } from '@store/shape';
+  import { add, answer as calculations } from '@store/answer';
+  import { emitter } from '@event/event';
+  import { text } from '@utils/TeX';
+
+  emitter.on('calculation', () => {
+    add({ name: 'C', calculation: text('C er altid 90^{\\circ}') });
+  });
 
   $vars['C'] = 90;
   function getReadonly(nums) {

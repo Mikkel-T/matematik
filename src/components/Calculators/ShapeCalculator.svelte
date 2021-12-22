@@ -49,6 +49,9 @@
         }
       });
     }
+    if (calculator.event) {
+      emitter.emit('calculation', vars);
+    }
   }
 
   emitter.on('shape-calc', calculate);
