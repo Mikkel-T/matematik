@@ -17,7 +17,7 @@
     {#if $answer.filter((i) => i[title])[0]}
       <div class="font-bold mb-1 mt-2 text-lg">{titles[title]}:</div>
       {#each $answer as ans}
-        {#if ans.hasOwnProperty(title)}
+        {#if Object.hasOwn(ans, title)}
           <div>
             <KaTeX math={text(ans.name)} />: <KaTeX
               math={ans[title].toString()}
