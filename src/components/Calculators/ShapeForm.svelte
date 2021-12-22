@@ -11,7 +11,7 @@
 <div>
   <form on:submit|preventDefault={calculate}>
     <slot />
-    <div class="w-3/4 mx-auto md:w-2/6">
+    <div class="mx-auto w-3/4 md:w-2/6">
       <Submit />
     </div>
   </form>

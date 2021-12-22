@@ -32,11 +32,11 @@
 
 <div class="w-full text-center">
   {#if f}
-    <div class="font-bold mb-1 mt-2 text-lg">Forskrift:</div>
+    <div class="mt-2 mb-1 text-lg font-bold">Forskrift:</div>
     <div>
       <KaTeX math={f} />
       <Clipboard text={f}
-        ><div class="h-5 w-5 inline-block icon"><FaCopy /></div></Clipboard
+        ><div class="inline-block w-5 h-5 icon"><FaCopy /></div></Clipboard
       >
     </div>
   {/if}

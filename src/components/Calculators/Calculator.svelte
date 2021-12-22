@@ -4,7 +4,7 @@
   export let error;
 </script>
 
-<div class="w-3/4 mx-auto md:w-2/6">
+<div class="mx-auto w-3/4 md:w-2/6">
   <form on:submit|preventDefault={calculate}>
     <slot />
     <Submit />

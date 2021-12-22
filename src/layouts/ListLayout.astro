@@ -13,11 +13,11 @@ const pages = data
 
 <BaseLayout {content}>
   <div
-    class="sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 grid grid-cols-1 gap-4 p-3 m-auto"
+    class="grid grid-cols-1 gap-4 p-3 m-auto sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6"
   >
     {pages.map((i) => (
       <a
-        class="hover:scale-105 dark:bg-nord3 bg-nord4 rounded-xl dark:border-nord10 border-nord8 flex items-center justify-center h-20 px-2 text-center transform border-2 transition-transform duration-500"
+        class="flex justify-center items-center px-2 h-20 text-center rounded-xl border-2 transition-transform duration-500 transform hover:scale-105 bg-nord4 border-nord8 dark:bg-nord3 dark:border-nord10"
         href={i.url}
       >
         {i.title}

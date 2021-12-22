@@ -73,7 +73,7 @@
         placeholder={input.placeholder || input.name}
         type="number"
         step="any"
-        class="dark:bg-nord1 dark:border-nord3 bg-nord5 border-nord4 focus:ring-nord10 focus:border-nord10 w-full p-2 border rounded-md"
+        class="p-2 w-full rounded-md border bg-nord5 border-nord4 dark:bg-nord1 dark:border-nord3 focus:ring-nord10 focus:border-nord10"
       />
     </div>
   {/each}

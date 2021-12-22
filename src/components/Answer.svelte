@@ -15,7 +15,7 @@
 <div class="w-full text-center">
   {#each Object.keys(titles) as title}
     {#if $answer.filter((i) => i[title])[0]}
-      <div class="font-bold mb-1 mt-2 text-lg">{titles[title]}:</div>
+      <div class="mt-2 mb-1 text-lg font-bold">{titles[title]}:</div>
       {#each $answer as ans}
         {#if Object.hasOwn(ans, title)}
           <div>
@@ -23,7 +23,7 @@
               math={ans[title].toString()}
             />
             <Clipboard text={ans[title].toString()}
-              ><div class="h-5 w-5 inline-block icon">
+              ><div class="inline-block w-5 h-5 icon">
                 <FaCopy />
               </div></Clipboard
             >

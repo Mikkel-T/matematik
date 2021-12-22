@@ -6,7 +6,7 @@
 <svg
   {width}
   {height}
-  class="fill-transparent m-auto stroke-2"
+  class="m-auto stroke-2 fill-transparent"
   xmlns="http://www.w3.org/2000/svg"
 >
   <slot />
