@@ -8,9 +8,9 @@ calculator:
   {
     inputs:
       [
-        { name: 'a', label: '$a$:' },
-        { name: 'b', label: '$b$:' },
-        { name: 'c', label: '$c$:' },
+        { name: 'a', label: '$a$' },
+        { name: 'b', label: '$b$' },
+        { name: 'c', label: '$c$' },
       ],
     calculations:
       [
