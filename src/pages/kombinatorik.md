@@ -9,11 +9,11 @@ calculator:
       [
         {
           name: 'n',
-          label: 'n (Antallet af muligheder, som en stikprøve udtages fra)',
+          label: '$n$ (Antallet af muligheder, som en stikprøve udtages fra)',
         },
         {
           name: 'p',
-          label: 'p (Antallet af pladser, som udvælges i stikprøven)',
+          label: '$p$ (Antallet af pladser, som udvælges i stikprøven)',
         },
       ],
     calculations:

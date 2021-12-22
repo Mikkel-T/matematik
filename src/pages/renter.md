@@ -7,12 +7,12 @@ calculator:
   {
     inputs:
       [
-        { name: 'K', label: 'K (Startkapitalen)' },
+        { name: 'K', label: '$K$ (Startkapitalen)' },
         {
           name: 'r',
-          label: 'r (Renten i decimaltal. F.eks. er $3\%$ = $0,03$)',
+          label: '$r$ (Renten i decimaltal. F.eks. er $3\%$ = $0,03$)',
         },
-        { name: 'n', label: 'n (Antal terminer)' },
+        { name: 'n', label: '$n$ (Antal terminer)' },
       ],
     calculations: [{ name: 'K_n', calc: 'K * (1 + r)^n' }],
   }

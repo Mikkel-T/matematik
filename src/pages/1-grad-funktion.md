@@ -7,10 +7,10 @@ calculator:
   {
     inputs:
       [
-        { name: 'x1', label: 'x for punkt 1' },
-        { name: 'y1', label: 'y for punkt 1' },
-        { name: 'x2', label: 'x for punkt 2' },
-        { name: 'y2', label: 'y for punkt 2' },
+        { name: 'x1', label: '$x_1$ (x for punkt 1)' },
+        { name: 'y1', label: '$y_1$ (y for punkt 1)' },
+        { name: 'x2', label: '$x_2$ (x for punkt 2)' },
+        { name: 'y2', label: '$y_2$ (y for punkt 2)' },
       ],
     checks:
       [
