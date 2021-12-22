@@ -8,19 +8,19 @@
   emitter.on('calculation', (vars) => {
     let a;
     let b;
-    if (vars['a'] == 0) {
+    if (vars.a == 0) {
       a = '';
-    } else if (Math.abs(+vars['a']) == 1) {
-      a = `${+vars['a'] < 0 ? '-' : ''}x`;
+    } else if (Math.abs(+vars.a) == 1) {
+      a = `${+vars.a < 0 ? '-' : ''}x`;
     } else {
-      a = `${vars['a']}x`;
+      a = `${vars.a}x`;
     }
 
-    if (vars['b'] != 0) {
+    if (vars.b != 0) {
       if (a) {
-        b = ` ${+vars['b'] > 0 ? '+' : '-'}${Math.abs(+vars['b'])}`;
+        b = ` ${+vars.b > 0 ? '+' : '-'}${Math.abs(+vars.b)}`;
       } else {
-        b = vars['b'];
+        b = vars.b;
       }
     } else {
       b = a ? '' : 0;

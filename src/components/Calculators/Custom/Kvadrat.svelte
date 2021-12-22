@@ -8,10 +8,10 @@
 
   function getReadonly(nums) {
     let temp = {
-      Omkreds: nums['Omkreds'] ? false : true,
-      Diagonal: nums['Diagonal'] ? false : true,
-      Areal: nums['Areal'] ? false : true,
-      Side: nums['Side'] ? false : true,
+      Omkreds: nums.Omkreds ? false : true,
+      Diagonal: nums.Diagonal ? false : true,
+      Areal: nums.Areal ? false : true,
+      Side: nums.Side ? false : true,
     };
     if (!Object.values(nums).filter((i) => !!i)[0]) {
       temp = {
@@ -32,22 +32,22 @@
   <div class="text-center w-[600px] m-auto h-[500px]">
     <Input
       name="Omkreds"
-      readOnly={readOnly['Omkreds']}
+      readOnly={readOnly.Omkreds}
       styles="border-nord9 focus:ring-nord9 focus:border-nord9 absolute mt-3 ml-20"
     />
     <Input
       name="Diagonal"
-      readOnly={readOnly['Diagonal']}
+      readOnly={readOnly.Diagonal}
       styles="border-nord14 focus:ring-nord14 focus:border-nord14 absolute mt-24 -ml-24"
     />
     <Input
       name="Areal"
-      readOnly={readOnly['Areal']}
+      readOnly={readOnly.Areal}
       styles="mt-72 border-nord3 focus:ring-nord10 focus:border-nord10 absolute -ml-48"
     />
     <Input
       name="Side"
-      readOnly={readOnly['Side']}
+      readOnly={readOnly.Side}
       styles="mt-52 border-nord12 focus:ring-nord12 focus:border-nord12 absolute ml-24"
     />
 
@@ -59,22 +59,22 @@
       <Text
         x="400"
         y="270"
-        text={$answer['Side'] ? `Side: ${$answer['Side']}` : ''}
+        text={$answer.Side ? `Side: ${$answer.Side}` : ''}
       />
       <Text
         x="215"
         y="155"
-        text={$answer['Diagonal'] ? `Diagonal: ${$answer['Diagonal']}` : ''}
+        text={$answer.Diagonal ? `Diagonal: ${$answer.Diagonal}` : ''}
       />
       <Text
         x="385"
         y="70"
-        text={$answer['Omkreds'] ? `Omkreds: ${$answer['Omkreds']}` : ''}
+        text={$answer.Omkreds ? `Omkreds: ${$answer.Omkreds}` : ''}
       />
       <Text
         x="115"
         y="350"
-        text={$answer['Areal'] ? `Areal: ${$answer['Areal']}` : ''}
+        text={$answer.Areal ? `Areal: ${$answer.Areal}` : ''}
       />
     </Svg>
   </div>

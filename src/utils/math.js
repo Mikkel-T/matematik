@@ -23,9 +23,9 @@ export function Calc(expr, scope, entered) {
     transformed = math.parse(`${transformed} blev indtastet`);
     expr = `${expr} blev indtastet`;
   }
-  answer['equation'] = math.parse(expr).toTex();
-  answer['calculation'] = transformed.toTex();
-  answer['answer'] = parseFloat(expression.evaluate(scope).toFixed(4));
+  answer.equation = math.parse(expr).toTex();
+  answer.calculation = transformed.toTex();
+  answer.answer = parseFloat(expression.evaluate(scope).toFixed(4));
   return answer;
 }
 

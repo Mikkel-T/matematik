@@ -6,7 +6,7 @@
 
   emitter.on('calculation', (vars) => {
     const D = Calc('b^2 - 4 * a * c', vars);
-    vars['D'] = D.answer;
+    vars.D = D.answer;
     add({ ...D, name: 'D' });
 
     const Tp_x = Calc('-b / (2 * a)', vars);

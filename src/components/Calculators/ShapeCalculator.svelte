@@ -39,9 +39,9 @@
             }
             if (!$error) {
               calculation.calculations.forEach((calc) => {
-                const ans = Calc(calc.calc, $vars, calc['entered']);
+                const ans = Calc(calc.calc, $vars, calc.entered);
                 $answer[calc.name] = ans.answer;
-                delete ans['answer'];
+                delete ans.answer;
                 add({ ...ans, name: calc.label || calc.name });
               });
             }

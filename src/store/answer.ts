@@ -11,5 +11,5 @@ export function reset() {
 }
 
 export function sort() {
-  answer.set(answer.get().sort((a, b) => a['name'].localeCompare(b['name'])));
+  answer.set(answer.get().sort((a, b) => a.name.localeCompare(b.name)));
 }
