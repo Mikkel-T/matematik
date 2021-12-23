@@ -24,7 +24,7 @@ calculator:
         { name: 'a', calc: '(y2 - y1) / (x2 - x1)' },
         { name: 'b', calc: 'y1 - x1 * a' },
       ],
-    text: ['Punkt 1: ({x1}, {y1})', 'Punkt 2: ({x2}, {y2})'],
+    text: ['Punkt 1: $({x1}, {y1})$', 'Punkt 2: $({x2}, {y2})$'],
     event: true,
   }
 setup: |

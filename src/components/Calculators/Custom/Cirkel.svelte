@@ -6,7 +6,7 @@
   import ShapeForm from '@components/Calculators/ShapeForm.svelte';
   import Input from '@components/Svg/Input.svelte';
   import { answer, vars } from '@store/shape';
-  import KaTeX from '@components/KaTeX.svelte';
+  import TextWithKaTeX from '@components/TextWithKaTeX.svelte';
 
   function getReadonly(nums) {
     let temp = {
@@ -80,6 +80,6 @@
     </Svg>
   </div>
   <div class="text-center">
-    Pi (<KaTeX math="\pi" />) er sat til: <KaTeX math={Math.PI.toString()} />
+    <TextWithKaTeX text="Pi $(\pi)$ er sat til: ${Math.PI}$" />
   </div>
 </ShapeForm>
