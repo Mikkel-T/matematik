@@ -5,7 +5,9 @@ const { content } = Astro.props;
 ---
 
 <BaseLayout {content}>
-  <div class="mx-auto w-3/5 prose dark:prose-light">
+  <div
+    class="mx-auto w-3/5 prose prose-a:dark:text-nord8 prose-a:text-nord10 prose-a:no-underline dark:prose-invert hover:prose-a:underline"
+  >
     <slot />
   </div>
 </BaseLayout>

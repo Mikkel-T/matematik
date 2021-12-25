@@ -27,30 +27,6 @@ module.exports = {
       fill: {
         transparent: 'transparent',
       },
-      typography: (theme) => ({
-        DEFAULT: {
-          css: [
-            {
-              a: {
-                color: theme('colors.nord10'),
-              },
-            },
-          ],
-        },
-        light: {
-          css: [
-            {
-              color: theme('colors.nord5'),
-              h1: {
-                color: theme('colors.nord6'),
-              },
-              a: {
-                color: theme('colors.nord8'),
-              },
-            },
-          ],
-        },
-      }),
     },
   },
   variants: {
