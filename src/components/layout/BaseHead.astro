@@ -11,11 +11,15 @@ const { content } = Astro.props;
     document.documentElement.classList.add('dark');
   }
 </script>
+
 <link rel="stylesheet" href={Astro.resolve('../../styles/global.css')} />
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <SEO title={content.SEOtitle ?? content.title} description={content.description}
 />
-<meta charset="utf-8" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
 <script
   async
   defer
