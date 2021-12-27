@@ -1,6 +1,6 @@
 {
-  "moduleResolution": "node",
   "compilerOptions": {
+    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "@*": ["src/*"],
