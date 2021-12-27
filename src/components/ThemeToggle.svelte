@@ -18,13 +18,12 @@
 
 <div
   on:click={changeTheme}
-  class="inline-flex absolute right-0 items-center m-2 ml-2 w-12 h-6 rounded-full group bg-nord10"
+  class="inline-flex absolute right-0 items-center m-2 ml-2 w-12 h-6 rounded-full transition-opacity duration-300 ease-in group bg-nord10"
+  class:opacity-0={!theme}
   class:cursor-pointer={theme}
 >
   <div
-    class="absolute ml-0.5 w-5 h-5 rounded-full transition-all duration-300 dark:translate-x-6 ring-nord11"
-    class:bg-nord6={theme}
-    class:group-hover:ring-4={theme}
+    class="absolute ml-0.5 w-5 h-5 rounded-full transition-all duration-300 dark:translate-x-6 group-hover:ring-4 ring-nord11 bg-nord6"
   />
   <span
     class="absolute w-4 h-4 transition-colors duration-300 translate-x-1 text-nord13 icon dark:text-nord1"
