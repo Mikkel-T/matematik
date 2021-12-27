@@ -2,13 +2,17 @@
   "tabWidth": 2,
   "singleQuote": true,
   "semi": true,
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
   "importOrder": [
     "^@components/(.*)$",
+    "^layout:(.*)$",
     "^@utils/(.*)$",
-    "^@interfaces/(.*)$",
     "^@styles/(.*)$",
+    "^@event/(.*)$",
+    "^@store/(.*)$",
+    "^@scripts/(.*)$",
+    "^@pages/(.*)$",
     "^[./]"
-  ],
-  "importOrderSeparation": true,
-  "printWidth": 100
+  ]
 }

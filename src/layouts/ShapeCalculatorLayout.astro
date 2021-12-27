@@ -1,0 +1,14 @@
+---
+import Answer from '@components/Answer.svelte';
+import ShapeCalculator from '@components/Calculators/ShapeCalculator.svelte';
+
+import BaseLayout from 'layout:BaseLayout';
+
+const { content } = Astro.props;
+---
+
+<BaseLayout {content}>
+  <slot />
+  <ShapeCalculator calculator={content.calculator} client:load />
+  <Answer client:visible />
+</BaseLayout>

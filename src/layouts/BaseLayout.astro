@@ -1,0 +1,31 @@
+---
+import Toaster from '@components/Toaster.jsx';
+import BaseFooter from '@components/layout/BaseFooter.astro';
+import BaseHead from '@components/layout/BaseHead.astro';
+import BaseHeader from '@components/layout/BaseHeader.astro';
+
+const { content } = Astro.props;
+---
+
+<html lang="da-DK" class="">
+  <head>
+    <BaseHead {content} />
+  </head>
+  <body>
+    <header>
+      <BaseHeader />
+    </header>
+    <main>
+      {!content.hideTitle && (
+        <div class="mb-2 text-4xl text-center">
+          {content.pageTitle ?? content.title}
+        </div>
+      )}
+      <slot />
+      <Toaster client:visible />
+    </main>
+    <footer>
+      <BaseFooter />
+    </footer>
+  </body>
+</html>

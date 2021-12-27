@@ -1,0 +1,33 @@
+---
+import ThemeToggle from '@components/ThemeToggle.svelte';
+
+const pathname = Astro.request.url.pathname;
+---
+
+<div class="h-6">
+  {pathname !== '/' && (
+    <a
+      class="mt-2 ml-2 link"
+      href={`${pathname}${pathname.endsWith('/') ? '' : '/'}..`}
+    >
+      <div class="inline-flex justify-center items-center ml-1 align-middle icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M11 17l-5-5m0 0l5-5m-5 5h12"
+          />
+        </svg>
+      </div>
+      Tilbage til forrige side
+    </a>
+  )}
+  <ThemeToggle client:load />
+</div>

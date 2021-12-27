@@ -1,0 +1,29 @@
+---
+import { SEO } from 'astro-seo';
+
+const { content } = Astro.props;
+---
+
+<script>
+  if (localStorage.theme === 'light') {
+    document.documentElement.classList.remove('dark');
+  } else {
+    document.documentElement.classList.add('dark');
+  }
+</script>
+
+<link rel="stylesheet" href={Astro.resolve('../../styles/global.css')} />
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<SEO title={content.SEOtitle ?? content.title} description={content.description}
+/>
+
+<script
+  async
+  defer
+  data-website-id="95590257-ede5-432a-b140-a1e943ce3f33"
+  src="https://analytics.mikkel-t.com/umami.js"
+>
+</script>
