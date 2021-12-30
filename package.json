@@ -22,8 +22,8 @@
     "@trivago/prettier-plugin-sort-imports": "^3.1.1",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
-    "astro": "^0.22.1",
-    "autoprefixer": "^10.4.0",
+    "astro": "^0.22.3",
+    "autoprefixer": "^10.4.1",
     "eslint": "^8.5.0",
     "eslint-plugin-svelte3": "^3.2.1",
     "postcss": "^8.4.5",
@@ -31,13 +31,13 @@
     "prettier-plugin-astro": "^0.0.11",
     "prettier-plugin-svelte": "^2.5.1",
     "rustywind": "^0.12.2",
-    "tailwindcss": "^3.0.7"
+    "tailwindcss": "^3.0.8"
   },
   "dependencies": {
     "astro-seo": "^0.4.2",
     "copy-to-clipboard": "^3.3.1",
     "katex": "^0.15.1",
-    "mathjs": "^10.0.1",
+    "mathjs": "^10.0.2",
     "nanoevents": "^6.0.2",
     "nanostores": "^0.5.8",
     "pupa": "^3.1.0",
