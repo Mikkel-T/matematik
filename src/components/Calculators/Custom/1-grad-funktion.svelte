@@ -35,7 +35,7 @@
     <div class="mt-2 mb-1 text-lg font-bold">Forskrift:</div>
     <div>
       <KaTeX math={f} />
-      <Clipboard text={f}
+      <Clipboard text={f} message="Kopierede forskriften"
         ><div class="inline-block w-5 h-5 icon"><FaCopy /></div></Clipboard
       >
     </div>
