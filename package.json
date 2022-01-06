@@ -16,22 +16,22 @@
   },
   "devDependencies": {
     "@astrojs/renderer-react": "^0.4.0",
-    "@astrojs/renderer-svelte": "^0.3.0",
+    "@astrojs/renderer-svelte": "^0.3.1",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/typography": "^0.5.0",
     "@trivago/prettier-plugin-sort-imports": "^3.1.1",
-    "@typescript-eslint/eslint-plugin": "^5.8.1",
-    "@typescript-eslint/parser": "^5.8.1",
-    "astro": "^0.22.3",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "astro": "^0.22.7",
     "autoprefixer": "^10.4.1",
     "eslint": "^8.6.0",
-    "eslint-plugin-svelte3": "^3.2.1",
+    "eslint-plugin-svelte3": "^3.3.0",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "prettier-plugin-astro": "^0.0.11",
     "prettier-plugin-svelte": "^2.5.1",
     "rustywind": "^0.12.2",
-    "tailwindcss": "^3.0.8"
+    "tailwindcss": "^3.0.11"
   },
   "dependencies": {
     "astro-seo": "^0.4.2",
@@ -41,7 +41,7 @@
     "nanoevents": "^6.0.2",
     "nanostores": "^0.5.8",
     "pupa": "^3.1.0",
-    "react-hot-toast": "^2.1.1",
+    "react-hot-toast": "^2.2.0",
     "svelte-icons": "^2.1.0"
   }
 }

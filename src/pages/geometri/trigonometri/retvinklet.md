@@ -46,7 +46,7 @@ calculator:
             [
               { name: 'A', calc: 'asin(a / c)' },
               { name: 'B', calc: 'acos(a / c)' },
-              { name: 'b', calc: 'acos(a / c)' },
+              { name: 'b', calc: 'sqrt(c^2 - a^2)' },
               checks: [],
               {
                 message: 'Kateterne (a eller b) må ikke være større end eller lig med hypotenusen (c)',
