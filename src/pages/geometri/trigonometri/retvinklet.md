@@ -47,7 +47,9 @@ calculator:
               { name: 'A', calc: 'asin(a / c)' },
               { name: 'B', calc: 'acos(a / c)' },
               { name: 'b', calc: 'sqrt(c^2 - a^2)' },
-              checks: [],
+            ],
+          checks:
+            [
               {
                 message: 'Kateterne (a eller b) må ikke være større end eller lig med hypotenusen (c)',
                 check: 'c <= a',
@@ -124,6 +126,7 @@ calculator:
               { name: 'b', calc: 'c * sin(B)' },
             ],
         },
+        { calculations: [{ name: 'Areal', calc: '1/2 * a * b' }] },
       ],
     event: true,
   }

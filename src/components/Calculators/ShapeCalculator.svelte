@@ -7,6 +7,7 @@
 
   function calculate() {
     $error = '';
+    let calcValues = { ...$vars };
     reset();
     resetShape();
 
@@ -14,22 +15,26 @@
       calculator.calculations.forEach((calculation) => {
         if (!$error) {
           let check = false;
-          if (/ && /.test(calculation.if)) {
+          if (!Object.hasOwnProperty.call(calculation, 'if')) {
             check = true;
-            calculation.if.split(' && ').forEach((i) => {
-              if (!$vars[i]) {
-                check = false;
-              }
-            });
           } else {
-            check = $vars[calculation.if];
+            if (/ && /.test(calculation.if)) {
+              check = true;
+              calculation.if.split(' && ').forEach((i) => {
+                if (!$vars[i]) {
+                  check = false;
+                }
+              });
+            } else {
+              check = $vars[calculation.if];
+            }
           }
 
           if (check) {
             if (calculation.checks) {
               calculation.checks.forEach((check) => {
                 try {
-                  ValidateCheck(check, $vars);
+                  ValidateCheck(check, calcValues);
                 } catch (err) {
                   $error = err.message;
                   reset();
@@ -39,8 +44,9 @@
             }
             if (!$error) {
               calculation.calculations.forEach((calc) => {
-                const ans = Calc(calc.calc, $vars, calc.entered);
+                const ans = Calc(calc.calc, calcValues, calc.entered);
                 $answer[calc.name] = ans.answer;
+                calcValues[calc.name] = ans.answer;
                 delete ans.answer;
                 add({ ...ans, name: calc.label || calc.name });
               });

@@ -93,6 +93,12 @@
       <Text x="175" y="280" text={$answer.a ? `a: ${$answer.a}` : ''} />
       <Text x="15" y="180" text={$answer.b ? `b: ${$answer.b}` : ''} />
       <Text x="200" y="180" text={$answer.c ? `c: ${$answer.c}` : ''} />
+
+      <Text
+        x="120"
+        y="230"
+        text={$answer.Areal ? `Areal: ${$answer.Areal}` : ''}
+      />
     </Svg>
     <Input
       name="a"
