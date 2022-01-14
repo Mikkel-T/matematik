@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@astrojs/compiler@^0.7.4":
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.7.4.tgz#f32559254c715af36e3169c33c717fc2a084b71a"
-  integrity sha512-CgKxhVYpfzr9Nox+79IGCd9IszEGIVhYCDl1am+LeAvpIVage9YE8YLVY0r+Ow8LaK26uqko/ae06+DmGDtU5w==
+"@astrojs/compiler@^0.8.0":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.8.1.tgz#8ab1e075b02b99928f7d867a5dfe6a62047cd4e2"
+  integrity sha512-923F32pGpUs25VqghPoh2u6cU/L2HV/z5Y7BR7YtV+Dr6aVDZrzSGYjvv8mjsOuzI84RVlN0TBhFMNOhYhMJjA==
   dependencies:
     typescript "^4.3.5"
 
@@ -75,10 +75,10 @@
     preact "~10.5.15"
     preact-render-to-string "^5.1.19"
 
-"@astrojs/renderer-react@0.4.0", "@astrojs/renderer-react@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/renderer-react/-/renderer-react-0.4.0.tgz#6691184013f0cba43e9605ae6a07910aaf7804c0"
-  integrity sha512-4vU2fqRDGdMVYsmM5WgzSA8Wlsmcefa80fQVBHyt1rHZWfW+bOPJVLO7nR6BzixFCoum5PzXD1TraD971O7BLA==
+"@astrojs/renderer-react@0.4.1", "@astrojs/renderer-react@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/renderer-react/-/renderer-react-0.4.1.tgz#e72913182bb6a47ad765d6ea0f9e5417c9e45fb6"
+  integrity sha512-GrDw3zTUjjRBzWYFEPecHg9KBuFnWdLXnz+uAsEfCqeOIt6IPyzmN5lIVfx9Ta5+lYsIt3NlBKu5X7vwfCSoNQ==
   dependencies:
     "@babel/plugin-transform-react-jsx" "^7.16.0"
     react "^17.0.2"
@@ -1019,17 +1019,17 @@ astro-seo@^0.4.2:
   resolved "https://registry.yarnpkg.com/astro-seo/-/astro-seo-0.4.2.tgz#0db97bd109831e77ae848e65422f94fb9c1bc66e"
   integrity sha512-o5Jh3j81Iib4eB/x1S3/IG+qT7nbfXk2q+o95vh4XnNHswoW/VkhxPhTs42PkMzq69cJPcHaljaYb8PDMHSxfw==
 
-astro@^0.22.11:
-  version "0.22.11"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-0.22.11.tgz#f417d300e77319b802bbbdc878696fdd2c510142"
-  integrity sha512-/z+G3wRQlwX6OZkhRPXBj3We8uOd7wnCJYz5/9O3dyBvN1+uGm2MgpQNzk1UTuq6WWJ/Ds42qxpNP1jwGnu1NQ==
+astro@^0.22.12:
+  version "0.22.12"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-0.22.12.tgz#57135da85afae32aefc0a09969e885d23d84ee67"
+  integrity sha512-xhhQ0bSJy9OKAcI1gJd+GhYfg7PSr1X+ySjIsCAzetP7oRWLJU4myx9zMm2gHjjcADg5WzLK9HJyBcgXiP+DHw==
   dependencies:
-    "@astrojs/compiler" "^0.7.4"
+    "@astrojs/compiler" "^0.8.0"
     "@astrojs/language-server" "^0.8.6"
     "@astrojs/markdown-remark" "^0.6.0"
     "@astrojs/prism" "0.4.0"
     "@astrojs/renderer-preact" "^0.4.0"
-    "@astrojs/renderer-react" "0.4.0"
+    "@astrojs/renderer-react" "0.4.1"
     "@astrojs/renderer-svelte" "0.3.1"
     "@astrojs/renderer-vue" "0.3.0"
     "@astropub/webapi" "^0.10.1"
