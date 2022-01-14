@@ -12,8 +12,6 @@ const { content } = Astro.props;
   }
 </script>
 
-<link rel="stylesheet" href={Astro.resolve('../../styles/global.css')} />
-
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -29,3 +27,7 @@ const { content } = Astro.props;
   data-domains="matematik.mikkel-t.com,matematik.pages.dev"
 >
 </script>
+
+<style global>
+  @import '../../styles/global.css';
+</style>
