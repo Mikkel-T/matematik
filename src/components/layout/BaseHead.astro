@@ -13,9 +13,16 @@ const { content } = Astro.props;
 </script>
 
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<SEO title={content.SEOtitle ?? content.title} description={content.description}
+<SEO
+  title={content.SEOtitle ?? content.title}
+  description={content.description}
+  extend={{
+    link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    meta: [
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+      { name: 'theme-color', content: '#2E3440' },
+    ],
+  }}
 />
 
 <script
