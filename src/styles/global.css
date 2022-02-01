@@ -14,13 +14,13 @@
   }
 
   body {
-    @apply dark:bg-nord0 dark:text-nord6 bg-nord6 text-nord0;
+    @apply bg-nord6 text-nord0 dark:bg-nord0 dark:text-nord6;
   }
 }
 
 @layer utilities {
   .link {
-    @apply dark:text-nord8 text-nord10 hover:underline;
+    @apply text-nord10 hover:underline dark:text-nord8;
   }
 
   .icon svg {

@@ -59,7 +59,7 @@
 </script>
 
 <ShapeForm>
-  <div class="text-center w-[750px] m-auto h-[440px] pl-12">
+  <div class="m-auto h-[440px] w-[750px] pl-12 text-center">
     <Input
       name="A"
       readOnly={readOnly.A}

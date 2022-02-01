@@ -31,7 +31,7 @@
 </script>
 
 <ShapeForm>
-  <div class="text-center w-[600px] m-auto h-[500px]">
+  <div class="m-auto h-[500px] w-[600px] text-center">
     <Input
       name="Omkreds"
       readOnly={readOnly.Omkreds}

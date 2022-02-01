@@ -13,7 +13,7 @@
   id={name}
   placeholder={placeholder || name}
   {readOnly}
-  class="rounded-md dark:bg-nord1 bg-nord5 border p-2 w-36 transition-opacity duration-300 {styles}"
+  class="w-36 rounded-md border bg-nord5 p-2 transition-opacity duration-300 dark:bg-nord1 {styles}"
   class:opacity-50={readOnly}
   bind:value={$vars[name]}
 />

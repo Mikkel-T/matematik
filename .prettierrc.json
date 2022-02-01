@@ -2,17 +2,5 @@
   "tabWidth": 2,
   "singleQuote": true,
   "semi": true,
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true,
-  "importOrder": [
-    "^@components/(.*)$",
-    "^layout:(.*)$",
-    "^@utils/(.*)$",
-    "^@styles/(.*)$",
-    "^@event/(.*)$",
-    "^@store/(.*)$",
-    "^@scripts/(.*)$",
-    "^@pages/(.*)$",
-    "^[./]"
-  ]
+  "tailwindConfig": "./tailwind.config.cjs"
 }
