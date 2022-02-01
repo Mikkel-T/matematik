@@ -25,7 +25,7 @@
             <Clipboard
               text={ans[title].toString()}
               message="Kopierede {titles[title].copyText}"
-              ><div class="inline-block w-5 h-5 icon">
+              ><div class="icon inline-block h-5 w-5">
                 <FaCopy />
               </div></Clipboard
             >

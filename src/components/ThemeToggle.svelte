@@ -18,20 +18,20 @@
 
 <div
   on:click={changeTheme}
-  class="inline-flex absolute right-0 items-center m-2 ml-2 w-12 h-6 rounded-full transition-opacity duration-300 ease-in group bg-nord10"
+  class="group absolute right-0 m-2 ml-2 inline-flex h-6 w-12 items-center rounded-full bg-nord10 transition-opacity duration-300 ease-in"
   class:opacity-0={!theme}
   class:cursor-pointer={theme}
 >
   <div
-    class="absolute ml-0.5 w-5 h-5 rounded-full transition-all duration-300 dark:translate-x-6 group-hover:ring-4 ring-nord11 bg-nord6"
+    class="absolute ml-0.5 h-5 w-5 rounded-full bg-nord6 ring-nord11 transition-all duration-300 group-hover:ring-4 dark:translate-x-6"
   />
   <span
-    class="absolute w-4 h-4 transition-colors duration-300 translate-x-1 text-nord13 icon dark:text-nord1"
+    class="icon absolute h-4 w-4 translate-x-1 text-nord13 transition-colors duration-300 dark:text-nord1"
   >
     <FaSun />
   </span>
   <span
-    class="absolute ml-1 w-4 h-4 transition-colors duration-300 translate-x-6 text-nord1 icon dark:text-nord13"
+    class="icon absolute ml-1 h-4 w-4 translate-x-6 text-nord1 transition-colors duration-300 dark:text-nord13"
   >
     <FaMoon />
   </span>

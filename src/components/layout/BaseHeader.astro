@@ -7,13 +7,13 @@ const pathname = Astro.request.url.pathname;
 <div class="h-6">
   {pathname !== '/' && (
     <a
-      class="mt-2 ml-2 link"
+      class="link mt-2 ml-2"
       href={`${pathname}${pathname.endsWith('/') ? '' : '/'}..`}
     >
-      <div class="inline-flex justify-center items-center ml-1 align-middle icon">
+      <div class="icon ml-1 inline-flex items-center justify-center align-middle">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5"
+          class="h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

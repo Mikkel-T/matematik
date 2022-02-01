@@ -63,7 +63,7 @@
         placeholder={input.placeholder || input.name}
         type="number"
         step="any"
-        class="p-2 w-full rounded-md border bg-nord5 border-nord4 dark:bg-nord1 dark:border-nord3 focus:ring-nord10 focus:border-nord10"
+        class="w-full rounded-md border border-nord4 bg-nord5 p-2 focus:border-nord10 focus:ring-nord10 dark:border-nord3 dark:bg-nord1"
       />
     </div>
   {/each}
