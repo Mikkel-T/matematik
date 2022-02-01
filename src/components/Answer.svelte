@@ -1,8 +1,9 @@
 <script>
+  import CopyModal from '@components/CopyModal.svelte';
   import KaTeX from '@components/KaTeX.svelte';
   import { answer } from '@store/answer';
   import { text } from '@utils/TeX';
-  import Clipboard from '@components/Clipboard.svelte';
+  import { emitter } from '@event/event';
   import FaCopy from 'svelte-icons/fa/FaCopy.svelte';
 
   const titles = {
@@ -10,6 +11,10 @@
     calculation: { title: 'Beregning', copyText: 'beregningen' },
     equation: { title: 'Ligning', copyText: 'ligningen' },
   };
+
+  function openCopyModal(options) {
+    emitter.emit('copyModal', options);
+  }
 </script>
 
 <div class="w-full text-center">
@@ -22,16 +27,23 @@
             <KaTeX math={text(ans.name)} />: <KaTeX
               math={ans[title].toString()}
             />
-            <Clipboard
-              text={ans[title].toString()}
-              message="Kopierede {titles[title].copyText}"
-              ><div class="inline-block w-5 h-5 icon">
-                <FaCopy />
-              </div></Clipboard
+            <div
+              class="inline-block w-5 h-5 cursor-pointer icon"
+              on:click={() =>
+                openCopyModal({
+                  message: `Kopierede ${titles[title].copyText}`,
+                  text: {
+                    LaTeX: ans[title].toString(),
+                    unicode: ans.unicode[title].toString(),
+                  },
+                })}
             >
+              <FaCopy />
+            </div>
           </div>
         {/if}
       {/each}
     {/if}
   {/each}
 </div>
+<CopyModal />

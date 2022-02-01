@@ -26,6 +26,11 @@ export function Calc(expr, scope, entered) {
   answer.equation = math.parse(expr).toTex();
   answer.calculation = transformed.toTex();
   answer.answer = parseFloat(expression.evaluate(scope).toFixed(4));
+  answer.unicode = {
+    equation: math.parse(expr).toString(),
+    calculation: transformed.toString(),
+    answer: answer.answer,
+  };
   return answer;
 }
 
