@@ -1,6 +1,5 @@
 <script>
   import KaTeX from '@components/KaTeX.svelte';
-  import Clipboard from '@components/Clipboard.svelte';
   import FaCopy from 'svelte-icons/fa/FaCopy.svelte';
   import { emitter } from '@event/event';
 
@@ -28,6 +27,10 @@
 
     f = `f(x) = ${a}${b}`;
   });
+
+  function openCopyModal(options) {
+    emitter.emit('copyModal', options);
+  }
 </script>
 
 <div class="w-full text-center">
@@ -35,9 +38,19 @@
     <div class="mt-2 mb-1 text-lg font-bold">Forskrift:</div>
     <div>
       <KaTeX math={f} />
-      <Clipboard text={f} message="Kopierede forskriften"
-        ><div class="icon inline-block h-5 w-5"><FaCopy /></div></Clipboard
+      <div
+        class="icon inline-block h-5 w-5 cursor-pointer"
+        on:click={() =>
+          openCopyModal({
+            message: 'Kopierede forskriften',
+            text: {
+              LaTeX: f,
+              unicode: f,
+            },
+          })}
       >
+        <FaCopy />
+      </div>
     </div>
   {/if}
 </div>
