@@ -12,6 +12,7 @@ calculator:
         { name: 'c', label: '$c$ (Tallet uden noget efter sig)' },
       ],
     event: true,
+    checks: [{ message: 'a må ikke være 0', check: 'a == 0' }],
   }
 setup: |
   import Calc from '@components/Calculators/Custom/2-grad-funktion.svelte'

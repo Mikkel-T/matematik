@@ -16,7 +16,7 @@
     error = '';
     reset();
     calculator.inputs.forEach((i) => {
-      if (!Object.keys(vars).includes(i.name)) {
+      if (!Object.hasOwnProperty.call(vars, i.name) || !vars[i.name]) {
         vars[i.name] = 0;
       }
     });
@@ -39,7 +39,7 @@
       });
     }
 
-    if (calculator.event) {
+    if (calculator.event && !error) {
       emitter.emit('calculation', vars);
     }
   }

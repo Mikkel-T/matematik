@@ -24,7 +24,7 @@
         name: 'Np',
       });
     } else if (D.answer === 0) {
-      const Np_x = Calc('(-b + sqrt(D)) / (2 * a)', vars);
+      const Np_x = Calc('-b / (2 * a)', vars);
 
       add({
         answer: coord(Np_x.answer, 0),

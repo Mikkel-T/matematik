@@ -16,7 +16,7 @@
       .match(/:input_[a-z]:/g)
       .map((i) => i.substring(7, i.length - 1))
       .forEach((i) => {
-        if (!Object.keys(vars).includes(i.name)) {
+        if (!Object.hasOwnProperty.call(vars, i.name) || !vars[i.name]) {
           vars[i.name] = 0;
         }
       });
