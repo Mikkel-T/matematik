@@ -5,12 +5,12 @@
   import { coord, text } from '@utils/TeX';
 
   emitter.on('calculation', (vars) => {
-    const D = Calc('b^2 - 4 * a * c', vars);
-    vars.D = D.answer;
-    add({ ...D, name: 'D' });
+    const d = Calc('(b)^2 - 4 * a * c', vars);
+    vars.d = d.answer;
+    add({ ...d, name: 'd' });
 
-    const Tp_x = Calc('-b / (2 * a)', vars);
-    const Tp_y = Calc('-D / (4 * a)', vars);
+    const Tp_x = Calc('-(b) / (2 * a)', vars);
+    const Tp_y = Calc('-(d) / (4 * a)', vars);
     add({
       calculation: coord(Tp_x.calculation, Tp_y.calculation),
       answer: coord(Tp_x.answer, Tp_y.answer),
@@ -18,13 +18,13 @@
       name: 'Tp',
     });
 
-    if (D.answer < 0) {
+    if (d.answer < 0) {
       add({
-        answer: text('Der er ikke nogle nulpunkter da D er under 0'),
+        answer: text('Der er ikke nogle nulpunkter da d er under 0'),
         name: 'Np',
       });
-    } else if (D.answer === 0) {
-      const Np_x = Calc('-b / (2 * a)', vars);
+    } else if (d.answer === 0) {
+      const Np_x = Calc('-(b) / (2 * a)', vars);
 
       add({
         answer: coord(Np_x.answer, 0),
@@ -36,8 +36,8 @@
         name: 'Np',
       });
     } else {
-      const Np1_x = Calc('(-b + sqrt(D)) / (2 * a)', vars);
-      const Np2_x = Calc('(-b - sqrt(D)) / (2 * a)', vars);
+      const Np1_x = Calc('(-(b) + sqrt(d)) / (2 * a)', vars);
+      const Np2_x = Calc('(-(b) - sqrt(d)) / (2 * a)', vars);
 
       add({
         answer: `${coord(Np1_x.answer, 0)}~ \\&~ ${coord(Np2_x.answer, 0)}`,
