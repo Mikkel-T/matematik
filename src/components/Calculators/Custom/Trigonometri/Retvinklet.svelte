@@ -64,28 +64,31 @@
       name="A"
       readOnly={readOnly.A}
       placeholder="Vinkel A"
-      styles="border-nord12 focus:ring-nord12 focus:border-nord12 float-left ml-16"
+      styles="border-dracula-orange-500 focus:ring-dracula-orange-500 focus:border-dracula-orange-500 float-left ml-16"
     />
     <Input
       name="b"
       readOnly={readOnly.b}
       placeholder="Katete b"
-      styles="float-left mt-48 -mb-44 ml-[-253px] border-nord9 focus:ring-nord9 focus:border-nord9"
+      styles="float-left mt-48 -mb-44 ml-[-253px] border-dracula-blue-500 focus:ring-dracula-blue-500 focus:border-dracula-blue-500"
     />
     <Input
       name="c"
       readOnly={readOnly.c}
       placeholder="Hypotenuse c"
-      styles="border-nord14 focus:ring-nord14 focus:border-nord14 absolute mt-40 -ml-20"
+      styles="border-dracula-green-800 focus:ring-dracula-green-800 focus:border-dracula-green-800 absolute mt-40 -ml-20"
     />
     <Svg width="500" height="300">
-      <Path d="M 3 257 h 40 v 40" styles="text-nord14" />
-      <Path d="M 420 297 A 80 80 180 0 1 433 260" styles="text-nord9" />
-      <Path d="M 69 41 A 80 80 0 0 1 4 80" styles="text-nord12" />
+      <Path d="M 3 257 h 40 v 40" styles="text-dracula-green-800" />
+      <Path
+        d="M 420 297 A 80 80 180 0 1 433 260"
+        styles="text-dracula-blue-500"
+      />
+      <Path d="M 69 41 A 80 80 0 0 1 4 80" styles="text-dracula-orange-500" />
 
-      <Path d="M 3 3 V 297" styles="text-nord9" />
-      <Path d="M 3 297 H 497" styles="text-nord12" />
-      <Path d="M 3 3 L 497 297" styles="text-nord14" />
+      <Path d="M 3 3 V 297" styles="text-dracula-blue-500" />
+      <Path d="M 3 297 H 497" styles="text-dracula-orange-500" />
+      <Path d="M 3 3 L 497 297" styles="text-dracula-green-800" />
 
       <Text x="15" y="100" text={$answer.A ? `A: ${$answer.A}°` : ''} />
       <Text x="350" y="280" text={$answer.B ? `B: ${$answer.B}°` : ''} />
@@ -104,13 +107,13 @@
       name="a"
       readOnly={readOnly.a}
       placeholder="Katete a"
-      styles="border-nord12 focus:ring-nord12 focus:border-nord12 -mr-24"
+      styles="border-dracula-orange-500 focus:ring-dracula-orange-500 focus:border-dracula-orange-500 -mr-24"
     />
     <Input
       name="B"
       readOnly={readOnly.B}
       placeholder="Vinkel B"
-      styles="border-nord9 focus:ring-nord9 focus:border-nord9 float-right mr-8"
+      styles="border-dracula-blue-500 focus:ring-dracula-blue-500 focus:border-dracula-blue-500 float-right mr-8"
     />
   </div>
 </ShapeForm>
