@@ -1,10 +1,9 @@
-// @ts-check
+import { defineConfig } from 'astro/config';
 
-/** @type {import('astro').AstroUserConfig} */
-export default {
+export default defineConfig({
   buildOptions: {
     site: 'https://matematik.mikkel-t.com',
     sitemap: true,
   },
   renderers: ['@astrojs/renderer-svelte', '@astrojs/renderer-react'],
-};
+});
