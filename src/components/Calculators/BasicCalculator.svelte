@@ -1,19 +1,19 @@
 <script>
-  import { Calc, ValidateCheck } from '@utils/math';
-  import { add, reset } from '@store/answer';
-  import { emitter } from '@event/event';
-  import Calculator from '@components/Calculators/Calculator.svelte';
-  import TextWithKaTeX from '@components/TextWithKaTeX.svelte';
-  import t from '@utils/template';
+  import { Calc, ValidateCheck } from "@utils/math";
+  import { add, reset } from "@store/answer";
+  import { emitter } from "@event/event";
+  import Calculator from "@components/Calculators/Calculator.svelte";
+  import TextWithKaTeX from "@components/TextWithKaTeX.svelte";
+  import t from "@utils/template";
   export let calculator;
 
   let inputs = {};
   let vars = {};
-  let error = '';
+  let error = "";
 
   function calculate() {
     vars = { ...vars, ...inputs };
-    error = '';
+    error = "";
     reset();
     calculator.inputs.forEach((i) => {
       if (!Object.hasOwnProperty.call(vars, i.name) || !vars[i.name]) {
@@ -40,7 +40,7 @@
     }
 
     if (calculator.event && !error) {
-      emitter.emit('calculation', vars);
+      emitter.emit("calculation", vars);
     }
   }
 </script>

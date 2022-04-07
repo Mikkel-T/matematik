@@ -1,19 +1,19 @@
 ---
-import BaseLayout from 'layout:BaseLayout';
+import BaseLayout from "layout:BaseLayout";
 
 const { content } = Astro.props;
-const data = await Astro.glob('../pages/**/*.md');
+const data = await Astro.glob("../pages/**/*.md");
 const pathname = new URL(Astro.request.url).pathname;
-const dirPath = `${pathname}${pathname.endsWith('/') ? '' : '/'}`;
+const dirPath = `${pathname}${pathname.endsWith("/") ? "" : "/"}`;
 const pages = data
   .filter((i) => i.url.startsWith(dirPath))
-  .filter((i) => i.url.replace(dirPath, '').split('/').length === 1)
+  .filter((i) => i.url.replace(dirPath, "").split("/").length === 1)
   .filter((i) => !i.frontmatter.hideCard);
 ---
 
 <BaseLayout {content}>
   <div
-    class='grid grid-cols-1 gap-4 p-3 m-auto sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6'
+    class="grid grid-cols-1 gap-4 p-3 m-auto sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6"
   >
     {pages.map((i) => (
       <a

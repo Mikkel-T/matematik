@@ -1,5 +1,5 @@
 <script>
-  import { vars } from '@store/shape';
+  import { vars } from "@store/shape";
   export let name;
   export let placeholder;
   export let styles;

@@ -1,14 +1,14 @@
 <script>
-  import KaTeX from '@components/KaTeX.svelte';
-  import { answer } from '@store/answer';
-  import { text } from '@utils/TeX';
-  import Clipboard from '@components/Clipboard.svelte';
-  import FaCopy from 'svelte-icons/fa/FaCopy.svelte';
+  import KaTeX from "@components/KaTeX.svelte";
+  import { answer } from "@store/answer";
+  import { text } from "@utils/TeX";
+  import Clipboard from "@components/Clipboard.svelte";
+  import FaCopy from "svelte-icons/fa/FaCopy.svelte";
 
   const titles = {
-    answer: { title: 'Svar', copyText: 'svaret' },
-    calculation: { title: 'Beregning', copyText: 'beregningen' },
-    equation: { title: 'Ligning', copyText: 'ligningen' },
+    answer: { title: "Svar", copyText: "svaret" },
+    calculation: { title: "Beregning", copyText: "beregningen" },
+    equation: { title: "Ligning", copyText: "ligningen" },
   };
 </script>
 

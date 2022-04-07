@@ -3,5 +3,5 @@ export function coord(x: string | number, y: string | number) {
 }
 
 export function text(str: string) {
-  return str.replace(/ /g, '~ ');
+  return str.replace(/ /g, "~ ");
 }

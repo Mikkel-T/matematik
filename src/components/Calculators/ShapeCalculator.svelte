@@ -1,12 +1,12 @@
 <script>
-  import { Calc, ValidateCheck } from '@utils/math';
-  import { add, reset } from '@store/answer';
-  import { emitter } from '@event/event';
-  import { vars, error, answer, reset as resetShape } from '@store/shape';
+  import { Calc, ValidateCheck } from "@utils/math";
+  import { add, reset } from "@store/answer";
+  import { emitter } from "@event/event";
+  import { vars, error, answer, reset as resetShape } from "@store/shape";
   export let calculator;
 
   function calculate() {
-    $error = '';
+    $error = "";
     let calcValues = { ...$vars };
     reset();
     resetShape();
@@ -15,12 +15,12 @@
       calculator.calculations.forEach((calculation) => {
         if (!$error) {
           let check = false;
-          if (!Object.hasOwnProperty.call(calculation, 'if')) {
+          if (!Object.hasOwnProperty.call(calculation, "if")) {
             check = true;
           } else {
             if (/ && /.test(calculation.if)) {
               check = true;
-              calculation.if.split(' && ').forEach((i) => {
+              calculation.if.split(" && ").forEach((i) => {
                 if (!$vars[i]) {
                   check = false;
                 }
@@ -56,9 +56,9 @@
       });
     }
     if (calculator.event) {
-      emitter.emit('calculation', vars);
+      emitter.emit("calculation", vars);
     }
   }
 
-  emitter.on('shape-calc', calculate);
+  emitter.on("shape-calc", calculate);
 </script>

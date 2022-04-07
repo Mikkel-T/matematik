@@ -1,10 +1,10 @@
 <script>
-  import { emitter } from '@event/event';
-  import { error } from '@store/shape';
-  import Submit from '@components/Calculators/Submit.svelte';
+  import { emitter } from "@event/event";
+  import { error } from "@store/shape";
+  import Submit from "@components/Calculators/Submit.svelte";
 
   function calculate() {
-    emitter.emit('shape-calc');
+    emitter.emit("shape-calc");
   }
 </script>
 

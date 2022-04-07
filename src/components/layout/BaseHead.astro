@@ -1,27 +1,27 @@
 ---
-import { SEO } from 'astro-seo';
-import '../../styles/global.css';
+import { SEO } from "astro-seo";
+import "../../styles/global.css";
 
 const { content } = Astro.props;
 ---
 
 <script is:inline>
-  if (localStorage.theme === 'light') {
-    document.documentElement.classList.remove('dark');
+  if (localStorage.theme === "light") {
+    document.documentElement.classList.remove("dark");
   } else {
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.add("dark");
   }
 </script>
 
-<meta charset='utf-8' />
+<meta charset="utf-8" />
 <SEO
   title={content.SEOtitle ?? content.title}
   description={content.description}
   extend={{
-    link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
     meta: [
-      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
-      { name: 'theme-color', content: '#2E3440' },
+      { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+      { name: "theme-color", content: "#2E3440" },
     ],
   }}
 />
@@ -29,10 +29,10 @@ const { content } = Astro.props;
 <script
   async
   defer
-  data-website-id='95590257-ede5-432a-b140-a1e943ce3f33'
-  src='https://analytics.mikkel-t.com/umami.js'
-  data-do-not-track={'true'}
-  data-domains='matematik.mikkel-t.com,matematik.pages.dev'
+  data-website-id="95590257-ede5-432a-b140-a1e943ce3f33"
+  src="https://analytics.mikkel-t.com/umami.js"
+  data-do-not-track={"true"}
+  data-domains="matematik.mikkel-t.com,matematik.pages.dev"
 >
 
 </script>

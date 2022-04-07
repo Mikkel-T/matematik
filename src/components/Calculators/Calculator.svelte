@@ -1,5 +1,5 @@
 <script>
-  import Submit from '@components/Calculators/Submit.svelte';
+  import Submit from "@components/Calculators/Submit.svelte";
   export let calculate;
   export let error;
 </script>

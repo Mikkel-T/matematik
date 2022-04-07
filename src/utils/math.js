@@ -1,4 +1,4 @@
-import math from 'mathjs/lib/browser/math.js';
+import math from "mathjs/lib/browser/math.js";
 
 const tan = (x) => Math.tan((x * Math.PI) / 180);
 const cos = (x) => Math.cos((x * Math.PI) / 180);

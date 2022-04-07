@@ -1,16 +1,16 @@
 <script>
-  import Svg from '@components/Svg/Svg.svelte';
-  import Path from '@components/Svg/Path.svelte';
-  import Text from '@components/Svg/Text.svelte';
-  import ShapeForm from '@components/Calculators/ShapeForm.svelte';
-  import Input from '@components/Svg/Input.svelte';
-  import { answer, vars } from '@store/shape';
-  import { add, sort } from '@store/answer';
-  import { emitter } from '@event/event';
-  import { text } from '@utils/TeX';
+  import Svg from "@components/Svg/Svg.svelte";
+  import Path from "@components/Svg/Path.svelte";
+  import Text from "@components/Svg/Text.svelte";
+  import ShapeForm from "@components/Calculators/ShapeForm.svelte";
+  import Input from "@components/Svg/Input.svelte";
+  import { answer, vars } from "@store/shape";
+  import { add, sort } from "@store/answer";
+  import { emitter } from "@event/event";
+  import { text } from "@utils/TeX";
 
-  emitter.on('calculation', () => {
-    add({ name: 'C', calculation: text('C er altid 90^{\\circ}') });
+  emitter.on("calculation", () => {
+    add({ name: "C", calculation: text("C er altid 90^{\\circ}") });
     sort();
   });
 
@@ -87,17 +87,17 @@
       <Path d="M 3 297 H 497" styles="text-nord12" />
       <Path d="M 3 3 L 497 297" styles="text-nord14" />
 
-      <Text x="15" y="100" text={$answer.A ? `A: ${$answer.A}°` : ''} />
-      <Text x="350" y="280" text={$answer.B ? `B: ${$answer.B}°` : ''} />
+      <Text x="15" y="100" text={$answer.A ? `A: ${$answer.A}°` : ""} />
+      <Text x="350" y="280" text={$answer.B ? `B: ${$answer.B}°` : ""} />
       <Text x="48" y="252" text="C: 90°" />
-      <Text x="175" y="280" text={$answer.a ? `a: ${$answer.a}` : ''} />
-      <Text x="15" y="180" text={$answer.b ? `b: ${$answer.b}` : ''} />
-      <Text x="200" y="180" text={$answer.c ? `c: ${$answer.c}` : ''} />
+      <Text x="175" y="280" text={$answer.a ? `a: ${$answer.a}` : ""} />
+      <Text x="15" y="180" text={$answer.b ? `b: ${$answer.b}` : ""} />
+      <Text x="200" y="180" text={$answer.c ? `c: ${$answer.c}` : ""} />
 
       <Text
         x="120"
         y="230"
-        text={$answer.Areal ? `Areal: ${$answer.Areal}` : ''}
+        text={$answer.Areal ? `Areal: ${$answer.Areal}` : ""}
       />
     </Svg>
     <Input

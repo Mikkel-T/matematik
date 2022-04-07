@@ -1,7 +1,7 @@
 ---
-layout: 'layout:ListLayout'
-title: 'Procent'
-pageTitle: 'Procent beregnere'
-SEOtitle: 'Procent beregnere'
-description: 'En samling af procent beregnere'
+layout: "layout:ListLayout"
+title: "Procent"
+pageTitle: "Procent beregnere"
+SEOtitle: "Procent beregnere"
+description: "En samling af procent beregnere"
 ---
