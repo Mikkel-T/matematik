@@ -1,9 +1,18 @@
 import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
+import svelte from '@astrojs/svelte';
+import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
+// https://astro.build/config
 export default defineConfig({
-  buildOptions: {
-    site: 'https://matematik.mikkel-t.com',
-    sitemap: true,
-  },
-  renderers: ['@astrojs/renderer-svelte', '@astrojs/renderer-react'],
+  site: 'https://matematik.mikkel-t.com',
+  integrations: [
+    react(),
+    svelte(),
+    tailwind({
+      config: { applyBaseStyles: false },
+    }),
+    sitemap(),
+  ],
 });

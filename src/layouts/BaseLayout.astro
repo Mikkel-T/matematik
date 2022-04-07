@@ -7,7 +7,7 @@ import BaseHeader from '@components/layout/BaseHeader.astro';
 const { content } = Astro.props;
 ---
 
-<html lang="da-DK" class="">
+<html lang='da-DK'>
   <head>
     <BaseHead {content} />
   </head>
@@ -21,7 +21,7 @@ const { content } = Astro.props;
           {content.pageTitle ?? content.title}
         </div>
       )}
-      <slot />
+      <slot></slot>
       <Toaster client:visible />
     </main>
     <footer>

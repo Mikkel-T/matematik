@@ -8,7 +8,7 @@ const { content } = Astro.props;
 ---
 
 <BaseLayout {content}>
-  <slot />
+  <slot></slot>
   <ShapeCalculator calculator={content.calculator} client:load />
   <Answer client:visible />
 </BaseLayout>

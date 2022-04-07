@@ -5,7 +5,7 @@ import '../../styles/global.css';
 const { content } = Astro.props;
 ---
 
-<script>
+<script is:inline>
   if (localStorage.theme === 'light') {
     document.documentElement.classList.remove('dark');
   } else {
@@ -13,7 +13,7 @@ const { content } = Astro.props;
   }
 </script>
 
-<meta charset="utf-8" />
+<meta charset='utf-8' />
 <SEO
   title={content.SEOtitle ?? content.title}
   description={content.description}
@@ -29,9 +29,10 @@ const { content } = Astro.props;
 <script
   async
   defer
-  data-website-id="95590257-ede5-432a-b140-a1e943ce3f33"
-  src="https://analytics.mikkel-t.com/umami.js"
+  data-website-id='95590257-ede5-432a-b140-a1e943ce3f33'
+  src='https://analytics.mikkel-t.com/umami.js'
   data-do-not-track={'true'}
-  data-domains="matematik.mikkel-t.com,matematik.pages.dev"
+  data-domains='matematik.mikkel-t.com,matematik.pages.dev'
 >
+
 </script>
