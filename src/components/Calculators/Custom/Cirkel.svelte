@@ -35,27 +35,27 @@
     <Input
       name="Omkreds"
       readOnly={readOnly.Omkreds}
-      styles="-mb-11 border-nord9 focus:ring-nord9 focus:border-nord9 float-left"
+      styles="-mb-11 border-dracula-blue-500 focus:ring-dracula-blue-500 focus:border-dracula-blue-500 float-left"
     />
     <Input
       name="Diameter"
       readOnly={readOnly.Diameter}
-      styles="border-nord14 focus:ring-nord14 focus:border-nord14 absolute mt-24 ml-2"
+      styles="border-dracula-green-800 focus:ring-dracula-green-800 focus:border-dracula-green-800 absolute mt-24 ml-2"
     />
     <Input
       name="Areal"
       readOnly={readOnly.Areal}
-      styles="absolute mt-[12.5rem] -ml-48 border-nord3 focus:ring-nord10 focus:border-nord10"
+      styles="absolute mt-[12.5rem] -ml-48 border-dracula-darker-700 focus:ring-dracula-darker-600 focus:border-dracula-darker-600"
     />
     <Input
       name="Radius"
       readOnly={readOnly.Radius}
-      styles="absolute mt-[12.5rem] ml-10 border-nord12 focus:ring-nord12 focus:border-nord12"
+      styles="absolute mt-[12.5rem] ml-10 border-dracula-orange-500 focus:ring-dracula-orange-500 focus:border-dracula-orange-500"
     />
     <Svg width="600" height="500">
-      <Circle x="300" y="250" r="247" styles="text-nord9" />
-      <Path d="M 300 3 V 496" styles="text-nord14" />
-      <Path d="m 300 250 H 546" styles="text-nord12" />
+      <Circle x="300" y="250" r="247" styles="text-dracula-blue-500" />
+      <Path d="M 300 3 V 496" styles="text-dracula-green-800" />
+      <Path d="m 300 250 H 546" styles="text-dracula-orange-500" />
 
       <Text
         x="340"
