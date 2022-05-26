@@ -54,7 +54,7 @@
           bind:value={inputs[text.substring(6)]}
           type="number"
           step="any"
-          class="w-20 border-0 border-b-2 border-nord3 bg-transparent p-1 focus:border-nord10 focus:ring-0"
+          class="w-20 border-0 border-b-2 border-dracula-darker-700 bg-transparent p-1 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
         />
       {:else}
         {text}

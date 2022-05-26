@@ -33,28 +33,28 @@
     <Input
       name="Omkreds"
       readOnly={readOnly.Omkreds}
-      styles="border-nord9 focus:ring-nord9 focus:border-nord9 absolute mt-3 ml-20"
+      styles="border-dracula-blue-500 focus:ring-dracula-blue-500 focus:border-dracula-blue-500 absolute mt-3 ml-20"
     />
     <Input
       name="Diagonal"
       readOnly={readOnly.Diagonal}
-      styles="border-nord14 focus:ring-nord14 focus:border-nord14 absolute mt-24 -ml-24"
+      styles="border-dracula-green-800 focus:ring-dracula-green-800 focus:border-dracula-green-800 absolute mt-24 -ml-24"
     />
     <Input
       name="Areal"
       readOnly={readOnly.Areal}
-      styles="mt-72 border-nord3 focus:ring-nord10 focus:border-nord10 absolute -ml-48"
+      styles="mt-72 border-dracula-darker-700 focus:ring-dracula-darker-600 focus:border-dracula-darker-600 absolute -ml-48"
     />
     <Input
       name="Side"
       readOnly={readOnly.Side}
-      styles="mt-52 border-nord12 focus:ring-nord12 focus:border-nord12 absolute ml-24"
+      styles="mt-52 border-dracula-orange-500 focus:ring-dracula-orange-500 focus:border-dracula-orange-500 absolute ml-24"
     />
 
     <Svg width="600" height="500">
-      <Path d="M 546 4 H 54 v 492 h 492 V 4" styles="text-nord9" />
-      <Path d="M 546 4 v 492" styles="text-nord12" />
-      <Path d="M 54 4 L 546 496" styles="text-nord14" />
+      <Path d="M 546 4 H 54 v 492 h 492 V 4" styles="text-dracula-blue-500" />
+      <Path d="M 546 4 v 492" styles="text-dracula-orange-500" />
+      <Path d="M 54 4 L 546 496" styles="text-dracula-green-800" />
 
       <Text
         x="400"

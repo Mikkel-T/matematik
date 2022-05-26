@@ -14,13 +14,13 @@
   }
 
   body {
-    @apply bg-nord6 text-nord0 dark:bg-nord0 dark:text-nord6;
+    @apply bg-dracula-light text-dracula-darker dark:bg-dracula-darker dark:text-dracula-light;
   }
 }
 
 @layer utilities {
   .link {
-    @apply text-nord10 hover:underline dark:text-nord8;
+    @apply text-dracula-light-600 hover:underline dark:text-dracula-blue-400;
   }
 
   .icon svg {
