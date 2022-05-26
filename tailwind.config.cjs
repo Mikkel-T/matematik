@@ -12,8 +12,8 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-    require('tailwind-dracula')('dracula'),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
+    require("tailwind-dracula")("dracula"),
   ],
 };
