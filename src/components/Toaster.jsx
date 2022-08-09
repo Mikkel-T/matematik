@@ -1,9 +1,9 @@
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 
-import { emitter } from '@event/event';
+import { emitter } from "@event/event";
 
 export default function Toast() {
-  emitter.on('toast', (message, options) => {
+  emitter.on("toast", (message, options) => {
     toast(message, options);
   });
 

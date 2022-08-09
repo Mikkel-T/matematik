@@ -1,12 +1,12 @@
 <script>
-  import Svg from '@components/Svg/Svg.svelte';
-  import Path from '@components/Svg/Path.svelte';
-  import Circle from '@components/Svg/Circle.svelte';
-  import Text from '@components/Svg/Text.svelte';
-  import ShapeForm from '@components/Calculators/ShapeForm.svelte';
-  import Input from '@components/Svg/Input.svelte';
-  import { answer, vars } from '@store/shape';
-  import TextWithKaTeX from '@components/TextWithKaTeX.svelte';
+  import Svg from "@components/Svg/Svg.svelte";
+  import Path from "@components/Svg/Path.svelte";
+  import Circle from "@components/Svg/Circle.svelte";
+  import Text from "@components/Svg/Text.svelte";
+  import ShapeForm from "@components/Calculators/ShapeForm.svelte";
+  import Input from "@components/Svg/Input.svelte";
+  import { answer, vars } from "@store/shape";
+  import TextWithKaTeX from "@components/TextWithKaTeX.svelte";
 
   function getReadonly(nums) {
     let temp = {
@@ -60,22 +60,22 @@
       <Text
         x="340"
         y="270"
-        text={$answer.Radius ? `Radius: ${$answer.Radius}` : ''}
+        text={$answer.Radius ? `Radius: ${$answer.Radius}` : ""}
       />
       <Text
         x="310"
         y="155"
-        text={$answer.Diameter ? `Diameter: ${$answer.Diameter}` : ''}
+        text={$answer.Diameter ? `Diameter: ${$answer.Diameter}` : ""}
       />
       <Text
         x="0"
         y="60"
-        text={$answer.Omkreds ? `Omkreds: ${$answer.Omkreds}` : ''}
+        text={$answer.Omkreds ? `Omkreds: ${$answer.Omkreds}` : ""}
       />
       <Text
         x="110"
         y="260"
-        text={$answer.Areal ? `Areal: ${$answer.Areal}` : ''}
+        text={$answer.Areal ? `Areal: ${$answer.Areal}` : ""}
       />
     </Svg>
   </div>

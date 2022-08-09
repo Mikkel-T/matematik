@@ -1,14 +1,14 @@
 ---
-import ThemeToggle from '@components/ThemeToggle.svelte';
+import ThemeToggle from "@components/ThemeToggle.svelte";
 
-const pathname = Astro.request.url.pathname;
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <div class="h-6">
-  {pathname !== '/' && (
+  {pathname !== "/" && (
     <a
       class="link mt-2 ml-2"
-      href={`${pathname}${pathname.endsWith('/') ? '' : '/'}..`}
+      href={`${pathname}${pathname.endsWith("/") ? "" : "/"}..`}
     >
       <div class="icon ml-1 inline-flex items-center justify-center align-middle">
         <svg

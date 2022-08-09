@@ -1,16 +1,16 @@
 <script>
-  import { Calc, ValidateCheck } from '@utils/math';
-  import { add, reset } from '@store/answer';
-  import Calculator from '@components/Calculators/Calculator.svelte';
+  import { Calc, ValidateCheck } from "@utils/math";
+  import { add, reset } from "@store/answer";
+  import Calculator from "@components/Calculators/Calculator.svelte";
   export let calculator;
 
   let inputs = {};
   let vars = {};
-  let error = '';
+  let error = "";
 
   function calculate() {
     vars = { ...vars, ...inputs };
-    error = '';
+    error = "";
     reset();
     calculator.text
       .match(/:input_[a-z]:/g)
@@ -36,7 +36,7 @@
         const ans = Calc(calculation.calc, vars);
         vars[calculation.name] = ans.answer;
         if (calculation.percent) {
-          ans.answer += '\\%';
+          ans.answer += "\\%";
         }
         delete ans.equation;
         add({ ...ans, name: calculation.label || calculation.name });
@@ -47,8 +47,8 @@
 
 <Calculator {calculate} {error}>
   <div class="text-center">
-    {#each calculator.text.split(':') as text}
-      {#if text.startsWith('input_')}
+    {#each calculator.text.split(":") as text}
+      {#if text.startsWith("input_")}
         <input
           name={text.substring(6)}
           bind:value={inputs[text.substring(6)]}

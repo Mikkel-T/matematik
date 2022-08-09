@@ -1,7 +1,7 @@
 ---
-layout: 'layout:TextLayout'
-title: 'Information'
-description: 'Vigtig information om brug af denne hjemmeside'
+layout: "layout:TextLayout"
+title: "Information"
+description: "Vigtig information om brug af denne hjemmeside"
 hideTitle: true
 hideCard: true
 ---

@@ -1,18 +1,18 @@
 <script>
-  import FaMoon from 'svelte-icons/fa/FaMoon.svelte';
-  import FaSun from 'svelte-icons/fa/FaSun.svelte';
-  import { onMount } from 'svelte';
+  import FaMoon from "svelte-icons/fa/FaMoon.svelte";
+  import FaSun from "svelte-icons/fa/FaSun.svelte";
+  import { onMount } from "svelte";
 
-  let theme = '';
+  let theme = "";
   onMount(() => {
-    const isDarkTheme = document.documentElement.classList.contains('dark');
-    theme = isDarkTheme ? 'dark' : 'light';
+    const isDarkTheme = document.documentElement.classList.contains("dark");
+    theme = isDarkTheme ? "dark" : "light";
   });
 
   function changeTheme() {
-    theme = theme === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('theme', theme);
-    document.documentElement.classList.toggle('dark');
+    theme = theme === "dark" ? "light" : "dark";
+    localStorage.setItem("theme", theme);
+    document.documentElement.classList.toggle("dark");
   }
 </script>
 

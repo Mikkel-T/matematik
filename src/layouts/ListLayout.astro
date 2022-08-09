@@ -1,14 +1,14 @@
 ---
-import BaseLayout from 'layout:BaseLayout';
+import BaseLayout from "layout:BaseLayout";
 
 const { content } = Astro.props;
-const data = Astro.fetchContent('../pages/**/*.md');
-const pathname = Astro.request.url.pathname;
-const dirPath = `${pathname}${pathname.endsWith('/') ? '' : '/'}`;
+const data = await Astro.glob("../pages/**/*.mdx");
+const pathname = new URL(Astro.request.url).pathname;
+const dirPath = `${pathname}${pathname.endsWith("/") ? "" : "/"}`;
 const pages = data
   .filter((i) => i.url.startsWith(dirPath))
-  .filter((i) => i.url.replace(dirPath, '').split('/').length === 1)
-  .filter((i) => !i.hideCard);
+  .filter((i) => i.url.replace(dirPath, "").split("/").length === 1)
+  .filter((i) => !i.frontmatter.hideCard);
 ---
 
 <BaseLayout {content}>
@@ -20,7 +20,7 @@ const pages = data
         class="flex h-20 transform items-center justify-center rounded-xl border-2 border-dracula-light-400 bg-dracula-light-100 px-2 text-center transition-transform duration-500 hover:scale-105 dark:border-dracula-darker-300 dark:bg-dracula-darker-600"
         href={i.url}
       >
-        {i.title}
+        {i.frontmatter.title}
       </a>
     ))}
   </div>
