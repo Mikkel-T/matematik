@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
 import svelte from "@astrojs/svelte";
+import react from "@astrojs/react";
+import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 
@@ -8,10 +9,13 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://matematik.mikkel-t.com",
   integrations: [
-    react(),
     svelte(),
+    react(),
+    mdx(),
     tailwind({
-      config: { applyBaseStyles: false },
+      config: {
+        applyBaseStyles: false,
+      },
     }),
     sitemap(),
   ],

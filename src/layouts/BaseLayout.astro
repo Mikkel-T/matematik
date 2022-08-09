@@ -21,7 +21,7 @@ const { content } = Astro.props;
           {content.pageTitle ?? content.title}
         </div>
       )}
-      <slot></slot>
+      <slot />
       <Toaster client:visible />
     </main>
     <footer>

@@ -9,6 +9,6 @@ const { content } = Astro.props;
 
 <BaseLayout {content}>
   <BasicCalculator calculator={content.calculator} client:load />
-  <slot></slot>
+  <slot />
   <Answer client:visible />
 </BaseLayout>

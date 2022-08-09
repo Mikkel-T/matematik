@@ -14,8 +14,8 @@ calculator:
     event: true,
     checks: [{ message: "a må ikke være 0", check: "a == 0" }],
   }
-setup: |
-  import Calc from "@components/Calculators/Custom/2-grad-funktion.svelte"
 ---
+
+import Calc from "@components/Calculators/Custom/2-grad-funktion.svelte";
 
 <Calc client:load />
