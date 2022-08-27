@@ -1,14 +1,12 @@
 <script>
   import copy from "copy-to-clipboard";
-  import { emitter } from "@event/event";
+  import toast from "solid-toast";
   export let text;
   export let message = "Kopierede teksten";
 
   function onCopy() {
     copy(text);
-    emitter.emit("toast", message, {
-      type: "success",
-    });
+    toast.success(message);
   }
 </script>
 

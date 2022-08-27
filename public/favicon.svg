@@ -1,36 +1,10 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="1024" height="1024" fill="#2E3440"/>
-<rect x="549" y="239" width="390" height="84.5001" rx="25" fill="#E5E9F0"/>
-<g filter="url(#filter0_d)">
-<rect x="238.75" y="476" width="390" height="84.5001" rx="25" transform="rotate(-90 238.75 476)" fill="#E5E9F0"/>
-<rect x="86" y="238.75" width="390" height="84.5001" rx="25" fill="#E5E9F0"/>
-</g>
-<g filter="url(#filter1_d)">
-<rect width="451.768" height="97.8832" rx="25" transform="matrix(0.708074 0.706138 -0.708074 0.706138 156.117 548)" fill="#E5E9F0"/>
-<rect width="451.768" height="97.8832" rx="25" transform="matrix(0.708074 -0.706138 0.708074 0.706138 86 868.881)" fill="#E5E9F0"/>
-</g>
-<rect x="549" y="618" width="390" height="84.5001" rx="25" fill="#E5E9F0"/>
-<rect x="549" y="786" width="390" height="84.5001" rx="25" fill="#E5E9F0"/>
-<defs>
-<filter id="filter0_d" x="82" y="86" width="398" height="398" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-</filter>
-<filter id="filter1_d" x="92.3695" y="558.341" width="377.263" height="377.317" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-</filter>
-</defs>
+<rect width="1024" height="1024" fill="#282A36"/>
+<rect x="549" y="239" width="390" height="84.5001" rx="25" fill="#F8F8F2"/>
+<rect x="238.75" y="476" width="390" height="84.5001" rx="25" transform="rotate(-90 238.75 476)" fill="#F8F8F2"/>
+<rect x="86" y="238.75" width="390" height="84.5001" rx="25" fill="#F8F8F2"/>
+<rect width="451.768" height="97.8832" rx="25" transform="matrix(0.708074 0.706138 -0.708074 0.706138 156.117 548)" fill="#F8F8F2"/>
+<rect width="451.768" height="97.8832" rx="25" transform="matrix(0.708074 -0.706138 0.708074 0.706138 86 868.881)" fill="#F8F8F2"/>
+<rect x="549" y="618" width="390" height="84.5001" rx="25" fill="#F8F8F2"/>
+<rect x="549" y="786" width="390" height="84.5001" rx="25" fill="#F8F8F2"/>
 </svg>
