@@ -1,11 +1,5 @@
-import toast, { Toaster } from "react-hot-toast";
-
-import { emitter } from "@event/event";
+import { Toaster } from "solid-toast";
 
 export default function Toast() {
-  emitter.on("toast", (message, options) => {
-    toast(message, options);
-  });
-
   return <Toaster position="bottom-right" />;
 }
