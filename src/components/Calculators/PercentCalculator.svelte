@@ -1,8 +1,16 @@
 <script>
-  import { Calc, ValidateCheck } from "@utils/math";
   import { add, reset } from "@store/answer";
   import Calculator from "@components/Calculators/Calculator.svelte";
-  export let calculator;
+  import { onMount } from "svelte";
+
+  export let page;
+
+  let allCalculators = import.meta.glob("../../calculators/**/*.ts");
+  let calculator;
+  onMount(async () => {
+    calculator = (await allCalculators[`../../calculators/${page}.ts`]())
+      .default.calculator;
+  });
 
   let inputs = {};
   let vars = {};
@@ -23,17 +31,15 @@
 
     if (calculator.checks) {
       calculator.checks.forEach((check) => {
-        try {
-          ValidateCheck(check, vars);
-        } catch (err) {
-          error = err.message;
+        if (check.check(vars)) {
+          error = check.message;
         }
       });
     }
 
     if (calculator.calculations && !error) {
       calculator.calculations.forEach((calculation) => {
-        const ans = Calc(calculation.calc, vars);
+        const ans = calculation.calc(vars);
         vars[calculation.name] = ans.answer;
         if (calculation.percent) {
           ans.answer += "\\%";
@@ -46,19 +52,23 @@
 </script>
 
 <Calculator {calculate} {error}>
-  <div class="text-center">
-    {#each calculator.text.split(":") as text}
-      {#if text.startsWith("input_")}
-        <input
-          name={text.substring(6)}
-          bind:value={inputs[text.substring(6)]}
-          type="number"
-          step="any"
-          class="w-20 border-0 border-b-2 border-dracula-darker-700 bg-transparent p-1 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
-        />
-      {:else}
-        {text}
-      {/if}
-    {/each}
-  </div>
+  {#if calculator}
+    <div class="text-center">
+      {#each calculator.text.split(":") as text}
+        {#if text.startsWith("input_")}
+          <input
+            name={text.substring(6)}
+            bind:value={inputs[text.substring(6)]}
+            type="number"
+            step="any"
+            class="w-20 border-0 border-b-2 border-dracula-darker-700 bg-transparent p-1 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
+          />
+        {:else}
+          {text}
+        {/if}
+      {/each}
+    </div>
+  {:else}
+    <div>Loading...</div>
+  {/if}
 </Calculator>
