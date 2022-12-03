@@ -1,5 +1,7 @@
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
+import { add } from "@store/answer";
+
 const heron: BasicCalculatorPage = {
   type: "basic_calculator",
   title: "Areal af trekant ud fra sidelængder",
@@ -21,24 +23,23 @@ const heron: BasicCalculatorPage = {
         },
       },
     ],
-    calculations: [
-      {
+    calculate({ a, b, c }) {
+      const s = {
         name: "s",
-        calc: ({ a, b, c }) => ({
-          answer: (a + b + c) / 2,
-          calculation: `\\frac{${a} + ${b} + ${c}}{2}`,
-          equation: "\\frac{a + b + c}{2}",
-        }),
-      },
-      {
+        answer: (a + b + c) / 2,
+        calculation: `\\frac{${a} + ${b} + ${c}}{2}`,
+        equation: "\\frac{a + b + c}{2}",
+      };
+      add(s);
+      add({
         name: "Areal",
-        calc: ({ a, b, c, s }) => ({
-          answer: Math.sqrt(s * (s - a) * (s - b) * (s - c)),
-          calculation: `\\sqrt{${s} \\cdot (${s} - ${a}) \\cdot (${s} - ${b}) \\cdot (${s} - ${c})}`,
-          equation: "\\sqrt{s \\cdot (s - a) \\cdot (s - b) \\cdot (s - c)}",
-        }),
-      },
-    ],
+        answer: Math.sqrt(
+          s.answer * (s.answer - a) * (s.answer - b) * (s.answer - c)
+        ),
+        calculation: `\\sqrt{${s.answer} \\cdot (${s.answer} - ${a}) \\cdot (${s.answer} - ${b}) \\cdot (${s.answer} - ${c})}`,
+        equation: "\\sqrt{s \\cdot (s - a) \\cdot (s - b) \\cdot (s - c)}",
+      });
+    },
   },
 };
 

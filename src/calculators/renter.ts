@@ -1,5 +1,7 @@
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
+import { add } from "@store/answer";
+
 const renter: BasicCalculatorPage = {
   type: "basic_calculator",
   title: "Renters rente",
@@ -15,16 +17,14 @@ const renter: BasicCalculatorPage = {
       },
       { name: "n", label: "$n$ (Antal terminer)" },
     ],
-    calculations: [
-      {
+    calculate({ K, r, n }) {
+      add({
         name: "K_n",
-        calc: ({ K, r, n }) => ({
-          answer: K * Math.pow(1 + r, n),
-          calculation: `${K} \\cdot (1 + ${r})^{${n}}`,
-          equation: "K \\cdot (1 + r)^{n}",
-        }),
-      },
-    ],
+        answer: K * Math.pow(1 + r, n),
+        calculation: `${K} \\cdot (1 + ${r})^{${n}}`,
+        equation: "K \\cdot (1 + r)^{n}",
+      });
+    },
   },
 };
 

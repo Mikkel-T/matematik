@@ -22,9 +22,9 @@ export interface BasicCalculatorPage extends DefaultPage {
   // The calculator object
   calculator: {
     inputs: DefaultCalculatorInput[];
-    calculations: DefaultCalculatorCalculation[];
     checks?: DefaultCalculatorCheck[];
     text?: Array<(vals: Record<string, number>) => string>;
+    calculate(vals: Record<string, number>): void;
   };
 }
 
@@ -34,7 +34,7 @@ export interface PercentCalculatorPage extends DefaultPage {
   // The calculator object
   calculator: {
     text: string;
-    calculations: PercentCalculatorCalculation[];
+    calculate(vals: Record<string, number>): void;
   };
 }
 
@@ -46,21 +46,4 @@ export interface DefaultCalculatorInput {
 export interface DefaultCalculatorCheck {
   message: string;
   check(vals: Record<string, number>): boolean;
-}
-
-export interface DefaultCalculatorCalculation {
-  name: string;
-  calc(vals: Record<string, number>): {
-    answer?: number | string;
-    calculation?: string;
-    equation?: string;
-  };
-}
-
-export interface PercentCalculatorCalculation
-  extends DefaultCalculatorCalculation {
-  calc(vals: Record<string, number>): {
-    answer?: number | string;
-    calculation?: string;
-  };
 }

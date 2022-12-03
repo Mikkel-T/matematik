@@ -1,5 +1,5 @@
 <script>
-  import { add, reset } from "@store/answer";
+  import { reset } from "@store/answer";
   import Calculator from "@components/Calculators/Calculator.svelte";
   import TextWithKaTeX from "@components/TextWithKaTeX.svelte";
   import { onMount } from "svelte";
@@ -34,12 +34,8 @@
       });
     }
 
-    if (calculator.calculations && !error) {
-      calculator.calculations.forEach((calculation) => {
-        const ans = calculation.calc(vars);
-        vars[calculation.name] = ans.answer;
-        add({ ...ans, name: calculation.label || calculation.name });
-      });
+    if (calculator.calculate && !error) {
+      calculator.calculate(vars);
     }
   }
 </script>

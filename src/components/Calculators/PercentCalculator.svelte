@@ -1,5 +1,5 @@
 <script>
-  import { add, reset } from "@store/answer";
+  import { reset } from "@store/answer";
   import Calculator from "@components/Calculators/Calculator.svelte";
   import { onMount } from "svelte";
 
@@ -37,16 +37,8 @@
       });
     }
 
-    if (calculator.calculations && !error) {
-      calculator.calculations.forEach((calculation) => {
-        const ans = calculation.calc(vars);
-        vars[calculation.name] = ans.answer;
-        if (calculation.percent) {
-          ans.answer += "\\%";
-        }
-        delete ans.equation;
-        add({ ...ans, name: calculation.label || calculation.name });
-      });
+    if (calculator.calculate && !error) {
+      calculator.calculate(vars);
     }
   }
 </script>

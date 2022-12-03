@@ -1,4 +1,8 @@
+import { text } from "@utils/TeX";
+
 import { BasicCalculatorPage } from "@interfaces/calculators";
+
+import { add } from "@store/answer";
 
 const funktion1Grad: BasicCalculatorPage = {
   type: "basic_calculator",
@@ -19,31 +23,31 @@ const funktion1Grad: BasicCalculatorPage = {
         check: ({ x1, x2 }) => x1 === x2,
       },
     ],
-    calculations: [
-      {
+    calculate({ x1, y1, x2, y2 }) {
+      const a = {
         name: "a",
-        calc: ({ x1, y1, x2, y2 }) => ({
-          answer: (y2 - y1) / (x2 - x1),
-          calculation: `\\frac{${y2} - ${y1}}{${x2} - ${x1}}`,
-          equation: "\\frac{y_2 - y_1}{x_2 - x_1}",
-        }),
-      },
-      {
+        answer: (y2 - y1) / (x2 - x1),
+        calculation: `\\frac{${y2} - ${y1}}{${x2} - ${x1}}`,
+        equation: "\\frac{y_2 - y_1}{x_2 - x_1}",
+      };
+
+      const b = {
         name: "b",
-        calc: ({ x1, y1, a }) => ({
-          answer: y1 - x1 * a,
-          calculation: `${y1} - ${x1} \\cdot ${a}`,
-          equation: "y_1 - x_1 \\cdot a",
-        }),
-      },
-      {
-        name: "Forskrift",
-        calc: ({ a, b }) => ({
-          answer: `f(x) = ${a}x + ${b}`,
-          equation: "f(x) = ax+b",
-        }),
-      },
-    ],
+        answer: y1 - x1 * a.answer,
+        calculation: `${y1} - ${x1} \\cdot ${a.answer}`,
+        equation: "y_1 - x_1 \\cdot a",
+      };
+
+      const f = {
+        name: text("Forskrift"),
+        answer: `f(x) = ${a.answer}x + ${b.answer}`,
+        equation: "f(x) = ax+b",
+      };
+
+      add(f);
+      add(a);
+      add(b);
+    },
     text: [
       ({ x1, y1 }) => `Punkt 1: $(${x1 || 0}, ${y1 || 0})$`,
       ({ x2, y2 }) => `Punkt 2: $(${x2 || 0}, ${y2 || 0})$`,
