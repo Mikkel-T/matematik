@@ -42,8 +42,8 @@
       <TextWithKaTeX text={calculator.text} />
     </div>
     {#each calculator.inputs as input}
-      {#if input.type === "vector"}
-        <div class="text-center">
+      <div class="mb-2 text-center">
+        {#if input.type === "vector"}
           <KaTeX math={`\\vec{${input.name}} =`} />
           <div class="inline-flex flex-row">
             <KaTeX math="\Biggl(" />
@@ -67,8 +67,41 @@
             </div>
             <KaTeX math="\Biggl)" />
           </div>
-        </div>
-      {/if}
+        {:else if input.type === "coordinate"}
+          <KaTeX math="{input.name} =" />
+          <div class="inline-flex flex-row">
+            <KaTeX math="(" />
+            <input
+              name="{input.name}1"
+              bind:value={inputs[`${input.name}1`]}
+              placeholder="{input.name.toLowerCase()}₁"
+              type="number"
+              step="any"
+              class="w-20 border-0 border-b-2 border-b-dracula-darker-700 bg-transparent p-0 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
+            />
+            <span class="mx-1">,</span>
+            <input
+              name="{input.name}2"
+              bind:value={inputs[`${input.name}2`]}
+              placeholder="{input.name.toLowerCase()}₂"
+              type="number"
+              step="any"
+              class="w-20 border-0 border-b-2 border-b-dracula-darker-700 bg-transparent p-0 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
+            />
+            <KaTeX math=")" />
+          </div>
+        {:else if input.type === "number"}
+          <KaTeX math="{input.name} =" />
+          <input
+            name={input.name}
+            bind:value={inputs[input.name]}
+            placeholder={input.name}
+            type="number"
+            step="any"
+            class="w-20 border-0 border-b-2 border-b-dracula-darker-700 bg-transparent p-0 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
+          />
+        {/if}
+      </div>
     {/each}
   {:else}
     <div>Loading...</div>

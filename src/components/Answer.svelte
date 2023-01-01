@@ -19,7 +19,7 @@
       {#each $answer as ans}
         {#if Object.hasOwnProperty.call(ans, title)}
           <div>
-            <KaTeX math={text(ans.name)} />: <KaTeX
+            <KaTeX math={text(ans.name)} /> : <KaTeX
               math={ans[title].toString()}
             />
             <Clipboard
