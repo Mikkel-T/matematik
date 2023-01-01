@@ -63,6 +63,7 @@ export interface VectorCalculatorPage extends DefaultPage {
 export interface DefaultCalculatorInput {
   name: string;
   label?: string;
+  placeholder: string;
 }
 
 export interface VectorCalculatorInput {
