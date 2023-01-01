@@ -3,7 +3,7 @@
   import { answer } from "@store/answer";
   import { text } from "@utils/TeX";
   import Clipboard from "@components/Clipboard.svelte";
-  import FaCopy from "svelte-icons/fa/FaCopy.svelte";
+  import MdiContentCopy from "~icons/mdi/content-copy";
 
   const titles = {
     answer: { title: "Svar", copyText: "svaret" },
@@ -25,10 +25,9 @@
             <Clipboard
               text={ans[title].toString()}
               message="Kopierede {titles[title].copyText}"
-              ><div class="icon inline-block h-5 w-5">
-                <FaCopy />
-              </div></Clipboard
             >
+              <MdiContentCopy class="icon mb-1 inline-block h-5 w-5" />
+            </Clipboard>
           </div>
         {/if}
       {/each}
