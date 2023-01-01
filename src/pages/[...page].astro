@@ -1,0 +1,53 @@
+---
+import BasicCalculatorLayout from "layout:BasicCalculatorLayout";
+import ListLayout from "layout:ListLayout";
+import PercentCalculatorLayout from "layout:PercentCalculatorLayout";
+import ShapeCalculatorLayout from "layout:ShapeCalculatorLayout";
+
+import { DefaultPage } from "@interfaces/calculators";
+
+export async function getStaticPaths() {
+  let pages = [];
+  let files = import.meta.glob<boolean, string, { default: DefaultPage }>(
+    "../calculators/**/*.ts"
+  );
+
+  for (const key in files) {
+    let page = key.replace("../calculators/", "").replace(".ts", "");
+    let content = await files[key]();
+
+    if (page === "index") page = undefined;
+
+    if (content) {
+      pages.push({
+        params: { page },
+        props: {
+          content: content.default,
+          page,
+        },
+      });
+    }
+  }
+
+  return pages;
+}
+
+const { content, page } = Astro.props;
+---
+
+{
+  content.type == "basic_calculator" && (
+    <BasicCalculatorLayout content={content} {page} />
+  )
+}
+{
+  content.type == "percent_calculator" && (
+    <PercentCalculatorLayout content={content} {page} />
+  )
+}
+{
+  content.type == "shape_calculator" && (
+    <ShapeCalculatorLayout content={content} {page} />
+  )
+}
+{content.type == "list" && <ListLayout content={content} />}
