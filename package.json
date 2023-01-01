@@ -42,7 +42,6 @@
     "astro-seo": "^0.6.0",
     "copy-to-clipboard": "^3.3.3",
     "katex": "^0.16.3",
-    "mathjs": "^10.6.1",
     "nanoevents": "^7.0.1",
     "nanostores": "0.7.1",
     "solid-toast": "^0.3.5",

@@ -1,3 +1,5 @@
+import { SvelteComponent } from "svelte";
+
 export interface DefaultPage {
   // Default title, always the one being shown on the cards
   title: string;
@@ -35,6 +37,16 @@ export interface PercentCalculatorPage extends DefaultPage {
   calculator: {
     text: string;
     calculate(vals: Record<string, number>): void;
+  };
+}
+
+export interface ShapeCalculatorPage extends DefaultPage {
+  // This uses the shape calculator
+  type: "shape_calculator";
+  // The calculator object
+  calculator: {
+    component: typeof SvelteComponent;
+    calculate?(vals: Record<string, number>): void;
   };
 }
 
