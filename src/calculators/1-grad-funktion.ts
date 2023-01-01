@@ -17,13 +17,13 @@ const funktion1Grad: BasicCalculatorPage = {
       { name: "x2", label: "$x_2$ (x for punkt 2)" },
       { name: "y2", label: "$y_2$ (y for punkt 2)" },
     ],
-    checks: [
-      {
-        message: "x for punkt 1 kan ikke være det samme som x for punkt 2",
-        check: ({ x1, x2 }) => x1 === x2,
-      },
-    ],
     calculate({ x1, y1, x2, y2 }) {
+      if (x1 === x2) {
+        throw new Error(
+          "x for punkt 1 kan ikke være det samme som x for punkt 2"
+        );
+      }
+
       const a = {
         name: "a",
         answer: (y2 - y1) / (x2 - x1),

@@ -16,8 +16,11 @@ const funktion2Grad: BasicCalculatorPage = {
       { name: "b", label: "$b$ (Tallet med et $x$ efter sig)" },
       { name: "c", label: "$c$ (Tallet uden noget efter sig)" },
     ],
-    checks: [{ message: "a må ikke være 0", check: ({ a }) => a === 0 }],
     calculate({ a, b, c }) {
+      if (a === 0) {
+        throw new Error("a må ikke være 0");
+      }
+
       const d = {
         name: "d",
         answer: b ** 2 - 4 * a * c,

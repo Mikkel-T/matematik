@@ -24,7 +24,6 @@ export interface BasicCalculatorPage extends DefaultPage {
   // The calculator object
   calculator: {
     inputs: DefaultCalculatorInput[];
-    checks?: DefaultCalculatorCheck[];
     text?: Array<(vals: Record<string, number>) => string>;
     calculate(vals: Record<string, number>): void;
   };
@@ -53,9 +52,4 @@ export interface ShapeCalculatorPage extends DefaultPage {
 export interface DefaultCalculatorInput {
   name: string;
   label?: string;
-}
-
-export interface DefaultCalculatorCheck {
-  message: string;
-  check(vals: Record<string, number>): boolean;
 }

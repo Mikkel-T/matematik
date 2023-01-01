@@ -22,6 +22,14 @@ const kombinatorik: BasicCalculatorPage = {
       },
     ],
     calculate({ n, p }) {
+      if (p < 0) {
+        throw new Error("p må ikke være negativ");
+      }
+
+      if (n < p) {
+        throw new Error("n skal være større end p");
+      }
+
       add({
         name: "Ordnet med tilbagelægning",
         answer: n ** p,
@@ -47,10 +55,6 @@ const kombinatorik: BasicCalculatorPage = {
         equation: "\\frac{n!}{(n - p)! \\cdot p!}",
       });
     },
-    checks: [
-      { message: "p må ikke være negativ", check: ({ p }) => p < 0 },
-      { message: "n skal være større end p", check: ({ n, p }) => n < p },
-    ],
   },
 };
 

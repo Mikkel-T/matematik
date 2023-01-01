@@ -15,15 +15,11 @@ const heron: BasicCalculatorPage = {
       { name: "b", label: "$b$" },
       { name: "c", label: "$c$" },
     ],
-    checks: [
-      {
-        message: "Dette er ikke en trekant",
-        check: ({ a, b, c }) => {
-          return (a + b + c) / 2 <= Math.max(a, b, c);
-        },
-      },
-    ],
     calculate({ a, b, c }) {
+      if ((a + b + c) / 2 <= Math.max(a, b, c)) {
+        throw new Error("Dette er ikke en trekant");
+      }
+
       const s = {
         name: "s",
         answer: (a + b + c) / 2,

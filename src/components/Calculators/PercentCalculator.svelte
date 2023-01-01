@@ -29,16 +29,11 @@
         }
       });
 
-    if (calculator.checks) {
-      calculator.checks.forEach((check) => {
-        if (check.check(vars)) {
-          error = check.message;
-        }
-      });
-    }
-
-    if (calculator.calculate && !error) {
+    try {
       calculator.calculate(vars);
+    } catch (err) {
+      error = err.message;
+      reset();
     }
   }
 </script>
