@@ -12,10 +12,10 @@ const funktion1Grad: BasicCalculatorPage = {
     "En 1. gradsfunktions beregner der udregner funktionsforskriften for en 1. gradsfunktion ud fra to koordinater",
   calculator: {
     inputs: [
-      { name: "x1", label: "$x_1$ (x for punkt 1)" },
-      { name: "y1", label: "$y_1$ (y for punkt 1)" },
-      { name: "x2", label: "$x_2$ (x for punkt 2)" },
-      { name: "y2", label: "$y_2$ (y for punkt 2)" },
+      { name: "x1", label: "$x_1$ (x for punkt 1)", placeholder: "x₁" },
+      { name: "y1", label: "$y_1$ (y for punkt 1)", placeholder: "y₁" },
+      { name: "x2", label: "$x_2$ (x for punkt 2)", placeholder: "x₂" },
+      { name: "y2", label: "$y_2$ (y for punkt 2)", placeholder: "y₂" },
     ],
     calculate({ x1, y1, x2, y2 }) {
       if (x1 === x2) {
