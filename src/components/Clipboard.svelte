@@ -1,6 +1,6 @@
 <script>
   import copy from "copy-to-clipboard";
-  import toast from "solid-toast";
+  import toast from "svelte-french-toast";
   export let text;
   export let message = "Kopierede teksten";
 
