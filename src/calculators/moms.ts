@@ -1,6 +1,6 @@
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { textAdd } from "@store/answer";
 
 const moms: BasicCalculatorPage = {
   type: "basic_calculator",
@@ -10,13 +10,13 @@ const moms: BasicCalculatorPage = {
   calculator: {
     inputs: [{ name: "Pris" }],
     calculate({ Pris }) {
-      add({
+      textAdd({
         name: "Pris med moms",
         answer: Pris * 1.25,
         calculation: `${Pris} \\cdot 1,25`,
         equation: "Pris \\cdot 1,25",
       });
-      add({
+      textAdd({
         name: "Pris uden moms",
         answer: Pris / 1.25,
         calculation: `\\frac{${Pris}}{1,25}`,

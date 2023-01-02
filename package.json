@@ -44,6 +44,7 @@
     "katex": "^0.16.4",
     "nanostores": "0.7.1",
     "svelte-french-toast": "^1.0.3",
-    "tailwind-dracula": "^1.1.0"
+    "tailwind-dracula": "^1.1.0",
+    "type-fest": "^3.5.0"
   }
 }

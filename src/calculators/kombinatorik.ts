@@ -2,7 +2,7 @@ import { BasicCalculatorPage } from "@interfaces/calculators";
 
 import { factorial } from "@math/factorial";
 
-import { add } from "@store/answer";
+import { textAdd } from "@store/answer";
 
 const kombinatorik: BasicCalculatorPage = {
   type: "basic_calculator",
@@ -30,25 +30,25 @@ const kombinatorik: BasicCalculatorPage = {
         throw new Error("n skal være større end p");
       }
 
-      add({
+      textAdd({
         name: "Ordnet med tilbagelægning",
         answer: n ** p,
         calculation: `${n}^{${p}}`,
         equation: "n^p",
       });
-      add({
+      textAdd({
         name: "Ordnet uden tilbagelægning",
         answer: factorial(n) / factorial(n - p),
         calculation: `\\frac{${n}!}{(${n} - ${p})!}`,
         equation: "\\frac{n!}{(n - p)!}",
       });
-      add({
+      textAdd({
         name: "Uordnet med tilbagelægning",
         answer: factorial(n + p - 1) / (factorial(n - 1) * factorial(p)),
         calculation: `\\frac{(${n} + ${p} - 1)!}{(${n} - 1)! \\cdot ${p}!}`,
         equation: "\\frac{(n + p - 1)!}{(n - 1)! \\cdot p!}",
       });
-      add({
+      textAdd({
         name: "Uordnet uden tilbagelægning",
         answer: factorial(n) / (factorial(n - p) * factorial(p)),
         calculation: `\\frac{${n}!}{(${n} - ${p})! \\cdot ${p}!}`,

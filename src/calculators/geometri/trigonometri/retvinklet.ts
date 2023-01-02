@@ -87,12 +87,16 @@ const trigonometriRetvinklet: ShapeCalculatorPage = {
         multiplyCalc({ key: "b", first: "c", func: "sin", second: "B", vals });
       }
 
-      add({ name: "C", calculation: text("C er altid 90^{\\circ}") });
+      add({
+        name: "C",
+        nameDisplay: "hide",
+        calculation: "C" + text(" er altid ") + "90^{\\circ}",
+      });
       sort();
 
       answer.setKey("Areal", 0.5 * getAnswer("a") * getAnswer("b"));
       add({
-        name: "Areal",
+        name: text("Areal"),
         calculation: `\\frac{1}{2} \\cdot ${getAnswer("a")} \\cdot ${getAnswer(
           "b"
         )}`,

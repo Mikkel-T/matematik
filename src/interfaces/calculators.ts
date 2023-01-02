@@ -52,5 +52,5 @@ export interface ShapeCalculatorPage extends DefaultPage {
 export interface DefaultCalculatorInput {
   name: string;
   label?: string;
-  placeholder: string;
+  placeholder?: string;
 }

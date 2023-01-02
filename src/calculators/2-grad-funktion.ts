@@ -40,7 +40,7 @@ const funktion2Grad: BasicCalculatorPage = {
 
       if (d.answer < 0) {
         add({
-          answer: text("Der er ikke nogle nulpunkter da d er under 0"),
+          answer: text("Der er ikke nogen nulpunkter da d er under 0"),
           name: "Np",
         });
       } else if (d.answer === 0) {

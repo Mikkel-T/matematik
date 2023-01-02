@@ -19,9 +19,15 @@
       {#each $answer as ans}
         {#if Object.hasOwnProperty.call(ans, title)}
           <div>
-            <KaTeX math={text(ans.name)} />: <KaTeX
-              math={ans[title].toString()}
-            />
+            {#if ans.nameDisplay === "equals"}
+              <KaTeX math="{ans.name} = {ans[title]}" />
+            {:else if ans.nameDisplay === "hide"}
+              <KaTeX math={ans[title].toString()} />
+            {:else if ans.nameDisplay === "text"}
+              {ans.name}: <KaTeX math={ans[title].toString()} />
+            {:else}
+              <KaTeX math={ans.name} /> : <KaTeX math={ans[title].toString()} />
+            {/if}
             <Clipboard
               text={ans[title].toString()}
               message="Kopierede {titles[title].copyText}"

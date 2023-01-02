@@ -1,8 +1,6 @@
-import { text } from "@utils/TeX";
-
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { equalsAdd, textAdd } from "@store/answer";
 
 const funktion1Grad: BasicCalculatorPage = {
   type: "basic_calculator",
@@ -39,14 +37,14 @@ const funktion1Grad: BasicCalculatorPage = {
       };
 
       const f = {
-        name: text("Forskrift"),
+        name: "Forskrift",
         answer: `f(x) = ${a.answer}x + ${b.answer}`,
         equation: "f(x) = ax+b",
       };
 
-      add(f);
-      add(a);
-      add(b);
+      textAdd(f);
+      equalsAdd(a);
+      equalsAdd(b);
     },
     text: [
       ({ x1, y1 }) => `Punkt 1: $(${x1 || 0}, ${y1 || 0})$`,
