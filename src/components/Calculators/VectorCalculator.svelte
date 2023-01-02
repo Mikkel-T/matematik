@@ -54,7 +54,7 @@
                 placeholder="{input.name}₁"
                 type="number"
                 step="any"
-                class="w-20 border-0 border-b-2 border-b-dracula-darker-700 bg-transparent p-0 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
+                class="w-20 border-0 border-b-2 border-b-dracula-darker-700 bg-transparent p-0 px-1 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
               />
               <input
                 name="{input.name}2"
@@ -62,7 +62,7 @@
                 placeholder="{input.name}₂"
                 type="number"
                 step="any"
-                class="w-20 border-0 border-b-2 border-b-dracula-darker-700 bg-transparent p-0 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
+                class="w-20 border-0 border-b-2 border-b-dracula-darker-700 bg-transparent p-0 px-1 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
               />
             </div>
             <KaTeX math="\Biggl)" />
@@ -77,7 +77,7 @@
               placeholder="{input.name.toLowerCase()}₁"
               type="number"
               step="any"
-              class="w-20 border-0 border-b-2 border-b-dracula-darker-700 bg-transparent p-0 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
+              class="w-20 border-0 border-b-2 border-b-dracula-darker-700 bg-transparent p-0 px-1 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
             />
             <span class="mx-1">,</span>
             <input
@@ -86,7 +86,7 @@
               placeholder="{input.name.toLowerCase()}₂"
               type="number"
               step="any"
-              class="w-20 border-0 border-b-2 border-b-dracula-darker-700 bg-transparent p-0 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
+              class="w-20 border-0 border-b-2 border-b-dracula-darker-700 bg-transparent p-0 px-1 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
             />
             <KaTeX math=")" />
           </div>
@@ -98,7 +98,7 @@
             placeholder={input.name}
             type="number"
             step="any"
-            class="w-20 border-0 border-b-2 border-b-dracula-darker-700 bg-transparent p-0 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
+            class="w-20 border-0 border-b-2 border-b-dracula-darker-700 bg-transparent p-0 px-1 focus:border-dracula-light-500 focus:ring-0 dark:focus:border-dracula-blue-500"
           />
         {/if}
       </div>

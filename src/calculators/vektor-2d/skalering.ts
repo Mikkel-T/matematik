@@ -18,7 +18,7 @@ const skalering: VectorCalculatorPage = {
       equalsAdd({
         name: "k \\cdot \\vec{a}",
         answer: `\\begin{pmatrix}${k * a1}\\\\${k * a2}\\end{pmatrix}`,
-        calculation: `\\begin{pmatrix}k \\cdot ${a1}\\\\k \\cdot ${a2}\\end{pmatrix}`,
+        calculation: `\\begin{pmatrix}${k} \\cdot ${a1}\\\\${k} \\cdot ${a2}\\end{pmatrix}`,
         equation: "\\begin{pmatrix}k \\cdot a_1\\\\k \\cdot a_2\\end{pmatrix}",
       });
     },
