@@ -3,6 +3,7 @@ import BasicCalculatorLayout from "layout:BasicCalculatorLayout";
 import ListLayout from "layout:ListLayout";
 import PercentCalculatorLayout from "layout:PercentCalculatorLayout";
 import ShapeCalculatorLayout from "layout:ShapeCalculatorLayout";
+import VectorCalculatorLayout from "layout:VectorCalculatorLayout";
 
 import { DefaultPage } from "@interfaces/calculators";
 
@@ -37,17 +38,22 @@ const { content, page } = Astro.props;
 
 {
   content.type == "basic_calculator" && (
-    <BasicCalculatorLayout content={content} {page} />
+    <BasicCalculatorLayout {content} {page} />
   )
 }
 {
   content.type == "percent_calculator" && (
-    <PercentCalculatorLayout content={content} {page} />
+    <PercentCalculatorLayout {content} {page} />
   )
 }
 {
   content.type == "shape_calculator" && (
-    <ShapeCalculatorLayout content={content} {page} />
+    <ShapeCalculatorLayout {content} {page} />
+  )
+}
+{
+  content.type == "vector_calculator" && (
+    <VectorCalculatorLayout {content} {page} />
   )
 }
 {content.type == "list" && <ListLayout content={content} />}

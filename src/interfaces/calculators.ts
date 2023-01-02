@@ -49,8 +49,24 @@ export interface ShapeCalculatorPage extends DefaultPage {
   };
 }
 
+export interface VectorCalculatorPage extends DefaultPage {
+  // This uses the vector calculator
+  type: "vector_calculator";
+  // The calculator object
+  calculator: {
+    inputs: VectorCalculatorInput[];
+    text?: string;
+    calculate(vals: Record<string, number>): void;
+  };
+}
+
 export interface DefaultCalculatorInput {
   name: string;
   label?: string;
   placeholder?: string;
+}
+
+export interface VectorCalculatorInput {
+  type: "number" | "coordinate" | "vector";
+  name: string;
 }
