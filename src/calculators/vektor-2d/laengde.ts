@@ -1,6 +1,6 @@
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { equalsAdd } from "@store/answer";
 
 const vektorLen: VectorCalculatorPage = {
   type: "vector_calculator",
@@ -11,7 +11,7 @@ const vektorLen: VectorCalculatorPage = {
     text: "Beregner længden af $\\vec{a}$",
     inputs: [{ type: "vector", name: "a" }],
     calculate({ a1, a2 }) {
-      add({
+      equalsAdd({
         name: "|\\vec{a}|",
         answer: Math.sqrt(a1 ** 2 + a2 ** 2),
         calculation: `\\sqrt{${a1}^2 + ${a2}^2}`,

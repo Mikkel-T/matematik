@@ -1,6 +1,6 @@
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { equalsAdd } from "@store/answer";
 
 const forbindelsesvektor: VectorCalculatorPage = {
   type: "vector_calculator",
@@ -15,7 +15,7 @@ const forbindelsesvektor: VectorCalculatorPage = {
       { type: "coordinate", name: "B" },
     ],
     calculate({ A1, A2, B1, B2 }) {
-      add({
+      equalsAdd({
         name: "\\vec{AB}",
         answer: `\\begin{pmatrix}${B1 - A1}\\\\${B2 - A2}\\end{pmatrix}`,
         calculation: `\\begin{pmatrix}${B1} - ${A1}\\\\ ${B2} - ${A2}\\end{pmatrix}`,

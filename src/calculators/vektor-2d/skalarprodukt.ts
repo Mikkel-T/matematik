@@ -1,6 +1,6 @@
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { equalsAdd } from "@store/answer";
 
 const skalarprodukt: VectorCalculatorPage = {
   type: "vector_calculator",
@@ -15,7 +15,7 @@ const skalarprodukt: VectorCalculatorPage = {
       { type: "vector", name: "b" },
     ],
     calculate({ a1, a2, b1, b2 }) {
-      add({
+      equalsAdd({
         name: "\\vec{a} \\bullet \\vec{b}",
         answer: a1 * b1 + a2 * b2,
         calculation: `${a1} \\cdot ${b1} + ${a2} \\cdot ${b2}`,

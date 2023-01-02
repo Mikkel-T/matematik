@@ -1,6 +1,6 @@
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { equalsAdd } from "@store/answer";
 
 const modsat: VectorCalculatorPage = {
   type: "vector_calculator",
@@ -12,7 +12,7 @@ const modsat: VectorCalculatorPage = {
     text: "Beregner $-\\vec{a}$ som er den modsatte vektor af $\\vec{a}$",
     inputs: [{ type: "vector", name: "a" }],
     calculate({ a1, a2 }) {
-      add({
+      equalsAdd({
         name: "-\\vec{a}",
         answer: `\\begin{pmatrix}${-a1}\\\\${-a2}\\end{pmatrix}`,
         calculation: `\\begin{pmatrix}-${a1}\\\\-${a2}\\end{pmatrix}`,

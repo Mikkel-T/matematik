@@ -1,6 +1,6 @@
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { equalsAdd } from "@store/answer";
 
 const skalering: VectorCalculatorPage = {
   type: "vector_calculator",
@@ -15,7 +15,7 @@ const skalering: VectorCalculatorPage = {
       { type: "vector", name: "a" },
     ],
     calculate({ k, a1, a2 }) {
-      add({
+      equalsAdd({
         name: "k \\cdot \\vec{a}",
         answer: `\\begin{pmatrix}${k * a1}\\\\${k * a2}\\end{pmatrix}`,
         calculation: `\\begin{pmatrix}k \\cdot ${a1}\\\\k \\cdot ${a2}\\end{pmatrix}`,

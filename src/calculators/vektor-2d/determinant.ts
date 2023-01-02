@@ -1,6 +1,6 @@
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { equalsAdd } from "@store/answer";
 
 const determinant: VectorCalculatorPage = {
   type: "vector_calculator",
@@ -14,7 +14,7 @@ const determinant: VectorCalculatorPage = {
       { type: "vector", name: "b" },
     ],
     calculate({ a1, a2, b1, b2 }) {
-      add({
+      equalsAdd({
         name: "\\det(\\vec{a} , \\vec{b})",
         answer: a1 * b2 - a2 * b1,
         calculation: `${a1} \\cdot ${b2} - ${a2} \\cdot ${b1}`,

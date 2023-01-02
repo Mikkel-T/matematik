@@ -2,7 +2,7 @@ import { VectorCalculatorPage } from "@interfaces/calculators";
 
 import { acos } from "@math/trig";
 
-import { add } from "@store/answer";
+import { equalsAdd } from "@store/answer";
 
 const vinkel: VectorCalculatorPage = {
   type: "vector_calculator",
@@ -16,7 +16,7 @@ const vinkel: VectorCalculatorPage = {
       { type: "vector", name: "b" },
     ],
     calculate({ a1, a2, b1, b2 }) {
-      add({
+      equalsAdd({
         name: "\\angle(\\vec{a} , \\vec{b})",
         answer: `${acos(
           (a1 * b1 + a2 * b2) /

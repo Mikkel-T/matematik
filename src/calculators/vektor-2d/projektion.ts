@@ -1,6 +1,6 @@
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { equalsAdd } from "@store/answer";
 
 const projektion: VectorCalculatorPage = {
   type: "vector_calculator",
@@ -16,7 +16,7 @@ const projektion: VectorCalculatorPage = {
     ],
     calculate({ a1, a2, b1, b2 }) {
       const k = (a1 * b1 + a2 * b2) / (b1 ** 2 + b2 ** 2);
-      add({
+      equalsAdd({
         name: "\\vec{a}_{\\vec{b}}",
         answer: `\\begin{pmatrix}${k * b1}\\\\${k * b2}\\end{pmatrix}`,
         calculation: `\\frac{${a1} \\cdot ${b1} + ${a2} \\cdot ${b2}}{${a1}^2 + ${a2}^2} \\cdot \\begin{pmatrix}${b1}\\\\${b2}\\end{pmatrix}`,

@@ -1,7 +1,6 @@
 <script>
   import KaTeX from "@components/KaTeX.svelte";
   import { answer } from "@store/answer";
-  import { text } from "@utils/TeX";
   import Clipboard from "@components/Clipboard.svelte";
   import MdiContentCopy from "~icons/mdi/content-copy";
 
@@ -29,7 +28,9 @@
               <KaTeX math={ans.name} /> : <KaTeX math={ans[title].toString()} />
             {/if}
             <Clipboard
-              text={ans[title].toString()}
+              text={ans.nameDisplay === "equals"
+                ? `${ans.name} = ${ans[title]}`
+                : ans[title].toString()}
               message="Kopierede {titles[title].copyText}"
             >
               <MdiContentCopy class="icon mb-1 inline-block h-5 w-5" />

@@ -1,6 +1,6 @@
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { equalsAdd } from "@store/answer";
 
 const subtraktion: VectorCalculatorPage = {
   type: "vector_calculator",
@@ -14,7 +14,7 @@ const subtraktion: VectorCalculatorPage = {
       { type: "vector", name: "b" },
     ],
     calculate({ a1, a2, b1, b2 }) {
-      add({
+      equalsAdd({
         name: "\\vec{a} - \\vec{b}",
         answer: `\\begin{pmatrix}${a1 - b1}\\\\${a2 - b2}\\end{pmatrix}`,
         calculation: `\\begin{pmatrix}${a1} - ${b1}\\\\${a2} - ${b2}\\end{pmatrix}`,
