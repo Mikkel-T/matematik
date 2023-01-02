@@ -4,7 +4,7 @@ import { text } from "@utils/TeX";
 
 import { ShapeCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { textAdd } from "@store/answer";
 import { answer } from "@store/shape";
 
 const kvadrat: ShapeCalculatorPage = {
@@ -20,7 +20,7 @@ const kvadrat: ShapeCalculatorPage = {
       const key = Object.entries(vals).filter((i) => i[1])[0][0];
       if (key) {
         answer.setKey(key, vals[key]);
-        add({
+        textAdd({
           name: key,
           calculation: text(`${vals[key]} blev indtastet`),
           equation: text(`${key} blev indtastet`),
@@ -58,7 +58,7 @@ const kvadrat: ShapeCalculatorPage = {
 
         if (key !== "Side") {
           answer.setKey("Side", sideTmp.answer);
-          add({
+          textAdd({
             name: "Side",
             calculation: sideTmp.calculation,
             equation: sideTmp.equation,
@@ -66,7 +66,7 @@ const kvadrat: ShapeCalculatorPage = {
         }
         if (key !== "Diagonal") {
           answer.setKey("Diagonal", sideTmp.answer * Math.sqrt(2));
-          add({
+          textAdd({
             name: "Diagonal",
             calculation: `${sideTmp.calculation} \\cdot \\sqrt{2}`,
             equation: `${sideTmp.equation} \\cdot \\sqrt{2}`,
@@ -74,7 +74,7 @@ const kvadrat: ShapeCalculatorPage = {
         }
         if (key !== "Omkreds") {
           answer.setKey("Omkreds", sideTmp.answer * 4);
-          add({
+          textAdd({
             name: "Omkreds",
             calculation: `${sideTmp.calculation} \\cdot 4`,
             equation: `${sideTmp.equation} \\cdot 4`,
@@ -82,7 +82,7 @@ const kvadrat: ShapeCalculatorPage = {
         }
         if (key !== "Areal") {
           answer.setKey("Areal", sideTmp.answer ** 2);
-          add({
+          textAdd({
             name: "Areal",
             calculation: `${sideTmp.calculation}^{2}`,
             equation: `${sideTmp.equation}^{2}`,

@@ -1,6 +1,6 @@
 import { PercentCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { hideAdd } from "@store/answer";
 
 const xAfY: PercentCalculatorPage = {
   type: "percent_calculator",
@@ -9,7 +9,7 @@ const xAfY: PercentCalculatorPage = {
     "En procent beregner der udregner hvilken procentdel et tal udgør af et andet",
   calculator: {
     calculate({ x, y }) {
-      add({
+      hideAdd({
         name: "Svar",
         calculation: `\\frac{${x}}{${y}} \\cdot 100\\%`,
         answer: (x / y) * 100 + "\\%",

@@ -29,6 +29,7 @@ const heron: BasicCalculatorPage = {
       add(s);
       add({
         name: "Areal",
+        nameDisplay: "text",
         answer: Math.sqrt(
           s.answer * (s.answer - a) * (s.answer - b) * (s.answer - c)
         ),
