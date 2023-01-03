@@ -3,7 +3,7 @@ import {
   coord,
   frac,
   mul,
-  n,
+  na,
   neg,
   pow,
   sqrt,
@@ -34,18 +34,15 @@ const funktion2Grad: BasicCalculatorPage = {
 
       const d = {
         name: "d",
-        ...sub(
-          pow(n(b, "b"), n(2, "2")),
-          mul(n(4, "4"), mul(n(a, "a"), n(c, "c")))
-        ),
+        ...sub(pow(na(b, "b"), na(2)), mul(na(4), mul(na(a, "a"), na(c, "c")))),
       };
       addAns(d);
 
       addAns({
         name: "Tp",
         ...coord(
-          frac(neg(n(b, "b")), mul(n(2, "2"), n(a, "a"))),
-          frac(neg(n(d.answer, "d")), mul(n(4, "4"), n(a, "a")))
+          frac(neg(na(b, "b")), mul(na(2), na(a, "a"))),
+          frac(neg(na(d.answer, "d")), mul(na(4), na(a, "a")))
         ),
       });
 
@@ -57,22 +54,22 @@ const funktion2Grad: BasicCalculatorPage = {
       } else if (d.answer === 0) {
         addAns({
           name: "Np",
-          ...coord(frac(neg(n(b, "b")), mul(n(2, "2"), n(a, "a"))), n(0, "0")),
+          ...coord(frac(neg(na(b, "b")), mul(na(2), na(a, "a"))), na(0)),
         });
       } else {
         const Np1 = coord(
           frac(
-            add(neg(n(b, "b")), sqrt(n(d.answer, "d"))),
-            mul(n(2, "2"), n(a, "a"))
+            add(neg(na(b, "b")), sqrt(na(d.answer, "d"))),
+            mul(na(2), na(a, "a"))
           ),
-          n(0, "0")
+          na(0)
         );
         const Np2 = coord(
           frac(
-            sub(neg(n(b, "b")), sqrt(n(d.answer, "d"))),
-            mul(n(2, "2"), n(a, "a"))
+            sub(neg(na(b, "b")), sqrt(na(d.answer, "d"))),
+            mul(na(2), na(a, "a"))
           ),
-          n(0, "0")
+          na(0)
         );
 
         addAns({ name: "Np", answer: `${Np1.answer} ~\\&~ ${Np2.answer}` });

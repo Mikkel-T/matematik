@@ -11,10 +11,10 @@ export interface FinalAns {
 }
 
 /**
- * Converts a number and a name to an `Ans` object
+ * Convert a number and a name to an `Ans` object. If no name is provided, the name will be the number as a string
  */
-export const n = (num: number, name: string): Ans => ({
+export const na = (num: number, name?: string): Ans => ({
   answer: num,
   calculation: num.toString(),
-  equation: name,
+  equation: name || num.toString(),
 });

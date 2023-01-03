@@ -1,4 +1,4 @@
-import { n, pmat, sub } from "@utils/TeX";
+import { na, pmat, sub } from "@utils/TeX";
 
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
@@ -20,8 +20,8 @@ const forbindelsesvektor: VectorCalculatorPage = {
       equalsAdd({
         name: "\\vec{AB}",
         ...pmat(
-          sub(n(B1, "b_1"), n(A1, "a_1")),
-          sub(n(B2, "b_2"), n(A2, "a_2"))
+          sub(na(B1, "b_1"), na(A1, "a_1")),
+          sub(na(B2, "b_2"), na(A2, "a_2"))
         ),
       });
     },

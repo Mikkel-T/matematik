@@ -1,6 +1,6 @@
 import KvadratComponent from "@components/Calculators/Custom/Kvadrat.svelte";
 
-import { frac, mul, n, pow, sqrt, text } from "@utils/TeX";
+import { frac, mul, na, pow, sqrt, text } from "@utils/TeX";
 
 import { ShapeCalculatorPage } from "@interfaces/calculators";
 
@@ -26,29 +26,29 @@ const kvadrat: ShapeCalculatorPage = {
 
         let s;
         if (key === "Side") {
-          s = n(vals.Side, "Side");
+          s = na(vals.Side, "Side");
         }
         if (key === "Diagonal") {
-          s = frac(n(vals.Diagonal, "Diagonal"), sqrt(n(2, "2")));
+          s = frac(na(vals.Diagonal, "Diagonal"), sqrt(na(2)));
         }
         if (key === "Omkreds") {
-          s = frac(n(vals.Omkreds, "Omkreds"), n(4, "4"));
+          s = frac(na(vals.Omkreds, "Omkreds"), na(4));
         }
         if (key === "Areal") {
-          s = sqrt(n(vals.Areal, "Areal"));
+          s = sqrt(na(vals.Areal, "Areal"));
         }
 
         if (key !== "Side") {
           shapeTextAdd({ name: "Side", ...s });
         }
         if (key !== "Diagonal") {
-          shapeTextAdd({ name: "Diagonal", ...mul(s, sqrt(n(2, "2"))) });
+          shapeTextAdd({ name: "Diagonal", ...mul(s, sqrt(na(2))) });
         }
         if (key !== "Omkreds") {
-          shapeTextAdd({ name: "Omkreds", ...mul(s, n(4, "4")) });
+          shapeTextAdd({ name: "Omkreds", ...mul(s, na(4)) });
         }
         if (key !== "Areal") {
-          shapeTextAdd({ name: "Areal", ...pow(s, n(2, "2")) });
+          shapeTextAdd({ name: "Areal", ...pow(s, na(2)) });
         }
       }
     },

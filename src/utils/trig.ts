@@ -7,7 +7,7 @@ import {
   cos,
   frac,
   mul,
-  n,
+  na,
   pow,
   sin,
   sqrt,
@@ -37,8 +37,8 @@ export function sqrtCalc({
     name: key,
     ...sqrt(
       op(
-        pow(n(vals[first], first), n(2, "2")),
-        pow(n(vals[second], second), n(2, "2"))
+        pow(na(vals[first], first), na(2)),
+        pow(na(vals[second], second), na(2))
       )
     ),
   });
@@ -64,7 +64,7 @@ export function inverseFrac({
 
   shapeEqualsAdd({
     name: key,
-    ...fun(frac(n(vals[top], top), n(vals[bottom], bottom))),
+    ...fun(frac(na(vals[top], top), na(vals[bottom], bottom))),
   });
 }
 
@@ -88,7 +88,7 @@ export function fracCalc({
 
   shapeEqualsAdd({
     name: key,
-    ...frac(n(vals[top], top), fun(n(vals[bottom], bottom))),
+    ...frac(na(vals[top], top), fun(na(vals[bottom], bottom))),
   });
 }
 
@@ -103,7 +103,7 @@ export function angleCalc({
 }) {
   shapeEqualsAdd({
     name: key,
-    ...sub(sub(n(180, "180"), n(90, "C")), n(vals[angle], angle)),
+    ...sub(sub(na(180), na(90, "C")), na(vals[angle], angle)),
   });
 }
 
@@ -127,6 +127,6 @@ export function multiplyCalc({
 
   shapeEqualsAdd({
     name: key,
-    ...mul(n(vals[first], first), fun(n(vals[second], second))),
+    ...mul(na(vals[first], first), fun(na(vals[second], second))),
   });
 }

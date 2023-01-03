@@ -1,4 +1,4 @@
-import { add, frac, mul, n, par, sqrt, sub } from "@utils/TeX";
+import { add, frac, mul, na, par, sqrt, sub } from "@utils/TeX";
 
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
@@ -24,11 +24,11 @@ const heron: BasicCalculatorPage = {
 
       const s = {
         name: "s",
-        ...frac(add(add(n(a, "a"), n(b, "b")), n(c, "c")), n(2, "2")),
+        ...frac(add(add(na(a, "a"), na(b, "b")), na(c, "c")), na(2)),
       };
       addAns(s);
 
-      const sn = n(s.answer, "s");
+      const sn = na(s.answer, "s");
       addAns({
         name: "Areal",
         nameDisplay: "text",
@@ -36,8 +36,8 @@ const heron: BasicCalculatorPage = {
           mul(
             sn,
             mul(
-              par(sub(sn, n(a, "a"))),
-              mul(par(sub(sn, n(b, "b"))), par(sub(sn, n(c, "c"))))
+              par(sub(sn, na(a, "a"))),
+              mul(par(sub(sn, na(b, "b"))), par(sub(sn, na(c, "c"))))
             )
           )
         ),

@@ -1,4 +1,4 @@
-import { add, mul, par, n as pn, pow } from "@utils/TeX";
+import { add, mul, na, par, pow } from "@utils/TeX";
 
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
@@ -22,7 +22,7 @@ const renter: BasicCalculatorPage = {
     calculate({ K, r, n }) {
       equalsAdd({
         name: "K_n",
-        ...mul(pn(K, "K"), pow(par(add(pn(1, "1"), pn(r, "r"))), pn(n, "n"))),
+        ...mul(na(K, "K"), pow(par(add(na(1), na(r, "r"))), na(n, "n"))),
       });
     },
   },

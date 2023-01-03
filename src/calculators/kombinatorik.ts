@@ -1,4 +1,4 @@
-import { add, fac, frac, mul, par, n as pn, pow, sub } from "@utils/TeX";
+import { add, fac, frac, mul, na, par, pow, sub } from "@utils/TeX";
 
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
@@ -32,24 +32,24 @@ const kombinatorik: BasicCalculatorPage = {
 
       textAdd({
         name: "Ordnet med tilbagelægning",
-        ...pow(pn(n, "n"), pn(p, "p")),
+        ...pow(na(n, "n"), na(p, "p")),
       });
       textAdd({
         name: "Ordnet uden tilbagelægning",
-        ...frac(fac(pn(n, "n")), fac(par(sub(pn(n, "n"), pn(p, "p"))))),
+        ...frac(fac(na(n, "n")), fac(par(sub(na(n, "n"), na(p, "p"))))),
       });
       textAdd({
         name: "Uordnet med tilbagelægning",
         ...frac(
-          fac(par(add(pn(n, "n"), sub(pn(p, "p"), pn(1, "1"))))),
-          mul(fac(par(sub(pn(n, "n"), pn(1, "1")))), fac(pn(p, "p")))
+          fac(par(add(na(n, "n"), sub(na(p, "p"), na(1))))),
+          mul(fac(par(sub(na(n, "n"), na(1)))), fac(na(p, "p")))
         ),
       });
       textAdd({
         name: "Uordnet uden tilbagelægning",
         ...frac(
-          fac(pn(n, "n")),
-          mul(fac(par(sub(pn(n, "n"), pn(p, "p")))), fac(pn(p, "p")))
+          fac(na(n, "n")),
+          mul(fac(par(sub(na(n, "n"), na(p, "p")))), fac(na(p, "p")))
         ),
       });
     },

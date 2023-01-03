@@ -1,6 +1,6 @@
 import CirkelComponent from "@components/Calculators/Custom/Cirkel.svelte";
 
-import { bpar, frac, mul, n, pi, pow, sqrt, text } from "@utils/TeX";
+import { bpar, frac, mul, na, pi, pow, sqrt, text } from "@utils/TeX";
 
 import { ShapeCalculatorPage } from "@interfaces/calculators";
 
@@ -24,41 +24,39 @@ const cirkel: ShapeCalculatorPage = {
           calculation: text(`${vals[key]} blev indtastet`),
         });
 
-        const n2 = n(2, "2");
-
         if (key === "Radius") {
-          const r = n(vals[key], "Radius");
-          shapeTextAdd({ name: "Diameter", ...mul(r, n2) });
-          shapeTextAdd({ name: "Omkreds", ...mul(r, mul(n2, pi())) });
-          shapeTextAdd({ name: "Areal", ...mul(pow(r, n2), pi()) });
+          const r = na(vals[key], "Radius");
+          shapeTextAdd({ name: "Diameter", ...mul(r, na(2)) });
+          shapeTextAdd({ name: "Omkreds", ...mul(r, mul(na(2), pi())) });
+          shapeTextAdd({ name: "Areal", ...mul(pow(r, na(2)), pi()) });
         }
 
         if (key === "Diameter") {
-          const d = n(vals[key], "Diameter");
-          shapeTextAdd({ name: "Radius", ...frac(d, n2) });
+          const d = na(vals[key], "Diameter");
+          shapeTextAdd({ name: "Radius", ...frac(d, na(2)) });
           shapeTextAdd({ name: "Omkreds", ...mul(d, pi()) });
           shapeTextAdd({
             name: "Areal",
-            ...mul(pow(bpar(frac(d, n2)), n2), pi()),
+            ...mul(pow(bpar(frac(d, na(2))), na(2)), pi()),
           });
         }
 
         if (key === "Omkreds") {
-          const o = n(vals[key], "Omkreds");
-          shapeTextAdd({ name: "Radius", ...frac(o, mul(n2, pi())) });
+          const o = na(vals[key], "Omkreds");
+          shapeTextAdd({ name: "Radius", ...frac(o, mul(na(2), pi())) });
           shapeTextAdd({ name: "Diameter", ...frac(o, pi()) });
           shapeTextAdd({
             name: "Areal",
-            ...frac(pow(o, n2), mul(n(4, "4"), pi())),
+            ...frac(pow(o, na(2)), mul(na(4), pi())),
           });
         }
 
         if (key === "Areal") {
-          const a = n(vals[key], "Areal");
+          const a = na(vals[key], "Areal");
           const r = sqrt(frac(a, pi()));
           shapeTextAdd({ name: "Radius", ...r });
-          shapeTextAdd({ name: "Diameter", ...mul(r, n2) });
-          shapeTextAdd({ name: "Omkreds", ...mul(r, mul(n2, pi())) });
+          shapeTextAdd({ name: "Diameter", ...mul(r, na(2)) });
+          shapeTextAdd({ name: "Omkreds", ...mul(r, mul(na(2), pi())) });
         }
       }
     },

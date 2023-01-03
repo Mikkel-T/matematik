@@ -1,4 +1,4 @@
-import { add, n, pmat } from "@utils/TeX";
+import { add, na, pmat } from "@utils/TeX";
 
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
@@ -19,8 +19,8 @@ const addition: VectorCalculatorPage = {
       equalsAdd({
         name: "\\vec{a} + \\vec{b}",
         ...pmat(
-          add(n(a1, "a_1"), n(b1, "b_1")),
-          add(n(a2, "a_2"), n(b2, "b_2"))
+          add(na(a1, "a_1"), na(b1, "b_1")),
+          add(na(a2, "a_2"), na(b2, "b_2"))
         ),
       });
     },

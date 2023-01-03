@@ -1,4 +1,4 @@
-import { frac, mul, n, sub } from "@utils/TeX";
+import { frac, mul, na, sub } from "@utils/TeX";
 
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
@@ -27,14 +27,14 @@ const funktion1Grad: BasicCalculatorPage = {
       const a = {
         name: "a",
         ...frac(
-          sub(n(y2, "y_2"), n(y1, "y_1")),
-          sub(n(x2, "x_2"), n(x1, "x_1"))
+          sub(na(y2, "y_2"), na(y1, "y_1")),
+          sub(na(x2, "x_2"), na(x1, "x_1"))
         ),
       };
 
       const b = {
         name: "b",
-        ...sub(n(y1, "y_1"), mul(n(x1, "x_1"), n(a.answer, "a"))),
+        ...sub(na(y1, "y_1"), mul(na(x1, "x_1"), na(a.answer, "a"))),
       };
 
       let fa;

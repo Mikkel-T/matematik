@@ -1,4 +1,4 @@
-import { n, pmat, sub } from "@utils/TeX";
+import { na, pmat, sub } from "@utils/TeX";
 
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
@@ -19,8 +19,8 @@ const subtraktion: VectorCalculatorPage = {
       equalsAdd({
         name: "\\vec{a} - \\vec{b}",
         ...pmat(
-          sub(n(a1, "a_1"), n(b1, "b_1")),
-          sub(n(a2, "a_2"), n(b2, "b_2"))
+          sub(na(a1, "a_1"), na(b1, "b_1")),
+          sub(na(a2, "a_2"), na(b2, "b_2"))
         ),
       });
     },

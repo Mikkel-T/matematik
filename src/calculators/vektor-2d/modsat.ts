@@ -1,4 +1,4 @@
-import { n, neg, pmat } from "@utils/TeX";
+import { na, neg, pmat } from "@utils/TeX";
 
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
@@ -16,7 +16,7 @@ const modsat: VectorCalculatorPage = {
     calculate({ a1, a2 }) {
       equalsAdd({
         name: "-\\vec{a}",
-        ...pmat(neg(n(a1, "a_1")), neg(n(a2, "a_2"))),
+        ...pmat(neg(na(a1, "a_1")), neg(na(a2, "a_2"))),
       });
     },
   },

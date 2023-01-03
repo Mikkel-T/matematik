@@ -1,6 +1,6 @@
 import { add, mul, pow, sqrt } from "@utils/TeX";
 
-import { Ans, FinalAns, n } from ".";
+import { Ans, FinalAns, na } from ".";
 
 /**
  * Created a LaTeX vector
@@ -29,7 +29,7 @@ export const vecLen = ({
   y: number;
   name: string;
 }): Ans => ({
-  ...sqrt(add(pow(n(x, ""), n(2, "2")), pow(n(y, ""), n(2, "2")))),
+  ...sqrt(add(pow(na(x, ""), na(2)), pow(na(y, ""), na(2)))),
   equation: `|\\vec{${name}}|`,
 });
 
@@ -45,7 +45,7 @@ export const vecLenSq = ({
   y: number;
   name: string;
 }): Ans => ({
-  ...add(pow(n(x, ""), n(2, "2")), pow(n(y, ""), n(2, "2"))),
+  ...add(pow(na(x, ""), na(2)), pow(na(y, ""), na(2))),
   equation: `|\\vec{${name}}|^{2}`,
 });
 
@@ -64,7 +64,10 @@ export const dotProd = (
     name: string;
   }
 ): Ans => ({
-  ...add(mul(n(vec1.x, ""), n(vec2.x, "")), mul(n(vec1.y, ""), n(vec2.y, ""))),
+  ...add(
+    mul(na(vec1.x, ""), na(vec2.x, "")),
+    mul(na(vec1.y, ""), na(vec2.y, ""))
+  ),
   equation: `\\vec{${vec1.name}} \\bullet \\vec{${vec2.name}}`,
 });
 

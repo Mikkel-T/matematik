@@ -1,6 +1,6 @@
 import TrigonometriComponent from "@components/Calculators/Custom/Trigonometri/Retvinklet.svelte";
 
-import { frac, mul, n, text } from "@utils/TeX";
+import { frac, mul, na, text } from "@utils/TeX";
 import {
   angleCalc,
   fracCalc,
@@ -96,8 +96,8 @@ const trigonometriRetvinklet: ShapeCalculatorPage = {
       shapeTextAdd({
         name: "Areal",
         ...mul(
-          frac(n(1, "1"), n(2, "2")),
-          mul(n(getAnswer("a"), "a"), n(getAnswer("b"), "b"))
+          frac(na(1), na(2)),
+          mul(na(getAnswer("a"), "a"), na(getAnswer("b"), "b"))
         ),
       });
     },

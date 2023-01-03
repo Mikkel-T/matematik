@@ -1,4 +1,4 @@
-import { mul, n, sub } from "@utils/TeX";
+import { mul, na, sub } from "@utils/TeX";
 
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
@@ -19,8 +19,8 @@ const determinant: VectorCalculatorPage = {
       equalsAdd({
         name: "\\det(\\vec{a} , \\vec{b})",
         ...sub(
-          mul(n(a1, "a_1"), n(b2, "b_2")),
-          mul(n(a2, "a_2"), n(b1, "b_1"))
+          mul(na(a1, "a_1"), na(b2, "b_2")),
+          mul(na(a2, "a_2"), na(b1, "b_1"))
         ),
       });
     },

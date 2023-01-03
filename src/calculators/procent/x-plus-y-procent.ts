@@ -1,4 +1,4 @@
-import { add, frac, mul, n, par } from "@utils/TeX";
+import { add, frac, mul, na, par } from "@utils/TeX";
 
 import { PercentCalculatorPage } from "@interfaces/calculators";
 
@@ -12,7 +12,7 @@ const xPlusYProcent: PercentCalculatorPage = {
     calculate({ x, y }) {
       hideAdd({
         name: "Svar",
-        ...mul(n(x, "x"), par(add(n(1, "1"), frac(n(y, "y"), n(100, "100"))))),
+        ...mul(na(x, "x"), par(add(na(1), frac(na(y, "y"), na(100))))),
         equation: undefined,
       });
     },

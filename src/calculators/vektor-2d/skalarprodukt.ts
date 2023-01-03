@@ -1,4 +1,4 @@
-import { add, mul, n } from "@utils/TeX";
+import { add, mul, na } from "@utils/TeX";
 
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
@@ -20,8 +20,8 @@ const skalarprodukt: VectorCalculatorPage = {
       equalsAdd({
         name: "\\vec{a} \\bullet \\vec{b}",
         ...add(
-          mul(n(a1, "a_1"), n(b1, "b_1")),
-          mul(n(a2, "a_2"), n(b2, "b_2"))
+          mul(na(a1, "a_1"), na(b1, "b_1")),
+          mul(na(a2, "a_2"), na(b2, "b_2"))
         ),
       });
     },

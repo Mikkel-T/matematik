@@ -1,4 +1,4 @@
-import { frac, mul, n, pct } from "@utils/TeX";
+import { frac, mul, na, pct } from "@utils/TeX";
 
 import { PercentCalculatorPage } from "@interfaces/calculators";
 
@@ -13,7 +13,7 @@ const heleTallet: PercentCalculatorPage = {
     calculate({ x, y }) {
       hideAdd({
         name: "Svar",
-        ...mul(frac(n(y, "y"), pct(n(x, "x"))), pct(n(100, "100"))),
+        ...mul(frac(na(y, "y"), pct(na(x, "x"))), pct(na(100))),
         equation: undefined,
       });
     },

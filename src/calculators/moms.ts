@@ -1,4 +1,4 @@
-import { frac, mul, n } from "@utils/TeX";
+import { frac, mul, na } from "@utils/TeX";
 
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
@@ -14,11 +14,11 @@ const moms: BasicCalculatorPage = {
     calculate({ Pris }) {
       textAdd({
         name: "Pris med moms",
-        ...mul(n(Pris, "Pris"), n(1.25, "1.25")),
+        ...mul(na(Pris, "Pris"), na(1.25)),
       });
       textAdd({
         name: "Pris uden moms",
-        ...frac(n(Pris, "Pris"), n(1.25, "1.25")),
+        ...frac(na(Pris, "Pris"), na(1.25)),
       });
     },
   },

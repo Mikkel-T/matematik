@@ -1,4 +1,4 @@
-import { add, n, pow, sqrt } from "@utils/TeX";
+import { add, na, pow, sqrt } from "@utils/TeX";
 
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
@@ -15,9 +15,7 @@ const vektorLen: VectorCalculatorPage = {
     calculate({ a1, a2 }) {
       equalsAdd({
         name: "|\\vec{a}|",
-        ...sqrt(
-          add(pow(n(a1, "a_1"), n(2, "2")), pow(n(a2, "a_2"), n(2, "2")))
-        ),
+        ...sqrt(add(pow(na(a1, "a_1"), na(2)), pow(na(a2, "a_2"), na(2)))),
       });
     },
   },
