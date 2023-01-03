@@ -1,4 +1,4 @@
-import { na, neg, pmat } from "@utils/TeX";
+import { na, neg, omitCalc, pmat } from "@utils/TeX";
 
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
@@ -16,8 +16,7 @@ const tvaervektor: VectorCalculatorPage = {
     calculate({ a1, a2 }) {
       equalsAdd({
         name: "\\hat{a}",
-        ...pmat(neg(na(a2, "a_2")), na(a1, "a_1")),
-        calculation: undefined,
+        ...omitCalc(pmat(neg(na(a2, "a_2")), na(a1, "a_1"))),
       });
     },
   },

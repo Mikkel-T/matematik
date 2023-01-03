@@ -1,3 +1,5 @@
+import { Except } from "type-fest";
+
 export interface Ans {
   answer: number;
   calculation: string;
@@ -18,3 +20,18 @@ export const na = (num: number, name?: string): Ans => ({
   calculation: num.toString(),
   equation: name || num.toString(),
 });
+
+export const omitAns = (ans: FinalAns): Except<FinalAns, "answer"> => {
+  const { answer, ...result } = ans;
+  return result;
+};
+
+export const omitCalc = (ans: FinalAns): Except<FinalAns, "calculation"> => {
+  const { calculation, ...result } = ans;
+  return result;
+};
+
+export const omitEq = (ans: FinalAns): Except<FinalAns, "equation"> => {
+  const { equation, ...result } = ans;
+  return result;
+};

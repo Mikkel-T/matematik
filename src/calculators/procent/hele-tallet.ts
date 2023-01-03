@@ -1,4 +1,4 @@
-import { frac, mul, na, pct } from "@utils/TeX";
+import { frac, mul, na, omitEq, pct } from "@utils/TeX";
 
 import { PercentCalculatorPage } from "@interfaces/calculators";
 
@@ -13,8 +13,7 @@ const heleTallet: PercentCalculatorPage = {
     calculate({ x, y }) {
       hideAdd({
         name: "Svar",
-        ...mul(frac(na(y, "y"), pct(na(x, "x"))), pct(na(100))),
-        equation: undefined,
+        ...omitEq(mul(frac(na(y, "y"), pct(na(x, "x"))), pct(na(100)))),
       });
     },
     text: "Beregn hele tallet når :input_x: procent er :input_y:",

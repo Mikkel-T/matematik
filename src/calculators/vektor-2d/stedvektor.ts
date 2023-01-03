@@ -1,4 +1,4 @@
-import { na, pmat } from "@utils/TeX";
+import { na, omitCalc, pmat } from "@utils/TeX";
 
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
@@ -16,8 +16,7 @@ const stedvektor: VectorCalculatorPage = {
     calculate({ P1, P2 }) {
       equalsAdd({
         name: "\\vec{OP}",
-        ...pmat(na(P1, "p_1"), na(P2, "p_2")),
-        calculation: undefined,
+        ...omitCalc(pmat(na(P1, "p_1"), na(P2, "p_2"))),
       });
     },
   },

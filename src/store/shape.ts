@@ -21,10 +21,8 @@ export function reset() {
 
 export function shapeAddAns(ans: AnswerType) {
   answer.setKey(ans.name, ans.answer);
-  addAns({
-    ...ans,
-    answer: undefined,
-  });
+  const { answer: a, ...result } = ans;
+  addAns(result);
 }
 
 /**

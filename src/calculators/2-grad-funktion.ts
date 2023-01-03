@@ -5,6 +5,7 @@ import {
   mul,
   na,
   neg,
+  omitAns,
   pow,
   sqrt,
   sub,
@@ -73,8 +74,8 @@ const funktion2Grad: BasicCalculatorPage = {
         );
 
         addAns({ name: "Np", answer: `${Np1.answer} ~\\&~ ${Np2.answer}` });
-        addAns({ name: "Np_1", ...Np1, answer: undefined });
-        addAns({ name: "Np_2", ...Np2, answer: undefined });
+        addAns({ name: "Np_1", ...omitAns(Np1) });
+        addAns({ name: "Np_2", ...omitAns(Np2) });
       }
     },
   },

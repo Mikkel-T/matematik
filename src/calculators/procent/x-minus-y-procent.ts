@@ -1,4 +1,4 @@
-import { frac, mul, na, par, sub } from "@utils/TeX";
+import { frac, mul, na, omitEq, par, sub } from "@utils/TeX";
 
 import { PercentCalculatorPage } from "@interfaces/calculators";
 
@@ -12,8 +12,7 @@ const xMinusYProcent: PercentCalculatorPage = {
     calculate({ x, y }) {
       hideAdd({
         name: "Svar",
-        ...mul(na(x, "x"), par(sub(na(1), frac(na(y, "y"), na(100))))),
-        equation: undefined,
+        ...omitEq(mul(na(x, "x"), par(sub(na(1), frac(na(y, "y"), na(100)))))),
       });
     },
     text: "Hvad er :input_x: minus :input_y: procent",
