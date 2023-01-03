@@ -45,6 +45,9 @@ export const asin = ({ answer, calculation, equation }: Ans): Ans => ({
   equation: `\\sin^{-1}\\left(${equation}\\right)`,
 });
 
+/**
+ * Add a degree sign to the `answer` property of an `Ans`.
+ */
 export const ansDeg = (val: Ans): FinalAns => ({
   ...val,
   answer: val.answer + "^{\\circ}",

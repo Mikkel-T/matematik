@@ -2,9 +2,15 @@ import { add, mul, pow, sqrt } from "@utils/TeX";
 
 import { Ans, FinalAns, n } from ".";
 
+/**
+ * Created a LaTeX vector
+ */
 const pmatrix = (t: number | string, b: number | string) =>
   `\\begin{pmatrix}${t}\\\\${b}\\end{pmatrix}`;
 
+/**
+ * Types two `Ans` objects out as x and y in a 2D vector.
+ */
 export const pmat = (t: Ans, b: Ans): FinalAns => ({
   answer: pmatrix(t.answer, b.answer),
   calculation: pmatrix(t.calculation, b.calculation),
