@@ -36,9 +36,30 @@ const funktion1Grad: BasicCalculatorPage = {
         equation: "y_1 - x_1 \\cdot a",
       };
 
+      let fa;
+      let fb;
+
+      if (a.answer == 0) {
+        fa = "";
+      } else if (Math.abs(+a.answer) == 1) {
+        fa = `${+a.answer < 0 ? "-" : ""}x`;
+      } else {
+        fa = `${a.answer}x`;
+      }
+
+      if (b.answer != 0) {
+        if (fa) {
+          fb = ` ${+b.answer > 0 ? "+" : "-"}${Math.abs(+b.answer)}`;
+        } else {
+          fb = b.answer;
+        }
+      } else {
+        fb = fa ? "" : 0;
+      }
+
       const f = {
         name: "Forskrift",
-        answer: `f(x) = ${a.answer}x + ${b.answer}`,
+        answer: `f(x) = ${fa}${fb}`,
         equation: "f(x) = ax+b",
       };
 
