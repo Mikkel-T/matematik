@@ -1,12 +1,20 @@
 import { factorial } from "@math/factorial";
+import {
+  acos as acos_c,
+  asin as asin_c,
+  atan as atan_c,
+  cos as cos_c,
+  sin as sin_c,
+  tan as tan_c,
+} from "@math/trig";
 
-interface Ans {
+export interface Ans {
   answer: number;
   calculation: string;
   equation: string;
 }
 
-interface FinalAns {
+export interface FinalAns {
   answer: string | number;
   calculation: string;
   equation: string;
@@ -101,10 +109,46 @@ export const ansPct = (val: Ans): FinalAns => ({
   answer: val.answer + "\\%",
 });
 
-export const pi = () => ({
+export const pi = (): Ans => ({
   answer: Math.PI,
   calculation: "\\pi",
   equation: "\\pi",
+});
+
+export const tan = ({ answer, calculation, equation }: Ans): Ans => ({
+  answer: tan_c(answer),
+  calculation: `\\tan\\left(${calculation}\\right)`,
+  equation: `\\tan\\left(${equation}\\right)`,
+});
+
+export const cos = ({ answer, calculation, equation }: Ans): Ans => ({
+  answer: cos_c(answer),
+  calculation: `\\cos\\left(${calculation}\\right)`,
+  equation: `\\cos\\left(${equation}\\right)`,
+});
+
+export const sin = ({ answer, calculation, equation }: Ans): Ans => ({
+  answer: sin_c(answer),
+  calculation: `\\sin\\left(${calculation}\\right)`,
+  equation: `\\sin\\left(${equation}\\right)`,
+});
+
+export const atan = ({ answer, calculation, equation }: Ans): Ans => ({
+  answer: atan_c(answer),
+  calculation: `\\tan^{-1}\\left(${calculation}\\right)`,
+  equation: `\\tan^{-1}\\left(${equation}\\right)`,
+});
+
+export const acos = ({ answer, calculation, equation }: Ans): Ans => ({
+  answer: acos_c(answer),
+  calculation: `\\cos^{-1}\\left(${calculation}\\right)`,
+  equation: `\\cos^{-1}\\left(${equation}\\right)`,
+});
+
+export const asin = ({ answer, calculation, equation }: Ans): Ans => ({
+  answer: asin_c(answer),
+  calculation: `\\sin^{-1}\\left(${calculation}\\right)`,
+  equation: `\\sin^{-1}\\left(${equation}\\right)`,
 });
 
 export function text(str: string) {

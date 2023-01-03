@@ -1,7 +1,21 @@
-import * as calc from "@math/trig";
+import {
+  type Ans,
+  acos,
+  add,
+  asin,
+  atan,
+  cos,
+  frac,
+  mul,
+  n,
+  pow,
+  sin,
+  sqrt,
+  sub,
+  tan,
+} from "@utils/TeX";
 
-import { equalsAdd } from "@store/answer";
-import { answer } from "@store/shape";
+import { shapeEqualsAdd } from "@store/shape";
 
 type TrigFunction = "cos" | "sin" | "tan";
 
@@ -18,15 +32,15 @@ export function sqrtCalc({
   second: string;
   vals: Record<string, number>;
 }) {
-  if (operator === "+") {
-    answer.setKey(key, Math.sqrt(vals[first] ** 2 + vals[second] ** 2));
-  } else {
-    answer.setKey(key, Math.sqrt(vals[first] ** 2 - vals[second] ** 2));
-  }
-  equalsAdd({
+  const op = operator === "+" ? add : sub;
+  shapeEqualsAdd({
     name: key,
-    calculation: `\\sqrt{${vals[first]}^{2} + ${vals[second]}^{2}}`,
-    equation: `\\sqrt{${first}^{2} + ${second}^{2}}`,
+    ...sqrt(
+      op(
+        pow(n(vals[first], first), n(2, "2")),
+        pow(n(vals[second], second), n(2, "2"))
+      )
+    ),
   });
 }
 
@@ -43,12 +57,14 @@ export function inverseFrac({
   bottom: string;
   vals: Record<string, number>;
 }) {
-  answer.setKey(key, calc["a" + func](vals[top] / vals[bottom]));
+  let fun: (x: Ans) => Ans;
+  if (func === "cos") fun = acos;
+  else if (func === "sin") fun = asin;
+  else fun = atan;
 
-  equalsAdd({
+  shapeEqualsAdd({
     name: key,
-    calculation: `\\a${func}^{-1}\\left(\\frac{${vals[top]}}{${vals[bottom]}}\\right)`,
-    equation: `\\a${func}^{-1}\\left(\\frac{${top}}{${bottom}}\\right)`,
+    ...fun(frac(n(vals[top], top), n(vals[bottom], bottom))),
   });
 }
 
@@ -65,12 +81,14 @@ export function fracCalc({
   bottom: string;
   vals: Record<string, number>;
 }) {
-  answer.setKey(key, vals[top] / calc[func](vals[bottom]));
+  let fun: (x: Ans) => Ans;
+  if (func === "cos") fun = cos;
+  else if (func === "sin") fun = sin;
+  else fun = tan;
 
-  equalsAdd({
+  shapeEqualsAdd({
     name: key,
-    calculation: `\\frac{${vals[top]}}{\\${func}(${vals[bottom]})}`,
-    equation: `\\frac{${top}}{\\${func}(${bottom})}`,
+    ...frac(n(vals[top], top), fun(n(vals[bottom], bottom))),
   });
 }
 
@@ -83,12 +101,9 @@ export function angleCalc({
   angle: string;
   vals: Record<string, number>;
 }) {
-  answer.setKey(key, 180 - 90 - vals[angle]);
-
-  equalsAdd({
+  shapeEqualsAdd({
     name: key,
-    calculation: `180 - C - ${vals[angle]}`,
-    equation: `180 - C - ${angle}`,
+    ...sub(sub(n(180, "180"), n(90, "C")), n(vals[angle], angle)),
   });
 }
 
@@ -105,11 +120,13 @@ export function multiplyCalc({
   second: string;
   vals: Record<string, number>;
 }) {
-  answer.setKey(key, vals[first] * calc[func](vals[second]));
+  let fun: (x: Ans) => Ans;
+  if (func === "cos") fun = cos;
+  else if (func === "sin") fun = sin;
+  else fun = tan;
 
-  equalsAdd({
+  shapeEqualsAdd({
     name: key,
-    calculation: `${vals[first]} \\cdot \\${func}(${vals[second]})`,
-    equation: `${first} \\cdot \\${func}(${second})`,
+    ...mul(n(vals[first], first), fun(n(vals[second], second))),
   });
 }

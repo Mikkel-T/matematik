@@ -22,7 +22,6 @@ const cirkel: ShapeCalculatorPage = {
           name: key,
           answer: vals[key],
           calculation: text(`${vals[key]} blev indtastet`),
-          equation: text(`${key} blev indtastet`),
         });
 
         const n2 = n(2, "2");

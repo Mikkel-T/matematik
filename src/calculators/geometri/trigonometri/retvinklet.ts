@@ -1,6 +1,6 @@
 import TrigonometriComponent from "@components/Calculators/Custom/Trigonometri/Retvinklet.svelte";
 
-import { text } from "@utils/TeX";
+import { frac, mul, n, text } from "@utils/TeX";
 import {
   angleCalc,
   fracCalc,
@@ -12,7 +12,7 @@ import {
 import { ShapeCalculatorPage } from "@interfaces/calculators";
 
 import { addAns, sort } from "@store/answer";
-import { answer, getAnswer } from "@store/shape";
+import { getAnswer, shapeAddAns, shapeTextAdd } from "@store/shape";
 
 const trigonometriRetvinklet: ShapeCalculatorPage = {
   type: "shape_calculator",
@@ -41,11 +41,10 @@ const trigonometriRetvinklet: ShapeCalculatorPage = {
         .map((i) => i[0]);
 
       for (const key of keys) {
-        answer.setKey(key, vals[key]);
-        addAns({
+        shapeAddAns({
           name: key,
+          answer: vals[key],
           calculation: text(`${vals[key]} blev indtastet`),
-          equation: text(`${key} blev indtastet`),
         });
       }
 
@@ -94,13 +93,12 @@ const trigonometriRetvinklet: ShapeCalculatorPage = {
       });
       sort();
 
-      answer.setKey("Areal", 0.5 * getAnswer("a") * getAnswer("b"));
-      addAns({
-        name: text("Areal"),
-        calculation: `\\frac{1}{2} \\cdot ${getAnswer("a")} \\cdot ${getAnswer(
-          "b"
-        )}`,
-        equation: "\\frac{1}{2} \\cdot a \\cdot b",
+      shapeTextAdd({
+        name: "Areal",
+        ...mul(
+          frac(n(1, "1"), n(2, "2")),
+          mul(n(getAnswer("a"), "a"), n(getAnswer("b"), "b"))
+        ),
       });
     },
   },

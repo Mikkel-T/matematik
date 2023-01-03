@@ -22,7 +22,6 @@ const kvadrat: ShapeCalculatorPage = {
           name: key,
           answer: vals[key],
           calculation: text(`${vals[key]} blev indtastet`),
-          equation: text(`${key} blev indtastet`),
         });
 
         let s;

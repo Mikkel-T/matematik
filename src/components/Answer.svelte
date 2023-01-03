@@ -3,6 +3,7 @@
   import { answer } from "@store/answer";
   import Clipboard from "@components/Clipboard.svelte";
   import MdiContentCopy from "~icons/mdi/content-copy";
+  import { text } from "@utils/TeX";
 
   const titles = {
     answer: { title: "Svar", copyText: "svaret" },
@@ -23,7 +24,7 @@
             {:else if ans.nameDisplay === "hide"}
               <KaTeX math={ans[title]} />
             {:else if ans.nameDisplay === "text"}
-              {ans.name}: <KaTeX math={ans[title]} />
+              <KaTeX math={text(ans.name)} /> : <KaTeX math={ans[title]} />
             {:else}
               <KaTeX math={ans.name} /> : <KaTeX math={ans[title]} />
             {/if}
