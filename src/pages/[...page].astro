@@ -1,9 +1,12 @@
 ---
-import BasicCalculatorLayout from "layout:BasicCalculatorLayout";
+import Answer from "@components/Answer.svelte";
+import BasicCalculator from "@components/Calculators/BasicCalculator.svelte";
+import PercentCalculator from "@components/Calculators/PercentCalculator.svelte";
+import ShapeCalculator from "@components/Calculators/ShapeCalculator.svelte";
+import VectorCalculator from "@components/Calculators/VectorCalculator.svelte";
+
+import BaseLayout from "layout:BaseLayout";
 import ListLayout from "layout:ListLayout";
-import PercentCalculatorLayout from "layout:PercentCalculatorLayout";
-import ShapeCalculatorLayout from "layout:ShapeCalculatorLayout";
-import VectorCalculatorLayout from "layout:VectorCalculatorLayout";
 
 import { DefaultPage } from "@interfaces/calculators";
 
@@ -33,27 +36,19 @@ export async function getStaticPaths() {
   return pages;
 }
 
-const { content, page } = Astro.props;
+const {
+  content: { type },
+  content,
+  page,
+} = Astro.props;
 ---
 
-{
-  content.type == "basic_calculator" && (
-    <BasicCalculatorLayout {content} {page} />
-  )
-}
-{
-  content.type == "percent_calculator" && (
-    <PercentCalculatorLayout {content} {page} />
-  )
-}
-{
-  content.type == "shape_calculator" && (
-    <ShapeCalculatorLayout {content} {page} />
-  )
-}
-{
-  content.type == "vector_calculator" && (
-    <VectorCalculatorLayout {content} {page} />
-  )
-}
-{content.type == "list" && <ListLayout content={content} />}
+<BaseLayout {content}>
+  {type === "basic_calculator" && <BasicCalculator {page} client:load />}
+  {type === "percent_calculator" && <PercentCalculator {page} client:load />}
+  {type === "shape_calculator" && <ShapeCalculator {page} client:load />}
+  {type === "vector_calculator" && <VectorCalculator {page} client:load />}
+  {type.endsWith("calculator") && <Answer client:visible />}
+
+  {type === "list" && <ListLayout content={content} />}
+</BaseLayout>
