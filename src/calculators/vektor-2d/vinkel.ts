@@ -1,6 +1,6 @@
-import { VectorCalculatorPage } from "@interfaces/calculators";
+import { acos, ansDeg, dotProd, frac, mul, vecLen } from "@utils/TeX";
 
-import { acos } from "@math/trig";
+import { VectorCalculatorPage } from "@interfaces/calculators";
 
 import { equalsAdd } from "@store/answer";
 
@@ -18,13 +18,24 @@ const vinkel: VectorCalculatorPage = {
     calculate({ a1, a2, b1, b2 }) {
       equalsAdd({
         name: "\\angle(\\vec{a} , \\vec{b})",
-        answer: `${acos(
-          (a1 * b1 + a2 * b2) /
-            (Math.sqrt(a1 ** 2 + a2 ** 2) * Math.sqrt(b1 ** 2 + b2 ** 2))
-        )}^{\\circ}`,
-        calculation: `\\cos^{-1}\\left(\\frac{${a1} \\cdot ${b1} + ${a2} \\cdot ${b2}}{\\sqrt{${a1}^2 + ${a2}^2} \\cdot \\sqrt{${b1}^2 + ${b2}^2}}\\right)`,
-        equation:
-          "\\cos^{-1}\\left(\\frac{\\vec{a} \\bullet \\vec{b}}{\\lvert\\vec{a}\\rvert \\cdot \\lvert \\vec{b} \\rvert}\\right)",
+        ...ansDeg(
+          acos(
+            frac(
+              dotProd({ x: a1, y: a2, name: "a" }, { x: b1, y: b2, name: "b" }),
+              mul(
+                vecLen({ x: a1, y: a2, name: "a" }),
+                vecLen({ x: b1, y: b2, name: "b" })
+              )
+            )
+          )
+        ),
+        // answer: `${acos(
+        //   (a1 * b1 + a2 * b2) /
+        //     (Math.sqrt(a1 ** 2 + a2 ** 2) * Math.sqrt(b1 ** 2 + b2 ** 2))
+        // )}^{\\circ}`,
+        // calculation: `\\cos^{-1}\\left(\\frac{${a1} \\cdot ${b1} + ${a2} \\cdot ${b2}}{\\sqrt{${a1}^2 + ${a2}^2} \\cdot \\sqrt{${b1}^2 + ${b2}^2}}\\right)`,
+        // equation:
+        //   "\\cos^{-1}\\left(\\frac{\\vec{a} \\bullet \\vec{b}}{\\lvert\\vec{a}\\rvert \\cdot \\lvert \\vec{b} \\rvert}\\right)",
       });
     },
   },

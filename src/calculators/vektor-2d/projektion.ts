@@ -1,3 +1,5 @@
+import { dotProd, frac, numMulVec, vecLenSq } from "@utils/TeX";
+
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
 import { equalsAdd } from "@store/answer";
@@ -15,13 +17,15 @@ const projektion: VectorCalculatorPage = {
       { type: "vector", name: "b" },
     ],
     calculate({ a1, a2, b1, b2 }) {
-      const k = (a1 * b1 + a2 * b2) / (b1 ** 2 + b2 ** 2);
       equalsAdd({
         name: "\\vec{a}_{\\vec{b}}",
-        answer: `\\begin{pmatrix}${k * b1}\\\\${k * b2}\\end{pmatrix}`,
-        calculation: `\\frac{${a1} \\cdot ${b1} + ${a2} \\cdot ${b2}}{${a1}^2 + ${a2}^2} \\cdot \\begin{pmatrix}${b1}\\\\${b2}\\end{pmatrix}`,
-        equation:
-          "\\frac{\\vec{a} \\bullet \\vec{b}}{\\lvert \\vec{b} \\rvert^{2}} \\cdot \\vec{b}",
+        ...numMulVec(
+          frac(
+            dotProd({ x: a1, y: a2, name: "a" }, { x: b1, y: b2, name: "b" }),
+            vecLenSq({ x: b1, y: b2, name: "b" })
+          ),
+          { x: b1, y: b2, name: "b" }
+        ),
       });
     },
   },
