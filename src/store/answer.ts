@@ -29,21 +29,21 @@ export function addAns(ans: AnswerType) {
 }
 
 /**
- * The add function but with nameDisplay set to "text"
+ * The addAns function but with nameDisplay set to "text"
  */
 export function textAdd(ans: Except<AnswerType, "nameDisplay">) {
   addAns({ ...ans, nameDisplay: "text" });
 }
 
 /**
- * The add function but with nameDisplay set to "hide"
+ * The addAns function but with nameDisplay set to "hide"
  */
 export function hideAdd(ans: Except<AnswerType, "nameDisplay">) {
   addAns({ ...ans, nameDisplay: "hide" });
 }
 
 /**
- * The add function but with nameDisplay set to "equals"
+ * The addAns function but with nameDisplay set to "equals"
  */
 export function equalsAdd(ans: Except<AnswerType, "nameDisplay">) {
   addAns({ ...ans, nameDisplay: "equals" });

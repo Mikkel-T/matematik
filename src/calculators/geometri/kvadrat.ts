@@ -4,8 +4,7 @@ import { frac, mul, n, pow, sqrt, text } from "@utils/TeX";
 
 import { ShapeCalculatorPage } from "@interfaces/calculators";
 
-import { textAdd } from "@store/answer";
-import { answer } from "@store/shape";
+import { shapeTextAdd } from "@store/shape";
 
 const kvadrat: ShapeCalculatorPage = {
   type: "shape_calculator",
@@ -19,9 +18,9 @@ const kvadrat: ShapeCalculatorPage = {
     calculate(vals) {
       const key = Object.entries(vals).filter((i) => i[1])[0][0];
       if (key) {
-        answer.setKey(key, vals[key]);
-        textAdd({
+        shapeTextAdd({
           name: key,
+          answer: vals[key],
           calculation: text(`${vals[key]} blev indtastet`),
           equation: text(`${key} blev indtastet`),
         });
@@ -41,24 +40,16 @@ const kvadrat: ShapeCalculatorPage = {
         }
 
         if (key !== "Side") {
-          const { answer: a, calculation, equation } = s;
-          answer.setKey("Side", a);
-          textAdd({ name: "Side", calculation, equation });
+          shapeTextAdd({ name: "Side", ...s });
         }
         if (key !== "Diagonal") {
-          const { answer: a, calculation, equation } = mul(s, sqrt(n(2, "2")));
-          answer.setKey("Diagonal", a);
-          textAdd({ name: "Diagonal", calculation, equation });
+          shapeTextAdd({ name: "Diagonal", ...mul(s, sqrt(n(2, "2"))) });
         }
         if (key !== "Omkreds") {
-          const { answer: a, calculation, equation } = mul(s, n(4, "4"));
-          answer.setKey("Omkreds", a);
-          textAdd({ name: "Omkreds", calculation, equation });
+          shapeTextAdd({ name: "Omkreds", ...mul(s, n(4, "4")) });
         }
         if (key !== "Areal") {
-          const { answer: a, calculation, equation } = pow(s, n(2, "2"));
-          answer.setKey("Areal", a);
-          textAdd({ name: "Areal", calculation, equation });
+          shapeTextAdd({ name: "Areal", ...pow(s, n(2, "2")) });
         }
       }
     },

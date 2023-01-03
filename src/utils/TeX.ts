@@ -60,6 +60,12 @@ export const par = ({ answer, calculation, equation }: Ans): Ans => ({
   equation: `(${equation})`,
 });
 
+export const bpar = ({ answer, calculation, equation }: Ans): Ans => ({
+  answer: answer,
+  calculation: `\\left(${calculation}\\right)`,
+  equation: `\\left(${equation}\\right)`,
+});
+
 export const pow = (x: Ans, pow: Ans): Ans => ({
   answer: x.answer ** pow.answer,
   calculation: `${x.calculation}^{${pow.calculation}}`,
@@ -93,6 +99,12 @@ export const pct = ({ answer, calculation, equation }: Ans): Ans => ({
 export const ansPct = (val: Ans): FinalAns => ({
   ...val,
   answer: val.answer + "\\%",
+});
+
+export const pi = () => ({
+  answer: Math.PI,
+  calculation: "\\pi",
+  equation: "\\pi",
 });
 
 export function text(str: string) {
