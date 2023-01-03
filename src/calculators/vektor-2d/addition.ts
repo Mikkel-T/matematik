@@ -1,11 +1,9 @@
 import { add, na, pmat } from "@utils/TeX";
-
-import { VectorCalculatorPage } from "@interfaces/calculators";
+import VectorCalculatorPage from "@utils/pages/VectorCalculatorPage";
 
 import { equalsAdd } from "@store/answer";
 
-const addition: VectorCalculatorPage = {
-  type: "vector_calculator",
+export default new VectorCalculatorPage({
   title: "Addition af vektorer",
   SEOtitle: "Vektor-sum beregner",
   description: "En vektorberegner der lægger to vektorer sammen",
@@ -25,6 +23,4 @@ const addition: VectorCalculatorPage = {
       });
     },
   },
-};
-
-export default addition;
+});

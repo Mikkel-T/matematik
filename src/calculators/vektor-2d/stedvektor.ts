@@ -1,11 +1,9 @@
 import { na, omitCalc, pmat } from "@utils/TeX";
-
-import { VectorCalculatorPage } from "@interfaces/calculators";
+import VectorCalculatorPage from "@utils/pages/VectorCalculatorPage";
 
 import { equalsAdd } from "@store/answer";
 
-const stedvektor: VectorCalculatorPage = {
-  type: "vector_calculator",
+export default new VectorCalculatorPage({
   title: "Stedvektor",
   SEOtitle: "Stedvektor beregner",
   description:
@@ -20,6 +18,4 @@ const stedvektor: VectorCalculatorPage = {
       });
     },
   },
-};
-
-export default stedvektor;
+});

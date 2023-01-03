@@ -1,11 +1,9 @@
 import { dotProd, frac, numMulVec, vecLenSq } from "@utils/TeX";
-
-import { VectorCalculatorPage } from "@interfaces/calculators";
+import VectorCalculatorPage from "@utils/pages/VectorCalculatorPage";
 
 import { equalsAdd } from "@store/answer";
 
-const projektion: VectorCalculatorPage = {
-  type: "vector_calculator",
+export default new VectorCalculatorPage({
   title: "Vektor-projektion",
   SEOtitle: "Projektion af vektor på vektor beregner",
   description:
@@ -29,6 +27,4 @@ const projektion: VectorCalculatorPage = {
       });
     },
   },
-};
-
-export default projektion;
+});

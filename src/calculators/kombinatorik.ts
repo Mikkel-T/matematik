@@ -1,11 +1,9 @@
 import { add, fac, frac, mul, na, par, pow, sub } from "@utils/TeX";
-
-import { BasicCalculatorPage } from "@interfaces/calculators";
+import BasicCalculatorPage from "@utils/pages/BasicCalculatorPage";
 
 import { textAdd } from "@store/answer";
 
-const kombinatorik: BasicCalculatorPage = {
-  type: "basic_calculator",
+export default new BasicCalculatorPage({
   title: "Kombinatorik stikprøver",
   SEOtitle: "Kombinatorik beregner",
   description:
@@ -54,6 +52,4 @@ const kombinatorik: BasicCalculatorPage = {
       });
     },
   },
-};
-
-export default kombinatorik;
+});

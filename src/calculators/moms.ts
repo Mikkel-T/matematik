@@ -1,11 +1,9 @@
 import { frac, mul, na } from "@utils/TeX";
-
-import { BasicCalculatorPage } from "@interfaces/calculators";
+import BasicCalculatorPage from "@utils/pages/BasicCalculatorPage";
 
 import { textAdd } from "@store/answer";
 
-const moms: BasicCalculatorPage = {
-  type: "basic_calculator",
+export default new BasicCalculatorPage({
   title: "Moms",
   SEOtitle: "Moms beregner",
   description: "En momsberegner der udregner en pris med og uden moms",
@@ -22,6 +20,4 @@ const moms: BasicCalculatorPage = {
       });
     },
   },
-};
-
-export default moms;
+});

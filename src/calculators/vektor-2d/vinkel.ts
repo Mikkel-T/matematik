@@ -1,11 +1,9 @@
 import { acos, ansDeg, dotProd, frac, mul, vecLen } from "@utils/TeX";
-
-import { VectorCalculatorPage } from "@interfaces/calculators";
+import VectorCalculatorPage from "@utils/pages/VectorCalculatorPage";
 
 import { equalsAdd } from "@store/answer";
 
-const vinkel: VectorCalculatorPage = {
-  type: "vector_calculator",
+export default new VectorCalculatorPage({
   title: "Vinkel mellem vektorer",
   SEOtitle: "Vinkel mellem vektorer beregner",
   description: "En vektorberegner der udregner vinklen mellem to vektorer",
@@ -32,6 +30,4 @@ const vinkel: VectorCalculatorPage = {
       });
     },
   },
-};
-
-export default vinkel;
+});

@@ -1,11 +1,9 @@
 import { mul, na, pmat } from "@utils/TeX";
-
-import { VectorCalculatorPage } from "@interfaces/calculators";
+import VectorCalculatorPage from "@utils/pages/VectorCalculatorPage";
 
 import { equalsAdd } from "@store/answer";
 
-const skalering: VectorCalculatorPage = {
-  type: "vector_calculator",
+export default new VectorCalculatorPage({
   title: "Vektor-skalering",
   SEOtitle: "Vektor-skalering beregner",
   description:
@@ -23,6 +21,4 @@ const skalering: VectorCalculatorPage = {
       });
     },
   },
-};
-
-export default skalering;
+});

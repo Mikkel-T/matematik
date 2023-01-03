@@ -1,11 +1,8 @@
-import { ListPage } from "@interfaces/calculators";
+import ListPage from "@utils/pages/ListPage";
 
-const procent: ListPage = {
-  type: "list",
+export default new ListPage({
   title: "Procent",
   pageTitle: "Procent beregnere",
   SEOtitle: "Procent beregnere",
   description: "En samling af procent beregnere",
-};
-
-export default procent;
+});

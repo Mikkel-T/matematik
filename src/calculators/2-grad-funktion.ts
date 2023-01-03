@@ -11,13 +11,11 @@ import {
   sub,
   text,
 } from "@utils/TeX";
-
-import { BasicCalculatorPage } from "@interfaces/calculators";
+import BasicCalculatorPage from "@utils/pages/BasicCalculatorPage";
 
 import { addAns } from "@store/answer";
 
-const funktion2Grad: BasicCalculatorPage = {
-  type: "basic_calculator",
+export default new BasicCalculatorPage({
   title: "2. gradsfunktion",
   SEOtitle: "2. gradsfunktion beregner",
   description:
@@ -79,6 +77,4 @@ const funktion2Grad: BasicCalculatorPage = {
       }
     },
   },
-};
-
-export default funktion2Grad;
+});

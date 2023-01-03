@@ -1,11 +1,9 @@
 import { add, frac, mul, na, par, sqrt, sub } from "@utils/TeX";
-
-import { BasicCalculatorPage } from "@interfaces/calculators";
+import BasicCalculatorPage from "@utils/pages/BasicCalculatorPage";
 
 import { addAns } from "@store/answer";
 
-const heron: BasicCalculatorPage = {
-  type: "basic_calculator",
+export default new BasicCalculatorPage({
   title: "Areal af trekant ud fra sidelængder",
   pageTitle: "Herons formel",
   SEOtitle: "Herons formel beregner",
@@ -44,6 +42,4 @@ const heron: BasicCalculatorPage = {
       });
     },
   },
-};
-
-export default heron;
+});

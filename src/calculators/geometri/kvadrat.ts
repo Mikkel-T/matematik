@@ -1,13 +1,11 @@
 import KvadratComponent from "@components/Calculators/Custom/Kvadrat.svelte";
 
 import { frac, mul, na, pow, sqrt, text } from "@utils/TeX";
-
-import { ShapeCalculatorPage } from "@interfaces/calculators";
+import ShapeCalculatorPage from "@utils/pages/ShapeCalculatorPage";
 
 import { shapeTextAdd } from "@store/shape";
 
-const kvadrat: ShapeCalculatorPage = {
-  type: "shape_calculator",
+export default new ShapeCalculatorPage({
   title: "Kvadrater",
   SEOtitle: "Kvadrat beregner",
   pageTitle: "Kvadrat beregner",
@@ -53,6 +51,4 @@ const kvadrat: ShapeCalculatorPage = {
       }
     },
   },
-};
-
-export default kvadrat;
+});

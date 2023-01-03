@@ -1,11 +1,9 @@
 import { na, pmat, sub } from "@utils/TeX";
-
-import { VectorCalculatorPage } from "@interfaces/calculators";
+import VectorCalculatorPage from "@utils/pages/VectorCalculatorPage";
 
 import { equalsAdd } from "@store/answer";
 
-const subtraktion: VectorCalculatorPage = {
-  type: "vector_calculator",
+export default new VectorCalculatorPage({
   title: "Subtraktion af vektorer",
   SEOtitle: "Vektor-differens beregner",
   description: "En vektorberegner der trækker to vektorer fra hinanden",
@@ -25,6 +23,4 @@ const subtraktion: VectorCalculatorPage = {
       });
     },
   },
-};
-
-export default subtraktion;
+});

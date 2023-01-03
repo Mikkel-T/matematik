@@ -1,10 +1,7 @@
-import { ListPage } from "@interfaces/calculators";
+import ListPage from "@utils/pages/ListPage";
 
-const index: ListPage = {
-  type: "list",
+export default new ListPage({
   title: "Beregnere",
   SEOtitle: "Matematik beregnere",
   description: "En samling af mange forskellige matematiske beregnere",
-};
-
-export default index;
+});

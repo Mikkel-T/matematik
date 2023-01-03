@@ -1,11 +1,9 @@
 import { add, mul, na, par, pow } from "@utils/TeX";
-
-import { BasicCalculatorPage } from "@interfaces/calculators";
+import BasicCalculatorPage from "@utils/pages/BasicCalculatorPage";
 
 import { equalsAdd } from "@store/answer";
 
-const renter: BasicCalculatorPage = {
-  type: "basic_calculator",
+export default new BasicCalculatorPage({
   title: "Renters rente",
   SEOtitle: "Renters rente beregner",
   description:
@@ -26,6 +24,4 @@ const renter: BasicCalculatorPage = {
       });
     },
   },
-};
-
-export default renter;
+});

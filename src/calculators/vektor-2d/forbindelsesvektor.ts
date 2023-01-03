@@ -1,11 +1,9 @@
 import { na, pmat, sub } from "@utils/TeX";
-
-import { VectorCalculatorPage } from "@interfaces/calculators";
+import VectorCalculatorPage from "@utils/pages/VectorCalculatorPage";
 
 import { equalsAdd } from "@store/answer";
 
-const forbindelsesvektor: VectorCalculatorPage = {
-  type: "vector_calculator",
+export default new VectorCalculatorPage({
   title: "Forbindelsesvektor",
   SEOtitle: "Forbindelsesvektor beregner",
   description:
@@ -26,6 +24,4 @@ const forbindelsesvektor: VectorCalculatorPage = {
       });
     },
   },
-};
-
-export default forbindelsesvektor;
+});

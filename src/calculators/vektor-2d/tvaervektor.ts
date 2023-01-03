@@ -1,11 +1,9 @@
 import { na, neg, omitCalc, pmat } from "@utils/TeX";
-
-import { VectorCalculatorPage } from "@interfaces/calculators";
+import VectorCalculatorPage from "@utils/pages/VectorCalculatorPage";
 
 import { equalsAdd } from "@store/answer";
 
-const tvaervektor: VectorCalculatorPage = {
-  type: "vector_calculator",
+export default new VectorCalculatorPage({
   title: "Tværvektor",
   SEOtitle: "Tværvektor beregner",
   description:
@@ -20,6 +18,4 @@ const tvaervektor: VectorCalculatorPage = {
       });
     },
   },
-};
-
-export default tvaervektor;
+});

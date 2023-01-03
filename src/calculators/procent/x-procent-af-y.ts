@@ -1,11 +1,9 @@
 import { frac, mul, na, omitEq } from "@utils/TeX";
-
-import { PercentCalculatorPage } from "@interfaces/calculators";
+import PercentCalculatorPage from "@utils/pages/PercentCalculatorPage";
 
 import { hideAdd } from "@store/answer";
 
-const xProcentAfY: PercentCalculatorPage = {
-  type: "percent_calculator",
+export default new PercentCalculatorPage({
   title: "Hvad er x procent af y",
   description:
     "En procent beregner der udregner hvilken andel en procent er af et tal",
@@ -18,6 +16,4 @@ const xProcentAfY: PercentCalculatorPage = {
     },
     text: "Hvad er :input_x: procent af :input_y:",
   },
-};
-
-export default xProcentAfY;
+});

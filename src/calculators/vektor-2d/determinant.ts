@@ -1,11 +1,9 @@
 import { mul, na, sub } from "@utils/TeX";
-
-import { VectorCalculatorPage } from "@interfaces/calculators";
+import VectorCalculatorPage from "@utils/pages/VectorCalculatorPage";
 
 import { equalsAdd } from "@store/answer";
 
-const determinant: VectorCalculatorPage = {
-  type: "vector_calculator",
+export default new VectorCalculatorPage({
   title: "Determinant",
   SEOtitle: "Determinant beregner",
   description: "En vektorberegner der udregner determinanten af to vektorer",
@@ -25,6 +23,4 @@ const determinant: VectorCalculatorPage = {
       });
     },
   },
-};
-
-export default determinant;
+});

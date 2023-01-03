@@ -1,13 +1,11 @@
 import CirkelComponent from "@components/Calculators/Custom/Cirkel.svelte";
 
 import { bpar, frac, mul, na, pi, pow, sqrt, text } from "@utils/TeX";
-
-import { ShapeCalculatorPage } from "@interfaces/calculators";
+import ShapeCalculatorPage from "@utils/pages/ShapeCalculatorPage";
 
 import { shapeTextAdd } from "@store/shape";
 
-const cirkel: ShapeCalculatorPage = {
-  type: "shape_calculator",
+export default new ShapeCalculatorPage({
   title: "Cirkler",
   SEOtitle: "Cirkel beregner",
   pageTitle: "Cirkel beregner",
@@ -61,6 +59,4 @@ const cirkel: ShapeCalculatorPage = {
       }
     },
   },
-};
-
-export default cirkel;
+});

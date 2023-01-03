@@ -1,11 +1,9 @@
 import { frac, mul, na, sub } from "@utils/TeX";
-
-import { BasicCalculatorPage } from "@interfaces/calculators";
+import BasicCalculatorPage from "@utils/pages/BasicCalculatorPage";
 
 import { equalsAdd, textAdd } from "@store/answer";
 
-const funktion1Grad: BasicCalculatorPage = {
-  type: "basic_calculator",
+export default new BasicCalculatorPage({
   title: "1. gradsfunktion",
   SEOtitle: "Funktionsforskrift for en 1. gradsfunktion",
   description:
@@ -73,6 +71,4 @@ const funktion1Grad: BasicCalculatorPage = {
       ({ x2, y2 }) => `Punkt 2: $(${x2 || 0}, ${y2 || 0})$`,
     ],
   },
-};
-
-export default funktion1Grad;
+});

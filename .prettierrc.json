@@ -7,7 +7,6 @@
     "^@components/(.*)$",
     "^layout:(.*)$",
     "^@utils/(.*)$",
-    "^@interfaces/(.*)$",
     "^@math/(.*)$",
     "^@styles/(.*)$",
     "^@event/(.*)$",

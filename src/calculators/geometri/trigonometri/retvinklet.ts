@@ -1,6 +1,7 @@
 import TrigonometriComponent from "@components/Calculators/Custom/Trigonometri/Retvinklet.svelte";
 
 import { frac, mul, na, text } from "@utils/TeX";
+import ShapeCalculatorPage from "@utils/pages/ShapeCalculatorPage";
 import {
   angleCalc,
   fracCalc,
@@ -9,13 +10,10 @@ import {
   sqrtCalc,
 } from "@utils/trig";
 
-import { ShapeCalculatorPage } from "@interfaces/calculators";
-
 import { addAns, sort } from "@store/answer";
 import { getAnswer, shapeAddAns, shapeTextAdd } from "@store/shape";
 
-const trigonometriRetvinklet: ShapeCalculatorPage = {
-  type: "shape_calculator",
+export default new ShapeCalculatorPage({
   title: "Trigonometri i retvinklede trekanter",
   description:
     "En trigonometri beregner der udregner alle sider og vinkler i en retvinklet trekant ved hjælp af trigonometri og pythagoras",
@@ -102,6 +100,4 @@ const trigonometriRetvinklet: ShapeCalculatorPage = {
       });
     },
   },
-};
-
-export default trigonometriRetvinklet;
+});

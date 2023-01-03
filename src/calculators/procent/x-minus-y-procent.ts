@@ -1,11 +1,9 @@
 import { frac, mul, na, omitEq, par, sub } from "@utils/TeX";
-
-import { PercentCalculatorPage } from "@interfaces/calculators";
+import PercentCalculatorPage from "@utils/pages/PercentCalculatorPage";
 
 import { hideAdd } from "@store/answer";
 
-const xMinusYProcent: PercentCalculatorPage = {
-  type: "percent_calculator",
+export default new PercentCalculatorPage({
   title: "Hvad er x minus y procent",
   description: "En procent beregner der udregner et tal minus en procentdel",
   calculator: {
@@ -17,6 +15,4 @@ const xMinusYProcent: PercentCalculatorPage = {
     },
     text: "Hvad er :input_x: minus :input_y: procent",
   },
-};
-
-export default xMinusYProcent;
+});

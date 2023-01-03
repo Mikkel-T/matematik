@@ -1,11 +1,9 @@
 import { add, na, pow, sqrt } from "@utils/TeX";
-
-import { VectorCalculatorPage } from "@interfaces/calculators";
+import VectorCalculatorPage from "@utils/pages/VectorCalculatorPage";
 
 import { equalsAdd } from "@store/answer";
 
-const vektorLen: VectorCalculatorPage = {
-  type: "vector_calculator",
+export default new VectorCalculatorPage({
   title: "Vektor-længde",
   SEOtitle: "Vektor-længde beregner",
   description: "En vektorberegner der udregner længden af en vektor",
@@ -19,6 +17,4 @@ const vektorLen: VectorCalculatorPage = {
       });
     },
   },
-};
-
-export default vektorLen;
+});

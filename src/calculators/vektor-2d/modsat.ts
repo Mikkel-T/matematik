@@ -1,11 +1,9 @@
 import { na, neg, pmat } from "@utils/TeX";
-
-import { VectorCalculatorPage } from "@interfaces/calculators";
+import VectorCalculatorPage from "@utils/pages/VectorCalculatorPage";
 
 import { equalsAdd } from "@store/answer";
 
-const modsat: VectorCalculatorPage = {
-  type: "vector_calculator",
+export default new VectorCalculatorPage({
   title: "Modsat vektor",
   SEOtitle: "Modsat vektor beregner",
   description:
@@ -20,6 +18,4 @@ const modsat: VectorCalculatorPage = {
       });
     },
   },
-};
-
-export default modsat;
+});

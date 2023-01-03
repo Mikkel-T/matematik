@@ -1,11 +1,9 @@
 import { add, mul, na } from "@utils/TeX";
-
-import { VectorCalculatorPage } from "@interfaces/calculators";
+import VectorCalculatorPage from "@utils/pages/VectorCalculatorPage";
 
 import { equalsAdd } from "@store/answer";
 
-const skalarprodukt: VectorCalculatorPage = {
-  type: "vector_calculator",
+export default new VectorCalculatorPage({
   title: "Skalarprodukt",
   SEOtitle: "Skalarprodukt beregner",
   description:
@@ -26,6 +24,4 @@ const skalarprodukt: VectorCalculatorPage = {
       });
     },
   },
-};
-
-export default skalarprodukt;
+});
