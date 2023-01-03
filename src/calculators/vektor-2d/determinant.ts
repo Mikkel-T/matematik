@@ -1,3 +1,5 @@
+import { mul, n, sub } from "@utils/TeX";
+
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
 import { equalsAdd } from "@store/answer";
@@ -16,9 +18,10 @@ const determinant: VectorCalculatorPage = {
     calculate({ a1, a2, b1, b2 }) {
       equalsAdd({
         name: "\\det(\\vec{a} , \\vec{b})",
-        answer: a1 * b2 - a2 * b1,
-        calculation: `${a1} \\cdot ${b2} - ${a2} \\cdot ${b1}`,
-        equation: "a_{1} \\cdot b_{2} - a_{2} \\cdot b_{1}",
+        ...sub(
+          mul(n(a1, "a_1"), n(b2, "b_2")),
+          mul(n(a2, "a_2"), n(b1, "b_1"))
+        ),
       });
     },
   },

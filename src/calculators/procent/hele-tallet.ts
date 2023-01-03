@@ -1,3 +1,5 @@
+import { frac, mul, n, pct } from "@utils/TeX";
+
 import { PercentCalculatorPage } from "@interfaces/calculators";
 
 import { hideAdd } from "@store/answer";
@@ -11,8 +13,8 @@ const heleTallet: PercentCalculatorPage = {
     calculate({ x, y }) {
       hideAdd({
         name: "Svar",
-        calculation: `\\frac{${y}}{${x}\\%} \\cdot 100\\%`,
-        answer: (y / x) * 100,
+        ...mul(frac(n(y, "y"), pct(n(x, "x"))), pct(n(100, "100"))),
+        equation: undefined,
       });
     },
     text: "Beregn hele tallet når :input_x: procent er :input_y:",

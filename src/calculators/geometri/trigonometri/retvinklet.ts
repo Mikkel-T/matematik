@@ -11,7 +11,7 @@ import {
 
 import { ShapeCalculatorPage } from "@interfaces/calculators";
 
-import { add, sort } from "@store/answer";
+import { addAns, sort } from "@store/answer";
 import { answer, getAnswer } from "@store/shape";
 
 const trigonometriRetvinklet: ShapeCalculatorPage = {
@@ -42,7 +42,7 @@ const trigonometriRetvinklet: ShapeCalculatorPage = {
 
       for (const key of keys) {
         answer.setKey(key, vals[key]);
-        add({
+        addAns({
           name: key,
           calculation: text(`${vals[key]} blev indtastet`),
           equation: text(`${key} blev indtastet`),
@@ -87,7 +87,7 @@ const trigonometriRetvinklet: ShapeCalculatorPage = {
         multiplyCalc({ key: "b", first: "c", func: "sin", second: "B", vals });
       }
 
-      add({
+      addAns({
         name: "C",
         nameDisplay: "hide",
         calculation: "C" + text(" er altid ") + "90^{\\circ}",
@@ -95,7 +95,7 @@ const trigonometriRetvinklet: ShapeCalculatorPage = {
       sort();
 
       answer.setKey("Areal", 0.5 * getAnswer("a") * getAnswer("b"));
-      add({
+      addAns({
         name: text("Areal"),
         calculation: `\\frac{1}{2} \\cdot ${getAnswer("a")} \\cdot ${getAnswer(
           "b"

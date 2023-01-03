@@ -16,21 +16,21 @@
     {#if $answer.filter((i) => i[title])[0]}
       <div class="mt-2 mb-1 text-lg font-bold">{titles[title].title}:</div>
       {#each $answer as ans}
-        {#if Object.hasOwnProperty.call(ans, title)}
+        {#if Object.hasOwnProperty.call(ans, title) && ans[title]}
           <div>
             {#if ans.nameDisplay === "equals"}
               <KaTeX math="{ans.name} = {ans[title]}" />
             {:else if ans.nameDisplay === "hide"}
-              <KaTeX math={ans[title].toString()} />
+              <KaTeX math={ans[title]} />
             {:else if ans.nameDisplay === "text"}
-              {ans.name}: <KaTeX math={ans[title].toString()} />
+              {ans.name}: <KaTeX math={ans[title]} />
             {:else}
-              <KaTeX math={ans.name} /> : <KaTeX math={ans[title].toString()} />
+              <KaTeX math={ans.name} /> : <KaTeX math={ans[title]} />
             {/if}
             <Clipboard
               text={ans.nameDisplay === "equals"
                 ? `${ans.name} = ${ans[title]}`
-                : ans[title].toString()}
+                : ans[title]}
               message="Kopierede {titles[title].copyText}"
             >
               <MdiContentCopy class="icon mb-1 inline-block h-5 w-5" />

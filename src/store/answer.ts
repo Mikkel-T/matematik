@@ -20,29 +20,33 @@ export interface AnswerType {
 
 export const answer = atom<AnswerType[]>([]);
 
-export function add(ans: AnswerType) {
-  answer.set([...answer.get(), ans]);
+export function addAns(ans: AnswerType) {
+  const a = { ...ans };
+  if (Object.hasOwnProperty.call(a, "answer") && typeof a.answer === "number") {
+    a.answer = a.answer.toString();
+  }
+  answer.set([...answer.get(), a]);
 }
 
 /**
  * The add function but with nameDisplay set to "text"
  */
 export function textAdd(ans: Except<AnswerType, "nameDisplay">) {
-  add({ ...ans, nameDisplay: "text" });
+  addAns({ ...ans, nameDisplay: "text" });
 }
 
 /**
  * The add function but with nameDisplay set to "hide"
  */
 export function hideAdd(ans: Except<AnswerType, "nameDisplay">) {
-  add({ ...ans, nameDisplay: "hide" });
+  addAns({ ...ans, nameDisplay: "hide" });
 }
 
 /**
  * The add function but with nameDisplay set to "equals"
  */
 export function equalsAdd(ans: Except<AnswerType, "nameDisplay">) {
-  add({ ...ans, nameDisplay: "equals" });
+  addAns({ ...ans, nameDisplay: "equals" });
 }
 
 export function reset() {

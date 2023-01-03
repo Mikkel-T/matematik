@@ -1,3 +1,5 @@
+import { n, pmat, sub } from "@utils/TeX";
+
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
 import { equalsAdd } from "@store/answer";
@@ -16,9 +18,10 @@ const subtraktion: VectorCalculatorPage = {
     calculate({ a1, a2, b1, b2 }) {
       equalsAdd({
         name: "\\vec{a} - \\vec{b}",
-        answer: `\\begin{pmatrix}${a1 - b1}\\\\${a2 - b2}\\end{pmatrix}`,
-        calculation: `\\begin{pmatrix}${a1} - ${b1}\\\\${a2} - ${b2}\\end{pmatrix}`,
-        equation: "\\begin{pmatrix}a_1 - b_1\\\\a_2 - b_2\\end{pmatrix}",
+        ...pmat(
+          sub(n(a1, "a_1"), n(b1, "b_1")),
+          sub(n(a2, "a_2"), n(b2, "b_2"))
+        ),
       });
     },
   },

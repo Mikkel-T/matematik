@@ -1,6 +1,8 @@
+import { add, frac, mul, n, par, sqrt, sub } from "@utils/TeX";
+
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { addAns } from "@store/answer";
 
 const heron: BasicCalculatorPage = {
   type: "basic_calculator",
@@ -22,19 +24,23 @@ const heron: BasicCalculatorPage = {
 
       const s = {
         name: "s",
-        answer: (a + b + c) / 2,
-        calculation: `\\frac{${a} + ${b} + ${c}}{2}`,
-        equation: "\\frac{a + b + c}{2}",
+        ...frac(add(add(n(a, "a"), n(b, "b")), n(c, "c")), n(2, "2")),
       };
-      add(s);
-      add({
+      addAns(s);
+
+      const sn = n(s.answer, "s");
+      addAns({
         name: "Areal",
         nameDisplay: "text",
-        answer: Math.sqrt(
-          s.answer * (s.answer - a) * (s.answer - b) * (s.answer - c)
+        ...sqrt(
+          mul(
+            sn,
+            mul(
+              par(sub(sn, n(a, "a"))),
+              mul(par(sub(sn, n(b, "b"))), par(sub(sn, n(c, "c"))))
+            )
+          )
         ),
-        calculation: `\\sqrt{${s.answer} \\cdot (${s.answer} - ${a}) \\cdot (${s.answer} - ${b}) \\cdot (${s.answer} - ${c})}`,
-        equation: "\\sqrt{s \\cdot (s - a) \\cdot (s - b) \\cdot (s - c)}",
       });
     },
   },

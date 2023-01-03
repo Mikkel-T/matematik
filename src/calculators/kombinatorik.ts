@@ -1,6 +1,6 @@
-import { BasicCalculatorPage } from "@interfaces/calculators";
+import { add, fac, frac, mul, par, n as pn, pow, sub } from "@utils/TeX";
 
-import { factorial } from "@math/factorial";
+import { BasicCalculatorPage } from "@interfaces/calculators";
 
 import { textAdd } from "@store/answer";
 
@@ -32,27 +32,25 @@ const kombinatorik: BasicCalculatorPage = {
 
       textAdd({
         name: "Ordnet med tilbagelægning",
-        answer: n ** p,
-        calculation: `${n}^{${p}}`,
-        equation: "n^p",
+        ...pow(pn(n, "n"), pn(p, "p")),
       });
       textAdd({
         name: "Ordnet uden tilbagelægning",
-        answer: factorial(n) / factorial(n - p),
-        calculation: `\\frac{${n}!}{(${n} - ${p})!}`,
-        equation: "\\frac{n!}{(n - p)!}",
+        ...frac(fac(pn(n, "n")), fac(par(sub(pn(n, "n"), pn(p, "p"))))),
       });
       textAdd({
         name: "Uordnet med tilbagelægning",
-        answer: factorial(n + p - 1) / (factorial(n - 1) * factorial(p)),
-        calculation: `\\frac{(${n} + ${p} - 1)!}{(${n} - 1)! \\cdot ${p}!}`,
-        equation: "\\frac{(n + p - 1)!}{(n - 1)! \\cdot p!}",
+        ...frac(
+          fac(par(add(pn(n, "n"), sub(pn(p, "p"), pn(1, "1"))))),
+          mul(fac(par(sub(pn(n, "n"), pn(1, "1")))), fac(pn(p, "p")))
+        ),
       });
       textAdd({
         name: "Uordnet uden tilbagelægning",
-        answer: factorial(n) / (factorial(n - p) * factorial(p)),
-        calculation: `\\frac{${n}!}{(${n} - ${p})! \\cdot ${p}!}`,
-        equation: "\\frac{n!}{(n - p)! \\cdot p!}",
+        ...frac(
+          fac(pn(n, "n")),
+          mul(fac(par(sub(pn(n, "n"), pn(p, "p")))), fac(pn(p, "p")))
+        ),
       });
     },
   },

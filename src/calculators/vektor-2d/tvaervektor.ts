@@ -1,3 +1,5 @@
+import { n, neg, pmat } from "@utils/TeX";
+
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
 import { equalsAdd } from "@store/answer";
@@ -14,8 +16,8 @@ const tvaervektor: VectorCalculatorPage = {
     calculate({ a1, a2 }) {
       equalsAdd({
         name: "\\hat{a}",
-        answer: `\\begin{pmatrix}${-a2}\\\\${a1}\\end{pmatrix}`,
-        equation: "\\begin{pmatrix}-a_2\\\\a_1\\end{pmatrix}",
+        ...pmat(neg(n(a2, "a_2")), n(a1, "a_1")),
+        calculation: undefined,
       });
     },
   },

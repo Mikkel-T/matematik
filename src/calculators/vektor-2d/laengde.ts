@@ -1,3 +1,5 @@
+import { add, n, pow, sqrt } from "@utils/TeX";
+
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
 import { equalsAdd } from "@store/answer";
@@ -13,9 +15,9 @@ const vektorLen: VectorCalculatorPage = {
     calculate({ a1, a2 }) {
       equalsAdd({
         name: "|\\vec{a}|",
-        answer: Math.sqrt(a1 ** 2 + a2 ** 2),
-        calculation: `\\sqrt{${a1}^2 + ${a2}^2}`,
-        equation: "\\sqrt{a_1^2 + a_2^2}",
+        ...sqrt(
+          add(pow(n(a1, "a_1"), n(2, "2")), pow(n(a2, "a_2"), n(2, "2")))
+        ),
       });
     },
   },

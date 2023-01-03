@@ -1,3 +1,5 @@
+import { add, mul, n } from "@utils/TeX";
+
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
 import { equalsAdd } from "@store/answer";
@@ -17,9 +19,10 @@ const skalarprodukt: VectorCalculatorPage = {
     calculate({ a1, a2, b1, b2 }) {
       equalsAdd({
         name: "\\vec{a} \\bullet \\vec{b}",
-        answer: a1 * b1 + a2 * b2,
-        calculation: `${a1} \\cdot ${b1} + ${a2} \\cdot ${b2}`,
-        equation: "a_{1} \\cdot b_{1} + a_{2} \\cdot b_{2}",
+        ...add(
+          mul(n(a1, "a_1"), n(b1, "b_1")),
+          mul(n(a2, "a_2"), n(b2, "b_2"))
+        ),
       });
     },
   },

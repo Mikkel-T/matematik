@@ -1,6 +1,6 @@
 import KvadratComponent from "@components/Calculators/Custom/Kvadrat.svelte";
 
-import { text } from "@utils/TeX";
+import { frac, mul, n, pow, sqrt, text } from "@utils/TeX";
 
 import { ShapeCalculatorPage } from "@interfaces/calculators";
 
@@ -26,67 +26,39 @@ const kvadrat: ShapeCalculatorPage = {
           equation: text(`${key} blev indtastet`),
         });
 
-        let sideTmp;
+        let s;
         if (key === "Side") {
-          sideTmp = {
-            answer: vals.Side,
-            calculation: vals.Side,
-            equation: "Side",
-          };
+          s = n(vals.Side, "Side");
         }
         if (key === "Diagonal") {
-          sideTmp = {
-            answer: vals.Diagonal / Math.sqrt(2),
-            calculation: `\\frac{${vals.Diagonal}}{\\sqrt{2}}`,
-            equation: "\\frac{Diagonal}{\\sqrt{2}}",
-          };
+          s = frac(n(vals.Diagonal, "Diagonal"), sqrt(n(2, "2")));
         }
         if (key === "Omkreds") {
-          sideTmp = {
-            answer: vals.Omkreds / 4,
-            calculation: `\\frac{${vals.Omkreds}}{4}`,
-            equation: "\\frac{Omkreds}{4}",
-          };
+          s = frac(n(vals.Omkreds, "Omkreds"), n(4, "4"));
         }
         if (key === "Areal") {
-          sideTmp = {
-            answer: Math.sqrt(vals.Areal),
-            calculation: `\\sqrt{${vals.Areal}}`,
-            equation: "\\sqrt{Areal}",
-          };
+          s = sqrt(n(vals.Areal, "Areal"));
         }
 
         if (key !== "Side") {
-          answer.setKey("Side", sideTmp.answer);
-          textAdd({
-            name: "Side",
-            calculation: sideTmp.calculation,
-            equation: sideTmp.equation,
-          });
+          const { answer: a, calculation, equation } = s;
+          answer.setKey("Side", a);
+          textAdd({ name: "Side", calculation, equation });
         }
         if (key !== "Diagonal") {
-          answer.setKey("Diagonal", sideTmp.answer * Math.sqrt(2));
-          textAdd({
-            name: "Diagonal",
-            calculation: `${sideTmp.calculation} \\cdot \\sqrt{2}`,
-            equation: `${sideTmp.equation} \\cdot \\sqrt{2}`,
-          });
+          const { answer: a, calculation, equation } = mul(s, sqrt(n(2, "2")));
+          answer.setKey("Diagonal", a);
+          textAdd({ name: "Diagonal", calculation, equation });
         }
         if (key !== "Omkreds") {
-          answer.setKey("Omkreds", sideTmp.answer * 4);
-          textAdd({
-            name: "Omkreds",
-            calculation: `${sideTmp.calculation} \\cdot 4`,
-            equation: `${sideTmp.equation} \\cdot 4`,
-          });
+          const { answer: a, calculation, equation } = mul(s, n(4, "4"));
+          answer.setKey("Omkreds", a);
+          textAdd({ name: "Omkreds", calculation, equation });
         }
         if (key !== "Areal") {
-          answer.setKey("Areal", sideTmp.answer ** 2);
-          textAdd({
-            name: "Areal",
-            calculation: `${sideTmp.calculation}^{2}`,
-            equation: `${sideTmp.equation}^{2}`,
-          });
+          const { answer: a, calculation, equation } = pow(s, n(2, "2"));
+          answer.setKey("Areal", a);
+          textAdd({ name: "Areal", calculation, equation });
         }
       }
     },

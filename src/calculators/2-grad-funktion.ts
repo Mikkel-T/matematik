@@ -1,8 +1,19 @@
-import { coord, text } from "@utils/TeX";
+import {
+  add,
+  coord,
+  frac,
+  mul,
+  n,
+  neg,
+  pow,
+  sqrt,
+  sub,
+  text,
+} from "@utils/TeX";
 
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
-import { add } from "@store/answer";
+import { addAns } from "@store/answer";
 
 const funktion2Grad: BasicCalculatorPage = {
   type: "basic_calculator",
@@ -23,51 +34,50 @@ const funktion2Grad: BasicCalculatorPage = {
 
       const d = {
         name: "d",
-        answer: b ** 2 - 4 * a * c,
-        calculation: `${b}^{2} - 4 \\cdot ${a} \\cdot ${c}`,
-        equation: "b^{2} - 4 \\cdot a \\cdot c",
+        ...sub(
+          pow(n(b, "b"), n(2, "2")),
+          mul(n(4, "4"), mul(n(a, "a"), n(c, "c")))
+        ),
       };
-      add(d);
+      addAns(d);
 
-      const Tp = {
+      addAns({
         name: "Tp",
-        answer: coord(-b / (2 * a), -d.answer / (4 * a)),
-        calculation: `\\left(\\frac{-${b}}{2 \\cdot ${a}}, \\frac{-${d.answer}}{4 \\cdot ${a}} \\right)`,
-        equation:
-          "\\left(\\frac{-b}{2 \\cdot a}, \\frac{-d}{4 \\cdot a} \\right)",
-      };
-      add(Tp);
+        ...coord(
+          frac(neg(n(b, "b")), mul(n(2, "2"), n(a, "a"))),
+          frac(neg(n(d.answer, "d")), mul(n(4, "4"), n(a, "a")))
+        ),
+      });
 
       if (d.answer < 0) {
-        add({
+        addAns({
           answer: text("Der er ikke nogen nulpunkter da d er under 0"),
           name: "Np",
         });
       } else if (d.answer === 0) {
-        add({
+        addAns({
           name: "Np",
-          answer: coord(-b / (2 * a), 0),
-          calculation: `\\left(\\frac{-${b}}{2 \\cdot ${a}}, 0 \\right)`,
-          equation: "\\left(\\frac{-b}{2 \\cdot a}, 0 \\right)",
+          ...coord(frac(neg(n(b, "b")), mul(n(2, "2"), n(a, "a"))), n(0, "0")),
         });
       } else {
-        add({
-          name: "Np",
-          answer: `${coord(
-            (-b + Math.sqrt(d.answer)) / (2 * a),
-            0
-          )} ~\\&~ ${coord((-b - Math.sqrt(d.answer)) / (2 * a), 0)}`,
-        });
-        add({
-          name: "Np_1",
-          calculation: `\\left(\\frac{-${b} + \\sqrt{${d.answer}}}{2 \\cdot ${a}}, 0 \\right)`,
-          equation: "\\left(\\frac{-b + \\sqrt{d}}{2 \\cdot a}, 0 \\right)",
-        });
-        add({
-          name: "Np_2",
-          calculation: `\\left(\\frac{-${b} - \\sqrt{${d.answer}}}{2 \\cdot ${a}}, 0 \\right)`,
-          equation: "\\left(\\frac{-b - \\sqrt{d}}{2 \\cdot a}, 0 \\right)",
-        });
+        const Np1 = coord(
+          frac(
+            add(neg(n(b, "b")), sqrt(n(d.answer, "d"))),
+            mul(n(2, "2"), n(a, "a"))
+          ),
+          n(0, "0")
+        );
+        const Np2 = coord(
+          frac(
+            sub(neg(n(b, "b")), sqrt(n(d.answer, "d"))),
+            mul(n(2, "2"), n(a, "a"))
+          ),
+          n(0, "0")
+        );
+
+        addAns({ name: "Np", answer: `${Np1.answer} ~\\&~ ${Np2.answer}` });
+        addAns({ name: "Np_1", ...Np1, answer: undefined });
+        addAns({ name: "Np_2", ...Np2, answer: undefined });
       }
     },
   },

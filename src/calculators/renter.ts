@@ -1,3 +1,5 @@
+import { add, mul, par, n as pn, pow } from "@utils/TeX";
+
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
 import { equalsAdd } from "@store/answer";
@@ -20,9 +22,7 @@ const renter: BasicCalculatorPage = {
     calculate({ K, r, n }) {
       equalsAdd({
         name: "K_n",
-        answer: K * Math.pow(1 + r, n),
-        calculation: `${K} \\cdot (1 + ${r})^{${n}}`,
-        equation: "K \\cdot (1 + r)^{n}",
+        ...mul(pn(K, "K"), pow(par(add(pn(1, "1"), pn(r, "r"))), pn(n, "n"))),
       });
     },
   },

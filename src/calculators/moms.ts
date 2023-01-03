@@ -1,3 +1,5 @@
+import { frac, mul, n } from "@utils/TeX";
+
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
 import { textAdd } from "@store/answer";
@@ -12,15 +14,11 @@ const moms: BasicCalculatorPage = {
     calculate({ Pris }) {
       textAdd({
         name: "Pris med moms",
-        answer: Pris * 1.25,
-        calculation: `${Pris} \\cdot 1,25`,
-        equation: "Pris \\cdot 1,25",
+        ...mul(n(Pris, "Pris"), n(1.25, "1.25")),
       });
       textAdd({
         name: "Pris uden moms",
-        answer: Pris / 1.25,
-        calculation: `\\frac{${Pris}}{1,25}`,
-        equation: "\\frac{Pris}{1,25}",
+        ...frac(n(Pris, "Pris"), n(1.25, "1.25")),
       });
     },
   },

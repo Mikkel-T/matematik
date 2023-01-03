@@ -1,3 +1,5 @@
+import { frac, mul, n, sub } from "@utils/TeX";
+
 import { BasicCalculatorPage } from "@interfaces/calculators";
 
 import { equalsAdd, textAdd } from "@store/answer";
@@ -24,16 +26,15 @@ const funktion1Grad: BasicCalculatorPage = {
 
       const a = {
         name: "a",
-        answer: (y2 - y1) / (x2 - x1),
-        calculation: `\\frac{${y2} - ${y1}}{${x2} - ${x1}}`,
-        equation: "\\frac{y_2 - y_1}{x_2 - x_1}",
+        ...frac(
+          sub(n(y2, "y_2"), n(y1, "y_1")),
+          sub(n(x2, "x_2"), n(x1, "x_1"))
+        ),
       };
 
       const b = {
         name: "b",
-        answer: y1 - x1 * a.answer,
-        calculation: `${y1} - ${x1} \\cdot ${a.answer}`,
-        equation: "y_1 - x_1 \\cdot a",
+        ...sub(n(y1, "y_1"), mul(n(x1, "x_1"), n(a.answer, "a"))),
       };
 
       let fa;

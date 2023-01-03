@@ -1,3 +1,5 @@
+import { frac, mul, n } from "@utils/TeX";
+
 import { PercentCalculatorPage } from "@interfaces/calculators";
 
 import { hideAdd } from "@store/answer";
@@ -11,8 +13,8 @@ const xProcentAfY: PercentCalculatorPage = {
     calculate({ x, y }) {
       hideAdd({
         name: "Svar",
-        calculation: `${y} \\cdot \\frac{${x}}{100}`,
-        answer: (x * y) / 100,
+        ...frac(mul(n(y, "y"), n(x, "x")), n(100, "100")),
+        equation: undefined,
       });
     },
     text: "Hvad er :input_x: procent af :input_y:",

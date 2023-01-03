@@ -1,3 +1,5 @@
+import { n, pmat } from "@utils/TeX";
+
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
 import { equalsAdd } from "@store/answer";
@@ -14,8 +16,8 @@ const stedvektor: VectorCalculatorPage = {
     calculate({ P1, P2 }) {
       equalsAdd({
         name: "\\vec{OP}",
-        answer: `\\begin{pmatrix}${P1}\\\\${P2}\\end{pmatrix}`,
-        equation: "\\begin{pmatrix}p_1\\\\p_2\\end{pmatrix}",
+        ...pmat(n(P1, "p_1"), n(P2, "p_2")),
+        calculation: undefined,
       });
     },
   },

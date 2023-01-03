@@ -1,3 +1,5 @@
+import { n, pmat, sub } from "@utils/TeX";
+
 import { VectorCalculatorPage } from "@interfaces/calculators";
 
 import { equalsAdd } from "@store/answer";
@@ -17,10 +19,10 @@ const forbindelsesvektor: VectorCalculatorPage = {
     calculate({ A1, A2, B1, B2 }) {
       equalsAdd({
         name: "\\vec{AB}",
-        answer: `\\begin{pmatrix}${B1 - A1}\\\\${B2 - A2}\\end{pmatrix}`,
-        calculation: `\\begin{pmatrix}${B1} - ${A1}\\\\ ${B2} - ${A2}\\end{pmatrix}`,
-        equation:
-          "\\begin{pmatrix}b_{1} - a_{1}\\\\ b_{2} - a_{2}\\end{pmatrix}",
+        ...pmat(
+          sub(n(B1, "b_1"), n(A1, "a_1")),
+          sub(n(B2, "b_2"), n(A2, "a_2"))
+        ),
       });
     },
   },
