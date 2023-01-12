@@ -17,7 +17,7 @@ export interface FinalAns {
  */
 export const na = (num: number, name?: string): Ans => ({
   answer: num,
-  calculation: num.toString(),
+  calculation: num < 0 ? `(${num.toString()})` : num.toString(),
   equation: name || num.toString(),
 });
 
