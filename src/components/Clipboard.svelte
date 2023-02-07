@@ -10,6 +10,6 @@
   }
 </script>
 
-<span on:click={onCopy} class="cursor-pointer select-none">
+<button on:click={onCopy} class="inline cursor-pointer select-none">
   <slot />
-</span>
+</button>

@@ -17,7 +17,7 @@
   }
 </script>
 
-<div
+<button
   on:click={changeTheme}
   class="group absolute right-0 m-2 ml-2 inline-flex h-6 w-12 items-center rounded-full bg-dracula-blue-500 transition-opacity duration-300 ease-in"
   class:opacity-0={!theme}
@@ -34,4 +34,4 @@
   <PhMoonFill
     class="icon absolute h-5 w-5 translate-x-[1.65rem] text-dracula-darker-800 transition-colors duration-300 dark:text-dracula-orange-300"
   />
-</div>
+</button>
