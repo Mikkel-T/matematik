@@ -1,6 +1,8 @@
 import { atom } from "nanostores";
 import type { Except } from "type-fest";
 
+import { round } from "@utils/number";
+
 export interface AnswerType {
   name: string;
 
@@ -22,9 +24,11 @@ export const answer = atom<AnswerType[]>([]);
 
 export function addAns(ans: AnswerType) {
   const a = { ...ans };
+
   if (Object.hasOwnProperty.call(a, "answer") && typeof a.answer === "number") {
-    a.answer = a.answer.toString();
+    a.answer = round(a.answer).toString();
   }
+
   answer.set([...answer.get(), a]);
 }
 

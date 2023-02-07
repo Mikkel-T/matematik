@@ -1,10 +1,12 @@
+import { round } from "@utils/number";
+
 import { Ans, FinalAns } from ".";
 
 /**
  * Types two `Ans` objects out as x and y in a coordinate.
  */
 export const coord = (x: Ans, y: Ans): FinalAns => ({
-  answer: `\\left( ${x.answer} , ${y.answer} \\right)`,
+  answer: `\\left( ${round(x.answer)} , ${round(y.answer)} \\right)`,
   calculation: `\\left( ${x.calculation} , ${y.calculation} \\right)`,
   equation: `\\left( ${x.equation} , ${y.equation} \\right)`,
 });

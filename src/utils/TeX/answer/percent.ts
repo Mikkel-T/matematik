@@ -1,3 +1,5 @@
+import { round } from "@utils/number";
+
 import { Ans, FinalAns } from ".";
 
 /**
@@ -14,5 +16,5 @@ export const pct = ({ answer, calculation, equation }: Ans): Ans => ({
  */
 export const ansPct = (val: Ans): FinalAns => ({
   ...val,
-  answer: val.answer + "\\%",
+  answer: round(val.answer) + "\\%",
 });

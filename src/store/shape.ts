@@ -1,6 +1,8 @@
 import { atom, map } from "nanostores";
 import { Except } from "type-fest";
 
+import { round } from "@utils/number";
+
 import { AnswerType, addAns } from "@store/answer";
 
 export const vars = map({});
@@ -16,6 +18,13 @@ export function reset() {
 }
 
 export function shapeAddAns(ans: AnswerType) {
+  if (
+    Object.hasOwnProperty.call(ans, "answer") &&
+    typeof ans.answer === "number"
+  ) {
+    ans.answer = round(ans.answer).toString();
+  }
+
   answer.setKey(ans.name, ans.answer);
   const { answer: a, ...result } = ans;
   addAns(result);

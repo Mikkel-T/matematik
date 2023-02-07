@@ -1,4 +1,5 @@
 import { add, mul, pow, sqrt } from "@utils/TeX";
+import { round } from "@utils/number";
 
 import { Ans, FinalAns, na } from ".";
 
@@ -6,7 +7,9 @@ import { Ans, FinalAns, na } from ".";
  * Created a LaTeX vector
  */
 const pmatrix = (t: number | string, b: number | string) =>
-  `\\begin{pmatrix}${t}\\\\${b}\\end{pmatrix}`;
+  `\\begin{pmatrix}${typeof t === "number" ? round(t) : t}\\\\${
+    typeof b === "number" ? round(b) : b
+  }\\end{pmatrix}`;
 
 /**
  * Types two `Ans` objects out as x and y in a 2D vector.

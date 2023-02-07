@@ -1,3 +1,5 @@
+import { round } from "@utils/number";
+
 import {
   acos as acos_c,
   asin as asin_c,
@@ -50,5 +52,5 @@ export const asin = ({ answer, calculation, equation }: Ans): Ans => ({
  */
 export const ansDeg = (val: Ans): FinalAns => ({
   ...val,
-  answer: val.answer + "^{\\circ}",
+  answer: round(val.answer) + "^{\\circ}",
 });
