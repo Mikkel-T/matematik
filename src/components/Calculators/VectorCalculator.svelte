@@ -22,9 +22,12 @@
     error = "";
     reset();
     calculator.inputs.forEach((i) => {
-      if (!Object.hasOwnProperty.call(vars, i.name) || !vars[i.name]) {
-        vars[i.name] = 0;
-      }
+      ["", "1", "2"].forEach((j) => {
+        const name = i.name + j;
+        if (!Object.hasOwnProperty.call(vars, name) || !vars[name]) {
+          vars[name] = 0;
+        }
+      });
     });
 
     try {

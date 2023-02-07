@@ -1,4 +1,5 @@
 import { frac, mul, na, sub } from "@utils/TeX";
+import { round } from "@utils/number";
 import BasicCalculatorPage from "@utils/pages/BasicCalculatorPage";
 
 import { equalsAdd, textAdd } from "@store/answer";
@@ -30,10 +31,14 @@ export default new BasicCalculatorPage({
         ),
       };
 
+      a.answer = round(a.answer);
+
       const b = {
         name: "b",
         ...sub(na(y1, "y_1"), mul(na(x1, "x_1"), na(a.answer, "a"))),
       };
+
+      b.answer = round(b.answer);
 
       let fa;
       let fb;
