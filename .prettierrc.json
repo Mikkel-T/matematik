@@ -1,5 +1,24 @@
 {
   "tabWidth": 2,
   "semi": true,
-  "tailwindConfig": "./tailwind.config.cjs"
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrder": [
+    "^@components/(.*)$",
+    "^layout:(.*)$",
+    "^@utils/(.*)$",
+    "^@math/(.*)$",
+    "^@styles/(.*)$",
+    "^@event/(.*)$",
+    "^@store/(.*)$",
+    "^[./]"
+  ],
+  "tailwindConfig": "./tailwind.config.cjs",
+  "plugins": [
+    "prettier-plugin-astro",
+    "prettier-plugin-svelte",
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "pluginSearchDirs": false
 }

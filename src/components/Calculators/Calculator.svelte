@@ -1,5 +1,6 @@
 <script>
   import Submit from "@components/Calculators/Submit.svelte";
+  import Error from "@components/Calculators/Error.svelte";
   export let calculate;
   export let error;
 </script>
@@ -9,9 +10,5 @@
     <slot />
     <Submit />
   </form>
-  {#if error}
-    <div class="text-center">
-      {error}
-    </div>
-  {/if}
+  <Error {error} />
 </div>

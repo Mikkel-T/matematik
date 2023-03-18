@@ -1,29 +1,46 @@
 ---
-import BaseLayout from "layout:BaseLayout";
+import DefaultPage from "@utils/pages/DefaultPage";
 
-const { content } = Astro.props;
-const data = await Astro.glob("../pages/**/*.mdx");
+let pages = [];
+let files = import.meta.glob<boolean, string, { default: DefaultPage }>(
+  "../calculators/**/*.ts"
+);
+
+for (const key in files) {
+  let page = key.replace("../calculators", "").replace(".ts", "");
+  let content = await files[key]();
+
+  if (page === "/index") continue;
+
+  if (content) {
+    pages.push({
+      title: content.default.title,
+      hideCard: content.default.hideCard,
+      page,
+    });
+  }
+}
+
 const pathname = new URL(Astro.request.url).pathname;
-const dirPath = `${pathname}${pathname.endsWith("/") ? "" : "/"}`;
-const pages = data
-  .filter((i) => i.url.startsWith(dirPath))
-  .filter((i) => i.url.replace(dirPath, "").split("/").length === 1)
-  .filter((i) => !i.frontmatter.hideCard);
+const dir_path = `${pathname}${pathname.endsWith("/") ? "" : "/"}`;
+
+pages = pages
+  .filter((i) => i.page.startsWith(dir_path))
+  .filter((i) => i.page.replace(dir_path, "").split("/").length === 1)
+  .filter((i) => !i.hideCard);
 ---
 
-<BaseLayout {content}>
-  <div
-    class="grid grid-cols-1 gap-4 p-3 m-auto sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6"
-  >
-    {
-      pages.map((i) => (
-        <a
-          class="flex h-20 transform items-center justify-center rounded-xl border-2 border-dracula-light-400 bg-dracula-light-100 px-2 text-center transition-transform duration-500 hover:scale-105 dark:border-dracula-darker-300 dark:bg-dracula-darker-600"
-          href={i.url}
-        >
-          {i.frontmatter.title}
-        </a>
-      ))
-    }
-  </div>
-</BaseLayout>
+<div
+  class="m-auto grid grid-cols-1 gap-4 p-3 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6"
+>
+  {
+    pages.map((i) => (
+      <a
+        class="flex h-20 transform items-center justify-center rounded-xl border-2 border-dracula-light-400 bg-dracula-light-100 px-2 text-center transition-transform duration-500 hover:scale-105 dark:border-dracula-darker-300 dark:bg-dracula-darker-600"
+        href={i.page}
+      >
+        {i.title}
+      </a>
+    ))
+  }
+</div>

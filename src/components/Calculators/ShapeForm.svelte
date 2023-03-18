@@ -1,11 +1,9 @@
 <script>
-  import { emitter } from "@event/event";
   import { error } from "@store/shape";
   import Submit from "@components/Calculators/Submit.svelte";
+  import Error from "./Error.svelte";
 
-  function calculate() {
-    emitter.emit("shape-calc");
-  }
+  export let calculate;
 </script>
 
 <div>
@@ -15,9 +13,5 @@
       <Submit />
     </div>
   </form>
-  {#if error}
-    <div class="text-center">
-      {$error}
-    </div>
-  {/if}
+  <Error error={$error} />
 </div>
