@@ -8,7 +8,7 @@ const pathname = new URL(Astro.request.url).pathname;
   {
     pathname !== "/" && (
       <a
-        class="link mt-2 ml-2"
+        class="link ml-2 mt-2"
         href={`${pathname}${pathname.endsWith("/") ? "" : "/"}..`}
       >
         <div class="icon ml-1 inline-flex items-center justify-center align-middle">

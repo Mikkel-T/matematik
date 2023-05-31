@@ -56,6 +56,6 @@
       {/each}
     </div>
   {:else}
-    <div>Loading...</div>
+    <div>Indlæser...</div>
   {/if}
 </Calculator>

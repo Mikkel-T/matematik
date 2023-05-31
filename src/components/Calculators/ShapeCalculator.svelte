@@ -36,6 +36,6 @@
   {#if shape}
     <svelte:component this={shape} />
   {:else}
-    <div class="text-center">Loading...</div>
+    <div class="text-center">Indlæser...</div>
   {/if}
 </ShapeForm>
