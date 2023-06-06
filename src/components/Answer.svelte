@@ -15,7 +15,7 @@
 <div class="w-full text-center">
   {#each Object.keys(titles) as title}
     {#if $answer.filter((i) => i[title])[0]}
-      <div class="mt-2 mb-1 text-lg font-bold">{titles[title].title}:</div>
+      <div class="mb-1 mt-2 text-lg font-bold">{titles[title].title}:</div>
       {#each $answer as ans}
         {#if Object.hasOwnProperty.call(ans, title) && ans[title]}
           <div>
