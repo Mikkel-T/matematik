@@ -1,22 +1,17 @@
-import sitemap from "@astrojs/sitemap";
+import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
-import { defineConfig } from "astro/config";
-import Icons from "unplugin-icons/vite";
+import sitemap from "@astrojs/sitemap";
+import mdx from "@astrojs/mdx";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://matematik.mikkel-t.com",
-  integrations: [
-    svelte(),
-    tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
-    }),
-    sitemap(),
-  ],
-  vite: {
-    plugins: [Icons({ compiler: "svelte" })],
+  integrations: [svelte(), tailwind(), sitemap(), mdx()],
+  markdown: {
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex],
   },
+  site: "https://matematik.mikkel-t.com",
 });

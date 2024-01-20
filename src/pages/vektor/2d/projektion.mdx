@@ -1,0 +1,23 @@
+---
+layout: layout:CalculatorLayout
+title: Vektor-projektion
+SEOtitle: Vektor-projektion beregner for vektorer i 2D
+description: En vektorberegner der beregner projektionen af en vektor i 2D på en anden vektor i 2D
+keywords: projektion af vektor, vektor projektion, projektion af vektor på vektor, vektor 2d
+---
+
+import Calculator from "@components/calculators/vektor/2d/projektion.svelte";
+
+Projektion af en vektor på en anden vektor er når den ene vektor sættes vinkelret på en anden vektor, og der beregnes hvor lang den vinkelrette vektor er. Notationen for dette er $\vec{a}_{\vec{b}}$, som er $\vec{a}$'s projektion på $\vec{b}$.
+
+![Projektion af vektor](/img/vektor/projektion.svg)
+
+Projektionen af $\vec{a}$ på $\vec{b}$ er defineret ved:
+
+$$
+\vec{a}_{\vec{b}} = \frac{\vec{a} \bullet \vec{b}}{|\vec{b}|^2} \cdot \vec{b}
+$$
+
+Denne beregner kan beregne $\vec{a}_{\vec{b}}$.
+
+<Calculator client:only />

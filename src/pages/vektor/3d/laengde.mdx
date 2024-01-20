@@ -1,0 +1,35 @@
+---
+layout: layout:CalculatorLayout
+title: Vektor-længde
+SEOtitle: Vektor-længde beregner for vektorer i 3D
+description: En vektorberegner der udregner længden af en 3D-vektor
+keywords: vektor længde, vektor 3d længde, hvor lang er en vektor, vektor 3d
+---
+
+import Calculator from "@components/calculators/vektor/3d/laengde.svelte";
+
+Længden af en vektor i 3D er givet ved Pythagoras' sætning.
+
+![Vektorlængde](/img/vektor/3d/laengde.svg)
+
+Først findes længden af diagonalen $d$, som er givet ved:
+
+$$
+d^2 = a_1^2 + a_2^2
+$$
+
+Med dette kan længden af $\vec{a}$ findes ved:
+
+$$
+|\vec{a}| = \sqrt{d^2 + a_3^2}
+$$
+
+Altså bliver vektorlængden:
+
+$$
+|\vec{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2}
+$$
+
+Denne beregner finder $|\vec{a}|$, som er længden af $\vec{a}$.
+
+<Calculator client:only />

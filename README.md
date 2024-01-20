@@ -1,5 +1,3 @@
 # Matematik
 
-## Technologies used
-
-![Technologies used](https://skillicons.dev/icons?i=astro,svelte,tailwind,nodejs,ts,js,css,html)
+En samling af matematiske formler og ligninger samt beregnere.

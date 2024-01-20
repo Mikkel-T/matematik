@@ -1,0 +1,23 @@
+---
+layout: layout:CalculatorLayout
+title: Forbindelsesvektor
+SEOtitle: Forbindelsesvektor beregner for vektorer i 2D
+description: En vektorberegner der udregner en forbindelsesvektor ud fra to punkter for vektorer i 2D
+keywords: forbindelsesvektor, vektor fra punkt til andet punkt, forbindelsesvektor beregner, vektor 2d
+---
+
+import Calculator from "@components/calculators/vektor/2d/forbindelsesvektor.svelte";
+
+En forbindelsesvektor er en vektor der går fra et punkt til et andet. For eksempel går forbindelsesvektoren $\vec{AB}$ fra punktet $A$ til punktet $B$.
+
+![Forbindelsesvektor](/img/vektor/2d/forbindelsesvektor.svg)
+
+Forbindelsesvektoren er defineret ved at være slutpunktets koordinater minus begyndelsespunktets koordinater.
+
+$$
+\vec{AB} = \begin{pmatrix}B_1 - A_1 \\ B_2 - A_2\end{pmatrix}
+$$
+
+Denne beregner kan udregne en forbindelsesvektor ud fra punkt $A$ og punkt $B$.
+
+<Calculator client:only />

@@ -1,17 +1,17 @@
 ---
-import ThemeToggle from "@components/ThemeToggle.svelte";
+import ThemeToggle from "@components/utils/ThemeToggle.svelte";
 
-const pathname = new URL(Astro.request.url).pathname;
+const pathname = Astro.url.pathname;
 ---
 
-<div class="h-6">
+<div class="flex h-10 flex-row items-center justify-between p-2">
   {
-    pathname !== "/" && (
+    pathname !== "/" ? (
       <a
-        class="link ml-2 mt-2"
+        class="link"
         href={`${pathname}${pathname.endsWith("/") ? "" : "/"}..`}
       >
-        <div class="icon ml-1 inline-flex items-center justify-center align-middle">
+        <div class="inline-flex items-center justify-center align-middle">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -29,6 +29,8 @@ const pathname = new URL(Astro.request.url).pathname;
         </div>
         Tilbage til forrige side
       </a>
+    ) : (
+      <span />
     )
   }
   <ThemeToggle client:load />

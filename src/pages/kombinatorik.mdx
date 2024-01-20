@@ -1,0 +1,54 @@
+---
+layout: layout:CalculatorLayout
+title: Kombinatorik stikprøver
+SEOtitle: Kombinatorik stikprøver beregner
+description: En kombinatorik beregner til at beregne ordnede og uordnede stikprøver med og uden tilbagelægning
+keywords: kombinatorik, kombinatorik stikprøver, ordnet uden tilbagelægning, ordnet med tilbagelægning, uordnet uden tilbagelægning, uordnet med tilbagelægning, beregn stikprøver kombinatorik
+---
+
+import Calculator from "@components/calculators/kombinatorik.svelte";
+
+Stikprøver i kombinatorik er en måde at finde ud af hvor mange kombinationer der er af et givent antal elementer. Eksempelvis hvor mange mulige podier der er til en konkurrence med 10 deltagere, eller hvor mange telefonnumre der er med 8 cifre.
+
+Stikprøver kan både være ordnede og uordnede. Hvis en stikprøve er ordnet betyder det at rækkefølgen af elementerne betyder noget, for eksempel ved telefonnumre eller podiepladser. Hvis en stikprøve er uordnet betyder det at rækkefølgen af elementerne ikke betyder noget, for eksempel ved udvælgelse af spillere til et fodboldhold eller ved terningkast.
+
+Stikprøver kan også være med eller uden tilbagelægning. Hvis en stikprøve er med tilbagelægning betyder det at elementerne kan vælges flere gange, for eksempel ved terningkast. Hvis en stikprøve er uden tilbagelægning betyder det at elementerne kun kan vælges en gang, for eksempel ved udvælgelse af spillere til et fodboldhold.
+
+Der findes fire forskellige kombinatorik stikprøver:
+
+- Ordnet uden tilbagelægning, hvor rækkefølgen betyder noget og elementerne kun kan vælges en gang. Eks. podiepladser.
+- Ordnet med tilbagelægning, hvor rækkefølgen betyder noget og elementerne kan vælges flere gange. Eks. telefonnumre.
+- Uordnet uden tilbagelægning, hvor rækkefølgen ikke betyder noget og elementerne kun kan vælges en gang. Eks. udvælgelse af spillere til et fodboldhold.
+- Uordnet med tilbagelægning, hvor rækkefølgen ikke betyder noget og elementerne kan vælges flere gange. Eks. terningkast.
+
+Formlerne for kombinatorik stikprøver er:
+
+**Ordnet uden tilbagelægning**
+
+$$
+\frac{n!}{(n-k)!}
+$$
+
+**Ordnet med tilbagelægning**
+
+$$
+n^k
+$$
+
+**Uordnet uden tilbagelægning**
+
+$$
+\frac{n!}{(n-k)! \cdot k!}
+$$
+
+**Uordnet med tilbagelægning**
+
+$$
+\frac{(n+k-1)!}{(n-1)! \cdot k!}
+$$
+
+Hvor $n$ er antallet af muligheder, som en stikprøve kan tage udgangspunkt i, og $k$ er antallet af elementer i stikprøven.
+
+Alt dette kan beregnes ved hjælp af denne beregner.
+
+<Calculator client:only />

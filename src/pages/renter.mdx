@@ -1,0 +1,25 @@
+---
+layout: layout:CalculatorLayout
+title: Renters rente
+SEOtitle: Renters rente beregner
+description: En renters rente beregner der udregner slutkapital ved hjælp af startkapital, rente og antal terminer
+keywords: rente, renters rente, slutkapital, startkapital, rentesats, antal terminer, terminer, renteudregning, rente beregning, rente beregner, renteformlen, renters rente formel
+---
+
+import Calculator from "@components/calculators/renter.svelte";
+
+Formlen for renters rente er en forholdsvis simpel formel, der udregner slutkapitalen ved hjælp af startkapital, rente og antal terminer. Formlen er som følger:
+
+$$
+K_n = K_0 \cdot (1 + r)^{n}
+$$
+
+Hvor:
+
+- $K_0$ er startkapitalen, altså den mængde penge du starter med
+- $r$ er rentesatsen, altså den procentvise rente du får på dine penge. Denne skal være i decimalform, altså hvis du får 5% i rente, skal du skrive $0,05$.
+- $n$ er antallet af terminer, altså hvor mange gange renten bliver tilskrevet. Hvis du får rente hvert år, er $n$ altså antallet af år. Hvis du får rente hvert kvartal, er $n$ antallet af kvartaler.
+
+Dette kan beregnes ved hjælp af denne beregner.
+
+<Calculator client:only />

@@ -1,0 +1,47 @@
+---
+layout: layout:CalculatorLayout
+title: 2. gradsfunktion
+SEOtitle: 2. gradsfunktion beregner - beregn diskriminant, toppunkt og nulpunkter
+description: En 2. gradsfunktions beregner der udregner diskriminant, toppunkt og nulpunkter for en 2. gradsfunktion
+keywords: diskriminant, toppunkt, nulpunkt, 2. gradsfunktion, parabelbue, parabelfunktion, parabel, beregn skæring parabel, løs andengradsligning, andengradsligning beregner, diskriminant beregner, toppunkt beregner, nulpunkt beregner
+---
+
+import Calculator from "@components/calculators/2-grad-funktion.svelte";
+
+En andengradsfunktion er en funktion på formen
+
+$$
+f(x) = ax^2 + bx + c
+$$
+
+Denne funktion tegner en parabelbue. $a$ fortæller noget om hvor bred parablen er, hvis $a$ er positiv er parablen åben opad, hvis $a$ er negativ er parablen åben nedad. $b$ fortæller noget om hvor langt parablen er forskudt i forhold til $y$-aksen. $c$ fortæller noget om hvor parablen skærer $y$-aksen.
+
+Samtidig har en andengradsfunktion en diskriminant, som er givet ved
+
+$$
+d = b^2 - 4ac
+$$
+
+Diskriminanten siger noget om, hvor mange skæringer funktionen har med $x$-aksen.
+
+- Hvis $d > 0$ har funktionen to skæringer med $x$-aksen.
+- Hvis $d = 0$ har funktionen én skæring med $x$-aksen.
+- Hvis $d < 0$ har funktionen ingen skæringer med $x$-aksen.
+
+Man kan, ved hjælp af diskriminanten, beregne nulpunkterne for en andengradsfunktion. Nulpunkterne er givet ved
+
+$$
+x = \frac{-b \pm \sqrt{d}}{2a}
+$$
+
+Hvor begge versioner bruges hvis $d > 0$ og kun versionen med $+$ bruges hvis $d = 0$.
+
+Samtidig kan toppunktet for parablen også beregnes. Toppunktet er givet ved
+
+$$
+(x, y) = \left(\frac{-b}{2a}, \frac{-d}{4a}\right)
+$$
+
+Alt dette kan beregnes ved hjælp af denne beregner.
+
+<Calculator client:only />

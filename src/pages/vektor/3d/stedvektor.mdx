@@ -1,0 +1,23 @@
+---
+layout: layout:CalculatorLayout
+title: Stedvektor
+SEOtitle: Stedvektor beregner for vektorer i 3D
+description: En vektorberegner der beregner stedvektoren for et givent punkt i 3D
+keywords: stedvektor, vektor til punkt, vektor fra 0 til punkt, vektor 3d
+---
+
+import Calculator from "@components/calculators/vektor/3d/stedvektor.svelte";
+
+En stedvektor er en vektor der går fra origo til et givent punkt. En stedvektor kan også kaldes en vektor til punkt eller en vektor fra 0 til punkt. Stedvektoren til punktet $P$ betegnes $\vec{OP}$ og har samme koordinater som punktet $P$.
+
+![Stedvektor](/img/vektor/3d/stedvektor.svg)
+
+Formlen for en stedvektor er ret simpel, idet den blot er givet ved koordinaterne for punktet $P$:
+
+$$
+\vec{OP} = \begin{pmatrix} P_1 \\ P_2 \\ P_3 \end{pmatrix}
+$$
+
+Denne beregner kan beregne stedvektoren for punktet $P$.
+
+<Calculator client:only />

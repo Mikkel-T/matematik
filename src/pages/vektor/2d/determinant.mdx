@@ -1,0 +1,25 @@
+---
+layout: layout:CalculatorLayout
+title: Determinant
+SEOtitle: Determinant beregner for vektorer i 2D
+description: En vektorberegner der udregner determinanten af to vektorer i 2D
+keywords: vektor determinant, determinant vektor, vektor 2d, determinant 2d vektor
+---
+
+import Calculator from "@components/calculators/vektor/2d/determinant.svelte";
+
+Determinanten for et vektorpar $\vec{a}$ og $\vec{b}$ er defineret som $\det(\vec{a}, \vec{b})$ og er givet ved:
+
+$$
+\det(\vec{a},\vec{b}) = a_{1} \cdot b_{2} - a_{2} \cdot b_{1}
+$$
+
+Determinanten fortæller noget om, hvor parallele to vektorer er. Hvis determinanten er 0, er vektorerne parallelle. Hvis determinanten er positiv, er vektorerne orienteret i samme retning. Hvis determinanten er negativ, er vektorerne orienteret i modsatte retninger. Samtidig har determinanten også andre egenskaber:
+
+- $\det(\vec{a}, \vec{b}) = -\det(\vec{b}, \vec{a})$
+- $\lvert \det(\vec{a}, \vec{b}) \rvert =$ arealet af parallellogrammet spændt ud af $\vec{a}$ og $\vec{b}$
+- $\frac{1}{2} \lvert \det(\vec{a}, \vec{b}) \rvert =$ arealet af trekanten spændt ud af $\vec{a}$ og $\vec{b}$
+
+Denne beregner finder determinanten af $\vec{a}$ og $\vec{b}$.
+
+<Calculator client:only />

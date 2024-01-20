@@ -1,13 +1,22 @@
-<script>
-  export let width;
-  export let height;
+<script lang="ts">
+  let {
+    width,
+    height,
+    children,
+    class: styles,
+  } = $props<{
+    width: number | string;
+    height: number | string;
+    children: any;
+    class?: string;
+  }>();
 </script>
 
 <svg
   {width}
   {height}
-  class="m-auto fill-transparent stroke-2"
+  class="m-auto fill-transparent stroke-2 {styles}"
   xmlns="http://www.w3.org/2000/svg"
 >
-  <slot />
+  {@render children()}
 </svg>

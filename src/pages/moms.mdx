@@ -1,0 +1,15 @@
+---
+layout: layout:CalculatorLayout
+title: Moms
+SEOtitle: Momsberegner - Beregn pris med og uden moms
+description: En momsberegner der udregner en pris med og uden moms
+keywords: moms, momsberegner, beregn moms, moms udregne, moms 25%, dansk moms, beregn uden moms, beregn med moms, beregn inklusiv moms, beregn eksklusiv moms
+---
+
+import Calculator from "@components/calculators/moms.svelte";
+
+Moms er en afgift på $25\%$, som bliver lagt på prisen af et produkt. Nogle gange kan man komme ud for at skulle beregne en pris med moms, eller fjerne momsen fra en pris. For at beregne en pris med moms, skal man tilføje $25\%$ til prisen. Dette gøres ved at gange prisen med 1,25. Hvis man skal fjerne momsen fra et produkt, skal man fjerne $25\%$ af prisen. Dette gøres ved at dividere prisen med 1,25.
+
+Dette kan beregnes ved hjælp af denne beregner.
+
+<Calculator client:only />

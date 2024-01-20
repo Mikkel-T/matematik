@@ -1,19 +1,40 @@
-<script>
-  import { vars } from "@store/shape";
-  export let name;
-  export let placeholder;
-  export let styles;
-  export let readOnly;
+<script lang="ts">
+  import { parseInput, validateInput } from "@math/input";
+  import { calculator } from "@state/calculator.svelte";
+
+  let {
+    name,
+    placeholder,
+    class: styles,
+    readonly,
+  } = $props<{
+    name: string;
+    placeholder?: string;
+    class?: string;
+    readonly?: boolean;
+  }>();
+
+  $effect(() => {
+    calculator.inputError = false;
+    if (validateInput(calculator.shapeInputs[name])) {
+      calculator.values[name] = parseInput(calculator.shapeInputs[name]) ?? 0;
+    } else if (calculator.shapeInputs[name] === "") {
+      delete calculator.values[name];
+    } else {
+      calculator.inputError = true;
+    }
+  });
 </script>
 
 <input
-  type="number"
-  step="any"
   {name}
+  bind:value={calculator.shapeInputs[name]}
+  type="text"
   id={name}
   placeholder={placeholder || name}
-  {readOnly}
-  class="w-36 rounded-md border bg-dracula-blue-100 p-2 transition-opacity duration-300 dark:bg-dracula-darker-800 {styles}"
-  class:opacity-50={readOnly}
-  bind:value={$vars[name]}
+  {readonly}
+  class="w-36 rounded-md border bg-zinc-100 p-2 !ring-0 transition-opacity duration-300 dark:bg-zinc-800 {styles}"
+  class:opacity-50={readonly}
+  class:!border-red-500={calculator.shapeInputs[name] &&
+    !validateInput(calculator.shapeInputs[name])}
 />

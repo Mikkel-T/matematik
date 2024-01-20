@@ -1,0 +1,25 @@
+---
+layout: layout:CalculatorLayout
+title: Herons formel
+SEOtitle: Herons formel beregner - Areal af trekant ud fra sidelængder
+description: En beregner der udregner arealet af en trekant ud fra dens sidelængder ved hjælp af herons formel
+keywords: heron, herons formel, trekant areal, areal trekant sidelængder, herons formel beregner
+---
+
+import Calculator from "@components/calculators/geometri/heron.svelte";
+
+Herons formel er en formel der kan bruges til at udregne arealet af en trekant $T$ ud fra dens sidelængder $a$, $b$ og $c$.
+
+$$
+T = \sqrt{s(s-a)(s-b)(s-c)}
+$$
+
+Hvor $s$ er halvdelen af trekantens omkreds.
+
+$$
+s = \frac{a+b+c}{2}
+$$
+
+Denne beregner kan bruges til at udregne arealet af en trekant ud fra dens sidelængder og giver alle mellemregninger.
+
+<Calculator client:only />

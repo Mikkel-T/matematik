@@ -1,0 +1,23 @@
+---
+layout: layout:CalculatorLayout
+title: Addition af vektorer
+SEOtitle: Addition af vektorer i 3D beregner
+description: En vektorberegner der lægger to vektorer i 3D sammen
+keywords: vektor-sum, plus vektor, vektor 3d, vektor plus vektor
+---
+
+import Calculator from "@components/calculators/vektor/3d/addition.svelte";
+
+To vektorer lægges sammen ved at lægge deres $x$-, $y$- og $z$-komponenter sammen.
+
+$$
+\vec{a} + \vec{b} = \begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix} = \begin{pmatrix} a_1 + b_1 \\ a_2 + b_2 \\ a_3 + b_3 \end{pmatrix}
+$$
+
+Det svarer til at sætte den ene vektor efter den anden.
+
+![Addition af vektorer](/img/vektor/addition.svg)
+
+Denne beregner lægger $\vec{a}$ og $\vec{b}$ sammen.
+
+<Calculator client:only />
