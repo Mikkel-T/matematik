@@ -5,29 +5,27 @@ interface Props {
   description: string;
   keywords: string;
   list?: boolean;
+  hideBackButton?: boolean;
 }
 
 import "katex/dist/katex.min.css";
 import BaseHead from "@components/layout/BaseHead.astro";
 import BaseFooter from "@components/layout/BaseFooter.astro";
 import BaseHeader from "@components/layout/BaseHeader.astro";
-const { title, description, keywords, SEOtitle } = Astro.props;
+const { title, description, keywords, SEOtitle, hideBackButton } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead
-      title={SEOtitle ?? title}
-      description={description}
-      keywords={keywords}
-    />
+    <BaseHead title={SEOtitle ?? title} {description} {keywords} />
   </head>
   <body>
     <header class="mb-2 print:hidden">
-      <BaseHeader />
+      <BaseHeader {hideBackButton} />
     </header>
     <main>
+      <div class="mb-1 text-center text-3xl font-bold">{title}</div>
       <slot />
     </main>
     <footer>

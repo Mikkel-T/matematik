@@ -1,12 +1,17 @@
 ---
 import ThemeToggle from "@components/utils/ThemeToggle.svelte";
 
+interface Props {
+  hideBackButton?: boolean;
+}
+
 const pathname = Astro.url.pathname;
+const { hideBackButton } = Astro.props;
 ---
 
 <div class="flex h-10 flex-row items-center justify-between p-2">
   {
-    pathname !== "/" ? (
+    !hideBackButton && pathname !== "/" ? (
       <a
         class="link"
         href={`${pathname}${pathname.endsWith("/") ? "" : "/"}..`}
