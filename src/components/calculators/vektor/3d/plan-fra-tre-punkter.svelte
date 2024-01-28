@@ -25,6 +25,12 @@
     let n_b = new Answer("b", sub(mul(r_1_z, r_2_x), mul(r_1_x, r_2_z)));
     let n_c = new Answer("c", sub(mul(r_1_x, r_2_y), mul(r_1_y, r_2_x)));
 
+    if (n_a.getAns === 0 && n_b.getAns === 0 && n_c.getAns === 0) {
+      throw new Error(
+        "De tre punkter ligger på samme linje, og der kan derfor ikke dannes en plan.",
+      );
+    }
+
     let d = new Answer(
       "d",
       sub(
