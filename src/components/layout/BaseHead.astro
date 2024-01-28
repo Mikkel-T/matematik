@@ -21,7 +21,7 @@ const { title, description, keywords } = Astro.props;
 <link rel="canonical" href={Astro.url} />
 
 <script>
-  if (localStorage.theme !== "dark") {
+  if (localStorage.theme && localStorage.theme !== "dark") {
     document.documentElement.classList.remove("dark");
   } else {
     document.documentElement.classList.add("dark");
