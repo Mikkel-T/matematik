@@ -5,7 +5,7 @@ import { pow, type Ans, type Op, na, add, sqrt, mul } from ".";
 /**
  * Created a LaTeX vector
  */
-const pmatrix = (...coord: (string | number)[]) =>
+export const pmatrix = (...coord: (string | number)[]) =>
   `\\begin{pmatrix}${coord
     .map((i) => (typeof i === "number" ? round(i) : i))
     .join("\\\\")}\\end{pmatrix}`;
@@ -115,4 +115,27 @@ export const numMulVec = (
       : pmatrix(vec.x.answer, vec.y.answer)
   }`,
   equation: `${num.equation} \\cdot \\vec{${vec.name}}`,
+});
+
+export const crossProd = (
+  vec1: {
+    x: Op;
+    y: Op;
+    z: Op;
+    name: string;
+  },
+  vec2: {
+    x: Op;
+    y: Op;
+    z: Op;
+    name: string;
+  },
+): Ans => ({
+  answer: pmatrix(
+    vec1.y.answer * vec2.z.answer - vec1.z.answer * vec2.y.answer,
+    vec1.z.answer * vec2.x.answer - vec1.x.answer * vec2.z.answer,
+    vec1.x.answer * vec2.y.answer - vec1.y.answer * vec2.x.answer,
+  ),
+  calculation: `${pmatrix(vec1.x.answer, vec1.y.answer, vec1.z.answer)} \\times ${pmatrix(vec2.x.answer, vec2.y.answer, vec2.z.answer)}`,
+  equation: `\\vec{${vec1.name}} \\times \\vec{${vec2.name}}`,
 });

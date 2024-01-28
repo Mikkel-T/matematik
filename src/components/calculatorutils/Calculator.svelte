@@ -2,9 +2,11 @@
   import Submit from "./Submit.svelte";
   import Error from "./Error.svelte";
   import { answer, calculator } from "@state/calculator.svelte";
+  import Info from "./Info.svelte";
 
-  let { calculate, children } = $props<{
+  let { calculate, children, info } = $props<{
     calculate: () => void;
+    info?: string;
     children: any;
   }>();
 
@@ -30,5 +32,6 @@
     {@render children()}
     <Submit />
   </form>
+  <Info {info} />
   <Error {error} />
 </div>

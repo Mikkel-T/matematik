@@ -4,12 +4,13 @@ import {
   acos as acos_c,
   asin as asin_c,
   atan as atan_c,
+  atan2 as atan2_c,
   cos as cos_c,
   sin as sin_c,
   tan as tan_c,
 } from "@math/trig";
 
-import type { Ans, Op } from ".";
+import { frac, type Ans, type Op } from ".";
 
 export const tan = ({ answer, calculation, equation }: Op): Op => ({
   answer: tan_c(answer),
@@ -33,6 +34,25 @@ export const atan = ({ answer, calculation, equation }: Op): Op => ({
   answer: atan_c(answer),
   calculation: `\\tan^{-1}\\left(${calculation}\\right)`,
   equation: `\\tan^{-1}\\left(${equation}\\right)`,
+});
+
+export const atanPolar = (first: Op, second: Op): Op => ({
+  answer:
+    atan2_c(first.answer, second.answer) < 0
+      ? atan2_c(first.answer, second.answer) + 360
+      : atan2_c(first.answer, second.answer),
+  calculation:
+    second.answer < 0
+      ? `\\tan^{-1}\\left(${frac(first, second).calculation}\\right) + 180^\\circ`
+      : first.answer < 0
+        ? `\\tan^{-1}\\left(${frac(first, second).calculation}\\right) + 360^\\circ`
+        : `\\tan^{-1}\\left(${frac(first, second).calculation}\\right)`,
+  equation:
+    second.answer < 0
+      ? `\\tan^{-1}\\left(${frac(first, second).equation}\\right) + 180^\\circ`
+      : first.answer < 0
+        ? `\\tan^{-1}\\left(${frac(first, second).equation}\\right) + 360^\\circ`
+        : `\\tan^{-1}\\left(${frac(first, second).equation}\\right)`,
 });
 
 export const acos = ({ answer, calculation, equation }: Op): Op => ({
