@@ -4139,7 +4139,7 @@ svelte2tsx@^0.6.25:
     dedent-js "^1.0.1"
     pascal-case "^3.1.1"
 
-svelte@^5.0.0-next.40:
+svelte@^5.0.0-next.37:
   version "5.0.0-next.40"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.0.0-next.40.tgz#5ad98ae258ed8a936872c9cff488a3c3f30abcaa"
   integrity sha512-bkta9Uxzfqigow6t4g1z6sDTy8tECxO5fpNFl3wy84NgAwt3PKDLv4nboFUi6lsApI2a7d5X0Ur+qkG8eu82cQ==
