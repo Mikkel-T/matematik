@@ -1,12 +1,28 @@
 ---
 layout: layout:CalculatorLayout
-title: Planens ligning ud fra 3 punkter
-SEOtitle: Planens ligning ud fra 3 punkter beregner
-description: En vektorberegner der beregner planens ligning ud fra 3 punkter
-keywords: planens ligning, planens ligning beregner, planens ligning ud fra tre punkter, vektor 3d
+title: Plan ud fra 3 punkter
+SEOtitle: Plan ud fra 3 punkter beregner
+description: En vektorberegner der beregner planens ligning og planens parameterfremstilling ud fra 3 punkter
+keywords: planens ligning, planens ligning beregner, planens ligning ud fra tre punkter, planens parameterfremstilling, planens parameterfremstilling beregner, planens parameterfremstilling ud fra tre punkter, vektor 3d
 ---
 
 import Calculator from "@components/calculators/vektor/3d/plan-fra-tre-punkter.svelte";
+
+En plan er en flade i rummet. En plan kan beskrives på flere måder. Den kan beskrives ved en parameterfremstilling, eller ved en ligning.
+
+## Planens parameterfremstilling
+
+Planens parameterfremstilling er en måde at beskrive en plan i rummet. Planens parameterfremstilling er på formen:
+
+$$
+\begin{pmatrix}x\\y\\z\end{pmatrix} = \begin{pmatrix}x_0\\y_0\\z_0\end{pmatrix} + t \cdot \begin{pmatrix}r_1x\\r_1y\\r_1z\end{pmatrix} + s \cdot \begin{pmatrix}r_2x\\r_2y\\r_2z\end{pmatrix} \;,\; t,s \in \mathbb{R}
+$$
+
+Her er $x_0$, $y_0$ og $z_0$ koordinaterne for et punkt på planen mens $r_1x$, $r_1y$ og $r_1z$ er koordinaterne for en retningsvektor $\vec{r_1}$ og $r_2x$, $r_2y$ og $r_2z$ er koordinaterne for en retningsvektor $\vec{r_2}$. Disse to retningsvektorer må ikke være parallelle. $t$ og $s$ kaldes for parametre.
+
+Når man skal finde planens parameterfremstilling ud fra tre punkter, starter man med at lave retningsvektorerne ved at tage [forbindelsesvektoren](/vektor/3d/forbindelsesvektor) mellem punkterne. Herefter vælges et af punkterne som punktet, planen skal gå igennem.
+
+## Planens ligning
 
 Planens ligning er en måde at beskrive en plan i rummet. Planens ligning er på formen:
 
@@ -22,8 +38,8 @@ $$
 
 Hvor $x_0$, $y_0$ og $z_0$ er koordinaterne for et punkt på planen.
 
-Måden, man beregner planens ligning ud fra tre punkter på, er ved at lave to vektorer ud fra de tre punkter og finde normalvektoren ved at tage [krydsproduktet](/vektor/3d/krydsprodukt) af disse. Herefter beregnes $d$ og til sidst sættes alt ind i planens ligning.
+Måden, man beregner planens ligning ud fra tre punkter på, er ved at lave to retningsvektorer ved at tage [forbindelsesvektoren](/vektor/3d/forbindelsesvektor) mellem punkterne og finde normalvektoren ved at tage [krydsproduktet](/vektor/3d/krydsprodukt) af disse. Herefter beregnes $d$ og til sidst sættes alt ind i planens ligning.
 
-Denne beregner kan beregne planens ligning ud fra punkterne $A$, $B$ og $C$. Her vil $\vec{r_1}$ være vektoren fra $A$ til $B$ og $\vec{r_2}$ være vektoren fra $A$ til $C$ mens $A$ er punktet $(x_0, y_0, z_0)$.
+Denne beregner kan beregne planens parameterfremstilling og planens ligning ud fra punkterne $A$, $B$ og $C$. Her vil $\vec{r_1}$ være vektoren $\vec{AB}$ fra $A$ til $B$ og $\vec{r_2}$ være vektoren $\vec{AC}$ fra $A$ til $C$ mens $A$ er punktet $(x_0, y_0, z_0)$. De samme retningsvektorer bliver brugt til både parameterfremstillingen og ligningen.
 
 <Calculator client:only />

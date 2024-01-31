@@ -2,7 +2,7 @@
   import Inputs from "@components/calculatorutils/inputs/VectorInputs.svelte";
   import { Answer, answer, calculator } from "@state/calculator.svelte";
   import Calculator from "@components/calculatorutils/Calculator.svelte";
-  import { crossProd, mul, neg, pmat, sub } from "@math/calculation";
+  import { crossProd, mul, neg, pmat, pmatrix, sub } from "@math/calculation";
 
   function calculate() {
     let { A_1, A_2, A_3, B_1, B_2, B_3, C_1, C_2, C_3 } = calculator.opValues;
@@ -30,6 +30,10 @@
         "De tre punkter ligger på samme linje, og der kan derfor ikke dannes en plan.",
       );
     }
+
+    let parameterfremstilling = new Answer(pmatrix("x", "y", "z"), {
+      answer: `${pmatrix(A_1.answer, A_2.answer, A_3.answer)} + t \\cdot ${pmatrix(r_1_x.answer, r_1_y.answer, r_1_z.answer)} + s \\cdot ${pmatrix(r_2_x.answer, r_2_y.answer, r_2_z.answer)} \\;,\\; t,s \\in \\mathbb{R}`,
+    });
 
     let d = new Answer(
       "d",
@@ -103,7 +107,7 @@
       },
       "text",
     );
-    answer.add(p, r_1, r_2, n, d);
+    answer.add(p, parameterfremstilling, r_1, r_2, n, d);
   }
 </script>
 

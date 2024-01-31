@@ -6,12 +6,12 @@
 
   function calculate() {
     let { A_1, A_2, A_3, B_1, B_2, B_3 } = calculator.opValues;
-    let r = new Answer(
-      "\\vec{r}",
-      pmat(sub(B_1, A_1), sub(B_2, A_2), sub(B_3, A_3)),
-    );
+    let r_x = sub(B_1, A_1);
+    let r_y = sub(B_2, A_2);
+    let r_z = sub(B_3, A_3);
+    let r = new Answer("\\vec{r}", pmat(r_x, r_y, r_z));
     let p = new Answer(pmatrix("x", "y", "z"), {
-      answer: `${pmatrix(A_1.answer, A_2.answer, A_3.answer)} + t \\cdot ${pmatrix(sub(B_1, A_1).answer, sub(B_2, A_2).answer, sub(B_3, A_3).answer)} \\;,\\; t \\in \\mathbb{R}`,
+      answer: `${pmatrix(A_1.answer, A_2.answer, A_3.answer)} + t \\cdot ${pmatrix(r_x.answer, r_y.answer, r_z.answer)} \\;,\\; t \\in \\mathbb{R}`,
     });
     answer.add(p, r);
   }
