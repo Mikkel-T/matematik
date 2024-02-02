@@ -1,0 +1,23 @@
+---
+layout: layout:CalculatorLayout
+title: Modsat vektor
+SEOtitle: Modsat vektor beregner for vektorer i 2D
+description: En vektorberegner der beregner den modsatte vektor af en given vektor i 2D
+keywords: modsat vektor, negativ vektor, vektor 2d
+---
+
+import Calculator from "@components/calculators/vektor/2d/modsat.svelte";
+
+Den modsatte vektor af $\vec{a}$ er defineret som $-\vec{a}$, og er den vektor der har den modsatte retning og samme længde som $\vec{a}$. Altså $\lvert \vec{a} \rvert = \lvert -\vec{a} \rvert$. Den modsatte vektor af $\vec{a}$ kan findes ved at gange $\vec{a}$ med $-1$.
+
+![Modsat vektor](/img/vektor/modsat.svg)
+
+Altså er den modsatte vektor af $\vec{a}$ givet ved
+
+$$
+-\vec{a} = \begin{pmatrix} -a_1 \\ -a_2 \end{pmatrix}
+$$
+
+Denne beregner kan beregne $-\vec{a}$.
+
+<Calculator client:only />

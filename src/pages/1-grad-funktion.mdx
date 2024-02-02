@@ -1,0 +1,33 @@
+---
+layout: layout:CalculatorLayout
+title: 1. gradsfunktion
+SEOtitle: 1. gradsfunktion - Beregn funktionsforskriften for en 1. gradsfunktion ud fra to punkter
+description: En beregner der finder funktionsforskriften for en 1. gradsfunktion ud fra to punkter
+keywords: lineær funktion ud fra punkter, førstegradsfunktion ud fra punkter, 1. gradsfunktion ud fra punkter, beregn førstegradsfunktion, beregn lineær funktion, beregn 1. gradsfunktion
+---
+
+import Calculator from "@components/calculators/1-grad-funktion.svelte";
+
+En førstegradsfunktion, også kendt som en lineær funktion er en funktion på formen
+
+$$
+f(x) = ax + b
+$$
+
+Hvor $a$ kaldes for hældningskoefficienten og er hældingen på funktionens graf. Hvis $0 < a$ er funktionen stigende, hvis $a = 0$ er funktionen konstant og hvis $a < 0$ er funktionen aftagense. $b$ kaldes for skæringspunktet med y-aksen.
+
+Måden, funktionsforskriften for en førstegradsfunktion findes på er ved at finde hældningskoefficienten og skæringspunktet med y-aksen. Hældningskoefficienten beregnes ved at dividere forskellen i y-værdierne med forskellen i x-værdierne og er givet ved.
+
+$$
+a = \frac{y_2 - y_1}{x_2 - x_1}
+$$
+
+Skæringspunktet med y-aksen findes ved at indsætte en af de to punkter i funktionsforskriften og isolere $b$ og er givet ved.
+
+$$
+b = y_1 - x_1a
+$$
+
+Du kan bruge denne beregner til at finde funktionsforskriften for en førstegradsfunktion ud fra to punkter.
+
+<Calculator client:only />

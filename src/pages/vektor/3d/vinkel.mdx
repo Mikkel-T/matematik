@@ -1,0 +1,19 @@
+---
+layout: layout:CalculatorLayout
+title: Vinkel mellem vektorer
+SEOtitle: Vinkel mellem vektorer i 3D beregner
+description: En vektorberegner der udregner vinklen mellem to vektorer i 3D
+keywords: vektor vinkel, vinkel mellem vektorer, vektor 3d
+---
+
+import Calculator from "@components/calculators/vektor/3d/vinkel.svelte";
+
+Vinklen $v$ mellem to vektorer $\vec{a}$ og $\vec{b}$ er defineret som den mindste af de to vinkler, som vektorerne danner. Vinklen $v$ er derfor altid mellem $0$ og $180$ grader. Formlen for vinklen mellem to vektorer er givet ved
+
+$$
+v = \cos^{-1}\left(\frac{\vec{a} \bullet \vec{b}}{|\vec{a}| \cdot |\vec{b}|}\right)
+$$
+
+Denne beregner kan beregne vinklen $v$ mellem $\vec{a}$ og $\vec{b}$.
+
+<Calculator client:only />

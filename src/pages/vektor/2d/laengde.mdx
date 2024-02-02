@@ -1,0 +1,29 @@
+---
+layout: layout:CalculatorLayout
+title: Vektor-længde
+SEOtitle: Vektor-længde beregner for vektorer i 2D
+description: En vektorberegner der udregner længden af en 2D-vektor
+keywords: vektor længde, vektor 2d længde, hvor lang er en vektor, vektor 2d
+---
+
+import Calculator from "@components/calculators/vektor/2d/laengde.svelte";
+
+Længden af en vektor i 2D er givet ved Pythagoras' sætning:
+
+$$
+a^2 + b^2 = c^2
+$$
+
+hvor $a$ og $b$ er vektorernes komponenter og $c$ er vektorlængden.
+
+![Vektorlængde](/img/vektor/2d/laengde.svg)
+
+Altså er vektorlængden givet ved:
+
+$$
+|\vec{a}| = \sqrt{a_1^2 + a_2^2}
+$$
+
+Denne beregner finder $|\vec{a}|$, som er længden af $\vec{a}$.
+
+<Calculator client:only />

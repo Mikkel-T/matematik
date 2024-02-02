@@ -1,0 +1,23 @@
+---
+layout: layout:CalculatorLayout
+title: Tværvektor
+SEOtitle: Tværvektor beregner for vektorer i 2D
+description: En vektorberegner der beregner tværvektoren for en given vektor i 2D
+keywords: tværvektor, hat vektor, vektor 2d
+---
+
+import Calculator from "@components/calculators/vektor/2d/tvaervektor.svelte";
+
+En tværvektor (eller hat vektor) er en vektor drejet 90 grader mod uret i. Denne vektor er vinkelret på den originale vektor. Notationen for en tværvektor er $\widehat{a}$, deraf navnet hat vektor.
+
+![Tværvektor](/img/vektor/2d/tvaervektor.svg)
+
+Tværvektoren $\widehat{a}$ for en vektor $\vec{a}$ er defineret som:
+
+$$
+\widehat{a} = \begin{pmatrix}-a_{2}\\a_{1}\end{pmatrix}
+$$
+
+Denne beregner kan beregne tværvektoren for $\vec{a}$.
+
+<Calculator client:only />

@@ -1,0 +1,25 @@
+---
+layout: layout:CalculatorLayout
+title: Vektor-skalering
+SEOtitle: Vektor-skalering beregner for vektorer i 3D
+description: En vektorberegner der skalerer en 3D-vektor ud fra en givet konstant
+keywords: vektor gange tal, vektor skalering, vektor gange skalar, vektor 3d
+---
+
+import Calculator from "@components/calculators/vektor/3d/skalering.svelte";
+
+Når man skalerer en vektor, ganger man den med et tal. Det, at gange en vektor med et tal er ret simpelt. Man ganger bare hver af vektorens komponenter med tallet.
+
+![Skalering af vektor](/img/vektor/skalering.svg)
+
+Formlen er derfor:
+
+$$
+k \cdot \vec{a} = \begin{pmatrix} k \cdot a_1 \\ k \cdot a_2 \\ k \cdot a_3 \end{pmatrix}
+$$
+
+Her er $k$ det tal, som vektoren skal ganges med, og $\vec{a}$ er vektoren.
+
+Denne beregner kan beregne $k \cdot \vec{a}$.
+
+<Calculator client:only />

@@ -1,0 +1,22 @@
+---
+title: Cirkel beregner
+SEOtitle: Cirkel beregner
+description: En cirkelberegner der udregner radius, diameter, areal og omkreds af en cirkel
+keywords: cirkel, cirkel formel, cirkel radius formel, cirkel areal formel, cirkel diameter formel, cirkel omkreds formel, cirkel beregner
+---
+
+import ShapeCalculatorLayout from "layout:ShapeCalculatorLayout";
+import Calculator from "@components/calculators/geometri/cirkel.svelte";
+
+<ShapeCalculatorLayout
+  title={frontmatter.title}
+  desc={frontmatter.description}
+  keywords={frontmatter.keywords}
+  SEOtitle={frontmatter.SEOtitle}
+>
+  Dette er en cirkel beregner, der kan udregne radius, diameter, areal og
+  omkreds af en cirkel. Det eneste der er brug for er en af de fire værdier, og
+  så kan beregneren udregne de resterende tre værdier samt vise formlerne for
+  udregningerne.
+  <Calculator slot="calculator" client:only />
+</ShapeCalculatorLayout>

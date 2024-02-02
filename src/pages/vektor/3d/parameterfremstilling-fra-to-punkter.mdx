@@ -1,0 +1,23 @@
+---
+layout: layout:CalculatorLayout
+title: Parameterfremstilling ud fra 2 punkter
+SEOtitle: Parameterfremstilling ud fra 2 punkter i 3D beregner
+description: En vektorberegner der beregner parameterfremstilling ud fra 2 punkter for vektorer i 3D.
+keywords: parameterfremstilling vektor, parameterfremstilling beregner, vektor 3d
+---
+
+import Calculator from "@components/calculators/vektor/3d/parameterfremstilling-fra-to-punkter.svelte";
+
+En parameterfremstilling er en måde at beskrive en linje på. En parameterfremstilling er på formen:
+
+$$
+\begin{pmatrix}x\\y\\z\end{pmatrix} = \begin{pmatrix}x_0\\y_0\\z_0\end{pmatrix} + t\cdot\begin{pmatrix}a\\b\\c\end{pmatrix} \;,\; t\in\mathbb{R}
+$$
+
+Hvor $\begin{pmatrix}x_0\\y_0\\z_0\end{pmatrix}$ er et punkt på linjen og $\begin{pmatrix}a\\b\\c\end{pmatrix}$ er en retningsvektor for linjen mens $t$ kaldes for parameteren.
+
+Når man skal finde en parameterfremstilling ud fra to punkter, laver man en retningsvektor ved at tage [forbindelsesvektoren](/vektor/3d/forbindelsesvektor) mellem de to punkter. Herefter vælges et af punkterne som punktet, linjen går igennem.
+
+Denne beregner kan beregne parameterfremstillingen ud fra punkterne $A$ og $B$, hvor $A$ vælges som punktet, linjen går igennem.
+
+<Calculator client:only />

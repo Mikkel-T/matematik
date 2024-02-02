@@ -1,28 +1,29 @@
 ---
-import { SEO } from "astro-seo";
+import "katex/dist/katex.min.css";
+import "@styles/global.css";
 
-import "../../styles/global.css";
+interface Props {
+  title: string;
+  description: string;
+  keywords: string;
+}
 
-const { content } = Astro.props;
+const { title, description, keywords } = Astro.props;
 ---
 
-<script is:inline>
-  if (localStorage.theme === "light") {
+<meta charset="UTF-8" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+<link rel="canonical" href={Astro.url} />
+
+<script>
+  if (localStorage.theme && localStorage.theme !== "dark") {
     document.documentElement.classList.remove("dark");
   } else {
     document.documentElement.classList.add("dark");
   }
 </script>
-
-<meta charset="utf-8" />
-<SEO
-  title={content.SEOtitle ?? content.title}
-  description={content.description}
-  extend={{
-    link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
-    meta: [
-      { name: "viewport", content: "width=device-width, initial-scale=1.0" },
-      { name: "theme-color", content: "#2E3440" },
-    ],
-  }}
-/>

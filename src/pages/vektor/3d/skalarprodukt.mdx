@@ -1,0 +1,21 @@
+---
+layout: layout:CalculatorLayout
+title: Skalarprodukt
+SEOtitle: Skalarprodukt beregner for vektorer i 3D
+description: En vektorberegner der udregner skalarproduktet mellem to vektorer i 3D
+keywords: skalarprodukt, prikprodukt, skalarprodukt beregner, prikprodukt beregner, vektor 3d
+---
+
+import Calculator from "@components/calculators/vektor/3d/skalarprodukt.svelte";
+
+Skalarproduktet (også kaldet prikproduktet) af to vektorer $\vec{a}$ og $\vec{b}$ er givet ved:
+
+$$
+\vec{a} \bullet \vec{b} = a_1 \cdot b_1 + a_2 \cdot b_2 + a_3 \cdot b_3
+$$
+
+Skalarproduktet fortæller noget om, vinklen mellem to vektorer. Hvis skalarproduktet er 0, er vinklen mellem vektorerne 90 grader og de er derfor ortogonale (vinkelrette) på hinanden. Hvis skalarproduktet er positivt, er vinklen mellem vektorerne mindre end 90 grader og de er derfor i samme retning. Hvis skalarproduktet er negativt, er vinklen mellem vektorerne større end 90 grader og de er derfor i modsat retning.
+
+Denne beregner finder skalarproduktet af $\vec{a}$ og $\vec{b}$.
+
+<Calculator client:only />

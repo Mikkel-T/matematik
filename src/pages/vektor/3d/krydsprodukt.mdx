@@ -1,0 +1,23 @@
+---
+layout: layout:CalculatorLayout
+title: Krydsprodukt
+SEOtitle: Krydsprodukt beregner for vektorer i 3D
+description: En vektorberegner der udregner krydsproduktet mellem to vektorer i 3D
+keywords: krydsprodukt, krydsprodukt beregner, vektor 3d
+---
+
+import Calculator from "@components/calculators/vektor/3d/krydsprodukt.svelte";
+
+Krydsproduktet af to vektorer $\vec{a}$ og $\vec{b}$ er givet ved:
+
+$$
+\vec{a} \times \vec{b}
+= \begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix} \times \begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix}
+= \begin{pmatrix} a_2 \cdot b_3 - a_3 \cdot b_2 \\ a_3 \cdot b_1 - a_1 \cdot b_3 \\ a_1 \cdot b_2 - a_2 \cdot b_1 \end{pmatrix}
+$$
+
+Krydsproduktet er en vektor der står vinkelret på både $\vec{a}$ og $\vec{b}$. Længden af krydsproduktet er lig med arealet af parallelogrammet der er udspændt af $\vec{a}$ og $\vec{b}$. Hvis $\vec{a}$ og $\vec{b}$ er parallelle, antiparallelle, ens eller hvis en af dem er nulvektoren, så er krydsproduktet lig med nulvektoren.
+
+Denne beregner finder krydsproduktet af $\vec{a}$ og $\vec{b}$.
+
+<Calculator client:only />

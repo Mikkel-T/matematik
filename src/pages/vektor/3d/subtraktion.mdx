@@ -1,0 +1,29 @@
+---
+layout: layout:CalculatorLayout
+title: Subtraktion af vektorer
+SEOtitle: Subtraktion af vektorer i 3D beregner
+description: En vektorberegner der trækker to vektorer i 3D fra hinanden
+keywords: vektor-differens, minus vektor, vektor 3d, vektor minus vektor
+---
+
+import Calculator from "@components/calculators/vektor/3d/subtraktion.svelte";
+
+For at finde ud af, hvordan man trækker en vektor fra en anden, kan man tænke på det som at lægge den negative vektor til den anden vektor
+
+$$
+\vec{a} - \vec{b} = \vec{a} + (-\vec{b})
+$$
+
+Det svarer altså til at trække den negative vektors komponenter fra den anden vektor.
+
+$$
+\vec{a} - \vec{b} = \begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix} - \begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix} = \begin{pmatrix} a_1 - b_1 \\ a_2 - b_2 \\ a_3 - b_3 \end{pmatrix}
+$$
+
+Det kan også illustreres.
+
+![Subtraktion af vektorer](/img/vektor/subtraktion.svg)
+
+Denne beregner trækker $\vec{b}$ fra $\vec{a}$.
+
+<Calculator client:only />

@@ -1,0 +1,19 @@
+---
+layout: layout:CalculatorLayout
+title: Enhedsvektor
+SEOtitle: Enhedsvektor beregner for vektorer i 3D
+description: En vektorberegner der beregner enhedsvektoren for en vektor i 3D
+keywords: enhedsvektor, vektor længde 1, vektor 3d
+---
+
+import Calculator from "@components/calculators/vektor/3d/enhedsvektor.svelte";
+
+En enhedsvektor er en vektor med længden 1. Den betegnes ofte $\vec{e}$, der kan derfor skrives $|\vec{e}| = 1$. For at konvertere en hvilken som helst vektor til en enhedsvektor, skal den divideres med sin egen [længde](/vektor/3d/laengde). Det vil sige at enhedsvektoren $\vec{e_a}$ for en vektor $\vec{a}$ kan beregnes ved:
+
+$$
+\vec{e_a} = \frac{\vec{a}}{|\vec{a}|} = \frac{1}{|\vec{a}|} \cdot \vec{a}
+$$
+
+Denne beregner finder enhedsvektoren $\vec{e_a}$ for en vektor $\vec{a}$.
+
+<Calculator client:only />

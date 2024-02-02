@@ -1,0 +1,29 @@
+---
+layout: layout:CalculatorLayout
+title: Polære koordinater
+SEOtitle: Polære koordinater for vektorer i 2D beregner
+description: En vektorberegner der beregner polære koorindater for en vektor i 2D
+keywords: polære koordinater, vektor 2d
+---
+
+import Calculator from "@components/calculators/vektor/2d/polaere-koordinater.svelte";
+
+Der findes to måder at beskrive en vektor på. Den ene er ved hjælp af polære koordinater, og den anden er ved hjælp af kartesiske (rektangulære) koordinater. Polære koordinater er en måde at beskrive en vektor på ved hjælp af en vinkel og en længde. Et polært koordinat til en vektor er på formen:
+
+$$
+\vec{a} = (r, \theta)
+$$
+
+Hvor $r$ er vektorens længde mens $\theta$ er vektorens vinkel i forhold til den positive x-akse. En vektor beskrevet med kartesiske koordinater kan omskrives til polære koordinater ved hjælp af følgende formler:
+
+$$
+r = \sqrt{x^2 + y^2}
+$$
+
+$$
+\theta = \tan^{-1}{\frac{y}{x}}
+$$
+
+Hvor $x$ og $y$ er vektorens koordinater. Man skal dog være opmærksom på at der, når man bruger $\tan^{-1}$ kan opstå problemer hvis vektoren går i den negative $x$-retning. Dette kan løses ved at bruge $\tan^{-1}{\frac{y}{x}} + 180^{\circ}$ i stedet for. Hvis vektoren derimod går i den negative $y$-retning og den positive $x$-retning skal der tilføjes $360^{\circ}$ i stedet for $180^{\circ}$.
+
+<Calculator client:only />

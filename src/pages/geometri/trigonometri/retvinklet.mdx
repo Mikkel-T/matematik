@@ -1,0 +1,23 @@
+---
+title: Trigonometri i retvinklede trekanter
+SEOtitle: Trigonometri i retvinklede trekanter
+description: En trigonometri beregner der udregner alle sider og vinkler i en retvinklet trekant ved hjælp af trigonometri og pythagoras sætning
+keywords: trigonometri, retvinklet trekant, pythagoras, cosinus, sinus, tangens
+---
+
+import ShapeCalculatorLayout from "layout:ShapeCalculatorLayout";
+import Calculator from "@components/calculators/geometri/trigonometri/retvinklet.svelte";
+
+<ShapeCalculatorLayout
+  title={frontmatter.title}
+  desc={frontmatter.description}
+  keywords={frontmatter.keywords}
+  SEOtitle={frontmatter.SEOtitle}
+>
+  Når man kender få informationer om en retvinklet trekant, kan man med hjælp af
+  trigonometri, pythagoras' læresætning og viden om vinkelsum finde alle andre
+  informationer. Det eneste man behøver at vide er enten en vinkel og en side
+  eller to sider. Denne beregner kan udregne alle sider og vinkler i en
+  retvinklet trekant samt dens areal.
+  <Calculator slot="calculator" client:only />
+</ShapeCalculatorLayout>
