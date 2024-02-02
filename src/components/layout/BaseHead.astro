@@ -15,13 +15,20 @@ const { title, description, keywords } = Astro.props;
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta name="keywords" content={keywords} />
+
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 <link rel="canonical" href={Astro.url} />
 
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
+<link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+<meta name="theme-color" content="#282A36" />
+
 <script>
-  if (localStorage.theme && localStorage.theme !== "dark") {
+  if (
+    localStorage.getItem("theme") &&
+    localStorage.getItem("theme") !== "dark"
+  ) {
     document.documentElement.classList.remove("dark");
   } else {
     document.documentElement.classList.add("dark");
