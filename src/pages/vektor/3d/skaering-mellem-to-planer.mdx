@@ -1,0 +1,33 @@
+---
+layout: layout:CalculatorLayout
+title: Skæring mellem to planer
+SEOtitle: Skæring mellem to planer beregner
+description: En vektorberegner der beregner en parameterfremstilling for skæringen mellem to planer i rummet
+keywords: skæring mellem to planer, skæringslinje mellem to planer, planer skæring, planer skæringslinje, planer skæring i rummet, planer skæringslinje i rummet, planer skæring vektor, planer skæringslinje vektor, vektor 3d
+---
+
+import Calculator from "@components/calculators/vektor/3d/skaering-mellem-to-planer.svelte";
+
+Skæringen mellem to planer $\alpha$ og $\beta$ defineret ved ligningerne
+
+$$
+\alpha : a_1\cdot x+b_1\cdot y+c_1\cdot z+d_1=0
+$$
+
+$$
+\beta : a_2\cdot x+b_2\cdot y+c_2\cdot z+d_2=0
+$$
+
+Er defineret ved en linje, som kan beskrives ved en parameterfremstilling. Medmindre planerne er parallelle, vil de altid skære hinanden i en linje. Hvis planerne er parallelle, vil de ikke skære hinanden og derfor vil der ikke være en skæringslinje. Parameterfremstillingen for skæringslinjen mellem to planer $\alpha$ og $\beta$ er givet ved
+
+$$
+\begin{pmatrix}x \\ y \\ z\end{pmatrix}
+= \begin{pmatrix}0 \\ \frac{c_1 \cdot d_2 - c_2 \cdot d_1}{b_1 \cdot c_2 - b_2 \cdot c_1} \\ \frac{b_2 \cdot d_1 - b_1 \cdot d_2}{b_1 \cdot c_2 - b_2 \cdot c_1}\end{pmatrix}
++ t \cdot \begin{pmatrix}1 \\ \frac{a_2 \cdot c_1 - a_1 \cdot c_2}{b_1 \cdot c_2 - b_2 \cdot c_1} \\ \frac{b_2 \cdot a_1 - b_1 \cdot a_2}{b_1 \cdot c_2 - b_2 \cdot c_1}\end
+{pmatrix}
+\;,\; t \in \mathbb{R}
+$$
+
+Denne beregner kan beregne parameterfremstillingen for skæringslinjen mellem de to planer $\alpha$ og $\beta$ givet ved ligningerne ovenfor. Indtast koefficienterne $a_1$, $b_1$, $c_1$, $d_1$, $a_2$, $b_2$, $c_2$ og $d_2$ for de to planer og tryk på beregn for at få parameterfremstillingen for skæringslinjen.
+
+<Calculator client:only />
