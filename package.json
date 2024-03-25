@@ -20,7 +20,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.3.1",
     "copy-to-clipboard": "^3.3.3",
-    "katex": "^0.16.9",
+    "katex": "^0.16.10",
     "rehype-katex": "^7.0.0",
     "remark-math": "^6.0.0",
     "svelte": "^5.0.0-next.45",
