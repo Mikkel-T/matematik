@@ -9,10 +9,6 @@
     frac,
     mul,
     na,
-    pi,
-    pow,
-    bpar,
-    sqrt,
     text,
     inverseFrac,
     sqrtCalc,
@@ -45,8 +41,8 @@
         };
       } else {
         return {
-          A: !key.includes("A"),
-          B: !key.includes("B"),
+          A: !keys.includes("A"),
+          B: !keys.includes("B"),
           a: false,
           b: false,
           c: false,
@@ -80,21 +76,11 @@
 
     let answers: Answer[] = [];
 
-    if (A) {
-      answers.push(shapeInput("A", A.answer));
-    }
-    if (B) {
-      answers.push(shapeInput("B", B.answer));
-    }
-    if (a) {
-      answers.push(shapeInput("a", a.answer));
-    }
-    if (b) {
-      answers.push(shapeInput("b", b.answer));
-    }
-    if (c) {
-      answers.push(shapeInput("c", c.answer));
-    }
+    if (A) answers.push(shapeInput("A", A.answer));
+    if (B) answers.push(shapeInput("B", B.answer));
+    if (a) answers.push(shapeInput("a", a.answer));
+    if (b) answers.push(shapeInput("b", b.answer));
+    if (c) answers.push(shapeInput("c", c.answer));
 
     if (a && b) {
       answers.push(
