@@ -7,6 +7,7 @@
     inputs: {
       name: string;
       type: "vec2d" | "vec3d" | "coord2d" | "coord3d" | "number";
+      placeholder?: string;
     }[];
   }>();
 
@@ -181,7 +182,7 @@
       <input
         name={input.name}
         bind:value={input_vals[input.name]}
-        placeholder={input.name}
+        placeholder={input.placeholder || input.name}
         type="text"
         class="vector-input !ring-0"
         class:!border-red-500={input_vals[input.name] &&

@@ -43,14 +43,14 @@
 <Calculator {calculate}>
   <Inputs
     inputs={[
-      { name: "a_1", type: "number" },
-      { name: "b_1", type: "number" },
-      { name: "c_1", type: "number" },
-      { name: "d_1", type: "number" },
-      { name: "a_2", type: "number" },
-      { name: "b_2", type: "number" },
-      { name: "c_2", type: "number" },
-      { name: "d_2", type: "number" },
+      { name: "a_1", placeholder: "a₁", type: "number" },
+      { name: "b_1", placeholder: "b₁", type: "number" },
+      { name: "c_1", placeholder: "c₁", type: "number" },
+      { name: "d_1", placeholder: "d₁", type: "number" },
+      { name: "a_2", placeholder: "a₂", type: "number" },
+      { name: "b_2", placeholder: "b₂", type: "number" },
+      { name: "c_2", placeholder: "c₂", type: "number" },
+      { name: "d_2", placeholder: "d₂", type: "number" },
     ]}
   />
 </Calculator>
