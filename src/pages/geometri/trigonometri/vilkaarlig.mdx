@@ -1,0 +1,69 @@
+---
+title: Trigonometri i vilkårlige trekanter
+SEOtitle: Trigonometri i vilkårlige trekanter
+description: En trigonometri beregner der udregner alle sider og vinkler i en vilkårlige trekant ved hjælp af trigonometri
+keywords: trigonometri, cosinus, sinus, tangens, trekantsberegner
+---
+
+import ShapeCalculatorLayout from "layout:ShapeCalculatorLayout";
+import Calculator from "@components/calculators/geometri/trigonometri/vilkaarlig.svelte";
+
+<ShapeCalculatorLayout
+  title={frontmatter.title}
+  desc={frontmatter.description}
+  keywords={frontmatter.keywords}
+  SEOtitle={frontmatter.SEOtitle}
+>
+Når man kender få informationer om en vilkårlig trekant, kan man med hjælp af
+trigonometri og viden om vinkelsum finde alle andre informationer. Denne
+beregner kan hjælpe dig med at finde alle sider og vinkler i en vilkårlig
+trekant, så længe du kender mindst 3 informationer.
+
+## Sinusrelationen
+
+Sinusrelationen fungerer på den måde at man via få informationer kan regne sig frem til de resterende sider og vinkler i en vilkårlig trekant. Sinusrelationen er defineret som:
+
+$$
+\frac{a}{\sin(A)} = \frac{b}{\sin(B)} = \frac{c}{\sin(C)}
+$$
+
+Altså skal man kun kende to informationer om en side/vinkel og dens modstående samt en anden side/vinkel for at kunne finde dennes modstående. Eksempelvis kan side $a$ beregnes ved at kende side $b$, vinkel $B$ og vinkel $A$.
+
+$$
+a = \frac{b \cdot \sin(A)}{\sin(B)}
+$$
+
+Mens vinkel $A$ kan beregnes ved at kende side $a$, side $b$ og vinkel $B$.
+
+$$
+A = \sin^{-1}\left(\frac{\sin(B) \cdot a}{b}\right)
+$$
+
+## Cosinusrelationen
+
+Cosinusrelationen fungerer på den måde at man via få informationer kan regne sig frem til de resterende sider og vinkler i en vilkårlig trekant. Cosinusrelationen er defineret som:
+
+$$
+\begin{align*}
+a^2 &= b^2 + c^2 - 2 \cdot b \cdot c \cdot \cos(A) \\
+b^2 &= a^2 + c^2 - 2 \cdot a \cdot c \cdot \cos(B) \\
+c^2 &= a^2 + b^2 - 2 \cdot a \cdot b \cdot \cos(C)
+\end{align*}
+$$
+
+Altså kan man her beregne en vinkel hvis man kender alle siderne, eksempelvis kan vinkel $C$ beregnes ved at kende side $a$, side $b$ og side $c$.
+
+$$
+C = \cos^{-1}\left(\frac{a^2 + b^2 - c^2}{2ab}\right)
+$$
+
+Mens side $a$ kan beregnes ved at kende side $b$, side $c$ og vinkel $A$.
+
+$$
+a = \sqrt{b^2 + c^2 - 2\cdot b \cdot c \cdot \cos(A)}
+$$
+
+Du kan indtaste dine informationer i beregneren herunder og få udregnet de resterende sider og vinkler i din vilkårlige trekant.
+
+<Calculator slot="calculator" client:only />
+</ShapeCalculatorLayout>
