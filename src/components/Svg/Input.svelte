@@ -7,12 +7,12 @@
     placeholder,
     class: styles,
     readonly,
-  } = $props<{
+  }: {
     name: string;
     placeholder?: string;
     class?: string;
     readonly?: boolean;
-  }>();
+  } = $props();
 
   $effect(() => {
     calculator.inputError = false;

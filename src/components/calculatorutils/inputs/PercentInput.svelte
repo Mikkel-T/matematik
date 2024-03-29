@@ -2,7 +2,7 @@
   import { parseInput, validateInput } from "@math/input";
   import { calculator } from "@state/calculator.svelte";
 
-  let { name } = $props<{ name: string }>();
+  let { name }: { name: string } = $props();
 
   let value = $state<string>("");
 

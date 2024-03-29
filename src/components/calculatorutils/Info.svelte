@@ -1,7 +1,7 @@
 <script lang="ts">
   import TextWithKaTeX from "@components/utils/TextWithKaTeX.svelte";
 
-  let { info } = $props<{ info?: string }>();
+  let { info }: { info?: string } = $props();
 </script>
 
 {#if info}

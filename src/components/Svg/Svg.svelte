@@ -4,12 +4,12 @@
     height,
     children,
     class: styles,
-  } = $props<{
+  }: {
     width: number | string;
     height: number | string;
     children: any;
     class?: string;
-  }>();
+  } = $props();
 </script>
 
 <svg

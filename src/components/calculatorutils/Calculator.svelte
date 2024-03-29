@@ -4,11 +4,15 @@
   import { answer, calculator } from "@state/calculator.svelte";
   import Info from "./Info.svelte";
 
-  let { calculate, children, info } = $props<{
+  let {
+    calculate,
+    children,
+    info,
+  }: {
     calculate: () => void;
     info?: string;
     children: any;
-  }>();
+  } = $props();
 
   let error = $state<string>("");
 

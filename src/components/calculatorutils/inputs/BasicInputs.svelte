@@ -3,13 +3,15 @@
   import { calculator } from "@state/calculator.svelte";
   import { parseInput, validateInput } from "@math/input";
 
-  let { inputs } = $props<{
+  let {
+    inputs,
+  }: {
     inputs: {
       name: string;
       label?: string;
       placeholder?: string;
     }[];
-  }>();
+  } = $props();
 
   let input_vals = $state<Record<string, string>>({});
 

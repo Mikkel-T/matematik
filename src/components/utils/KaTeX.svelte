@@ -1,10 +1,13 @@
 <script lang="ts">
   import katex from "katex";
 
-  let { math, displayMode = false } = $props<{
+  let {
+    math,
+    displayMode = false,
+  }: {
     math: string;
     displayMode?: boolean;
-  }>();
+  } = $props();
 
   const options = {
     displayMode,

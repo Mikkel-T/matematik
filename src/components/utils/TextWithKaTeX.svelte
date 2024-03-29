@@ -1,7 +1,7 @@
 <script lang="ts">
   import KaTeX from "./KaTeX.svelte";
 
-  let { text } = $props<{ text: string }>();
+  let { text }: { text: string } = $props();
 </script>
 
 <div>

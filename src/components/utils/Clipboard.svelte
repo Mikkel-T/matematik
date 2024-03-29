@@ -1,6 +1,6 @@
 <script lang="ts">
   import copy from "copy-to-clipboard";
-  let { text } = $props<{ text: string }>();
+  let { text }: { text: string } = $props();
 
   let copied = $state<boolean>(false);
 

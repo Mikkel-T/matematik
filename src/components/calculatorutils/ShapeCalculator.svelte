@@ -2,12 +2,17 @@
   import Submit from "./Submit.svelte";
   import Error from "./Error.svelte";
   import { answer, calculator } from "@state/calculator.svelte";
+  import Info from "./Info.svelte";
 
-  let { calculate, children, isShape } = $props<{
+  let {
+    calculate,
+    children,
+    info,
+  }: {
     calculate: () => void;
     children: any;
-    isShape?: boolean;
-  }>();
+    info?: string;
+  } = $props();
 
   let error = $state<string>("");
 
@@ -33,5 +38,6 @@
       <Submit />
     </div>
   </form>
+  <Info {info} />
   <Error {error} />
 </div>
