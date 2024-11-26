@@ -12,7 +12,10 @@ import BaseLayout from "layout:BaseLayout";
 const { title, description, keywords, SEOtitle } =
   Astro.props.frontmatter || Astro.props;
 
-let files = await Astro.glob("../pages/**/*.mdx");
+let files = Object.values<{
+  url: string;
+  frontmatter: { title: string; hide: boolean };
+}>(import.meta.glob("../pages/**/*.mdx", { eager: true }));
 
 let path = Astro.url.pathname.replace(/\/$/, "") + "/";
 
